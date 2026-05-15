@@ -1,5 +1,4 @@
-import { SearchParamsFactory } from "../utils/searchParams";
-import { CollectionKey, LanguageKey } from "./corpus";
+import { LanguageKey } from "./corpus";
 
 function speakerDelimiter(language: LanguageKey) {
   switch (language) {
@@ -22,34 +21,25 @@ export function extractSpeakers(speakerData: readonly string[], textFile: string
   });
 }
 
-/* Looks up the speaker's name by index, and prepend it to the string. */
+/* Looks up the speaker's name by index, and append it to the string. */
 export function replaceSpeaker(s: string, speakerNames: readonly string[], language: LanguageKey) {
-  return s.replace(/(.*?)(\[VAR 0114\(([0-9A-F]{4})\)\])(?:$|(?=\u{F0000}))/u, (_, rest: string, tag: string, speakerIndexHex: string) => {
-    const speakerIndex = parseInt(speakerIndexHex, 16);
+  return s.replace(/(\[VAR 0114\(([0-9A-F]{4})\)\]|\[Name:TrainerNameField Idx="(\d+)" \])$/, (_, tag: string, speakerIndexHex?: string, speakerIndexDecimal?: string) => {
+    const speakerIndex = speakerIndexHex !== undefined ? parseInt(speakerIndexHex, 16) : Number(speakerIndexDecimal);
     const speakerName = speakerNames[speakerIndex];
-    return `${tag.replaceAll('[', '\\[')}\u{F1100}${speakerName}${speakerDelimiter(language)}\u{F1101}${rest}`;
+    return `\uE701${tag.replaceAll('[', '\\[')}\uE700${speakerName}${speakerDelimiter(language)}`;
   });
 }
 
 /* Converts the speaker's name to basic HTML. */
 export function postprocessSpeaker(s: string) {
-  return s.replaceAll(/^(.+)\u{F1100}(.+?)\u{F1101}/gu, '<a class="speaker" data-var="$1">$2</a>');
+  const match = /\uE701([^\uE700]+)\uE700(.+)$/.exec(s);
+  if (match === null)
+    return s;
+  const [, tag, name] = match;
+  return `<text-info class="speaker" data-start="${tag}">${name}</text-info>`.concat(s.substring(0, match.index));
 }
 
-/* Converts the speaker's name to a context-dependent link. */
-export function expandSpeakers(s: string, factory: SearchParamsFactory, collection: CollectionKey, language: LanguageKey, viewSpeaker: string) {
-  return s.replaceAll(/<a class="speaker" data-var="(.+?)">(.+?)<\/a>/gu, (_, speakerVar: string, speakerName: string) => {
-    const hash = factory.searchParamsToHash({
-      query: speakerVar,
-      type: 'exact',
-      caseInsensitive: false,
-      common: false,
-      script: true,
-      showAllLanguages: false,
-      collections: [collection],
-      languages: [language],
-      run: true,
-    });
-    return `<a class="speaker" href="#${hash}" title="${viewSpeaker}" translate="yes"><span translate="no">${speakerName}</span></a>`;
-  });
-};
+export function getSpeaker(s: string) {
+  const match = s.match(/\uE701[^\uE700]+\uE700.+$/g);
+  return match === null ? null : [match[1], match[2]] as const;
+}

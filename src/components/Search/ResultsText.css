@@ -1,3 +1,18 @@
+/* Text info */
+text-info {
+  cursor: help;
+}
+
+text-info:hover:not(:has(text-info:hover)),
+text-info:focus-visible:not(:has(text-info:focus-visible)) {
+  background: var(--background);
+}
+
+text-info:active:not(:has(text-info:active)),
+text-info:focus-visible.active:not(:has(text-info:focus-visible.active)) {
+  background: var(--accent);
+}
+
 /* Variables */
 .var, .func, .null, .unused, .speaker, .grammar, .gender, .number, .version {
   color: var(--text-gray);
@@ -17,6 +32,12 @@
 
 .literal-small {
   font-size: 80%;
+}
+
+.literal-fixed {
+  display: inline-block;
+  text-align: center;
+  width: calc(var(--outer) * 1ic);
 }
 
 /* Buttons */
@@ -57,8 +78,17 @@ td[lang="zxx"] wbr {
   background-color: var(--accent);
 }
 
+.results-table dl {
+  margin: 0;
+}
+
 .results-table dt {
+  color: var(--text-gray);
   font-style: italic;
+}
+
+.results-table dd {
+  margin-inline-start: 1ic;
 }
 
 /* Font size */
@@ -113,6 +143,13 @@ td[lang="zxx"] wbr {
   text-align: left;
 }
 
+.line-align {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  clear: both;
+  align-items: baseline;
+}
+
 /* Gender branches */
 .gender-2 .branch.male {
   border-bottom: 1px dotted var(--text);
@@ -154,6 +191,11 @@ td[lang="zxx"] wbr {
 .gender-2.number-0 .branch.female.singular {
   border-bottom: 1px dotted var(--text);
   color: color-mix(in oklab, var(--gender-female-color) 75%, var(--number-singular-color));
+}
+
+.gender-2.number-0 .branch.neuter.singular {
+  border-bottom: 1px dotted var(--text);
+  color: color-mix(in oklab, color-mix(in oklab, var(--gender-male-color), var(--gender-female-color)) 75%, var(--number-singular-color));
 }
 
 .gender-2.number-0 .branch.male.plural {
@@ -216,21 +258,25 @@ td[lang="zxx"] wbr {
 
 /* PBR font size */
 .font-pbr-0 {
-  font-size: 125%;
+  font-size: 1.25rem;
 }
 
 .font-pbr-1 {
-  font-size: 100%;
+  font-size: 1rem;
 }
 
 .font-pbr-2 {
-  font-size: 75%;
+  font-size: 0.75rem;
 }
 
 .font-pbr-6 {
   -webkit-text-stroke: 3px black;
   -webkit-text-fill-color: white;
   paint-order: stroke;
+}
+
+.font-pbr-6 .color {
+  -webkit-text-fill-color: currentcolor;
 }
 
 /* Masters */

@@ -1,25 +1,28 @@
+/* eslint-disable regexp/no-useless-non-capturing-group */
 import { LanguageKey } from "../corpus";
+import { TextInfo } from "./TextInfo";
 
 //#region Hindi
-const REPH = '\u{10F306}';
-const SHORT_I = '\u{10093F}';
-const RAKAR = '(?:\u094D\u0930)';
+const REPH = '\uF306';
+const SHORT_I = '\uF311';
+const RAKAR = '(?:\\u094D\\u0930)';
 
 const NUKTA = '\u093C';
 const HALANT = '\u094D';
 const ZWNJ = '\u200C';
 const ZWJ = '\u200D';
-const CONSONANT = '[\u0915-\u0939\u0958-\u095F]';
-const VOWEL = '[\u0904-\u0914]';
-const MATRA = '[\u093E-\u094C]';
-const MODIFIER = '[\u0900\u0901\u0902\u0903\u093D]';
+const JOINER = '[\\u200C\\u200D]';
+const CONSONANT = '[\\u0915-\\u0939\\u0958-\\u095F]';
+const VOWEL = '[\\u0904-\\u0914]';
+const MATRA = '[\\u093E-\\u094C]';
+const MODIFIER = '[\\u0900\\u0901\\u0902\\u0903\\u093D]';
 
 // See https://learn.microsoft.com/en-us/typography/script-development/devanagari
-const HALF = `(?:${CONSONANT}${NUKTA}?(?:${HALANT}[${ZWNJ}${ZWJ}]?|[${ZWNJ}${ZWJ}]${HALANT}))`; // C+[N]+<H+[<ZWNJ|ZWJ>]|<ZWNJ|ZWJ>+H>
+const HALF = `(?:${CONSONANT}${NUKTA}?(?:${HALANT}${JOINER}?|${JOINER}${HALANT}))`; // C+[N]+<H+[<ZWNJ|ZWJ>]|<ZWNJ|ZWJ>+H>
 const MAIN_CONSONANT = `(?:${CONSONANT}${NUKTA}?)`; // C+[N]+[A]
-const MAIN_VOWEL = `(?:${VOWEL}${NUKTA}?(?:[${ZWJ}${ZWNJ}]?${HALANT}${CONSONANT}|${ZWJ}${CONSONANT}))?`; // V+[N]+[<[<ZWJ|ZWNJ>]+H+C|ZWJ+C>]
+const MAIN_VOWEL = `(?:${VOWEL}${NUKTA}?(?:${JOINER}?${HALANT}${CONSONANT}|${ZWJ}${CONSONANT}))?`; // V+[N]+[<[<ZWJ|ZWNJ>]+H+C|ZWJ+C>]
 const INITIAL = `(?:${HALF}*${MAIN_CONSONANT}|${MAIN_VOWEL})`;
-const FINAL = `(?:${HALANT}[${ZWNJ}${ZWJ}]?|${MATRA}*${NUKTA}?${HALANT}?)?${MODIFIER}?`;
+const FINAL = `(?:${HALANT}${JOINER}?|${MATRA}*${NUKTA}?${HALANT}?)${MODIFIER}?`;
 
 const replaceHindi: Record<string, string> = {
   // CONSONANTS
@@ -199,9 +202,9 @@ const replaceHindi: Record<string, string> = {
  */
 function preprocessHindiHeuristic(lineOld: string, lineNew: string): string {
   if (lineOld === lineNew // no changes
-      || /[\uE000-\uF8FF]/gu.test(lineOld) // has PUA characters
-      || /(^|\s)\u093F/gum.test(lineOld) // short i at start of word
-      || /(?<![\u0915-\u0939\u0958-\u095F]\u093C?)([\u093E-\u094C]|\u094D)/gu.test(lineOld)) // vowel mark/halant without preceding consonant
+      || /[\uE000-\uF8FF]/.test(lineOld) // has PUA characters
+      || /(?:^|\s)\u093F/m.test(lineOld) // short i at start of word
+      || /(?<![\u0915-\u0939\u0958-\u095F]\u093C?)[\u093E-\u094C\u094D]/.test(lineOld)) // vowel mark/halant without preceding consonant
     return lineNew;
 
   // In production builds, return the old line if the first heuristic isn't met.
@@ -209,8 +212,8 @@ function preprocessHindiHeuristic(lineOld: string, lineNew: string): string {
     return lineOld;
 
   // In development builds/tests, ensure full coverage by running a heuristic for the reverse case to check if the old line is correct.
-  if (/\u093F($|\s)/gum.test(lineOld) // short i at end of word
-      || /(?<![\u0915-\u0939\u0958-\u095F]\u093C?)([\u093E-\u094C]|\u094D)/gu.test(lineNew) // vowel mark/halant without preceding consonant
+  if (/\u093F(?:$|\s)/m.test(lineOld) // short i at end of word
+      || /(?<![\u0915-\u0939\u0958-\u095F]\u093C?)[\u093E-\u094C\u094D]/.test(lineNew) // vowel mark/halant without preceding consonant
       || lineOld.includes('सेटिंग') // check keyword: "setting"
       || lineOld.includes('फ़िटनेस') // check keyword: "fitness"
       || lineOld.includes('स्पिन')) // check keyword: "spin"
@@ -223,17 +226,17 @@ export function preprocessHindi(value: string, fixMalformed = true) {
 
   if (fixMalformed) {
     // De-duplicate vowel marks (except short i)
-    value = value.replace(/([\u093E\u0940-\u094C]){2}/gu, '$1');
+    value = value.replace(/([\u093E\u0940-\u094C]){2}/g, '$1');
   }
 
   // Perform all simple mappings
-  value = value.replace(/\u094D/gu, '\u094D\u200C'); // explicit halant
-  value = value.replace(/\u093F/gu, SHORT_I); // short i
-  value = value.replace(/[\uF000-\uF633]/gu, (c) => replaceHindi[c] ?? c); // Private Use
+  value = value.replace(/\u094D/g, '\u094D\u200C'); // explicit halant
+  value = value.replace(/\u093F/g, SHORT_I); // short i
+  value = value.replace(/[\uF000-\uF633]/g, (c) => replaceHindi[c] ?? c); // Private Use
 
   // Reorder marks to canonical order, so that the nukta is first
   // consonant + halant + ZWNJ/ZWJ + nukta -> consonant + nukta + halant + ZWNJ/ZWJ
-  value = value.replace(new RegExp(`(${HALANT}[${ZWNJ}${ZWJ}]?|[${ZWNJ}${ZWJ}]${HALANT})${NUKTA}`, 'gu'), `${NUKTA}$1`);
+  value = value.replace(new RegExp(`(${HALANT}${JOINER}?|${JOINER}${HALANT})${NUKTA}`, 'gu'), `${NUKTA}$1`);
 
   if (fixMalformed) {
     // short i + short i + consonant cluster + consonant cluster (malformed)
@@ -268,44 +271,45 @@ export function preprocessHindi(value: string, fixMalformed = true) {
   value = value.replaceAll(REPH, 'र्');
   value = value.replaceAll(ZWNJ, '');
   value = value.replaceAll(ZWJ, '');
-  value = value.replace(/[\u0901\u0902]{2,}/gu, '\u0902'); // chandrabindu overstrike
-  value = value.replace(/\u093C{2,}/gu, '\u093C'); // consecutive nukta
+  value = value.replace(/[\u0901\u0902]{2,}/g, '\u0902'); // chandrabindu overstrike
+  value = value.replace(/\u093C{2,}/g, '\u093C'); // consecutive nukta
 
   // Use original line based on heuristics
   value = value.split(/\r\n|\n/).map((lineNew, i) => preprocessHindiHeuristic(linesOld[i], lineNew)).join('\n');
 
   if (fixMalformed) {
     // Visually identical
-    value = value.replace(/जाेगा/gu, 'जोगा'); // jā+e.gā -> jo.gā
-    value = value.replace(/हैे/gu, 'है'); // hai+e -> hai
-    value = value.replace(/पोकेेमॉन/gu, 'पोकेमॉन'); // po.ke+e.mo.n -> po.ke.mo.n
-    value = value.replace(/ज़रिेए/gu, 'ज़रिए'); // za.ri+e.e -> za.ri.e
-    value = value.replace(/दिखाेएंगे/gu, 'दिखाएंगे'); // di.khā+e.en.ge -> di.khā.en.ge
-    value = value.replace(/ े /gu, ' '); // stray e in privacy_policy_text
+    value = value.replace(/जाेगा/g, 'जोगा'); // jā+e.gā -> jo.gā
+    value = value.replace(/हैे/g, 'है'); // hai+e -> hai
+    value = value.replace(/पोकेेमॉन/g, 'पोकेमॉन'); // po.ke+e.mo.n -> po.ke.mo.n
+    value = value.replace(/ज़रिेए/g, 'ज़रिए'); // za.ri+e.e -> za.ri.e
+    value = value.replace(/दिखाेएंगे/g, 'दिखाएंगे'); // di.khā+e.en.ge -> di.khā.en.ge
+    value = value.replace(/ े /g, ' '); // stray e in privacy_policy_text
 
     // Transposed letters
-    value = value.replace(/मौजदूा/gu, 'मौजूदा'); // mau.ja.dū+a -> mau.jū.da
-    value = value.replace(/हाइलिाट/gu, 'हाइलाइट'); // hā.i.li+a.ṭ -> ha.i.la.i.t
-    value = value.replace(/जिॉन/gu, 'जॉइन'); // ji+o.n -> jo.i.n
-    value = value.replace(/डार्टि्रक्स/gu, 'डार्ट्रिक्स'); // ḍa.rṭi*r.ks -> ḍa.rṭri.ks
+    value = value.replace(/मौजदूा/g, 'मौजूदा'); // mau.ja.dū+a -> mau.jū.da
+    value = value.replace(/हाइलिाट/g, 'हाइलाइट'); // hā.i.li+a.ṭ -> ha.i.la.i.t
+    value = value.replace(/जिॉन/g, 'जॉइन'); // ji+o.n -> jo.i.n
+    value = value.replace(/डार्टि्रक्स/g, 'डार्ट्रिक्स'); // ḍa.rṭi*r.ks -> ḍa.rṭri.ks
 
     // Wrong vowel form
-    value = value.replace(/लिे/gu, 'लिए'); // li+e -> li.e
-    value = value.replace(/कोी/gu, 'कोई'); // ko+ī -> ko.ī
+    value = value.replace(/लिे/g, 'लिए'); // li+e -> li.e
+    value = value.replace(/कोी/g, 'कोई'); // ko+ī -> ko.ī
 
     // Misplaced halant
-    value = value.replace(/हू्ं/gu, 'हूँ'); // hū*ṁ -> hūm̐
-    value = value.replace(/शु्क्रिया/gu, 'शुक्रिया'); // śu*kri.yā -> śu.kri.yā
-    value = value.replace(/इ्स्तेमाल/gu, 'इस्तेमाल'); // i*ste.mā.l -> i.ste.mā.l
-    value = value.replace(/अ्च्छा/gu, 'अच्छा'); // a*cchā -> a.cchā
+    value = value.replace(/हू्ं/g, 'हूँ'); // hū*ṁ -> hūm̐
+    value = value.replace(/शु्क्रिया/g, 'शुक्रिया'); // śu*kri.yā -> śu.kri.yā
+    value = value.replace(/इ्स्तेमाल/g, 'इस्तेमाल'); // i*ste.mā.l -> i.ste.mā.l
+    value = value.replace(/अ्च्छा/g, 'अच्छा'); // a*cchā -> a.cchā
 
     // Extra nukta
+    // eslint-disable-next-line regexp/prefer-character-class
     value = value.replace(new RegExp(`(${VOWEL}|${MATRA})${NUKTA}(${CONSONANT}${NUKTA})`, 'gu'), '$1$2'); // extra nukta on preceding vowel
-    value = value.replace(/एडवेंचर मो़ड/gu, 'एडवेंचर मोड'); // "Adventure Mode" in fitness_enable_modal_success_title
-    value = value.replace(/पोकेमॉ़न/gu, 'पोकेमॉन'); // "Pokémon" in mega_level_tutorial_page4_body
-    value = value.replace(/को़ड/gu, 'कोड'); // "code" in passcode_log_received_badge
-    value = value.replace(/ताजे़/gu, 'ताज़े'); // "tāze" in pokemon_desc_0042
-    value = value.replace(/बॉ़डी/gu, 'बॉडी'); // "body" in quest_special_dialogue_macht_1_4
+    value = value.replace(/एडवेंचर मो़ड/g, 'एडवेंचर मोड'); // "Adventure Mode" in fitness_enable_modal_success_title
+    value = value.replace(/पोकेमॉ़न/g, 'पोकेमॉन'); // "Pokémon" in mega_level_tutorial_page4_body
+    value = value.replace(/को़ड/g, 'कोड'); // "code" in passcode_log_received_badge
+    value = value.replace(/ताजे़/g, 'ताज़े'); // "tāze" in pokemon_desc_0042
+    value = value.replace(/बॉ़डी/g, 'बॉडी'); // "body" in quest_special_dialogue_macht_1_4
   }
   return value;
 }
@@ -358,7 +362,7 @@ const replaceThai: Record<string, string> = {
 };
 
 export function preprocessThai(s: string) {
-  return s.replace(/[\uF700-\uF71A]/gu, (c) => replaceThai[c] ?? c);
+  return s.replace(/[\uF700-\uF71A]/g, (c) => replaceThai[c] ?? c);
 }
 //#endregion
 
@@ -373,30 +377,29 @@ export function preprocessStringGO(s: string, language: LanguageKey) {
   }
 }
 
-export function postprocessStringGO(s: string) {
+export function postprocessStringGO(s: string, ti: TextInfo) {
   return (s
     // Unity rich text tags
-    .replaceAll(/\u{F0106}(\/?[bi]) *\u{F0107}/gu, '<$1>') // b, i
-    .replaceAll(/\u{F0106}size=(\d+)\u{F0107}/gu, '<span style="font-size: calc($1 / 32 * 100%)">') // size
-    .replaceAll(/\u{F0106}color=#\{(\d+)\}\u{F0107}/gu, '<span class="color" style="color: var(--color-$1)">') // color
-    .replaceAll(/\u{F0106}color=(.*?)\u{F0107}/gu, '<span class="color" style="color: $1">') // color
-    .replaceAll(/\u{F0106}\/(size|color)\u{F0107}/gu, '</span>') // size, color (closing tag)
+    .replaceAll(/<\/?[bi] *>/gi, (code: string) => ti.html(code)) // b, i
+    .replaceAll(/(<size=([^>]*)>)(.*?)(<\/size>|(?=<size=))/g, (_, start: string, value: string, text: string, end: string) => ti.as({ kind: 'tag', start, style: `font-size: ${+value / 32 * 100}%`, children: text, end })) // size
+    .replaceAll(/(<color=#\{(\d+)\}>)(.*?)(<\/color>|(?=<color=))/g, (_, start: string, index: string, text: string, end: string) => ti.as({ kind: 'tag', start, className: 'color', style: `color: var(--color-${index})`, children: text, end }))
+    .replaceAll(/(<color=([^>]*)>)(.*?)(<\/color>|(?=<color=))/g, (_, start: string, value: string, text: string, end: string) => ti.as({ kind: 'tag', start, className: 'color', style: `color: ${value}`, children: text, end })) // color
 
     // Links
-    .replaceAll(/\u{F0106}a href="\{(\d+)\}"\u{F0107}(.+?)\u{F0106}\/a\u{F0107}/gu, '<span class="link" title="\u{F0104}$1}">$2</span>')
-    .replaceAll(/\u{F0106}a href="([0-9A-Za-z_]+)"\u{F0107}/gu, '<a class="link" href="#id=go.$1" title="$1">')
-    .replaceAll(/\u{F0106}a href=["“]((?:pokemongolive.com)\/[^"]+?)["”]\u{F0107}/gu, '<a class="link" href="http://$1" title="$1" target="_blank" rel="external noopener noreferrer nofollow">')
-    .replaceAll(/\u{F0106}a href="+(https?:\/\/[^"]+?)"+\u{F0107}/gu, '<a class="link" href="$1" title="$1" target="_blank" rel="external noopener noreferrer nofollow">')
-    .replaceAll(/\u{F0106}\/a\u{F0107}/gu, '</a>')
+    .replaceAll(/(<a href="[^"{}]*\{\d+\}[^"{}]*">)(.+?)(<\/a>)/g, (_, start: string, children: string, end: string) => ti.as({ kind: 'tag', start, className: 'link', children, end }))
+    .replaceAll(/<a href="(\w+)">/g, (_, url: string) => ti.html(`<a class="link" href="#id=go.${url}" title="${url}">`))
+    .replaceAll(/<a href=["“](pokemongolive.com\/[^"”]+)["”]>/g, (_, url: string) => ti.html(`<a class="link" href="http://${url}" title="${url}" target="_blank" rel="external noopener noreferrer nofollow">`))
+    .replaceAll(/<a href="+(https?:\/\/[^"]+)"+>/g, (_, url: string) => ti.html(`<a class="link" href="${url}" title="${url}" target="_blank" rel="external noopener noreferrer nofollow">`))
+    .replaceAll(/<\/a>/g, (code: string) => ti.html(code))
 
     // Other tags
-    .replaceAll(/\u{F0106}br\u{F0107}/gu, '<br>')
-    .replaceAll(/\u{F0106}(taunt|intimidate)\u{F0107}/gu, '<span class="var">\u{F0106}$1\u{F0107}</span>')
+    .replaceAll(/<br>/g, '\x83')
+    .replaceAll(/<(taunt|intimidate)>/g, ti.func())
 
     // Substitutions
-    .replaceAll(/(%BREAK%)/gu, '<span class="c">$1</span><br>')
-    .replaceAll(/(%PLAYERNAME%)/gu, '<span class="var">$1</span>')
-    .replaceAll(/(%(\d+\$)?s)/gu, '<span class="var">$1</span>')
-    .replaceAll(/(\{\d+(?::[^\]]+?)?\})/gu, '<span class="var">$1</span>')
+    .replaceAll(/%BREAK%/g, (code) => `${ti.asFunc(code)}\x83`)
+    .replaceAll(/%PLAYERNAME%/g, ti.var())
+    .replaceAll(/%(\d+\$)?s/g, ti.var())
+    .replaceAll(/\{\d+(?::[^\]]+?)?\}/g, ti.var())
   );
 }

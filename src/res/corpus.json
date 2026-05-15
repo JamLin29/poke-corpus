@@ -1058,12 +1058,36 @@
         "zh-Hant"
       ],
       "version": {
-        "megaturtle_nx": "3.2.1"
+        "megaturtle_nx": "4.0.0"
       },
       "files": [
         "megaturtle_nx",
         "megaturtle_sp"
       ]
+    },
+    "Champions": {
+      "id": "cmp",
+      "languages": [
+        "qid",
+        "ja",
+        "en",
+        "fr",
+        "it",
+        "de",
+        "es",
+        "es-419",
+        "ko",
+        "zh-Hans",
+        "zh-Hant"
+      ],
+      "version": "1.0.3",
+      "files": [
+        "ms"
+      ],
+      "speaker": {
+        "file": "ms",
+        "textFile": "trname"
+      }
     },
     "GO": {
       "id": "go",

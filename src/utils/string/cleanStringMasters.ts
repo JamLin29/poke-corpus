@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { genderBranch, numberBranch, grammarBranch } from './branches';
+import { TextInfo } from './TextInfo';
 
 export function preprocessStringMasters(s: string) {
   return (s
@@ -10,38 +9,15 @@ export function preprocessStringMasters(s: string) {
   );
 }
 
-const particlesKO: Record<string, readonly [string, string]> = {
-  ha: ['는', '은'],
-  wo: ['를', '을'],
-  ga: ['가', '이'],
-  to: ['와', '과'],
-  ni: ['로', '으로'], // differs from GF
-  ya: ['', '이'],
-};
-const particleBranchFromChar = (char: string) => grammarBranch(...particlesKO[char]);
-
-export function postprocessStringMasters(s: string) {
+export function postprocessStringMasters(s: string, ti: TextInfo) {
   return (s
-    // Tags
-    .replaceAll(/\u{F0106}attr font=['"]fallback['"]\u{F0107}(.+?)\u{F0106}\/attr\u{F0107}/gu, '<span class="fallback">$1</span>') // font
-    .replaceAll(/\u{F0106}attr color=['"]([0-9A-Fa-f]{6})['"]\u{F0107}(.+?)\u{F0106}\/attr\u{F0107}/gu, '<span class="color" style="color: #$1">$2</span>') // color
-    .replaceAll(/\u{F0106}attr size=['"](\d+?)['"]\u{F0107}(.+?)\u{F0106}\/attr\u{F0107}/gu, '<span style="font-size: $1px">$2</span>') // size
-    .replaceAll(/\u{F0106}attr color=['"]([0-9A-Fa-f]{6})['"] size=['"](\d+?)['"]\u{F0107}(.+?)\u{F0106}\/attr\u{F0107}/gu, '<span class="color" style="color: #$1; font-size: $2px">$3</span>') // color
-    .replaceAll(/\u{F0106}attr size=['"](\d+?)['"] height=['"](\d+?)['"]\u{F0107}(.+?)\u{F0106}\/attr\u{F0107}/gu, '<span style="font-size: $1px; line-height: $2px">$3</span>') // size, height
-    .replaceAll(/(\u{F0106}\/?div\u{F0107})/gu, '<span class="control">$1</span>') // div (treat as whitespace)
-    .replaceAll(/\u{F0106}span class=""?word"?"\u{F0107}/gu, '<span class="word">')
-    .replaceAll(/\u{F0106}\/span\u{F0107}/gu, '</span>')
-    .replaceAll(/\u{F0106}br\u{F0107}/gu, '<br>')
-
-    // Variables
-    .replaceAll(/\[(?:JP|EN|FR|IT|DE|ES|Kor|SC):Gen Ref="255" M="([^"]*?)" F="([^"]*?)" \]/gu, (_, male, female) => genderBranch(male, female))
-    .replaceAll(/\[(?:JP|EN|FR|IT|DE|ES|Kor|SC):Gen Ref="255" M="([^"]*?)" \]/gu, (_, male) => genderBranch('', male))
-    .replaceAll(/\[(?:JP|EN|FR|IT|DE|ES|Kor|SC):Gen Ref="255" F="([^"]*?)" \]/gu, (_, female) => genderBranch('', female))
-    .replaceAll(/\[(?:JP|EN|FR|IT|DE|ES|Kor|SC):Qty (?:Ref="\d+" )?S="([^"]*?)" P="([^"]*?)" \]/gu, (_, singular, plural) => numberBranch(singular, plural))
-    .replaceAll(/\[(?:JP|EN|FR|IT|DE|ES|Kor|SC):Qty (?:Ref="\d+" )?S="([^"]*?)" \]/gu, (_, singular) => numberBranch(singular, ''))
-    .replaceAll(/\[(?:JP|EN|FR|IT|DE|ES|Kor|SC):Qty (?:Ref="\d+" )?P="([^"]*?)" \]/gu, (_, plural) => numberBranch('', plural))
-    .replaceAll(/\[Kor:Particle char="(ha|wo|ga|to|ni|ya)" \]/gu, (_, char) => particleBranchFromChar(char))
-    .replaceAll(/(\[(?:Name:.+?) [^[]*?\])/gu, '<span class="var long">$1</span><span class="var short" title="$1">[Name]</span>')
-    .replaceAll(/(\[(?:Digit:.+?) [^[]*?\])/gu, '<span class="var long">$1</span><span class="var short" title="$1">[Digit]</span>')
+    .replaceAll(/(<attr font=['"]fallback['"]>)(.+?)(<\/attr>)/g, (_, start: string, children: string, end: string) => ti.as({ kind: 'tag', start, className: 'fallback', children, end })) // font
+    .replaceAll(/(<attr color=['"]([0-9A-Fa-f]{6})['"]>)(.+?)(<\/attr>)/g, (_, start: string, value: string, children: string, end: string) => ti.as({ kind: 'tag', start, className: 'color', style: `color: #${value}`, children, end })) // color
+    .replaceAll(/(<attr size=['"](\d+)['"]>)(.+?)(<\/attr>)/g, (_, start: string, value: string, children: string, end: string) => ti.as({ kind: 'tag', start, style: `font-size: ${value}px`, children, end })) // size
+    .replaceAll(/(<attr color=['"]([0-9A-Fa-f]{6})['"] size=['"](\d+)['"]>)(.+?)(<\/attr>)/g, (_, start: string, color: string, size: string, children: string, end: string) => ti.as({ kind: 'tag', start, className: 'color', style: `color: #${color}; font-size: ${size}px`, children, end })) // color, size
+    .replaceAll(/(<attr size=['"](\d+)['"] height=['"](\d+)['"]>)(.+?)(<\/attr>)/g, (_, start: string, size: string, height: string, children: string, end: string) => ti.as({ kind: 'tag', start, style: `font-size: ${size}px; line-height: ${height}px`, children, end })) // size, height
+    .replaceAll(/<\/?div>/g, (code) => ti.as({ kind: 'tag', start: code, className: 'control', children: code })) // div (treat as whitespace)
+    .replaceAll(/(<span class=""?word"?">)(.+?)(<\/span>)/g, (_, start: string, children: string, end: string) => ti.as({ kind: 'tag', start, className: 'word', children, end }))
+    .replaceAll(/<br>/g, (code) => ti.as({ kind: 'tag', start: code, className: 'n', children: code }) + '\x83')
   );
 }

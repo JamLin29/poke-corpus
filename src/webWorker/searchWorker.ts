@@ -129,7 +129,7 @@ function cleanSpecialFactory(params: SearchParams): (s: string) => string {
       .replaceAll('‥', '..') // two dot leader -> full stop (x2)
       .replaceAll('…', '...') // horizontal ellipsis -> full stop (x3)
 
-      .replaceAll(/[\u3041-\u3096\u309D\u309E]/gu, (c) => String.fromCodePoint(c.charCodeAt(0) + 0x60)) // hiragana -> katakana
+      .replaceAll(/[\u3041-\u3096\u309D\u309E]/g, (c) => String.fromCharCode(c.charCodeAt(0) + 0x60)) // hiragana -> katakana
       .normalize()
     )
   ) : (s) => s;
@@ -196,11 +196,11 @@ function normalizeWhitespacePreserveHyphen(s: string) {
  * Returns an array with the original string, the string with kanji, and the string with kana to match against.
  */
 export function convertFurigana(s: string): string[] {
-  if (!/\{[^|}]+\|[^|}]+\}/u.test(s))
+  if (!/\{[^|}]+\|[^|}]+\}/.test(s))
     return [s]; // no ruby syntax
 
-  const kanji = s.replaceAll(/\{([^|}]+)\|[^|}]+\}/gu, '$1');
-  const kana = s.replaceAll(/\{[^|}]+\|([^|}]+)\}/gu, '$1');
+  const kanji = s.replaceAll(/\{([^|}]+)\|[^|}]+\}/g, '$1');
+  const kana = s.replaceAll(/\{[^|}]+\|([^|}]+)\}/g, '$1');
   return [kanji, kana, s]; // most searches will expect kanji
 }
 
@@ -225,7 +225,8 @@ self.onmessage = (task: MessageEvent<SearchTask>) => {
   try {
     // Load files
     const fileData: string[][] = files.map((data, i) => preprocessString(data, collectionKey, languages[i]).split(/\r\n|\n/));
-    const hasFurigana: boolean[] = files.map((s) => /\{[^|}]+\|[^|}]+\}/u.test(s));
+    const hasFurigana: boolean[] = files.map((s) => /\{[^|}]+\|[^|}]+\}/.test(s));
+    const hasMultiLine: boolean = files.some((s) => s.includes('\u{F1001}'));
 
     // Substituted string literals vary by language, so we need to look up what the string is in the appropriate language here
     const literalsLine = literals ? Object.keys(literals).flatMap((id) => (literals[id].branch !== 'language') ? literals[id].line : Object.values(literals[id].line)) : undefined;
@@ -236,38 +237,53 @@ self.onmessage = (task: MessageEvent<SearchTask>) => {
     const cleanSpecial = cleanSpecialFactory(params);
     const [matchCondition, whereConditionFactory] = parseQuery({...params, query: cleanSpecial(params.query)});
     const replaceLiterals = replaceLiteralsPreFactory(literalsData, languages.indexOf(codeId), collectionKey, languages, literals);
-    fileData.forEach((lines, languageIndex) => {
-      notifyIncomplete('processing'); // for progress bar
-      const languageKey = languages[languageIndex];
 
-      // Determine matching strategy
-      // - For case-sensitive searches, only exact matches are allowed.
-      // - For case-insensitive searches:
-      //   - If whitespace is not significant, matches folding special characters and ignoring whitespace are also allowed.
-      //   - If whitespace is significant, matches folding special characters, collapsing whitespace, and allowing hyphens to break words across lines are allowed.
-      // - For GB games, both matches to the raw control characters and matches to the converted control characters are allowed.
-      // - For games with substituted literals, both matches to the raw control characters and matches to the substituted text are allowed.
-      // - For text with furigana, both matches to the kanji and matches to the kana are also allowed.
-      const subMatch1 = (!params.caseInsensitive ? matchCondition : ['ja', 'ko', 'zh', 'th'].some((lang) => languageKey.startsWith(lang))
-        ? (line: string) => matchCondition(line) || matchCondition(cleanSpecial(line)) || matchCondition(removeWhitespace(cleanSpecial(line)))
-        : (line: string) => matchCondition(line) || matchCondition(cleanSpecial(normalizeWhitespacePreserveHyphen(line))) || matchCondition(cleanSpecial(normalizeWhitespaceRemoveHyphen(line)))
+    /** Determine matching strategy. */
+    function getMatchStrategy(languageKey: string, languageIndex: number) {
+      const match = matchCondition;
+
+      // For case-sensitive searches, only exact matches are allowed.
+      // For case-insensitive searches:
+      // - If whitespace is not significant, matches folding special characters and ignoring whitespace are also allowed.
+      // - If whitespace is significant, matches folding special characters, collapsing whitespace, and allowing hyphens to break words across lines are allowed.
+      const match1 = (!params.caseInsensitive ? match : ['ja', 'ko', 'zh', 'th'].some((lang) => languageKey.startsWith(lang))
+        ? (line: string) => match(line) || match(cleanSpecial(line)) || match(removeWhitespace(cleanSpecial(line)))
+        : (line: string) => match(line) || match(cleanSpecial(normalizeWhitespacePreserveHyphen(line))) || match(cleanSpecial(normalizeWhitespaceRemoveHyphen(line)))
       );
-      const subMatch2 = ['RedBlue', 'Yellow', 'GoldSilver', 'Crystal'].includes(collectionKey)
-        ? (line: string) => subMatch1(line) || subMatch1(convertGBControlCharacters(line))
-        : subMatch1;
-      const subMatch3 = literals === undefined
-        ? subMatch2
-        : (line: string) => subMatch1(line) || subMatch1(replaceLiterals(line, languageIndex));
-      const match = hasFurigana[languageIndex]
-        ? (line: string) => convertFurigana(line).some(subMatch3)
-        : subMatch3;
 
+      // For GB games, both matches to the raw control characters and matches to the converted control characters are allowed.
+      const match2 = ['RedBlue', 'Yellow', 'GoldSilver', 'Crystal'].includes(collectionKey)
+        ? (line: string) => match1(line) || match1(convertGBControlCharacters(line))
+        : match1;
+
+      // For games with substituted literals, both matches to the raw control characters and matches to the substituted text are allowed.
+      const match3 = literals !== undefined
+        ? (line: string) => match2(line) || match2(replaceLiterals(line, languageIndex))
+        : match2;
+
+      // For text with furigana, both matches to the kanji and matches to the kana are also allowed.
+      const match4 = hasFurigana[languageIndex]
+        ? (line: string) => convertFurigana(line).some(match3)
+        : match3;
+
+      // For multi-valued strings, matches to any value are allowed.
+      const match5 = hasMultiLine
+        ? (line: string) => (line.split('\u{F1000}').some((entry) => entry.includes('\u{F1001}')
+          ? match4(entry.slice(entry.indexOf('\u{F1001}') + '\u{F1001}'.length))
+          : match4(entry)))
+        : match4;
+
+      return match5;
+    }
+
+    notifyIncomplete('processing'); // for progress bar
+    languages.forEach((languageKey, languageIndex) => {
       // Check selected languages for lines that satisfy the query
       if (params.languages.includes(languageKey)) {
-        lines.forEach((line, i) => {
-          if (match(line)) {
+        const match = getMatchStrategy(languageKey, languageIndex);
+        fileData[languageIndex].forEach((line, i) => {
+          if (match(line))
             lineKeys.add(i);
-          }
         });
       }
     });

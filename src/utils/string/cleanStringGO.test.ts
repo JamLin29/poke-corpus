@@ -1,45 +1,46 @@
 import { readCorpus, readFile } from '../corpusFs';
 import { preprocessHindi, preprocessThai } from './cleanStringGO';
 import { getLoader } from '../loader';
+import runLong from '../runLong';
 
 const corpus = readCorpus();
 const loader = getLoader(corpus);
 
-test('preprocessThai', async () => {
+(runLong ? test : test.skip)('preprocessThai', async () => {
   const collectionKey = 'GO';
   const languageKey = 'th';
   const s = await readFile(loader, collectionKey, languageKey, 'text');
   const preprocess = preprocessThai(s);
-  expect(preprocess).not.toMatch(/[\uE000-\uF8FF]/gu);
+  expect(preprocess).not.toMatch(/[\uE000-\uF8FF]/g);
 });
 
-test('preprocessHindi', async () => {
+(runLong ? test : test.skip)('preprocessHindi', async () => {
   const collectionKey = 'GO';
   const languageKey = 'hi';
   const s = await readFile(loader, collectionKey, languageKey, 'text');
   const preprocess = preprocessHindi(s, true);
-  expect(preprocess).not.toMatch(/[\uE000-\uF8FF]/gu);
-  expect(preprocess).not.toMatch(/\u094E/gu); // historical character, was used in malformed ṭya (Buizel)
+  expect(preprocess).not.toMatch(/[\uE000-\uF8FF]/g);
+  expect(preprocess).not.toMatch(/\u094E/g); // historical character, was used in malformed ṭya (Buizel)
 
-  expect(preprocess).not.toMatch(/(^|\s)([\u0900\u0901\u0902\u0903\u093D]|\u093C|[\u093E-\u094C]|\u094D)/gum); // modifier/nukta/vowel mark/halant at start of word
-  expect(preprocess).not.toMatch(/\u094D([\u0900\u0901\u0902\u0903\u093D]|\u093C|[\u0904-\u0914]|[\u093E-\u094C]|\u094D)/gum); // halant followed by modifier/nukta/vowel/vowel mark/halant
-  expect(preprocess).not.toMatch(/(?<![\u0904-\u0914]|[\u0915-\u0939\u0958-\u095F]\u093C?|[\u093E-\u094C])([\u0900\u0901\u0902\u0903\u093D])/gum); // modifier without preceding letter
-  expect(preprocess).not.toMatch(/(?<![\u0915-\u0939\u0958-\u095F])\u093C/gum); // nukta without preceding consonant
-  expect(preprocess).not.toMatch(/(?<![\u0915-\u0939\u0958-\u095F]\u093C?)([\u093E-\u094C]|\u094D)/gum); // vowel mark/halant without preceding consonant
+  expect(preprocess).not.toMatch(/(^|\s)([\u0900\u0901\u0902\u0903\u093D\u093C\u093E-\u094C\u094D])/gm); // modifier/nukta/vowel mark/halant at start of word
+  expect(preprocess).not.toMatch(/\u094D([\u0900\u0901\u0902\u0903\u093D\u093C\u0904-\u0914\u093E-\u094C\u094D])/g); // halant followed by modifier/nukta/vowel/vowel mark/halant
+  expect(preprocess).not.toMatch(/(?<![\u0904-\u0914\u093E-\u094C]|[\u0915-\u0939\u0958-\u095F]\u093C?)([\u0900\u0901\u0902\u0903\u093D])/g); // modifier without preceding letter
+  expect(preprocess).not.toMatch(/(?<![\u0915-\u0939\u0958-\u095F])\u093C/g); // nukta without preceding consonant
+  expect(preprocess).not.toMatch(/(?<![\u0915-\u0939\u0958-\u095F]\u093C?)([\u093E-\u094C\u094D])/g); // vowel mark/halant without preceding consonant
 });
 
-test('preprocessHindi, malformed', async () => {
+(runLong ? test : test.skip)('preprocessHindi, malformed', async () => {
   const collectionKey = 'GO';
   const languageKey = 'hi';
   const s = await readFile(loader, collectionKey, languageKey, 'text');
   const preprocess = preprocessHindi(s, false);
-  expect(preprocess).not.toMatch(/\u094E/gu); // historical character, was used in malformed ṭya (Buizel)
+  expect(preprocess).not.toMatch(/\u094E/g); // historical character, was used in malformed ṭya (Buizel)
 
-  expect(preprocess).toMatch(/(^|\s)([\u0900\u0901\u0902\u0903\u093D]|\u093C|[\u093E-\u094C]|\u094D)/gum); // modifier/nukta/vowel mark/halant at start of word
-  expect(preprocess).toMatch(/\u094D([\u0900\u0901\u0902\u0903\u093D]|\u093C|[\u0904-\u0914]|[\u093E-\u094C]|\u094D)/gum); // halant followed by modifier/nukta/vowel/vowel mark/halant
-  expect(preprocess).toMatch(/(?<![\u0904-\u0914]|[\u0915-\u0939\u0958-\u095F]\u093C?|[\u093E-\u094C])([\u0900\u0901\u0902\u0903\u093D])/gum); // modifier without preceding letter
-  expect(preprocess).toMatch(/(?<![\u0915-\u0939\u0958-\u095F])\u093C/gum); // nukta without preceding consonant
-  expect(preprocess).toMatch(/(?<![\u0915-\u0939\u0958-\u095F]\u093C?)([\u093E-\u094C]|\u094D)/gum); // vowel mark/halant without preceding consonant
+  expect(preprocess).toMatch(/(^|\s)([\u0900\u0901\u0902\u0903\u093D\u093C\u093E-\u094C\u094D])/gm); // modifier/nukta/vowel mark/halant at start of word
+  expect(preprocess).toMatch(/\u094D([\u0900\u0901\u0902\u0903\u093D\u093C\u0904-\u0914\u093E-\u094C\u094D])/g); // halant followed by modifier/nukta/vowel/vowel mark/halant
+  expect(preprocess).toMatch(/(?<![\u0904-\u0914\u093E-\u094C]|[\u0915-\u0939\u0958-\u095F]\u093C?)([\u0900\u0901\u0902\u0903\u093D])/g); // modifier without preceding letter
+  expect(preprocess).toMatch(/(?<![\u0915-\u0939\u0958-\u095F])\u093C/g); // nukta without preceding consonant
+  expect(preprocess).toMatch(/(?<![\u0915-\u0939\u0958-\u095F]\u093C?)([\u093E-\u094C\u094D])/g); // vowel mark/halant without preceding consonant
 
   // Visually identical
   expect(preprocess).toContain('जाेगा'); // jā+e.gā -> jo.gā
