@@ -557,6 +557,7 @@ export const variablesChampions: ReadonlyMap<string, string> = new Map([
   ["016D", "Name:MonthName"],
   ["016E", "Name:MonthNameShort"],
   ["016F", "Name:CostumeCategory"],
+  ["0170", "Name:TransitionShort"],
   ["0200", "Digit:1digit"],
   ["0201", "Digit:2digits"],
   ["0202", "Digit:3digits"],
