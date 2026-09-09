@@ -296,6 +296,11 @@ Terrains
 Your opponent used the priority move [System:Color r="255" g="128" b="128" a="255" ]Extreme Speed[System:Color a="255" ].\n\nBut [System:Color r="255" g="128" b="128" a="255" ]priority moves fail[System:Color a="255" ] if Psychic Terrain is active.
 Why don’t you have your Pokémon try the move [System:Color r="255" g="128" b="128" a="255" ]Psychic[System:Color a="255" ]\nnow that Psychic Terrain is in effect?
 The incoming Extreme Speed failed, and you also\nmanaged to knock out the opponent with your attack!\nThis was helped by the fact that [System:Color r="255" g="128" b="128" a="255" ]the power of Psychic-type[System:Color a="255" ]\n[System:Color r="255" g="128" b="128" a="255" ]moves is boosted by 30% [System:Color a="255" ]while Psychic Terrain is active.\n\nTerrains have all kinds of effects that impact both your side\nand your opponent’s side. Use them to your advantage!
+Selection Support
+This feature allows you to see whether your Pokémon are\nat an advantage or disadvantage against your opponent’s\nPokémon, based on the data tallied from Ranked Battles.
+An upward arrow indicates that you have an advantage over\nthe opposing Pokémon, while a downward arrow indicates\nthat you’re at a disadvantage against the opposing Pokémon.
+Once you’ve selected enough Pokémon to send into battle,\nany opposing Pokémon that your team would be at an overall\ndisadvantage against will have a special warning symbol\ndisplayed next to them.
+You can choose whether to display selection support\nfrom the Settings screen.
 ~~~~~~~~~~~~~~~
 Text File : available_pokelist
 ~~~~~~~~~~~~~~~
@@ -340,6 +345,10 @@ Battle! (Corbeau)
 Battle! (Jacinthe)
 Showdown! (Team MZ)
 Battle! (Gym Leader)
+Battle! (Team Flare Nouveau)
+Battle! (Lysandre)
+Battle! (Team Flare)
+Battle! (Lysandre)
 ~~~~~~~~~~~~~~~
 Text File : bgm_series
 ~~~~~~~~~~~~~~~
@@ -414,6 +423,10 @@ Register Pokémon
 Swap Pokémon
 You don’t have any held items in this category.
 You can’t use this Pokémon without a membership!
+Are you sure you want to delete this Battle Team?
+Are you sure you want to copy your Battle Team to this slot?\nNote: The Battle Team currently in this slot will be overwritten.
+Select where you’d like to save your Battle Team.
+Select a Battle Team
 ~~~~~~~~~~~~~~~
 Text File : btl_app
 ~~~~~~~~~~~~~~~
@@ -475,6 +488,19 @@ Do you want to exit the tutorial?
 Do you want to skip the tutorial?\n[System:Color r="255" g="128" b="128" a="255" ]Note: This will count as having completed it.[System:Color a="255" ]
 Range
 [Name:WazaTarget ]
+View Log
+Turn [Digit:2digits ]
+Move
+Ability
+Held Item
+HP Lost
+HP Restored
+Mega Evolution
+Fainted
+[Name:PokemonNickname ]’s HP:\n[Digit:3digits Idx="1" ] → [Digit:3digits Idx="2" ]
+[Name:PokemonNickname ]’s HP:\n[Digit:3digits Idx="1" ]% → [Digit:3digits Idx="2" ]%
+Ability Changed
+[Name:PokemonNickname ]:\n[Name:Ability Idx="1" ] → [Name:Ability Idx="2" ]
 ~~~~~~~~~~~~~~~
 Text File : btl_attack_syn
 ~~~~~~~~~~~~~~~
@@ -483,11 +509,11 @@ The opposing [Name:PokemonNickname ] used [Name:Move Idx="1" ]!
 ~~~~~~~~~~~~~~~
 Text File : btl_condition
 ~~~~~~~~~~~~~~~
-The Pokémon has a 12.5% chance of\nbeing unable to use moves. Its Speed\nstat is also halved.
-The Pokémon can’t use almost any moves but has\na 25% chance of being cured each time it tries\nto do so. The Pokémon will be cured on its third\nturn after becoming frozen or if it takes damage\nfrom a Fire-type move or certain other moves.
-The Pokémon takes damage equal to 1/16\nof its max HP at the end of every turn.\nThe damage dealt by its physical moves\nis also halved.
-The Pokémon takes damage equal to 1/8 of its\nmax HP at the end of every turn.
-The Pokémon takes increasing poison damage\nat the end of every turn, starting at 1/16 of the\nPokémon’s max HP, then 2/16, then 3/16, and\nso on. If the Pokémon switches out and reenters\nbattle, the damage restarts at 1/16 of its max HP.
+The Pokémon has a 12.5% chance of being\nunable to use moves. Its Speed stat is also\nhalved. Electric-type Pokémon are unaffected.
+The Pokémon can’t use almost any moves but has\na 25% chance of being cured each time it tries\nto do so. The Pokémon will be cured on its third\nturn after becoming frozen or if it takes damage\nfrom a Fire-type move or certain other moves.\nIce-type Pokémon are unaffected.
+The Pokémon takes damage equal to 1/16 of its\nmax HP at the end of every turn. The damage\ndealt by its physical moves is also halved.\nFire-type Pokémon are unaffected.
+The Pokémon takes damage equal to 1/8 of its\nmax HP at the end of every turn. Poison- and\nSteel-type Pokémon are unaffected.
+The Pokémon takes increasing poison damage\nat the end of every turn, starting at 1/16 of the\nPokémon’s max HP, then 2/16, then 3/16, and\nso on. If the Pokémon switches out and reenters\nbattle, the damage restarts at 1/16 of its max HP.\nPoison- and Steel-type Pokémon are unaffected.
 The Pokémon can’t use moves other than Snore\nor Sleep Talk. After a Pokémon is put to sleep, it\nwill remain asleep on its first turn, it will have a\n1-in-3 chance of being cured on its second turn,\nand it will be cured on its third turn. A Pokémon\nthat used the move Rest has no chance of being\ncured until its third turn.
 ~~~~~~~~~~~~~~~
 Text File : btl_data_pokedetail
@@ -544,6 +570,7 @@ Change Season
 Note: It may take time for results to be reflected in the rankings.
 Your Results
 Detailed Results
+Change Format
 ~~~~~~~~~~~~~~~
 Text File : btl_data_top
 ~~~~~~~~~~~~~~~
@@ -597,7 +624,10 @@ Premium Battle Pass Purchased
 [Digit:2digits ] [EN:Qty S="hour" P="hours" ]
 [Digit:2digits ] [EN:Qty S="minute" P="minutes" ]
 0 minutes
-Battle Passes are not currently live.
+Battle Passes are not currently live. Any unclaimed rewards\nfrom the previous season will be sent to your mailbox once\nthe next season begins.
+Reset
+View Clothing Item
+View Hairstyle
 ~~~~~~~~~~~~~~~
 Text File : btl_pokelist
 ~~~~~~~~~~~~~~~
@@ -688,6 +718,9 @@ Preparing for Battle
 Show Summary
 Hide Summary
 Select [Digit:1digit ] Pokémon\nto send into battle.
+Your Pokémon has an advantage over this\nopponent.
+Your Pokémon is at a disadvantage against this\nopponent.
+Warning: The Pokémon you have selected are\nat a disadvantage against this opponent.
 ~~~~~~~~~~~~~~~
 Text File : btl_preparation
 ~~~~~~~~~~~~~~~
@@ -725,13 +758,14 @@ Tallying Results
 [Name:FreeWord ]
 You have reached the daily limit for battling, so\nyou cannot take part in any more battles.
 [Digit:4digits Sep="44" ]/[Digit:4digits Idx="1" Sep="44" ]
-[~ 14]
+[System:Color r="255" g="128" b="128" a="255" ][Digit:4digits Sep="44" ]/[Digit:4digits Idx="1" Sep="44" ][System:Color a="255" ]
 Online Competitions
 Season [Name:SeasonName ]-[Digit:2digits Idx="1" ]
 Membership Bonus:
 ×[Digit:1digit ].[Digit:1digit Idx="1" ]
 [Digit:3digits ] [EN:Qty S="use" P="uses" ] remaining
 Season 1
+Completed
 ~~~~~~~~~~~~~~~
 Text File : btl_result
 ~~~~~~~~~~~~~~~
@@ -899,16 +933,16 @@ The opposing [Name:PokemonNickname ] had its HP restored.
 The opposing [Name:PokemonNickname ] was hurt!
 [Name:PokemonNickname ] acquired [Name:Ability Idx="1" ]!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ]\nacquired [Name:Ability Idx="1" ]!
-[~ 150]
-[~ 151]
+[Name:PokemonNickname ] floats in the air with its Air Balloon!
+[Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] floats in the air with\nits Air Balloon!
 [Name:PokemonNickname ]’s Air Balloon popped!
 The opposing [Name:PokemonNickname ]’s Air Balloon popped!
 [Name:PokemonNickname ] is switched out with the Eject Button!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] is switched out with\nthe Eject Button!
-[~ 156]
-[~ 157]
-[~ 158]
-[~ 159]
+[Ctrl1:battle_oneline ][Name:PokemonNickname ] held up its Red Card\nagainst [Name:PokemonNickname Idx="1" ]!
+[Ctrl1:battle_oneline ][Name:PokemonNickname ] held up its Red Card against\nthe opposing [Name:PokemonNickname Idx="1" ]!
+[Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] held up its Red Card\nagainst [Name:PokemonNickname Idx="1" ]!
+[Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] held up its Red Card against\nthe opposing [Name:PokemonNickname Idx="1" ]!
 The power of [Name:PokemonNickname ]’s Fire-type moves rose!
 [Ctrl1:battle_oneline ]The power of the opposing [Name:PokemonNickname ]’s Fire-type\nmoves rose!
 [Ctrl1:battle_oneline ][Name:Move Idx="1" ] was revealed to be one of the moves that\n[Name:PokemonNickname ]\r\nknows!
@@ -927,10 +961,10 @@ The opposing [Name:PokemonNickname ] took the attack!
 The opposing [Name:PokemonNickname ] stayed awake!
 [Name:PokemonNickname ] is anchored in place with its suction cups!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] is anchored in place with its\nsuction cups!
-[~ 178]
-[~ 179]
-[~ 180]
-[~ 181]
+[Name:PokemonNickname ] is unfazed!
+The opposing [Name:PokemonNickname ] is unfazed!
+[Name:PokemonNickname ] sucked up the liquid ooze!
+The opposing [Name:PokemonNickname ] sucked up the liquid ooze!
 [Name:PokemonNickname ] had its [Name:Item Idx="1" ] stolen!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] had its\n[Name:Item Idx="1" ] stolen!
 [Name:PokemonNickname ]’s Ability became Mummy!
@@ -1419,38 +1453,36 @@ The opposing [Name:PokemonNickname ]’s disguise was busted!
 [~ 667]
 [~ 668]
 [~ 669]
-[~ 670]
-[~ 671]
 [Name:PokemonNickname ] couldn’t fully protect itself and got hurt!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] couldn’t fully protect itself\nand got hurt!
+[~ 672]
+[~ 673]
 [~ 674]
 [~ 675]
 [~ 676]
 [~ 677]
 [~ 678]
 [~ 679]
-[~ 680]
-[~ 681]
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] can no longer\nescape\r\nbecause\r\nit\r\nused\r\nNo Retreat!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] can no longer\nescape\r\nbecause\r\nit\r\nused\r\nNo Retreat!
+[~ 682]
+[~ 683]
 [~ 684]
 [~ 685]
 [~ 686]
 [~ 687]
-[~ 688]
-[~ 689]
-[~ 690]
-[~ 691]
+[Ctrl1:battle_oneline ][Name:PokemonNickname ] swapped the battle effects affecting each\nside of the field!
+The opposing [Name:PokemonNickname ] swapped the battle effects\naffecting each side of the field!
 [Name:PokemonNickname ] got trapped by a snap trap!
 The opposing [Name:PokemonNickname ] got trapped by a snap trap!
+[Ctrl1:battle_oneline ][Name:PokemonNickname ] can no longer escape because\nof Octolock!
+[Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] can no longer escape\nbecause of Octolock!
 [~ 694]
 [~ 695]
 [~ 696]
 [~ 697]
 [~ 698]
 [~ 699]
-[~ 700]
-[~ 701]
 [Name:PokemonNickname ] is switched out by the Eject Pack!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] is switched out by\nthe Eject Pack!
 [Name:PokemonNickname ] returned to its original type!
@@ -1465,20 +1497,20 @@ The opposing [Name:PokemonNickname ] is overflowing with space power!
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] corroded the opposing\n[Name:PokemonNickname Idx="1" ]’s [Name:Item Idx="2" ]!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] corroded\n[Name:PokemonNickname Idx="1" ]’s [Name:Item Idx="2" ]!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] corroded the\nopposing [Name:PokemonNickname Idx="1" ]’s [Name:Item Idx="2" ]!
+[~ 714]
+[~ 715]
 [~ 716]
 [~ 717]
-[~ 718]
-[~ 719]
 [Name:Ability Idx="1" ] made [Name:PokemonNickname ] move faster!
 [Ctrl1:battle_oneline ][Name:Ability Idx="1" ] made the opposing [Name:PokemonNickname ]\nmove\r\nfaster!
 But it failed to affect [Name:PokemonNickname ]!
 But it failed to affect the opposing [Name:PokemonNickname ]!
+[~ 722]
+[~ 723]
 [~ 724]
 [~ 725]
 [~ 726]
 [~ 727]
-[~ 728]
-[~ 729]
 [Name:PokemonNickname ] fought off its drowsiness!
 The opposing [Name:PokemonNickname ] fought off its drowsiness!
 [Name:PokemonNickname ] is already drowsy.
@@ -1497,12 +1529,14 @@ The opposing [Name:PokemonNickname ] shed its tail to create a decoy!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] is preparing to tell a chillingly\nbad joke!
 [Name:PokemonNickname ] used up all its electricity!
 The opposing [Name:PokemonNickname ] used up all its electricity!
+[~ 746]
+[~ 747]
 [~ 748]
 [~ 749]
-[~ 750]
-[~ 751]
 [Name:PokemonNickname ] underwent a heroic transformation!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] underwent a\nheroic transformation!
+[~ 752]
+[~ 753]
 [~ 754]
 [~ 755]
 [~ 756]
@@ -1527,19 +1561,19 @@ The opposing [Name:PokemonNickname ] used up all its electricity!
 [~ 775]
 [~ 776]
 [~ 777]
-[~ 778]
-[~ 779]
 [Name:PokemonNickname ] gained strength from the fallen!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] gained strength from the fallen!
+[~ 780]
+[~ 781]
 [~ 782]
 [~ 783]
 [~ 784]
 [~ 785]
 [~ 786]
-[~ 787]
-[~ 788]
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] used its Mirror Herb to mirror its opponent’s\nstat changes!
 [Ctrl1:battle_oneline ]The opposing [Name:PokemonNickname ] used its Mirror Herb to mirror its\nopponent’s\r\nstat changes!
+[~ 789]
+[~ 790]
 [~ 791]
 [~ 792]
 [~ 793]
@@ -1556,18 +1590,16 @@ The opposing [Name:PokemonNickname ] used up all its electricity!
 [~ 804]
 [~ 805]
 [~ 806]
-[~ 807]
-[~ 808]
 [Ctrl1:battle_oneline ][Name:PokemonNickname Idx="1" ] drank down all the matcha that\n[Name:PokemonNickname ]\r\nmade!
 [Ctrl1:battle_oneline ][Name:PokemonNickname Idx="1" ] drank down all the matcha that the opposing\n[Name:PokemonNickname ]\r\nmade!
+[~ 809]
+[~ 810]
 [~ 811]
 [~ 812]
 [~ 813]
 [~ 814]
 [~ 815]
 [~ 816]
-[~ 817]
-[~ 818]
 [Name:PokemonNickname ] got covered in sticky candy syrup!
 The opposing [Name:PokemonNickname ] got covered in sticky candy syrup!
 [Ctrl1:battle_oneline ]A supersweet aroma is wafting from the syrup covering\n[Name:PokemonNickname ]!
@@ -1575,9 +1607,9 @@ The opposing [Name:PokemonNickname ] got covered in sticky candy syrup!
 [Name:PokemonNickname ] absorbed electricity!
 The opposing [Name:PokemonNickname ] absorbed electricity!
 [Name:PokemonNickname ] is going all out for this attack!
+[~ 824]
+[~ 825]
 [~ 826]
-[~ 827]
-[~ 828]
 [Name:PokemonNickname ]’s [Name:Status Idx="4" ] rose!
 [Name:PokemonNickname ]’s [Name:Status Idx="4" ] and [Name:Status Idx="5" ] rose!
 [Ctrl1:battle_oneline ][Name:PokemonNickname ]’s [Name:Status Idx="4" ], [Name:Status Idx="5" ], and\n[Name:Status Idx="6" ] rose!
@@ -1781,7 +1813,7 @@ Tailwind
 [Name:Move ] cannot be used.
 Move Disabled
 The Pokémon cannot use whichever move it last\nused before gaining the Move Disabled status.
-The Pokémon cannot be switched out of battle.
+The Pokémon cannot be switched out of battle.\nGhost-type Pokémon are unaffected.
 Can’t Escape
 On the next turn after gaining the Locked On\nstatus, the Pokémon’s move will not miss if\ntargeting the Pokémon that was locked onto.
 Locked On
@@ -1799,7 +1831,7 @@ The Pokémon can use only attacks.
 Taunted
 The Pokémon floats off the ground, making it\nimmune to Ground-type moves, as well as the\nSpikes, Toxic Spikes, and Sticky Web statuses.
 Magnet Rise
-Pokémon that switch into battle will be poisoned\nor, if 2 layers of Toxic Spikes are set, badly\npoisoned. Pokémon such as Flying types or ones\nwith the Levitate Ability are unaffected.
+Pokémon that switch into battle will be poisoned\nor, if 2 layers of Toxic Spikes are set, badly\npoisoned. Pokémon such as Flying types or ones\nwith the Levitate Ability are unaffected. This status\nis removed if a Poison-type Pokémon enters battle.
 Toxic Spikes
 At the end of the next turn after the Wish status\nis activated, the HP of the Pokémon in the\naffected spot will be restored by 1/2 of the max\nHP of the Pokémon that caused the status.
 Wish
@@ -1825,7 +1857,7 @@ If the Pokémon is knocked out by an opponent,\nthat opponent will also be knock
 Destiny Bound
 The Pokémon gains the Grass type.
 Forest Cursed
-The Pokémon takes damage equal to 1/8 of\nits max HP at the end of every turn. Whichever\nPokémon is in the spot of the Pokémon that\ncaused the Leech Seeded status has its HP\nrestored by the same amount.
+The Pokémon takes damage equal to 1/8 of its\nmax HP at the end of every turn. The Pokémon in\nthe spot of the Pokémon that caused the Leech\nSeeded status has its HP restored by the same\namount. Grass-type Pokémon are unaffected.
 Leech Seeded
 For 4–5 turns, the Pokémon takes damage equal\nto 1/8 of its max HP at the end of every turn. It\ncannot be switched out of battle.
 Bound
@@ -1857,8 +1889,8 @@ Halves the damage taken from physical and\nspecial moves. In Double Battles, thi
 Aurora Veil
 [~ 114]
 [~ 115]
-[~ 116]
-[~ 117]
+The Pokémon’s Defense and Sp. Def stats are\nlowered by 1 stage at the end of every turn.
+Octolocked
 [~ 118]
 [~ 119]
 [~ 120]
@@ -1875,8 +1907,8 @@ The Pokémon’s Speed stat is lowered by 1 stage\nat the end of every turn.
 Syrupy
 The Pokémon is unable to restore HP through\nmoves, Abilities, or held items.
 Healing Prevented
-[~ 134]
-[~ 135]
+Opponents’ moves will not miss the Pokémon\nand will deal double damage.
+Wide Open
 The Pokémon cannot take any actions for 1 turn.
 Recharging
 The Pokémon spends 1 turn charging before\nusing a move.
@@ -1899,8 +1931,8 @@ Flash Fire
 [~ 155]
 [~ 156]
 [~ 157]
-[~ 158]
-[~ 159]
+Neither the Pokémon that caused the Jaw Locked\nstatus nor the Pokémon on the receiving end can\nbe switched out of battle.
+Jaw Locked
 Boosts the accuracy of the Pokémon’s next move\nby 20%.
 Micle Berry
 ~~~~~~~~~~~~~~~
@@ -2054,7 +2086,7 @@ The weirdness disappeared from the battlefield!
 [~ 145]
 [~ 146]
 [~ 147]
-[~ 148]
+Neither Pokémon can run away!
 It’s teatime! Everyone dug in to their Berries!
 But nothing happened!
 [~ 151]
@@ -2217,6 +2249,8 @@ None
 [Name:FreeWord ]
 [Name:FreeWord ]
 Do you want to make this change and return to the title screen?
+Single
+Double
 ~~~~~~~~~~~~~~~
 Text File : country_codes
 ~~~~~~~~~~~~~~~
@@ -2256,6 +2290,7 @@ Singapore
 Taiwan
 Thailand
 Indonesia
+India
 Other
 Europe
 Austria
@@ -2445,6 +2480,10 @@ You cannot view opponents’ profiles while matchmaking is\nin progress or when 
 That input is invalid.
 You are now being returned to the title screen\nbecause new data has become available.
 You’ve recruited a Pokémon permanently!\nThe Pokémon has been sent to your Box.
+You can’t use this feature.
+Premium Battle Pass Season [Name:SeasonName ]-[Digit:2digits Idx="1" ]
+[~ 60]
+Go to Shops
 ~~~~~~~~~~~~~~~
 Text File : dressup
 ~~~~~~~~~~~~~~~
@@ -2467,30 +2506,30 @@ Save
 Do you want to save your current style?
 Choose a slot to save your style in or choose a style to load.
 Not Set
-[~ 19]
-[~ 20]
-[~ 21]
-[~ 22]
-[~ 23]
-[~ 24]
-[~ 25]
-[~ 26]
-[~ 27]
-[~ 28]
-[~ 29]
-[~ 30]
-[~ 31]
-[~ 32]
-[~ 33]
-[~ 34]
-[~ 35]
-[~ 36]
-[~ 37]
-[~ 38]
-[~ 39]
-[~ 40]
-[~ 41]
-[~ 42]
+Tops
+Outerwear
+Gloves
+Bottoms
+Leggings
+Legwear
+Footwear
+Bags
+Headwear
+Headbands
+Face Accessories
+Hairstyle
+Hair Color
+Eyes
+Color Contacts
+Eyelashes
+Eyelash Color
+Eyebrows
+Eyebrow Color
+Mouth
+Lipstick
+Lipstick Color
+Beauty Spot
+Freckles
 You can’t change your hair color\nwith this hairstyle.
 ~~~~~~~~~~~~~~~
 Text File : dressup_main
@@ -2744,6 +2783,27 @@ Corbeau-Style Two-Block Cut
 Overhand Style
 Triumphantly Yelling Winner
 Serious Pose
+Jacinthe’s Bejeweled Satchel
+Grisham’s Glasses
+Grisham’s Chef Top
+Grisham’s Aproned Pants
+Grisham’s Round Satchel
+Grisham’s Leather Shoes
+Grisham-Style Slick Back
+Emma’s Trench Coat
+Emma’s Bodysuit Top
+Emma’s Bodysuit Leggings
+Emma’s Bodysuit Socks
+Emma’s Sneakers
+Emma’s Gloves
+Emma-Style Short Bob
+Corbeau’s Pose
+Corbeau-Style Winner
+Corbeau Style
+Canari’s Pose
+Canari-Style Winner
+Canari Style
+Canari’s Face Mask
 ~~~~~~~~~~~~~~~
 Text File : dressup_sub
 ~~~~~~~~~~~~~~~
@@ -3009,7 +3069,7 @@ Dragonite
 [~ 259]
 [~ 260]
 Meganium
-[~ 262]
+Emboar
 Red
 White
 Team MZ Logo
@@ -3024,6 +3084,17 @@ All-Purple
 Regular Color
 Black / Magenta
 Magenta Drops
+Gray / White
+Navy / Black
+Lilac
+Red / Black
+White Frames
+Black / Orange
+Beige
+Black / Orange
+Light Gray
+Black / Orange
+Lemon Yellow
 ~~~~~~~~~~~~~~~
 Text File : first_start
 ~~~~~~~~~~~~~~~
@@ -3106,6 +3177,7 @@ Favoriting & Labels
 Additional Settings
 More Info
 View Details
+View Other Forms
 ~~~~~~~~~~~~~~~
 Text File : friend
 ~~~~~~~~~~~~~~~
@@ -3447,12 +3519,12 @@ Status Conditions
 A Pokémon can be afflicted with a [System:Color r="255" g="128" b="128" a="255" ]status condition[System:Color a="255" ] during a\nbattle by the effect of a move, Ability, or held item.\n\nThese status conditions can have a variety of effects.
 Check out the [System:Color r="255" g="128" b="128" a="255" ]battle tutorial on status conditions [System:Color a="255" ]to learn\nmore about them through a hands-on demonstration.
 The Poisoned, Badly Poisoned, and Burned Status Conditions
-[System:Color r="255" g="128" b="128" a="255" ]Poisoned Status Condition[System:Color a="255" ]\n\nThe Pokémon takes damage equal to 1/8 of its max HP\nat the end of every turn.
-[System:Color r="255" g="128" b="128" a="255" ]Badly Poisoned Status Condition[System:Color a="255" ]\n\nThe Pokémon takes increasing poison damage at the end of\nevery turn, starting at 1/16 of the Pokémon’s max HP, then\n2/16, then 3/16, and so on. If the Pokémon switches out and\nreenters battle, the damage restarts at 1/16 of its max HP.
-[System:Color r="255" g="128" b="128" a="255" ]Burned Status Condition[System:Color a="255" ]\n\nThe Pokémon takes damage equal to 1/16 of its max HP\nat the end of every turn. The damage dealt by its physical\nmoves is also halved.
+[System:Color r="255" g="128" b="128" a="255" ]Poisoned Status Condition\n[System:Color a="255" ]\nThe Pokémon takes damage equal to 1/8 of its max HP\nat the end of every turn. Poison- and Steel-type Pokémon\nare unaffected.
+[System:Color r="255" g="128" b="128" a="255" ]Badly Poisoned Status Condition[System:Color a="255" ]\n\nThe Pokémon takes increasing poison damage at the end of\nevery turn, starting at 1/16 of the Pokémon’s max HP, then\n2/16, then 3/16, and so on. If the Pokémon switches out and\nreenters battle, the damage restarts at 1/16 of its max HP.\nPoison- and Steel-type Pokémon are unaffected.
+[System:Color r="255" g="128" b="128" a="255" ]Burned Status Condition[System:Color a="255" ]\n\nThe Pokémon takes damage equal to 1/16 of its max HP\nat the end of every turn. The damage dealt by its physical\nmoves is also halved. Fire-type Pokémon are unaffected.
 The Paralyzed, Frozen, and Asleep Status Conditions
-[System:Color r="255" g="128" b="128" a="255" ]Paralyzed Status Condition[System:Color a="255" ]\n\nThe Pokémon has a 12.5% chance of being unable to use\nmoves. Its Speed stat is also halved.
-[System:Color r="255" g="128" b="128" a="255" ]Frozen Status Condition[System:Color a="255" ]\n\nThe Pokémon can’t use almost any moves but has a 25%\nchance of being cured each time it tries to do so. The\nPokémon will be cured on its third turn after becoming\nfrozen or if it takes damage from a Fire-type move or\ncertain other moves.
+[System:Color r="255" g="128" b="128" a="255" ]Paralyzed Status Condition[System:Color a="255" ]\n\nThe Pokémon has a 12.5% chance of being unable to use\nmoves. Its Speed stat is also halved. Electric-type Pokémon\nare unaffected.
+[System:Color r="255" g="128" b="128" a="255" ]Frozen Status Condition[System:Color a="255" ]\n\nThe Pokémon can’t use almost any moves but has a 25%\nchance of being cured each time it tries to do so. The\nPokémon will be cured on its third turn after becoming\nfrozen or if it takes damage from a Fire-type move or\ncertain other moves. Ice-type Pokémon are unaffected.
 [System:Color r="255" g="128" b="128" a="255" ]Asleep Status Condition[System:Color a="255" ]\n\nThe Pokémon can’t use moves other than Snore or\nSleep Talk. After a Pokémon is put to sleep, it will\nremain asleep on its first turn, it will have a 1-in-3\nchance of being cured on its second turn, and it will be\ncured on its third turn. A Pokémon that used the move\nRest has no chance of being cured until its third turn.
 Battle Statuses and Effects
 During battles, [System:Color r="255" g="128" b="128" a="255" ]various statuses and effects[System:Color a="255" ] can be\ncaused by moves, Abilities, and held items.\n\nLet’s look at a few examples.
@@ -3463,7 +3535,7 @@ During battles, [System:Color r="255" g="128" b="128" a="255" ]various statuses 
 [System:Color r="255" g="128" b="128" a="255" ]Aurora Veil Status\n[System:Color a="255" ]\nHalves the damage taken from physical and\nspecial moves. In Double Battles, this damage\nis reduced by 1/3 instead.
 [System:Color r="255" g="128" b="128" a="255" ]Stealth Rock Status[System:Color a="255" ]\n\nPokémon that switch into battle will take damage\nequal to 1/8 of their max HP. This damage differs\ndepending on the Pokémon’s type matchup with\nthe Rock type.
 [System:Color r="255" g="128" b="128" a="255" ]Spikes Status[System:Color a="255" ]\n\nPokémon that switch into battle will take damage\nequal to 1/8 of their max HP. This damage will\nincrease if 2 layers of Spikes are set, and again if\n3 layers are set. Pokémon such as Flying types or\nones with the Levitate Ability are unaffected.
-[System:Color r="255" g="128" b="128" a="255" ]Toxic Spikes Status[System:Color a="255" ]\n\nPokémon that switch into battle will be poisoned\nor, if 2 layers of Toxic Spikes are set, badly\npoisoned. Pokémon such as Flying types or ones\nwith the Levitate Ability are unaffected.
+[System:Color r="255" g="128" b="128" a="255" ]Toxic Spikes Status[System:Color a="255" ]\n\nPokémon that switch into battle will be poisoned or,\nif 2 layers of Toxic Spikes are set, badly poisoned.\nPokémon such as Flying types or ones with the\nLevitate Ability are unaffected. This status is\nremoved if a Poison-type Pokémon enters battle.
 Weather Conditions
 The effects of some moves and Abilities can change the\n[System:Color r="255" g="128" b="128" a="255" ]weather[System:Color a="255" ] during battle.\n\nWeather impacts [System:Color r="255" g="128" b="128" a="255" ]all Pokémon on the field[System:Color a="255" ] and can cause\na variety of effects.
 [System:Color r="255" g="128" b="128" a="255" ]Harsh Sunlight[System:Color a="255" ]\n\nBoosts the damage dealt by Fire-type moves by 50%\nand halves the damage dealt by Water-type moves.
@@ -3693,7 +3765,7 @@ Boosts the power of the holder’s Dragon-type moves\nby 20%.
 Boosts the power of the holder’s Normal-type moves\nby 20%.
 When the holder deals damage with its moves, its HP is\nrestored by 1/8 of the damage dealt.
 [~ 75]
-[~ 76]
+When held by a Farfetch’d or Sirfetch’d, gives the holder\na 2-stage Critical-Hit Ratio Boost.
 Boosts the accuracy of the holder’s moves by 10%.
 Boosts the power of the holder’s physical moves by 10%.
 Boosts the power of the holder’s special moves by 10%.
@@ -3736,14 +3808,14 @@ Boosts the amount of HP restored through HP-absorbing\nmoves by 30%. HP restored
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+When the holder is hit by a contact move, the attacker\ntakes damage equal to 1/6 of its max HP.
+Causes the holder to float off the ground, making it\nimmune to Ground-type moves, as well as the Spikes,\nToxic Spikes, and Sticky Web statuses. Disappears for\nthe duration of the battle if the holder takes damage\nfrom a move.
+When the holder takes damage from a move, the\nattacker is forced to switch out of battle. Disappears\nfor the duration of the battle after a single use.
+Increases the damage dealt to targets that have the\nBound status. Targets will take damage equal to 1/6 of\ntheir max HP instead of 1/8 of their max HP.
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Switches the holder out of battle when the holder takes\ndamage from a move. Disappears for the duration of the\nbattle after a single use.
+Boosts the power of the holder’s Normal-type moves by\n30%. Disappears for the duration of the battle after a\nsingle use.
 [~ 127]
 [~ 128]
 [~ 129]
@@ -3799,7 +3871,7 @@ A held item that allows Glalie to Mega Evolve.
 [~ 179]
 A held item that allows Camerupt to Mega Evolve.
 A held item that allows Lopunny to Mega Evolve.
-[~ 182]
+A held item that allows Salamence to Mega Evolve.
 A held item that allows Beedrill to Mega Evolve.
 [~ 184]
 [~ 185]
@@ -3831,11 +3903,11 @@ A held item that allows Beedrill to Mega Evolve.
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+When the holder creates terrain with its moves or\nAbility, the duration is extended by 3 turns.\n(Total duration: 8 turns)
+Boosts the holder’s Defense stat by 1 stage on Electric\nTerrain. Disappears for the duration of the battle after a\nsingle use.
+Boosts the holder’s Sp. Def stat by 1 stage on Psychic\nTerrain. Disappears for the duration of the battle after a\nsingle use.
+Boosts the holder’s Sp. Def stat by 1 stage on Misty\nTerrain. Disappears for the duration of the battle after a\nsingle use.
+Boosts the holder’s Defense stat by 1 stage on Grassy\nTerrain. Disappears for the duration of the battle after a\nsingle use.
 [~ 219]
 [~ 220]
 [~ 221]
@@ -3912,17 +3984,17 @@ A held item that allows Falinks to Mega Evolve.
 A held item that allows Raichu to Mega Evolve into\nMega Raichu X. It has no effect on Alolan Raichu.
 A held item that allows Raichu to Mega Evolve into\nMega Raichu Y. It has no effect on Alolan Raichu.
 A held item that allows Chimecho to Mega Evolve.
-[~ 295]
+A held item that allows Absol to Mega Evolve into\nMega Absol Z.
 A held item that allows Staraptor to Mega Evolve.
-[~ 297]
-[~ 298]
+A held item that allows Garchomp to Mega Evolve into\nMega Garchomp Z.
+A held item that allows Lucario to Mega Evolve into\nMega Lucario Z.
 A held item that allows Golurk to Mega Evolve.
 A held item that allows Meowstic to Mega Evolve.
 A held item that allows Crabominable to Mega Evolve.
-[~ 302]
+A held item that allows Golisopod to Mega Evolve.
 [~ 303]
 A held item that allows Scovillain to Mega Evolve.
-[~ 305]
+A held item that allows Baxcalibur to Mega Evolve.
 [~ 306]
 A held item that allows Glimmora to Mega Evolve.
 ~~~~~~~~~~~~~~~
@@ -4004,7 +4076,7 @@ Dragon Fang
 Silk Scarf
 Shell Bell
 [~ 75]
-[~ 76]
+Leek
 Wide Lens
 Muscle Band
 Wise Glasses
@@ -4047,14 +4119,14 @@ Big Root
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Rocky Helmet
+Air Balloon
+Red Card
+Binding Band
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Eject Button
+Normal Gem
 [~ 127]
 [~ 128]
 [~ 129]
@@ -4110,7 +4182,7 @@ Glalitite
 [~ 179]
 Cameruptite
 Lopunnite
-[~ 182]
+Salamencite
 Beedrillite
 [~ 184]
 [~ 185]
@@ -4142,11 +4214,11 @@ Beedrillite
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Terrain Extender
+Electric Seed
+Psychic Seed
+Misty Seed
+Grassy Seed
 [~ 219]
 [~ 220]
 [~ 221]
@@ -4223,17 +4295,17 @@ Falinksite
 Raichunite X
 Raichunite Y
 Chimechite
-[~ 295]
+Absolite Z
 Staraptite
-[~ 297]
-[~ 298]
+Garchompite Z
+Lucarionite Z
 Golurkite
 Meowsticite
 Crabominite
-[~ 302]
+Golisopite
 [~ 303]
 Scovillainite
-[~ 305]
+Baxcalibrite
 [~ 306]
 Glimmoranite
 ~~~~~~~~~~~~~~~
@@ -4315,7 +4387,7 @@ Dragon Fang
 Silk Scarf
 Shell Bell
 [~ 75]
-[~ 76]
+Leek
 Wide Lens
 Muscle Band
 Wise Glasses
@@ -4358,14 +4430,14 @@ Big Root
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Rocky Helmet
+Air Balloon
+Red Card
+Binding Band
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Eject Button
+Normal Gem
 [~ 127]
 [~ 128]
 [~ 129]
@@ -4421,7 +4493,7 @@ Glalitite
 [~ 179]
 Cameruptite
 Lopunnite
-[~ 182]
+Salamencite
 Beedrillite
 [~ 184]
 [~ 185]
@@ -4453,11 +4525,11 @@ Beedrillite
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Terrain Extender
+Electric Seed
+Psychic Seed
+Misty Seed
+Grassy Seed
 [~ 219]
 [~ 220]
 [~ 221]
@@ -4534,17 +4606,17 @@ Falinksite
 Raichunite X
 Raichunite Y
 Chimechite
-[~ 295]
+Absolite Z
 Staraptite
-[~ 297]
-[~ 298]
+Garchompite Z
+Lucarionite Z
 Golurkite
 Meowsticite
 Crabominite
-[~ 302]
+Golisopite
 [~ 303]
 Scovillainite
-[~ 305]
+Baxcalibrite
 [~ 306]
 Glimmoranite
 ~~~~~~~~~~~~~~~
@@ -4626,7 +4698,7 @@ Dragon Fang
 Silk Scarf
 Shell Bell
 [~ 75]
-[~ 76]
+Leek
 Wide Lens
 Muscle Band
 pair of Wise Glasses
@@ -4669,14 +4741,14 @@ Big Root
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Rocky Helmet
+Air Balloon
+Red Card
+Binding Band
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Eject Button
+Normal Gem
 [~ 127]
 [~ 128]
 [~ 129]
@@ -4732,7 +4804,7 @@ Glalitite stone
 [~ 179]
 Cameruptite stone
 Lopunnite stone
-[~ 182]
+Salamencite stone
 Beedrillite stone
 [~ 184]
 [~ 185]
@@ -4764,11 +4836,11 @@ Beedrillite stone
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Terrain Extender
+Electric Seed
+Psychic Seed
+Misty Seed
+Grassy Seed
 [~ 219]
 [~ 220]
 [~ 221]
@@ -4845,17 +4917,17 @@ Falinksite stone
 Raichunite X stone
 Raichunite Y stone
 Chimechite stone
-[~ 295]
+Absolite Z stone
 Staraptite stone
-[~ 297]
-[~ 298]
+Garchompite Z stone
+Lucarionite Z stone
 Golurkite stone
 Meowsticite stone
 Crabominite stone
-[~ 302]
+Golisopite stone
 [~ 303]
 Scovillainite stone
-[~ 305]
+Baxcalibrite stone
 [~ 306]
 Glimmoranite stone
 ~~~~~~~~~~~~~~~
@@ -4937,7 +5009,7 @@ Dragon Fang
 Silk Scarf
 Shell Bell
 [~ 75]
-[~ 76]
+Leek
 Wide Lens
 Muscle Band
 pair of Wise Glasses
@@ -4980,14 +5052,14 @@ Big Root
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Rocky Helmet
+Air Balloon
+Red Card
+Binding Band
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Eject Button
+Normal Gem
 [~ 127]
 [~ 128]
 [~ 129]
@@ -5043,7 +5115,7 @@ Glalitite stone
 [~ 179]
 Cameruptite stone
 Lopunnite stone
-[~ 182]
+Salamencite stone
 Beedrillite stone
 [~ 184]
 [~ 185]
@@ -5075,11 +5147,11 @@ Beedrillite stone
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Terrain Extender
+Electric Seed
+Psychic Seed
+Misty Seed
+Grassy Seed
 [~ 219]
 [~ 220]
 [~ 221]
@@ -5156,17 +5228,17 @@ Falinksite stone
 Raichunite X stone
 Raichunite Y stone
 Chimechite stone
-[~ 295]
+Absolite Z stone
 Staraptite stone
-[~ 297]
-[~ 298]
+Garchompite Z stone
+Lucarionite Z stone
 Golurkite stone
 Meowsticite stone
 Crabominite stone
-[~ 302]
+Golisopite stone
 [~ 303]
 Scovillainite stone
-[~ 305]
+Baxcalibrite stone
 [~ 306]
 Glimmoranite stone
 ~~~~~~~~~~~~~~~
@@ -5248,7 +5320,7 @@ Dragon Fangs
 Silk Scarves
 Shell Bells
 [~ 75]
-[~ 76]
+Leeks
 Wide Lenses
 Muscle Bands
 Wise Glasses
@@ -5291,14 +5363,14 @@ Big Roots
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Rocky Helmets
+Air Balloons
+Red Cards
+Binding Bands
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Eject Buttons
+Normal Gems
 [~ 127]
 [~ 128]
 [~ 129]
@@ -5354,7 +5426,7 @@ Glalitites
 [~ 179]
 Cameruptites
 Lopunnites
-[~ 182]
+Salamencites
 Beedrillites
 [~ 184]
 [~ 185]
@@ -5386,11 +5458,11 @@ Beedrillites
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Terrain Extenders
+Electric Seeds
+Psychic Seeds
+Misty Seeds
+Grassy Seeds
 [~ 219]
 [~ 220]
 [~ 221]
@@ -5467,17 +5539,17 @@ Falinksites
 Raichunite Xs
 Raichunite Ys
 Chimechites
-[~ 295]
+Absolite Zs
 Staraptites
-[~ 297]
-[~ 298]
+Garchompite Zs
+Lucarionite Zs
 Golurkites
 Meowsticites
 Crabominites
-[~ 302]
+Golisopites
 [~ 303]
 Scovillainites
-[~ 305]
+Baxcalibrites
 [~ 306]
 Glimmoranites
 ~~~~~~~~~~~~~~~
@@ -5559,7 +5631,7 @@ Dragon Fangs
 Silk Scarves
 Shell Bells
 [~ 75]
-[~ 76]
+Leeks
 Wide Lenses
 Muscle Bands
 pairs of Wise Glasses
@@ -5602,14 +5674,14 @@ Big Roots
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Rocky Helmets
+Air Balloons
+Red Cards
+Binding Bands
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Eject Buttons
+Normal Gems
 [~ 127]
 [~ 128]
 [~ 129]
@@ -5665,7 +5737,7 @@ Glalitite stones
 [~ 179]
 Cameruptite stones
 Lopunnite stones
-[~ 182]
+Salamencite stones
 Beedrillite stones
 [~ 184]
 [~ 185]
@@ -5697,11 +5769,11 @@ Beedrillite stones
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Terrain Extenders
+Electric Seeds
+Psychic Seeds
+Misty Seeds
+Grassy Seeds
 [~ 219]
 [~ 220]
 [~ 221]
@@ -5778,17 +5850,17 @@ Falinksite stones
 Raichunite X stones
 Raichunite Y stones
 Chimechite stones
-[~ 295]
+Absolite Z stones
 Staraptite stones
-[~ 297]
-[~ 298]
+Garchompite Z stones
+Lucarionite Z stones
 Golurkite stones
 Meowsticite stones
 Crabominite stones
-[~ 302]
+Golisopite stones
 [~ 303]
 Scovillainite stones
-[~ 305]
+Baxcalibrite stones
 [~ 306]
 Glimmoranite stones
 ~~~~~~~~~~~~~~~
@@ -5813,6 +5885,8 @@ Berry
 Other
 [~ 17]
 Mega Stone
+[~ 19]
+All
 ~~~~~~~~~~~~~~~
 Text File : item_ticket
 ~~~~~~~~~~~~~~~
@@ -5864,6 +5938,9 @@ Quick Ball Guaranteed Ticket
 Training Ticket
 Rare Poké Ball Guaranteed Ticket
 2026 Worlds Commemorative Roster Ticket
+You don’t have any tickets.
+Expiration Date:
+[Digit:2digits Idx="3" ]:[Digit:2digits Idx="4" ] [Name:MonthNameShort Idx="1" ] [Digit:2digits Idx="2" ], [Digit:4digits Sep="0" ]
 ~~~~~~~~~~~~~~~
 Text File : item_ticket_info
 ~~~~~~~~~~~~~~~
@@ -5945,6 +6022,8 @@ Back
 Maintenance is currently ongoing.\nYou will now be returned to the title screen.
 [Name:FreeWord ]
 [Name:FreeWord ]
+Maintenance is scheduled to start at [Digit:2digits ]:[Digit:2digits Idx="1" ].\nAny battles that are still ongoing at that time\nwill be invalidated.\n\nAre you sure you want to begin matchmaking?
+Maintenance will be carried out shortly.\nAny battles that are still ongoing when\nmaintenance starts will be invalidated.\n\nAre you sure you want to begin matchmaking?
 ~~~~~~~~~~~~~~~
 Text File : message_error
 ~~~~~~~~~~~~~~~
@@ -7159,6 +7238,8 @@ Filter
 Ascending
 Descending
 Reset Filters
+[~ 14]
+[~ 15]
 Visiting from Pokémon HOME
 Recruited (Permanent)
 Recruited (Trial Ongoing)
@@ -7207,7 +7288,7 @@ Music
 Display Battle Names
 Display Trainer Name
 Display Battle Info
-[~ 11]
+Remember Box Sorting
 Trainer Name
 Language
 Apple Account
@@ -7258,6 +7339,9 @@ Delete your Pokémon Champions account.
 Notifications from Pokémon Champions
 Receive all notifications from Pokémon Champions
 To receive notifications, you must change your notification\nsettings on your device. Would you like to open your settings?
+Choose whether to save how your Pokémon are sorted\nin your Box and during training.
+Display Selection Support
+Choose whether to display information based off of battle data\nto assist you when selecting Pokémon to send into battle.
 ~~~~~~~~~~~~~~~
 Text File : op_event
 ~~~~~~~~~~~~~~~
@@ -7516,6 +7600,7 @@ Would you like to exit the game?
 Achievements
 Gameplay Guides
 Mystery Gifts
+Your Tickets
 ~~~~~~~~~~~~~~~
 Text File : place_name_syn
 ~~~~~~~~~~~~~~~
@@ -7551,7 +7636,7 @@ Delete
 Do you want to delete this message?
 The message was deleted.
 Do you want to delete all your read messages?
-[System:Color r="255" g="128" b="128" a="255" ]Note: Any messages that contain gifts you\nhaven’t yet claimed will not be deleted.[System:Color a="255" ]
+[System:Color r="255" g="128" b="128" a="255" ]Note: Important messages and messages that\ncontain unclaimed gifts will not be deleted.[System:Color a="255" ]
 Messages deleted!
 [System:Color r="255" g="128" b="128" a="255" ]Note: Any messages that haven’t been read\nor that contain gifts you haven’t yet claimed\nwill not be deleted.[System:Color a="255" ]
 The gift or gifts you were unable to\nreceive were sent to your mailbox.\n[System:Color r="255" g="128" b="128" a="255" ]Note: Gifts that have not been claimed\nbefore their expiration date will be deleted.[System:Color a="255" ]
@@ -7816,7 +7901,7 @@ Would you like to meet new Pokémon from this roster\nusing [EN:IndArt ][Name:Pr
 ~~~~~~~~~~~~~~~
 Text File : rental_poke_appear
 ~~~~~~~~~~~~~~~
-This roster features Pokémon eligible for Ranked Battles in\nRegulation Set [Name:PokeRegulation ].
+This roster features Pokémon eligible for Ranked Battles in\nRegulation Set [Name:PokeRegulation ].\nCheck the News for more information.
 Newly-eligible Pokémon will be more likely\nthan usual to appear in lineups from this roster.
 You can recruit from this roster if you use\n[EN:IndArt ][Name:ProbabilityItem ].
 Available Period:
@@ -7835,8 +7920,13 @@ Permanent Recruitment
 Duration: permanent\n[System:Color r="255" g="128" b="128" a="255" ]Note: You need to use VP to recruit Pokémon permanently.[System:Color a="255" ]
 Duration: permanent
 [~ 18]
+[~ 19]
+[~ 20]
+[~ 21]
+[~ 22]
 M-A
 M-B
+M-C
 ~~~~~~~~~~~~~~~
 Text File : rental_poke_select
 ~~~~~~~~~~~~~~~
@@ -8001,6 +8091,18 @@ Giddy Old Man
 Fairy Tale Girl
 Ruler of Origins
 Ruler of Origins
+PokéDoko Champion
+PokéDoko Champion
+[Name:TournamentAbb Idx="10" ] Master
+[Name:TournamentAbb Idx="10" ] Master
+[Name:TournamentAbb Idx="10" ] Veteran
+[Name:TournamentAbb Idx="10" ] Veteran
+[Name:TournamentAbb Idx="10" ] Ace
+[Name:TournamentAbb Idx="10" ] Ace
+[Name:TournamentAbb Idx="10" ] Rising Star
+[Name:TournamentAbb Idx="10" ] Rising Star
+[Name:TournamentAbb Idx="10" ] Challenger
+[Name:TournamentAbb Idx="10" ] Challenger
 An honor given to a Trainer who has won\n[Digit:5digits Sep="44" ] [EN:Qty S="battle" P="battles" ] using [Name:PokemonName Idx="4" ].
 An honor given to a great Trainer who has won\n[Digit:5digits Sep="44" ] [EN:Qty S="battle" P="battles" ] using [Name:PokemonName Idx="4" ].
 An honor given to a splendid Trainer who has won\n[Digit:5digits Sep="44" ] [EN:Qty S="battle" P="battles" ] using [Name:PokemonName Idx="4" ].
@@ -8032,18 +8134,19 @@ An honor given to a Trainer who placed No. [Digit:5digits Sep="44" ]\nat the Wor
 An honor given to a Trainer who placed No. [Digit:5digits Sep="44" ]\nat the World Championships.
 An honor given to a Trainer who placed No. [Digit:5digits Sep="44" ] through\nNo. [Digit:5digits Idx="1" Sep="44" ] at the World Championships.
 An honor given to a Trainer who participated\nat the World Championships.
-[~ 165]
+[~ 177]
 An honor given to a Trainer who placed No. [Digit:5digits Idx="2" Sep="44" ] through\nNo. [Digit:5digits Idx="3" Sep="44" ] in the [Name:MonthName Idx="1" ] [Digit:4digits Sep="0" ] [Name:TournamentAbb Idx="10" ] competition.
 An honor given to a Trainer who participated in the\n[Name:MonthName Idx="1" ] [Digit:4digits Sep="0" ] [Name:TournamentAbb Idx="10" ] competition.
 An honor given to a Trainer who placed No. 1 in the\nRuler of Origins Competition.
+An honor given to a Trainer who placed No. 1 in the\nPokéDoko tournament.
 Great Ball
 Ultra Ball
 Master Ball
 Trainer Icon
 Badge
 NAIC
-[~ 175]
-[~ 176]
+LAIC
+[~ 189]
 PJCS
 PTC
 TWMBL
@@ -8053,6 +8156,7 @@ THMBL
 PHMBL
 SGMBL
 IDMBL
+Mega Evolution Battle
 Full-Fledged Trainer
 Great Trainer
 Ultra Trainer
@@ -8200,7 +8304,7 @@ Restore Past Transactions
 Restore Transactions
 No transaction errors were found.
 All transactions successfully restored!
-[~ 60]
+Failed to restore transactions.
 ・ Product Details and Quantity\nPremium Battle Pass ×1\nPurchasing a Premium Battle Pass lets you receive additional rewards when the level of your\nBattle Pass increases.\nFor more specifics about these rewards, please check the Battle Pass screen, which can be\naccessed from the Gym screen.\n\nA Premium Battle Pass remains valid for the duration of the season.\nAfter the season ends, the pass will expire. You can purchase a new Premium Battle Pass for\nthe next season. To see the specific dates of a season, please check the Battle Pass screen,\nwhich can be accessed from the Gym screen.\n\nNote: Rewards that are identical to items you already have in your inventory may be\nconverted to VP.\n\nAt the time of purchasing a Premium Battle Pass, you’ll receive the Premium Battle Pass\nrewards for all of the Battle Pass levels that you’ve attained up until that point.\n\nNote: Rewards obtained with the Premium Battle Pass may become available to purchase\nfrom the Shop screen or to obtain in some other way at a later date.\n\n\n・ Pricing\nTo see the price of this product, please select [Character2:L_DoubleQuot. ]Back[Character2:R_DoubleQuot. ] to return to the previous screen and\ncheck the information there.\n\n\n・ Sales Period\nYou can purchase a Premium Battle Pass up until the end of the season during which that pass\nis being sold.\nOnly one Premium Battle Pass may be purchased per sales period.\n\nIf you attempt to purchase a Premium Battle Pass right before the end of the sales period, it’s\npossible that the transaction may not go through due to payment issues on the platform.\n\nPlease ensure that you have sufficient time before the end of the sales period when you\npurchase a Premium Battle Pass.\n
 [~ 62]
 [~ 63]
@@ -8243,6 +8347,7 @@ Power
 New Arrivals
 VP Cost
 Type
+Change Order
 ~~~~~~~~~~~~~~~
 Text File : status
 ~~~~~~~~~~~~~~~
@@ -8441,7 +8546,7 @@ Pressure
 Thick Fat
 Early Bird
 Flame Body
-[~ 50]
+Run Away
 Keen Eye
 Hyper Cutter
 Pickup
@@ -8455,7 +8560,7 @@ Sticky Hold
 Shed Skin
 Guts
 Marvel Scale
-[~ 64]
+Liquid Ooze
 Overgrow
 Blaze
 Torrent
@@ -8546,7 +8651,7 @@ Infiltrator
 Mummy
 Moxie
 Justified
-[~ 155]
+Rattled
 Magic Bounce
 Sap Sipper
 Prankster
@@ -8570,7 +8675,7 @@ Sweet Veil
 Stance Change
 Gale Wings
 Mega Launcher
-[~ 179]
+Grass Pelt
 Symbiosis
 Tough Claws
 Pixilate
@@ -8585,11 +8690,11 @@ Fairy Aura
 [~ 191]
 Stamina
 [~ 193]
-[~ 194]
+Emergency Exit
 [~ 195]
 Merciless
 [~ 197]
-[~ 198]
+Stakeout
 Water Bubble
 [~ 200]
 Berserk
@@ -8618,16 +8723,16 @@ Receiver
 [~ 224]
 [~ 225]
 Electric Surge
-[~ 227]
+Psychic Surge
 [~ 228]
-[~ 229]
+Grassy Surge
 [~ 230]
 [~ 231]
 [~ 232]
 [~ 233]
 [~ 234]
 [~ 235]
-[~ 236]
+Libero
 [~ 237]
 [~ 238]
 [~ 239]
@@ -8635,7 +8740,7 @@ Mirror Armor
 [~ 241]
 Stalwart
 [~ 243]
-[~ 244]
+Punk Rock
 Sand Spit
 [~ 246]
 Ripen
@@ -8643,7 +8748,7 @@ Ripen
 [~ 249]
 Mimicry
 Screen Cleaner
-[~ 252]
+Steely Spirit
 [~ 253]
 Wandering Spirit
 [~ 255]
@@ -8660,13 +8765,13 @@ Curious Medicine
 [~ 266]
 [~ 267]
 [~ 268]
-[~ 269]
-[~ 270]
+Seed Sower
+Thermal Exchange
 [~ 271]
 Purifying Salt
 [~ 273]
 [~ 274]
-[~ 275]
+Guard Dog
 [~ 276]
 [~ 277]
 Zero to Hero
@@ -8710,17 +8815,18 @@ Mega Sol
 Fire Mane
 [~ 317]
 Spicy Spray
+Aura Guard
 ~~~~~~~~~~~~~~~
 Text File : tokuseiinfo_syn
 ~~~~~~~~~~~~~~~
 When the Pokémon deals damage with its moves, there is a\n10% chance that targets will flinch.
 Summons rain for 5 turns when the Pokémon enters a battle.
-Boosts the Pokémon’s Speed stat by 1 stage at the end of\nevery turn.
+Boosts the Pokémon’s Speed stat by 1 stage at the end of\nevery turn. The Speed stat will not be boosted on the turn\nthat the Pokémon switches into battle.
 Attacks landed on the Pokémon will never be critical hits.
 If the Pokémon has full HP and takes damage from a move that\nwould knock it out in one hit, it will endure the hit with 1 HP.\nThe Pokémon is also immune to one-hit KO moves.
 All Pokémon become unable to use explosive moves.\nExplosive Abilities also fail to trigger.
 The Pokémon cannot be paralyzed.
-Boosts the Pokémon’s evasiveness by 25% in a sandstorm.
+Boosts the Pokémon’s evasiveness by 25% in a sandstorm.\nThe Pokémon takes no damage from sandstorms.
 When the Pokémon is hit by a contact move, the attacker has a\n30% chance of being paralyzed.
 Electric-type moves do not work on the Pokémon. Instead, they\nrestore 1/4 of its max HP.
 Water-type moves do not work on the Pokémon. Instead, they\nrestore 1/4 of its max HP.
@@ -8739,7 +8845,7 @@ Opponents cannot be switched out of battle.
 When the Pokémon is hit by a contact move, the attacker takes\ndamage equal to 1/8 of its max HP.
 [~ 24]
 The Pokémon floats off the ground, making it immune to\nGround-type moves, as well as the Spikes, Toxic Spikes,\nand Sticky Web statuses.
-When the Pokémon is hit by a contact move, the attacker has a\n30% chance of being poisoned, paralyzed, or put to sleep.
+When the Pokémon is hit by a contact move, the attacker has a\n30% chance of being poisoned, paralyzed, or put to sleep.\nGrass-type Pokémon are unaffected.
 If the Pokémon is burned, paralyzed, poisoned, or badly\npoisoned by another Pokémon’s move or Ability, that Pokémon\nwill also be inflicted with the same status condition.
 The Pokémon’s stats cannot be lowered by other Pokémon’s\nmoves or Abilities.
 The Pokémon’s status conditions are cured when it switches out\nof battle.
@@ -8762,7 +8868,7 @@ Causes opponents to expend 1 more PP when using moves\nagainst the Pokémon.
 Halves the damage the Pokémon takes from Fire- and Ice-type\nmoves.
 The Pokémon awakens from sleep twice as fast as other\nPokémon.
 When the Pokémon is hit by a contact move, the attacker has a\n30% chance of being burned.
-[~ 49]
+Enables the Pokémon to ignore any effects that would usually\nprevent it from switching out of battle and being replaced by\nanother party Pokémon.
 The Pokémon ignores changes to targets’ evasiveness and its\naccuracy cannot be lowered.
 The Pokémon’s Attack stat cannot be lowered by other\nPokémon’s moves or Abilities.
 If the Pokémon is not already holding an item, at the end of\nthe turn it will pick up an item that was consumed by another\nPokémon.
@@ -8776,7 +8882,7 @@ The Pokémon’s held item cannot be stolen or removed by other\nPokémon.
 The Pokémon has a 30% chance of curing its own status\nconditions at the end of every turn.
 When the Pokémon has a status condition, its Attack stat is\nboosted by 50%. Being burned does not halve the damage\ndealt by the Pokémon’s physical moves.
 When the Pokémon has a status condition, its Defense stat is\nboosted by 50%.
-[~ 63]
+When the Pokémon is hit by an HP-absorbing move, the\nattacker does not restore HP but instead takes damage equal\nto the amount of HP it would have restored.
 Boosts the power of the Pokémon’s Grass-type moves by 50%\nwhen its HP drops to 1/3 or less of its max.
 Boosts the power of the Pokémon’s Fire-type moves by 50%\nwhen its HP drops to 1/3 or less of its max.
 Boosts the power of the Pokémon’s Water-type moves by 50%\nwhen its HP drops to 1/3 or less of its max.
@@ -8867,10 +8973,10 @@ When using its moves, the Pokémon ignores the effects of\ntargets’ Light Scre
 When the Pokémon is hit by a contact move, the attacker has its\nAbility changed to Mummy.
 When the Pokémon knocks out a target with an attack, its\nAttack stat is boosted by 1 stage.
 When the Pokémon takes damage from a Dark-type move, its\nAttack stat is boosted by 1 stage.
-[~ 154]
+When the Pokémon takes damage from a Dark-, Ghost-, or\nBug-type move or when it is on the receiving end of Intimidate,\nits Speed stat is boosted by 1 stage.
 Instead of being affected by other Pokémon’s status moves,\nthe Pokémon bounces them back at the user.
 Grass-type moves do not work on the Pokémon. Instead, they\nboost its Attack stat by 1 stage.
-Increases the priority of the Pokémon’s status moves by 1 stage.
+Increases the priority of the Pokémon’s status moves by 1 stage.\nHowever, the Pokémon’s status moves no longer work against\nDark-type Pokémon.
 Boosts the power of the Pokémon’s Rock-, Ground-, and\nSteel-type moves by 30% in a sandstorm.
 [~ 159]
 [~ 160]
@@ -8891,7 +8997,7 @@ The Pokémon and its allies cannot become drowsy or be\nput to sleep.
 The Pokémon changes into its Blade Forme when it attacks\nand changes into its Shield Forme when it uses the move\nKing’s Shield.
 Increases the priority of the Pokémon’s Flying-type moves by\n1 stage while its HP is full.
 Boosts the power of the Pokémon’s pulse moves by 50%.
-[~ 178]
+Boosts the Pokémon’s Defense stat by 50% on Grassy Terrain.
 When an ally consumes an item, the Pokémon gives its own held\nitem to that ally.
 Boosts the power of the Pokémon’s contact moves by 30%.
 The Pokémon’s Normal-type moves become Fairy-type moves\nand their power is boosted by 20%.
@@ -8906,11 +9012,11 @@ Boosts the power of the Fairy-type moves of all Pokémon on the\nfield by 33%.
 [~ 190]
 When the Pokémon takes damage from a move, its Defense stat\nis boosted by 1 stage.
 [~ 192]
-[~ 193]
+The Pokémon switches out of battle when its HP drops to 1/2 or\nless of its max.
 [~ 194]
 The Pokémon’s attacks become critical hits if the target is\npoisoned or badly poisoned.
 [~ 196]
-[~ 197]
+Doubles the power of the Pokémon’s moves when it attacks\ntargets that have just switched into battle.
 Halves the damage the Pokémon takes from Fire-type moves\nand doubles the power of its Water-type moves. The Pokémon\ncannot be burned.
 [~ 199]
 Boosts the Pokémon’s Sp. Atk stat by 1 stage when an attack\ncauses its HP to drop to 1/2 or less of its max.
@@ -8939,16 +9045,16 @@ The Pokémon changes its Ability to match that of a\ndefeated ally.
 [~ 223]
 [~ 224]
 Turns the entire field into Electric Terrain for 5 turns when the\nPokémon enters a battle.
-[~ 226]
+Turns the entire field into Psychic Terrain for 5 turns when the\nPokémon enters a battle.
 [~ 227]
-[~ 228]
+Turns the entire field into Grassy Terrain for 5 turns when the\nPokémon enters a battle.
 [~ 229]
 [~ 230]
 [~ 231]
 [~ 232]
 [~ 233]
 [~ 234]
-[~ 235]
+Changes the Pokémon’s type to the type of the move it’s\nabout to use. This works only once per time the Pokémon\nenters battle.
 [~ 236]
 [~ 237]
 [~ 238]
@@ -8956,7 +9062,7 @@ Instead of being affected by stat-lowering effects, the Pokémon\nbounces them b
 [~ 240]
 The Pokémon ignores the effects of Abilities and moves that\ndraw in moves.
 [~ 242]
-[~ 243]
+Boosts the power of the Pokémon’s sound-based moves\nby 30% and halves the damage the Pokémon takes from\nsound-based moves.
 Summons a sandstorm for 5 turns when the Pokémon takes\ndamage from moves.
 [~ 245]
 Doubles the effects of Berries eaten by the Pokémon.
@@ -8964,7 +9070,7 @@ Doubles the effects of Berries eaten by the Pokémon.
 [~ 248]
 The Pokémon’s type changes depending on the terrain.
 When the Pokémon enters a battle, it removes the Light Screen,\nReflect, and Aurora Veil statuses.
-[~ 251]
+Boosts the power of the Steel-type moves of the Pokémon and\nits allies by 50%.
 [~ 252]
 When the Pokémon is hit by a contact move, it swaps Abilities\nwith the attacker.
 [~ 254]
@@ -8981,13 +9087,13 @@ When the Pokémon enters a battle, it removes all stat changes\nfrom its allies.
 [~ 265]
 [~ 266]
 [~ 267]
-[~ 268]
-[~ 269]
+Turns the entire field into Grassy Terrain for 5 turns when the\nPokémon takes damage from moves.
+When the Pokémon takes damage from a Fire-type move, its\nAttack stat is boosted by 1 stage. The Pokémon cannot be\nburned.
 [~ 270]
 Halves the damage the Pokémon takes from Ghost-type moves.\nThe Pokémon is immune to status conditions.
 [~ 272]
 [~ 273]
-[~ 274]
+Intimidate does not work on the Pokémon. Instead, it boosts\nthe Pokémon’s Attack stat by 1 stage. The Pokémon is also\nunaffected by the moves and held items of other Pokémon\nthat would force it to switch out of battle.
 [~ 275]
 [~ 276]
 The Pokémon changes into its Hero Form when it switches out\nof battle.
@@ -9031,6 +9137,7 @@ Even when the sunlight has not turned harsh, the Pokémon can\nuse its moves as 
 Boosts the power of the Pokémon’s Fire-type moves by 50%.
 [~ 316]
 When the Pokémon takes damage from a move, it burns\nthe attacker.
+Halves the damage the Pokémon takes from contact moves.
 ~~~~~~~~~~~~~~~
 Text File : tournament_mode
 ~~~~~~~~~~~~~~~
@@ -9355,15 +9462,15 @@ Deals 50 HP of damage.
 Gives the target the Leech Seeded status.
 Boosts the user’s Attack and Sp. Atk stats by 1 stage. In harsh\nsunlight, these stats will be boosted by 2 stages instead.
 The user gains the Charging status on the turn this move is used,\nthen attacks on the following turn. In harsh sunlight, the user\ndoes not gain the Charging status and can attack immediately.\nThis move’s power is halved in any other weather condition.
-Poisons the target.
-Paralyzes the target.
-Puts the target to sleep.
+Poisons the target. Grass-type Pokémon are unaffected.
+Paralyzes the target. Grass-type Pokémon are unaffected.
+Puts the target to sleep. Grass-type Pokémon are unaffected.
 The user gains the Rampaging status.
 Lowers targets’ Speed stats by 2 stages.
 Gives the target the Bound status.
 Has a 10% chance of paralyzing the target.
-Paralyzes the target.
-Has a 30% chance of paralyzing the target. This move never\nmisses in rain and can hit a target that has the Sky-High status.
+Paralyzes the target. Ground-type Pokémon are unaffected.
+Has a 30% chance of paralyzing the target. In rain, this move\nnever misses. In harsh sunlight, this move’s accuracy is 50%.\nThis move can hit a target that has the Sky-High status.
 This move’s power is doubled against targets that have\nthe Underground status. When Grassy Terrain is active,\nthis move’s power is halved.
 Knocks out the target. The accuracy of this move is fixed\nat 30%.
 The user gains the Underground status on the turn this move is\nused, then attacks on the following turn.
@@ -9391,7 +9498,7 @@ Paralyzes the target.
 The user’s HP is restored by 1/2 of the damage dealt by\nthis move.
 The user gains the Charging status on the turn this move is used,\nthen attacks on the following turn. This move has a 30% chance\nof making the target flinch, and it has a 1-stage Critical-Hit\nRatio Boost.
 The user transforms into a copy of the target. It also copies all\nof the target’s stats apart from its HP.
-Puts the target to sleep.
+Puts the target to sleep. Grass-type Pokémon are unaffected.
 Boosts the user’s Defense stat by 2 stages.
 This move has a 1-stage Critical-Hit Ratio Boost.
 The user faints upon using this move.
@@ -9401,15 +9508,16 @@ Has a 30% chance of making targets flinch.
 [~ 72]
 Has a 20% chance of leaving the target burned, frozen,\nor paralyzed.
 Deals damage to the target equal to 1/2 of its remaining HP.\nDeals 1 HP of damage to a target that has only 1 HP left.
-The user loses 1/4 of its max HP to create a substitute. The\nsubstitute will be hit by moves instead of the user, and it will\nvanish when it takes damage equal to 1/4 of the user’s max HP.
+This move has a 1-stage Critical-Hit Ratio Boost.
+The user loses 1/4 of its max HP to create a substitute. The\nsubstitute will be hit by moves instead of the user, and it will\nvanish when it takes damage equal to 1/4 of the user’s max HP.\nSound-based moves will hit the user through the substitute.
 If the user is not already holding an item, it steals the target’s\nheld item.
 Can be used only if the user is asleep. Has a 30% chance of\nmaking the target flinch.
 The user loses 1/2 of its max HP to give the target the\nCursed status.
 Lowers the user’s Speed stat by 1 stage and boosts its Attack\nand Defense stats by 1 stage.
 The less HP the user has left, the greater this move’s power\n(ranging between 20 and 200).
-[~ 81]
 [~ 82]
-Lowers targets’ Speed stats by 2 stages.
+[~ 83]
+Lowers targets’ Speed stats by 2 stages. Grass-type Pokémon\nare unaffected.
 The less HP the user has left, the greater this move’s power\n(ranging between 20 and 200).
 Removes 4 PP from the move last used by the target.
 The user protects itself from incoming moves for the turn. With\neach consecutive use, this move’s chance of success becomes\n1/3 of what it was before.
@@ -9418,7 +9526,7 @@ Confuses the target.
 The user loses 1/2 of its max HP to boost its Attack stat to its\nsixth stage. This move fails if the user doesn’t have enough\nremaining HP.
 Has a 30% chance of poisoning the target.
 Lowers the target’s accuracy by 1 stage.
-[~ 92]
+Has a 50% chance of lowering the target’s accuracy by 1 stage.
 Gives the opponent’s side the Spikes status.
 Paralyzes the target.
 The user gains the Destiny Bound status. This move fails if used\nin succession.
@@ -9433,13 +9541,13 @@ The user’s HP is restored by 1/2 of the damage dealt by\nthis move.
 During the turn this move is used, if the user takes damage from\na move that would knock it out, it will endure the hit with 1 HP.\nWith each consecutive use, this move’s chance of success\nbecomes 1/3 of what it was before.
 Lowers the target’s Attack stat by 2 stages.
 Boosts the target’s Attack stat by 2 stages and confuses it.
-[~ 107]
+Restores 1/2 of the max HP of the user or an ally.
 Has a 10% chance of boosting the user’s Defense stat by\n1 stage.
 Gives the target the Can’t Escape status.
 Gives the target the Infatuated status. This move will fail against\na target that is the same gender as the user or whose gender\nis unknown.
 Can be used only if the user is asleep. The user uses one of the\nother moves it knows at random.
 The user cures the status conditions of all the Pokémon in\nits party, including itself, as well as its allies.
-[~ 113]
+[~ 114]
 Gives the user’s side the Safeguard status for 5 turns.
 The user adds its remaining HP to the target’s remaining HP,\nthen splits the total in half for them to share.
 Confuses the target.
@@ -9492,9 +9600,9 @@ The less HP the user has left, the lower this move’s power\n(ranging between 1
 The user and the target swap their Abilities.
 The user gains the Sealing Off status.
 The user gains the Submerged status on the turn this move is\nused, then attacks on the following turn.
-[~ 166]
 [~ 167]
 [~ 168]
+[~ 169]
 Lowers the target’s Attack stat by 2 stages.
 Confuses all other Pokémon on the field.
 Has a 10% chance of burning the target. This move has a\n1-stage Critical-Hit Ratio Boost.
@@ -9535,8 +9643,8 @@ This move has a 1-stage Critical-Hit Ratio Boost.
 Boosts the user’s Attack and Speed stats by 1 stage.
 The user attacks 2 to 5 times in a row.
 Has a 20% chance of confusing the target.
-[~ 209]
 [~ 210]
+[~ 211]
 Restores 1/2 of the user’s max HP. If the user is a Flying type,\nit will lose the Flying type for the turn.
 Gives the entire field the Gravity status for 5 turns.
 Lowers the user’s Speed stat by 1 stage.
@@ -9561,7 +9669,7 @@ This move fails unless the user has already used all the other\nmoves it knows.
 Changes the target’s Ability to Insomnia.
 This move fails unless the target has chosen an attack and has\nnot yet attacked during the turn this move is used.
 Gives the opponent’s side the Toxic Spikes status.
-[~ 235]
+[~ 236]
 The user gains the Aqua Ring status.
 The user gains the Magnet Rise status.
 Has a 10% chance of burning the target. Cures the user of\nbeing frozen. The user also takes 1/3 of the damage dealt by\nthis move.
@@ -9602,16 +9710,15 @@ Has a 20% chance of making the target flinch.
 This move has a 1-stage Critical-Hit Ratio Boost.
 Gives the opponent’s side the Stealth Rock status.
 The heavier the target, the greater this move’s power (ranging\nbetween 20 and 120).
-[~ 276]
 [~ 277]
+[~ 278]
 If the target is holding a Berry, the user eats that Berry and gains\nits effect.
 Has a 70% chance of boosting the user’s Sp. Atk stat by 1 stage.
 The user takes 1/3 of the damage dealt by this move.
-[~ 281]
 [~ 282]
+[~ 283]
 The user takes 1/2 of the damage dealt by this move.
 The user attacks twice in a row.
-[~ 285]
 [~ 286]
 [~ 287]
 [~ 288]
@@ -9619,13 +9726,14 @@ The user attacks twice in a row.
 [~ 290]
 [~ 291]
 [~ 292]
+[~ 293]
 During the turn this move is used, the user protects its side from\nmoves that target all allies.
 The user adds its Defense stat to the target’s Defense stat, then\nsplits the total in half for them to share. It does the same with\neach of their Sp. Def stats.
 The user adds its Attack stat to the target’s Attack stat, then\nsplits the total in half for them to share. It does the same with\neach of their Sp. Atk stats.
 Gives the entire field the Wonder Room status for 5 turns.
 This is a special move, but the damage it deals is calculated\nusing the target’s Defense stat.
 This move’s power is doubled if the target is poisoned or\nbadly poisoned.
-The user redirects opponents’ moves toward itself. This effect\nworks only on single-target moves.
+The user redirects opponents’ moves toward itself. This effect\nworks only on single-target moves. Grass-type Pokémon are\nunaffected.
 Gives the entire field the Magic Room status for 5 turns.
 If the target is off the ground, it gains the Landed status. This\nmove can hit a target that has the Sky-High status.
 Always a critical hit.
@@ -9651,7 +9759,7 @@ Has a 30% chance of burning the target. Cures the user and\ntarget of being froz
 Lowers the user’s Defense and Sp. Def stats by 1 stage and\nboosts its Attack, Sp. Atk, and Speed stats by 2 stages.
 Restores 1/2 of the target’s max HP.
 This move’s power is doubled if the target has a\nstatus condition.
-[~ 325]
+Boosts the user’s Attack stat by 1 stage and Speed stat by\n2 stages.
 If there are other Pokémon in the target’s party that can switch\ninto battle, the target is forced to switch out of battle and is\nreplaced by one of those Pokémon at random.
 Causes the target to move last in the turn.
 This move’s power is doubled if the user isn’t holding an item.
@@ -9672,10 +9780,9 @@ Has a 50% chance of lowering the target’s Defense stat by\n1 stage.
 The more the user outweighs the target, the greater this move’s\npower (ranging between 40 and 120). If the target has the\nMinimized status, this move’s power is doubled and it will be\nsure to hit.
 Boosts the user’s Defense stat by 3 stages.
 Has a 40% chance of lowering the target’s accuracy by 1 stage.
-[~ 346]
+[~ 347]
 The user attacks 2 to 5 times in a row.
-Has a 30% chance of confusing the target. This move never\nmisses in rain and can hit a target that has the Sky-High status.
-[~ 349]
+Has a 30% chance of confusing the target. In rain, this move\nnever misses. In harsh sunlight, this move’s accuracy is 50%.\nThis move can hit a target that has the Sky-High status.
 [~ 350]
 [~ 351]
 [~ 352]
@@ -9684,14 +9791,15 @@ Has a 30% chance of confusing the target. This move never\nmisses in rain and ca
 [~ 355]
 [~ 356]
 [~ 357]
+[~ 358]
 Has a 50% chance of boosting the user’s Sp. Atk stat by 1 stage.
-[~ 359]
 [~ 360]
+[~ 361]
 Lowers targets’ Sp. Atk stats by 1 stage.
 Has a 30% chance of making the target flinch.
-[~ 363]
 [~ 364]
 [~ 365]
+[~ 366]
 The damage dealt by this move is calculated by combining the\neffectiveness of the move’s own type with that of the Flying\ntype. If the target has the Minimized status, this move’s power\nis doubled and it will be sure to hit.
 This move fails unless the user has eaten a Berry during\nthe battle.
 Gives the opponent’s side the Sticky Web status.
@@ -9712,21 +9820,20 @@ Has a 10% chance of lowering the target’s Attack stat by\n1 stage.
 Has a 10% chance of lowering the target’s Sp. Atk stat by\n1 stage.
 Gives all Pokémon on the field the Fairy Locked status.
 The user protects itself from incoming attacks for the turn and\nchanges into its Shield Forme. Any attackers that use contact\nmoves against the user during this turn will have their Attack\nstats lowered by 1 stage. With each consecutive use, this move’s\nchance of success becomes 1/3 of what it was before.
-[~ 386]
 [~ 387]
 [~ 388]
+[~ 389]
 The user attacks 2 to 5 times in a row.
 Lowers the target’s Sp. Atk stat by 1 stage.
 The user protects itself from incoming moves for the turn. Any\nattackers that use contact moves against the user during this\nturn take damage equal to 1/8 of their max HP. With each\nconsecutive use, this move’s chance of success becomes 1/3\nof what it was before.
 Boosts an ally’s Sp. Def stat by 1 stage.
 Lowers the target’s Sp. Atk stat by 2 stages.
-[~ 394]
+[~ 395]
 If the user or its allies have the Plus Ability or the Minus Ability,\ntheir Defense and Sp. Def stats are boosted by 1 stage.
 Turns the entire field into Electric Terrain for 5 turns.
 Lowers the target’s Attack stat by 1 stage.
 Paralyzes the target.
 Gives the target the Bound status.
-[~ 400]
 [~ 401]
 [~ 402]
 [~ 403]
@@ -9770,21 +9877,19 @@ The user takes 1/2 of the damage dealt by this move.
 [~ 441]
 [~ 442]
 [~ 443]
-[~ 444]
-[~ 445]
 This move fails unless it is the first move used by the user after\nit enters a battle.
 The user protects itself from incoming moves for the turn. Any\nattackers that use contact moves against the user during this\nturn become poisoned. With each consecutive use, this move’s\nchance of success becomes 1/3 of what it was before.
 Gives the target the Can’t Escape status.
 This move ignores the target’s stat changes when dealing\ndamage.
 Cures targets of their burns.
 Lowers the user’s Speed stat by 1 stage.
-[~ 452]
+[~ 450]
 Restores the user’s HP by an amount equal to the target’s\nAttack stat. Lowers the target’s Attack stat by 1 stage.
 The user gains the Charging status on the turn this move is used,\nthen attacks on the following turn. In harsh sunlight, the user\ndoes not gain the Charging status and can attack immediately.\nThis move’s power is halved in any other weather condition.
 Lowers the target’s Speed stat by 2 stages and poisons it.
 Gives the target the Throat Chopped status.
 When used on an ally, this move restores 1/2 of its max HP\ninstead of dealing damage.
-[~ 458]
+[~ 456]
 Turns the entire field into Psychic Terrain for 5 turns.
 Lowers the target’s Attack stat by 1 stage.
 Lowers the target’s Defense stat by 1 stage.
@@ -9792,14 +9897,16 @@ This move’s power is increased by 20 for each stage that the\nuser’s stats h
 The user loses the Fire type. Cures the user of being frozen.\nThis move fails unless it is used by a Fire type.
 The user and the target swap their Speed stats.
 This move never misses.
+[~ 464]
+[~ 465]
 [~ 466]
-[~ 467]
-[~ 468]
 Lowers the target’s Attack stat by 1 stage.
 The user makes the target reuse the last move it used.
 If the user is hit by a contact move before it uses this move, the\nattacker will be burned.
 Lowers the user’s Defense stat by 1 stage.
 Gives the user’s side the Aurora Veil status for 5 turns. This\nmove can be used only in snow.
+[~ 472]
+[~ 473]
 [~ 474]
 [~ 475]
 [~ 476]
@@ -9809,17 +9916,17 @@ Gives the user’s side the Aurora Veil status for 5 turns. This\nmove can be us
 [~ 480]
 [~ 481]
 [~ 482]
-[~ 483]
-[~ 484]
 Removes the Light Screen, Reflect, and Aurora Veil statuses on\nthe target’s side.
 This move’s power is doubled if the user couldn’t act or its move\nmissed or failed on the previous turn.
-[~ 487]
+[~ 485]
 Has a 20% chance of lowering the target’s Defense stat by\n1 stage.
+[~ 487]
+[~ 488]
 [~ 489]
 [~ 490]
-[~ 491]
-[~ 492]
 Lowers the target’s Attack and Sp. Atk stats by 1 stage. This\nmove ignores the target’s evasiveness and can hit a target using\na move such as Protect.
+Has a 30% chance of making the target flinch.
+[~ 493]
 [~ 494]
 [~ 495]
 [~ 496]
@@ -9834,18 +9941,18 @@ Lowers the target’s Attack and Sp. Atk stats by 1 stage. This\nmove ignores th
 [~ 505]
 [~ 506]
 [~ 507]
-[~ 508]
-[~ 509]
-[~ 510]
-[~ 511]
+This move ignores the effects of Abilities and moves that draw\nin moves. It has a 1-stage Critical-Hit Ratio Boost.
+The user and target gain the Jaw Locked status.
 The user eats its held Berry and boosts its Defense stat by 2\nstages. This move can’t be used if the user is not holding a Berry.
 Boosts the user’s Attack, Defense, Sp. Atk, Sp. Def, and Speed\nstats by 1 stage. The user gains the Can’t Escape status. This\nmove can only be used once per time the user enters battle—\notherwise it will fail.
-[~ 514]
-Changes the target’s type to Psychic.
+[~ 512]
+Changes the target’s type to Psychic. Grass-type Pokémon\nare unaffected.
 The user attacks twice in a row. If there are 2 opposing\nPokémon, each of them is attacked once.
 Causes all Pokémon on the field to eat their held Berries.
+Gives the target the Octolocked and Can’t Escape statuses.
+[~ 517]
 [~ 518]
-[~ 519]
+Swaps the statuses affecting the user’s side of the field with the\nstatuses affecting the opponent’s side of the field.
 [~ 520]
 [~ 521]
 [~ 522]
@@ -9864,27 +9971,24 @@ Causes all Pokémon on the field to eat their held Berries.
 [~ 535]
 [~ 536]
 [~ 537]
-[~ 538]
-[~ 539]
 The user loses 1/3 of its max HP to boost its Attack, Defense,\nSp. Atk, Sp. Def, and Speed stats by 1 stage. This move fails if\nthe user doesn’t have enough remaining HP.
 The damage dealt by this move is calculated using the user’s\nDefense stat instead of its Attack stat.
 Boosts the target’s Attack and Sp. Atk stats by 2 stages.
-[~ 543]
+Lowers the target’s Speed stat by 1 stage.
 Gives the target the Bound status.
+Has a 10% chance of burning the target. Cures the user of\nbeing frozen.
+[~ 544]
 [~ 545]
-[~ 546]
-[~ 547]
 Boosts the user’s Speed stat by 1 stage. This move’s type\ndepends on Morpeko’s form.
 Lowers targets’ Attack stats by 1 stage.
-[~ 550]
 Lowers the target’s Sp. Def stat by 1 stage.
 Lowers the target’s Defense stat by 1 stage. This move’s power\nis boosted by 50% when the Gravity status is active.
 Lowers the target’s Sp. Atk stat by 1 stage.
-[~ 554]
+[~ 551]
 Restores 1/4 of the max HP of the user and its allies.
-[~ 556]
-[~ 557]
-[~ 558]
+[~ 553]
+The user gains the Recharging status on the turn after this move\nis used.
+[~ 555]
 After attacking, the user takes damage equal to 1/2 of its\nmax HP.
 If the user is under the effect of Psychic Terrain, this move’s\npower is boosted by 50% and its range extends to\nall opponents.
 Removes any terrain. This move fails if there is no terrain on\nthe field.
@@ -9905,6 +10009,9 @@ After attacking, the user switches out of battle to be replaced\nby another part
 The user attacks 3 times in a row—first with a power of 20, then\nwith a power of 40, then with a power of 60. The attack ends if\nthe user misses.
 The user attacks twice in a row.
 Has a 30% chance of burning the target. Cures the user and\ntarget of being frozen.
+[~ 576]
+[~ 577]
+[~ 578]
 [~ 579]
 [~ 580]
 [~ 581]
@@ -9912,63 +10019,60 @@ Has a 30% chance of burning the target. Cures the user and\ntarget of being froz
 [~ 583]
 [~ 584]
 [~ 585]
-[~ 586]
-[~ 587]
-[~ 588]
 Removes 3 PP from the move last used by the target.
 Has a 30% chance of leaving the target poisoned, paralyzed,\nor asleep.
 Boosts the user’s Defense stat by 1 stage.
 The user gains the Atk/Def Swapped status.
 Gives the opponent’s side the Stealth Rock status.
-[~ 594]
-[~ 595]
+[~ 591]
+[~ 592]
 The user gains the Rampaging status.
 The user takes 1/3 of the damage dealt by this move.
-[~ 598]
+[~ 595]
 Has a 30% chance of making the target flinch.
-[~ 600]
+[~ 597]
 Lowers the user’s Defense and Sp. Def stats by 1 stage.
 Has a 50% chance of poisoning the target. This move’s power is\ndoubled if the target is poisoned or badly poisoned.
-[~ 603]
+[~ 600]
 Lowers the target’s Attack stat by 1 stage.
 Boosts the user’s Defense stat by 2 stages.
 Has a 50% chance of lowering the target’s Defense stat by\n1 stage and has a 30% chance of making the target flinch.\nThis move has a 1-stage Critical-Hit Ratio Boost.
 Has a 30% chance of burning the target. This move’s power is\ndoubled if the target has a status condition.
 Gives the opponent’s side the Spikes status.
+[~ 606]
+[~ 607]
+[~ 608]
 [~ 609]
 [~ 610]
 [~ 611]
 [~ 612]
 [~ 613]
-[~ 614]
-[~ 615]
-[~ 616]
 Has a 30% chance of confusing the target. If this move misses\nor fails, the user takes damage equal to 1/2 of its max HP.
 This move’s power is increased by 50 for each time that a\nPokémon in the user’s party has fainted.
 Lowers the target’s Sp. Def stat by 2 stages.
-[~ 620]
+[~ 617]
 Lowers the target’s Defense stat by 2 stages and boosts its\nAttack stat by 2 stages.
-[~ 622]
+[~ 619]
 The user attacks 1 to 10 times in a row. The attack ends if the\nuser misses.
 Removes any terrain.
-[~ 625]
+The user gains the Wide Open status until the next time it takes\nan action.
 Revives a Pokémon in the user’s party that has fainted and\nrestores 1/2 of that Pokémon’s max HP.
 Gives the target the Salt Cured status.
-[~ 628]
+[~ 625]
 Removes the Bound and Leech Seeded statuses from the user\nand removes the Sticky Web, Stealth Rock, Spikes, and Toxic\nSpikes statuses from the user’s side. Poisons targets.
-[~ 630]
-[~ 631]
+[~ 627]
+[~ 628]
 This move never misses.
 This move never misses and is always a critical hit.
 Boosts the user’s Sp. Atk stat by 1 stage.
 Boosts the user’s Speed stat by 1 stage.
 Removes the Light Screen, Reflect, and Aurora Veil statuses on\nthe target’s side. This move’s type depends on the user’s form.
 Lowers the user’s Sp. Atk stat by 2 stages.
+[~ 635]
+[~ 636]
+[~ 637]
 [~ 638]
 [~ 639]
-[~ 640]
-[~ 641]
-[~ 642]
 The user loses 1/2 of its max HP to create a substitute, then\nswitches out of battle to be replaced by another party\nPokémon. The substitute will be hit by moves instead of that\nPokémon, and it will vanish when it takes damage equal to 1/4\nof the user’s max HP.
 Summons snow for 5 turns. The user switches out of battle to be\nreplaced by another party Pokémon.
 Removes the Sticky Web, Stealth Rock, Substitute, Spikes, and\nToxic Spikes statuses from the entire field. Boosts the user’s\nAttack and Speed stats by 1 stage.
@@ -9976,7 +10080,7 @@ Summons snow for 5 turns.
 Lowers the target’s Speed stat by 1 stage.
 Boosts the user’s Speed stat by 1 stage.
 Lowers the target’s Attack stat by 1 stage.
-[~ 650]
+[~ 647]
 The user attacks twice in a row.
 This move’s power is increased by 50 each time the user takes\ndamage from a move, up to a maximum power of 350. If the\nuser switches out of battle, the move’s power returns to its\nusual value.
 Lowers the user’s Defense and Sp. Def stats by 1 stage.
@@ -9985,24 +10089,24 @@ The user loses the Electric type. This move fails unless it is used\nby an Elect
 This move can’t be used twice in a row.
 The user retaliates to deal 150% of the damage it took from an\nopponent’s move during the turn this move is used.
 This move has a 1-stage Critical-Hit Ratio Boost.
-[~ 659]
+[~ 656]
 Has a 20% chance of burning targets. The user’s HP is restored\nby 1/2 of the damage dealt by this move.
 Gives the target the Syrupy status for 3 turns.
-[~ 662]
+[~ 659]
 The user gains the Charging status on the turn this move is used,\nthen attacks on the following turn. In rain, the user does not\ngain the Charging status and can attack immediately. The user’s\nSp. Atk stat is boosted by 1 stage on the turn this move is used.
-[~ 664]
+[~ 661]
 This move has a 30% chance of its power being doubled.
+[~ 663]
+[~ 664]
+[~ 665]
 [~ 666]
-[~ 667]
-[~ 668]
-[~ 669]
 The more HP the target has left, the greater this move’s power\n(ranging between 1 and 100).
 Gives allies a Critical-Hit Ratio Boost. Dragon types receive a\n2-stage boost. All other types receive a 1-stage boost.
 Confuses the target if its stats were boosted during the turn this\nmove is used.
 This move’s power is doubled if the user couldn’t act or its move\nmissed or failed on the previous turn.
 If this move misses or fails, the user takes damage equal to 1/2\nof its max HP. If the target has the Minimized status, this move’s\npower is doubled and it will be sure to hit.
 Gives the target the Healing Prevented status for 2 turns.
-Makes the target flinch. This move fails if the target isn’t about\nto use a priority move.
+Makes the target flinch. This move fails if the target isn’t about\nto use a priority attack.
 ~~~~~~~~~~~~~~~
 Text File : wazaname
 ~~~~~~~~~~~~~~~
@@ -10986,7 +11090,7 @@ Mega Clefable
 [~ 40]
 
 [~ 42]
-[~ 43]
+
 [~ 44]
 [~ 45]
 [~ 46]
@@ -10999,7 +11103,7 @@ Mega Clefable
 [~ 53]
 [~ 54]
 [~ 55]
-[~ 56]
+
 [~ 57]
 [~ 58]
 [~ 59]
@@ -11030,7 +11134,7 @@ Mega Victreebel
 
 [~ 85]
 [~ 86]
-[~ 87]
+
 [~ 88]
 [~ 89]
 [~ 90]
@@ -11070,7 +11174,7 @@ Mega Victreebel
 [~ 124]
 
 Mega Starmie
-[~ 127]
+
 [~ 128]
 [~ 129]
 [~ 130]
@@ -11269,7 +11373,7 @@ Mega Skarmory
 [~ 323]
 [~ 324]
 [~ 325]
-[~ 326]
+
 [~ 327]
 
 [~ 329]
@@ -11313,7 +11417,7 @@ Normal
 
 Mega Chimecho
 
-[~ 370]
+Mega Absol Z
 [~ 371]
 [~ 372]
 
@@ -11327,7 +11431,7 @@ Mega Chimecho
 [~ 381]
 [~ 382]
 [~ 383]
-[~ 384]
+
 [~ 385]
 [~ 386]
 
@@ -11401,11 +11505,11 @@ Mega Staraptor
 [~ 455]
 [~ 456]
 
-[~ 458]
+Mega Garchomp Z
 [~ 459]
 [~ 460]
 
-[~ 462]
+Mega Lucario Z
 [~ 463]
 
 [~ 465]
@@ -11645,7 +11749,7 @@ Mega Pyroar
 Mega Floette
 Red Flower
 [~ 701]
-[~ 702]
+
 [~ 703]
 
 Natural Form
@@ -11747,8 +11851,8 @@ Midday Form
 
 
 [~ 803]
-[~ 804]
-[~ 805]
+
+Mega Golisopod
 [~ 806]
 [~ 807]
 [~ 808]
@@ -11796,13 +11900,13 @@ Mega Drampa
 [~ 850]
 [~ 851]
 [~ 852]
-[~ 853]
+
 [~ 854]
 [~ 855]
-[~ 856]
+
 [~ 857]
 [~ 858]
-[~ 859]
+
 [~ 860]
 [~ 861]
 [~ 862]
@@ -11812,7 +11916,7 @@ Mega Drampa
 [~ 866]
 [~ 867]
 [~ 868]
-[~ 869]
+
 [~ 870]
 [~ 871]
 [~ 872]
@@ -11833,11 +11937,11 @@ Mega Drampa
 [~ 887]
 [~ 888]
 [~ 889]
-[~ 890]
+Amped Form
 [~ 891]
 [~ 892]
 [~ 893]
-[~ 894]
+
 [~ 895]
 Phony Form
 [~ 897]
@@ -11847,21 +11951,21 @@ Phony Form
 [~ 901]
 
 [~ 903]
-[~ 904]
+
 [~ 905]
-[~ 906]
+
 
 
 [~ 909]
 Vanilla Cream
 
 Mega Falinks
-[~ 913]
+
 [~ 914]
 [~ 915]
 [~ 916]
 [~ 917]
-[~ 918]
+Male
 Full Belly Mode
 [~ 920]
 [~ 921]
@@ -11922,7 +12026,7 @@ Male
 Zero Form
 [~ 977]
 [~ 978]
-[~ 979]
+
 [~ 980]
 
 Mega Scovillain
@@ -11938,7 +12042,7 @@ Family of Three
 [~ 992]
 [~ 993]
 
-[~ 995]
+Mega Baxcalibur
 [~ 996]
 [~ 997]
 [~ 998]
@@ -11950,7 +12054,7 @@ Family of Three
 [~ 1004]
 [~ 1005]
 [~ 1006]
-[~ 1007]
+Green Plumage
 [~ 1008]
 [~ 1009]
 [~ 1010]
@@ -11964,7 +12068,7 @@ Mega Glimmora
 [~ 1018]
 [~ 1019]
 [~ 1020]
-[~ 1021]
+
 [~ 1022]
 [~ 1023]
 [~ 1024]
@@ -12050,7 +12154,7 @@ Alolan Form
 [~ 1104]
 [~ 1105]
 [~ 1106]
-[~ 1107]
+Alolan Form
 [~ 1108]
 Hisuian Form
 [~ 1110]
@@ -12153,7 +12257,7 @@ Snowy Form
 Mega Banette
 Mega Absol
 Mega Glalie
-[~ 1210]
+Mega Salamence
 Mega Metagross
 [~ 1212]
 [~ 1213]
@@ -12405,7 +12509,7 @@ Busted Form
 [~ 1459]
 [~ 1460]
 [~ 1461]
-[~ 1462]
+Low Key Form
 [~ 1463]
 [~ 1464]
 [~ 1465]
@@ -12422,7 +12526,7 @@ Caramel Swirl
 Rainbow Swirl
 [~ 1477]
 [~ 1478]
-[~ 1479]
+Female
 Hangry Mode
 [~ 1481]
 [~ 1482]
@@ -12445,9 +12549,9 @@ Hero Form
 Family of Four
 [~ 1500]
 [~ 1501]
-[~ 1502]
-[~ 1503]
-[~ 1504]
+Blue Plumage
+Yellow Plumage
+White Plumage
 [~ 1505]
 [~ 1506]
 [~ 1507]
@@ -12496,7 +12600,7 @@ Text File : zkn_weight
 [~ 36]
 43.9 lbs.
 [~ 38]
-[~ 39]
+26.5 lbs.
 [~ 40]
 [~ 41]
 [~ 42]
@@ -12509,7 +12613,7 @@ Text File : zkn_weight
 [~ 49]
 [~ 50]
 [~ 51]
-[~ 52]
+70.5 lbs.
 [~ 53]
 [~ 54]
 [~ 55]
@@ -12539,7 +12643,7 @@ Text File : zkn_weight
 173.1 lbs.
 [~ 80]
 [~ 81]
-[~ 82]
+33.1 lbs.
 [~ 83]
 [~ 84]
 [~ 85]
@@ -12578,7 +12682,7 @@ Text File : zkn_weight
 [~ 118]
 [~ 119]
 176.4 lbs.
-[~ 121]
+120.2 lbs.
 [~ 122]
 [~ 123]
 [~ 124]
@@ -12773,7 +12877,7 @@ Text File : zkn_weight
 [~ 313]
 [~ 314]
 [~ 315]
-[~ 316]
+176.4 lbs.
 [~ 317]
 195.8 lbs.
 [~ 319]
@@ -12829,7 +12933,7 @@ Text File : zkn_weight
 [~ 369]
 [~ 370]
 [~ 371]
-[~ 372]
+226.2 lbs.
 [~ 373]
 [~ 374]
 1212.5 lbs.
@@ -13129,7 +13233,7 @@ Text File : zkn_weight
 [~ 669]
 22 lbs.
 [~ 671]
-[~ 672]
+200.6 lbs.
 [~ 673]
 299.8 lbs.
 61.7 lbs.
@@ -13224,7 +13328,7 @@ Text File : zkn_weight
 167.6 lbs.
 182.5 lbs.
 [~ 766]
-[~ 767]
+238.1 lbs.
 [~ 768]
 [~ 769]
 [~ 770]
@@ -13268,13 +13372,13 @@ Text File : zkn_weight
 [~ 808]
 [~ 809]
 [~ 810]
-[~ 811]
+198.4 lbs.
 [~ 812]
 [~ 813]
-[~ 814]
+72.8 lbs.
 [~ 815]
 [~ 816]
-[~ 817]
+99.6 lbs.
 [~ 818]
 [~ 819]
 [~ 820]
@@ -13284,7 +13388,7 @@ Text File : zkn_weight
 [~ 824]
 [~ 825]
 [~ 826]
-[~ 827]
+43.9 lbs.
 [~ 828]
 [~ 829]
 [~ 830]
@@ -13305,11 +13409,11 @@ Text File : zkn_weight
 [~ 845]
 [~ 846]
 [~ 847]
-[~ 848]
+88.2 lbs.
 [~ 849]
 [~ 850]
 [~ 851]
-[~ 852]
+86 lbs.
 [~ 853]
 .9 lbs.
 [~ 855]
@@ -13319,20 +13423,20 @@ Text File : zkn_weight
 [~ 859]
 134.5 lbs.
 [~ 861]
-[~ 862]
+61.7 lbs.
 [~ 863]
-[~ 864]
+257.9 lbs.
 128.3 lbs.
 146.8 lbs.
 [~ 867]
 1.1 lbs.
 136.7 lbs.
-[~ 870]
+2.2 lbs.
 [~ 871]
 [~ 872]
 [~ 873]
 [~ 874]
-[~ 875]
+61.7 lbs.
 6.6 lbs.
 [~ 877]
 [~ 878]
@@ -13393,7 +13497,7 @@ Text File : zkn_weight
 132.7 lbs.
 [~ 934]
 [~ 935]
-[~ 936]
+106.3 lbs.
 [~ 937]
 33.1 lbs.
 [~ 939]
@@ -13407,7 +13511,7 @@ Text File : zkn_weight
 [~ 947]
 [~ 948]
 [~ 949]
-[~ 950]
+463 lbs.
 [~ 951]
 [~ 952]
 [~ 953]
@@ -13416,7 +13520,7 @@ Text File : zkn_weight
 [~ 956]
 [~ 957]
 [~ 958]
-[~ 959]
+5.3 lbs.
 [~ 960]
 [~ 961]
 [~ 962]
@@ -13429,7 +13533,7 @@ Text File : zkn_weight
 [~ 969]
 [~ 970]
 [~ 971]
-[~ 972]
+134.5 lbs.
 [~ 973]
 [~ 974]
 [~ 975]
@@ -13467,12 +13571,12 @@ Text File : zkn_weight
 264.6 lbs.
 [~ 1008]
 123.5 lbs.
-[~ 1010]
-[~ 1011]
-[~ 1012]
-[~ 1013]
-[~ 1014]
-[~ 1015]
+342.8 lbs.
+243.6 lbs.
+221.6 lbs.
+222.9 lbs.
+89.3 lbs.
+111.3 lbs.
 [~ 1016]
 [~ 1017]
 [~ 1018]
@@ -13485,60 +13589,60 @@ Text File : zkn_weight
 [~ 1025]
 [~ 1026]
 46.3 lbs.
-[~ 1028]
-[~ 1029]
+83.8 lbs.
+57.3 lbs.
 [~ 1030]
 [~ 1031]
-[~ 1032]
+93.3 lbs.
 [~ 1033]
 43.9 lbs.
 [~ 1035]
 [~ 1036]
 [~ 1037]
 [~ 1038]
-[~ 1039]
+72.8 lbs.
 [~ 1040]
 370.4 lbs.
-[~ 1042]
-[~ 1043]
+105.8 lbs.
+276.7 lbs.
 [~ 1044]
 [~ 1045]
 [~ 1046]
 [~ 1047]
 [~ 1048]
 [~ 1049]
-[~ 1050]
+264.6 lbs.
 155.4 lbs.
 [~ 1052]
 [~ 1053]
 [~ 1054]
-[~ 1055]
+89.3 lbs.
 [~ 1056]
 [~ 1057]
 [~ 1058]
 [~ 1059]
 [~ 1060]
 [~ 1061]
-[~ 1062]
-[~ 1063]
+220.5 lbs.
+176.4 lbs.
 [~ 1064]
-[~ 1065]
+130.1 lbs.
 253.5 lbs.
 187.4 lbs.
 242.5 lbs.
-[~ 1069]
+672.4 lbs.
 [~ 1070]
-[~ 1071]
+174.2 lbs.
 [~ 1072]
 [~ 1073]
 [~ 1074]
-[~ 1075]
+639.3 lbs.
 [~ 1076]
 [~ 1077]
-[~ 1078]
+443.1 lbs.
 153.9 lbs.
-[~ 1080]
-[~ 1081]
+239.9 lbs.
+135.6 lbs.
 [~ 1082]
 175.3 lbs.
 [~ 1084]
@@ -13568,39 +13672,39 @@ Text File : zkn_weight
 [~ 1108]
 [~ 1109]
 [~ 1110]
-[~ 1111]
+1631.4 lbs.
 [~ 1112]
-[~ 1113]
-[~ 1114]
+275.6 lbs.
+137.8 lbs.
 [~ 1115]
 [~ 1116]
-[~ 1117]
-[~ 1118]
-[~ 1119]
-[~ 1120]
-[~ 1121]
-[~ 1122]
+89.1 lbs.
+109.1 lbs.
+562.2 lbs.
+121.7 lbs.
+114.6 lbs.
+224.9 lbs.
 [~ 1123]
 [~ 1124]
-[~ 1125]
-[~ 1126]
-[~ 1127]
-[~ 1128]
-[~ 1129]
-[~ 1130]
-[~ 1131]
-[~ 1132]
-[~ 1133]
+106.7 lbs.
+354.9 lbs.
+51.8 lbs.
+870.8 lbs.
+69.4 lbs.
+97 lbs.
+287.3 lbs.
+706.6 lbs.
+45.4 lbs.
 1.8 lbs.
 1.8 lbs.
 1.8 lbs.
-[~ 1137]
-[~ 1138]
-[~ 1139]
-[~ 1140]
-[~ 1141]
-[~ 1142]
-[~ 1143]
+28.7 lbs.
+17.6 lbs.
+108 lbs.
+108 lbs.
+772.1 lbs.
+248.2 lbs.
+2078.7 lbs.
 [~ 1144]
 [~ 1145]
 [~ 1146]
@@ -13609,7 +13713,7 @@ Text File : zkn_weight
 [~ 1149]
 [~ 1150]
 [~ 1151]
-[~ 1152]
+110.2 lbs.
 [~ 1153]
 [~ 1154]
 [~ 1155]
@@ -13619,14 +13723,14 @@ Text File : zkn_weight
 [~ 1159]
 [~ 1160]
 [~ 1161]
-[~ 1162]
-[~ 1163]
-[~ 1164]
-[~ 1165]
-[~ 1166]
-[~ 1167]
-[~ 1168]
-[~ 1169]
+62.4 lbs.
+209.4 lbs.
+218.3 lbs.
+126.8 lbs.
+108.9 lbs.
+407.9 lbs.
+124.3 lbs.
+65.3 lbs.
 .7 lbs.
 .7 lbs.
 .7 lbs.
@@ -13655,12 +13759,12 @@ Text File : zkn_weight
 [~ 1195]
 [~ 1196]
 [~ 1197]
-[~ 1198]
+397.5 lbs.
 128.3 lbs.
 [~ 1200]
-[~ 1201]
-[~ 1202]
-[~ 1203]
+132.3 lbs.
+70.5 lbs.
+508.2 lbs.
 [~ 1204]
 [~ 1205]
 [~ 1206]
@@ -13668,7 +13772,7 @@ Text File : zkn_weight
 [~ 1208]
 [~ 1209]
 [~ 1210]
-[~ 1211]
+68.3 lbs.
 [~ 1212]
 [~ 1213]
 160.9 lbs.
@@ -13680,10 +13784,10 @@ Text File : zkn_weight
 [~ 1220]
 [~ 1221]
 [~ 1222]
-[~ 1223]
-[~ 1224]
+396.8 lbs.
+153.4 lbs.
 45.2 lbs.
-[~ 1226]
+727.5 lbs.
 [~ 1227]
 [~ 1228]
 [~ 1229]
@@ -13696,11 +13800,11 @@ Text File : zkn_weight
 [~ 1236]
 [~ 1237]
 [~ 1238]
-[~ 1239]
-[~ 1240]
+198.4 lbs.
+86 lbs.
 [~ 1241]
 [~ 1242]
-[~ 1243]
+88.2 lbs.
 [~ 1244]
 [~ 1245]
 [~ 1246]
@@ -13758,7 +13862,7 @@ Text File : zkn_weight
 37.5 lbs.
 37.5 lbs.
 37.5 lbs.
-[~ 1301]
+205.7 lbs.
 [~ 1302]
 [~ 1303]
 [~ 1304]
@@ -13768,7 +13872,7 @@ Text File : zkn_weight
 [~ 1308]
 [~ 1309]
 2 lbs.
-[~ 1311]
+222.2 lbs.
 22 lbs.
 22 lbs.
 22 lbs.
@@ -13783,12 +13887,12 @@ Text File : zkn_weight
 61.7 lbs.
 61.7 lbs.
 18.7 lbs.
-[~ 1326]
+22.3 lbs.
 116.8 lbs.
-[~ 1328]
-[~ 1329]
-[~ 1330]
-[~ 1331]
+153.9 lbs.
+220.5 lbs.
+221.1 lbs.
+55.1 lbs.
 [~ 1332]
 736.6 lbs.
 [~ 1334]
@@ -13809,7 +13913,7 @@ Text File : zkn_weight
 81.6 lbs.
 [~ 1350]
 [~ 1351]
-[~ 1352]
+557.3 lbs.
 [~ 1353]
 [~ 1354]
 [~ 1355]
@@ -13819,7 +13923,7 @@ Text File : zkn_weight
 [~ 1359]
 [~ 1360]
 [~ 1361]
-[~ 1362]
+326.3 lbs.
 [~ 1363]
 [~ 1364]
 [~ 1365]
@@ -13851,10 +13955,10 @@ Text File : zkn_weight
 [~ 1391]
 [~ 1392]
 [~ 1393]
-[~ 1394]
+1.5 lbs.
 [~ 1395]
 [~ 1396]
-[~ 1397]
+530.2 lbs.
 [~ 1398]
 [~ 1399]
 [~ 1400]
@@ -13865,7 +13969,7 @@ Text File : zkn_weight
 [~ 1405]
 [~ 1406]
 [~ 1407]
-[~ 1408]
+88.2 lbs.
 [~ 1409]
 .9 lbs.
 1.1 lbs.
@@ -13876,9 +13980,9 @@ Text File : zkn_weight
 1.1 lbs.
 1.1 lbs.
 1.1 lbs.
-[~ 1419]
+218.3 lbs.
 [~ 1420]
-[~ 1421]
+61.7 lbs.
 6.6 lbs.
 [~ 1423]
 [~ 1424]
@@ -13891,18 +13995,18 @@ Text File : zkn_weight
 [~ 1431]
 [~ 1432]
 214.7 lbs.
-[~ 1434]
+48.5 lbs.
 6.2 lbs.
-[~ 1436]
+694.5 lbs.
 [~ 1437]
 [~ 1438]
 [~ 1439]
 [~ 1440]
 [~ 1441]
-[~ 1442]
-[~ 1443]
-[~ 1444]
-[~ 1445]
+5.3 lbs.
+5.3 lbs.
+5.3 lbs.
+169.8 lbs.
 [~ 1446]
 [~ 1447]
 [~ 1448]

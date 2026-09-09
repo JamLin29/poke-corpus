@@ -296,6 +296,11 @@ Wenn ein [System:Color r="255" g="128" b="128" a="255" ]Feld[System:Color a="255
 Der Gegner hat die Prioritätsattacke [System:Color r="255" g="128" b="128" a="255" ]Turbotempo[System:Color a="255" ] eingesetzt.\nDoch während ein Psychofeld aktiv ist, [System:Color r="255" g="128" b="128" a="255" ]schlagen[System:Color a="255" ]\n[System:Color r="255" g="128" b="128" a="255" ]Prioritätsattacken fehl[System:Color a="255" ].
 Setze jetzt, wo das Psychofeld aktiv ist, [System:Color r="255" g="128" b="128" a="255" ]Psychokinese[System:Color a="255" ] ein.
 Die Attacke Turbotempo des Gegners ist fehlgeschlagen und\ndu konntest ihn mit deinem nächsten Angriff besiegen.\nEin Psychofeld bewirkt nämlich auch, dass die [System:Color r="255" g="128" b="128" a="255" ]Stärke von[System:Color a="255" ]\n[System:Color r="255" g="128" b="128" a="255" ]Psycho-Attacken um 30 % erhöht wird[System:Color a="255" ].\n\nDas ist nur ein Beispiel dafür, wie du Felder zu deinem Vorteil\nnutzen kannst. Beachte aber, dass sie sowohl auf deine als auch\nauf die gegnerischen Pokémon wirken!
+Auswahlhilfe
+Diese Funktion zeigt auf Grundlage aller gesammelten\nRangkampfdaten an, ob deine Pokémon gegenüber den\ngegnerischen Pokémon im Vorteil oder im Nachteil sind.
+Gegnerische Pokémon, gegen die dein Pokémon im Vorteil ist,\nwerden mit einem nach oben gerichteten Dreieck versehen,\nwährend jene, gegen die dein Pokémon im Nachteil ist, mit\neinem nach unten gerichteten Dreieck gekennzeichnet werden.
+Wenn dein Gegner über ein Pokémon verfügt, demgegenüber\nsämtliche deiner ausgewählten Pokémon im Nachteil sind,\nwird es mit einem besonderen Warnsymbol versehen.
+Die Anzeige der Auswahlhilfe kann in den Einstellungen\nein- oder ausgeschaltet werden.
 ~~~~~~~~~~~~~~~
 Text File : available_pokelist
 ~~~~~~~~~~~~~~~
@@ -340,6 +345,10 @@ Kampf! (Ravan)
 Kampf! (Violette)
 Ernster Kampf! (Team MZ)
 Kampf! (Arenaleiter)
+Kampf! (Team Flare Nouveau)
+Kampf! (Flordelis)
+Kampf! (Team Flare)
+Kampf! (Flordelis)
 ~~~~~~~~~~~~~~~
 Text File : bgm_series
 ~~~~~~~~~~~~~~~
@@ -414,6 +423,10 @@ Ins Team aufnehmen
 Ins Team aufnehmen
 Du hast keine Items dieser Kategorie.
 Dieses Pokémon kannst du ohne Mitgliedschaft nicht nutzen.
+Möchtest du dieses Kampfteam löschen?
+Möchtest du hier eine Kopie des Kampfteams anlegen?\nHinweis: Das ursprüngliche Kampfteam wird überschrieben.
+Wähle aus, wohin du das Kampfteam kopieren möchtest.
+Bitte wähle ein Kampfteam aus.
 ~~~~~~~~~~~~~~~
 Text File : btl_app
 ~~~~~~~~~~~~~~~
@@ -475,6 +488,19 @@ Möchtest du das Tutorial abbrechen?
 Möchtest du das Tutorial überspringen?\n[System:Color r="255" g="128" b="128" a="255" ]Hinweis: Es wird dann als abgeschlossen angesehen.[System:Color a="255" ]
 Wirkungsbereich
 [Name:WazaTarget ]
+Kampfprotokoll
+Runde [Digit:2digits ]
+Attacke
+Fähigkeit
+Item
+KP verloren
+KP aufgefüllt
+Mega-Entwicklung
+Pokémon besiegt
+KP von [Name:PokemonNickname ]:\n[Digit:3digits Idx="1" ] → [Digit:3digits Idx="2" ]
+KP von [Name:PokemonNickname ]:\n[Digit:3digits Idx="1" ] % → [Digit:3digits Idx="2" ] %
+Fähigkeit geändert
+Fähigkeit von [Name:PokemonNickname ]:\n[Name:Ability Idx="1" ] → [Name:Ability Idx="2" ]
 ~~~~~~~~~~~~~~~
 Text File : btl_attack_syn
 ~~~~~~~~~~~~~~~
@@ -483,11 +509,11 @@ Text File : btl_attack_syn
 ~~~~~~~~~~~~~~~
 Text File : btl_condition
 ~~~~~~~~~~~~~~~
-Das Pokémon kann mit 12,5%iger\nWahrscheinlichkeit keine Attacken einsetzen.\nAußerdem wird seine Initiative halbiert.
-Das Pokémon kann bis auf wenige Ausnahmen\nkeine Attacken einsetzen. Beim Versuch, dies zu\ntun, taut es mit 25%iger Wahrscheinlichkeit auf.\nIn Runde 3 des Gefrorenseins oder wenn es\nSchaden durch eine Feuer-Attacke oder Ähnliches\nerleidet, taut es garantiert auf.
-Das Pokémon erleidet am Ende jeder Runde\nSchaden in Höhe von 1/16 seiner maximalen KP.\nAußerdem wird der Schaden, den es mit\nphysischen Attacken verursacht, halbiert.
-Das Pokémon erleidet am Ende jeder Runde\nSchaden in Höhe von 1/8 seiner maximalen KP.
-Das Pokémon erleidet am Ende jeder Runde\nSchaden, der mit jedem Mal zunimmt: Erst 1/16\nseiner maximalen KP, dann 2/16, 3/16 usw.\nWenn es aus- und wieder eingewechselt wird,\nbeginnt der erlittene Schaden wieder bei 1/16.
+Das Pokémon kann mit 12,5%iger\nWahrscheinlichkeit keine Attacken einsetzen.\nAußerdem wird seine Initiative halbiert.\nPokémon vom Typ Elektro können nicht\nparalysiert werden.
+Das Pokémon kann bis auf wenige Ausnahmen\nkeine Attacken einsetzen. Beim Versuch, dies zu\ntun, taut es mit 25%iger Wahrscheinlichkeit auf.\nIn Runde 3 des Gefrorenseins oder wenn es\nSchaden durch eine Feuer-Attacke oder Ähnliches\nerleidet, taut es garantiert auf. Pokémon vom Typ\nEis können nicht eingefroren werden.
+Das Pokémon erleidet am Ende jeder Runde\nSchaden in Höhe von 1/16 seiner maximalen KP.\nAußerdem wird der Schaden, den es mit\nphysischen Attacken verursacht, halbiert.\nPokémon vom Typ Feuer können keine\nVerbrennungen erleiden.
+Das Pokémon erleidet am Ende jeder Runde\nSchaden in Höhe von 1/8 seiner maximalen KP.\nPokémon vom Typ Gift oder Stahl können nicht\nvergiftet werden.
+Das Pokémon erleidet am Ende jeder Runde\nSchaden, der mit jedem Mal zunimmt: Erst 1/16\nseiner maximalen KP, dann 2/16, 3/16 usw.\nWenn es aus- und wieder eingewechselt wird,\nbeginnt der erlittene Schaden wieder bei 1/16.\nPokémon vom Typ Gift oder Stahl können nicht\nschwer vergiftet werden.
 Das Pokémon kann in Runde 1 des Schlafens\nkeine Attacken einsetzen, mit Ausnahme von\nSchnarcher und Schlafrede. In Runde 2 wacht es\nmit einer Wahrscheinlichkeit von 1 zu 3 auf.\nIn Runde 3 wacht es garantiert auf. Hat das\nPokémon die Attacke Erholung eingesetzt,\nwacht es bis Runde 3 nicht auf.
 ~~~~~~~~~~~~~~~
 Text File : btl_data_pokedetail
@@ -544,6 +570,7 @@ Saison wechseln
 Hinweis: Es kann etwas dauern, bis deine Platzierung\naktualisiert wird.
 Deine Ergebnisse
 Ausführliche Ergebnisse
+Format wechseln
 ~~~~~~~~~~~~~~~
 Text File : btl_data_top
 ~~~~~~~~~~~~~~~
@@ -597,7 +624,10 @@ mind. [Digit:2digits ] [DE:Qty S="Tag" P="Tage" ]
 [Digit:2digits ] [DE:Qty S="Stunde" P="Stunden" ]
 [Digit:2digits ] [DE:Qty S="Minute" P="Minuten" ]
 0 Minuten
-Es stehen gerade keine Kampfpässe zur Verfügung.
+Es stehen gerade keine Kampfpässe zur Verfügung.\nNicht angenommene Geschenke der vorherigen Saison\nwerden zu Beginn der nächsten Saison an dein Postfach\ngeschickt.
+Rückgängig machen
+Kleidungsstück anzeigen
+Frisur anzeigen
 ~~~~~~~~~~~~~~~
 Text File : btl_pokelist
 ~~~~~~~~~~~~~~~
@@ -688,6 +718,9 @@ Kampf wird vorbereitet...
 Bericht einblenden
 Bericht ausblenden
 Bitte wähle [Digit:1digit ] Pokémon für den Kampf aus.
+Dein Pokémon ist im Vorteil.
+Dein Pokémon ist im Nachteil.
+Dein ausgewähltes Team ist im Nachteil.
 ~~~~~~~~~~~~~~~
 Text File : btl_preparation
 ~~~~~~~~~~~~~~~
@@ -725,13 +758,14 @@ Wird ausgewertet
 [Name:FreeWord ]
 Du hast die maximale Anzahl an täglichen Kämpfen\nbereits erreicht. Du kannst heute nicht mehr kämpfen.
 [Digit:4digits Sep="0" ]/[Digit:4digits Idx="1" Sep="0" ]
-[~ 14]
+[System:Color r="255" g="128" b="128" a="255" ][Digit:4digits Sep="0" ]/[Digit:4digits Idx="1" Sep="0" ][System:Color a="255" ]
 Online-Turniere
 Saison [Name:SeasonName ]-[Digit:2digits Idx="1" ]
 Mitgliedschaftsbonus
 × [Digit:1digit ],[Digit:1digit Idx="1" ]
 noch [Digit:3digits ]-mal
 Saison 1
+Erreicht
 ~~~~~~~~~~~~~~~
 Text File : btl_result
 ~~~~~~~~~~~~~~~
@@ -899,16 +933,16 @@ Der Sandsturm fügt [Name:PokemonNickname ] (Gegner) Schaden zu!
 [Name:PokemonNickname ] (Gegner) wurde Schaden zugefügt!
 [Name:PokemonNickname ] nimmt die Fähigkeit [Name:Ability Idx="1" ] an!
 [Name:PokemonNickname ] (Gegner) nimmt die Fähigkeit [Name:Ability Idx="1" ] an!
-[~ 150]
-[~ 151]
+[Name:PokemonNickname ] gerät durch den Luftballon in die Schwebe!
+[Name:PokemonNickname ] (Gegner) gerät durch den Luftballon in die Schwebe!
 Der Luftballon von [Name:PokemonNickname ] ist geplatzt!
 Der Luftballon von [Name:PokemonNickname ] (Gegner) ist geplatzt!
 [Name:PokemonNickname ] kommt dank des Fluchtknopfes zurück!
 [Name:PokemonNickname ] (Gegner) kommt dank des Fluchtknopfes zurück!
-[~ 156]
-[~ 157]
-[~ 158]
-[~ 159]
+[Name:PokemonNickname ] zeigt [Name:PokemonNickname Idx="1" ] die Rote Karte!
+[Name:PokemonNickname ] zeigt [Name:PokemonNickname Idx="1" ] (Gegner) die Rote Karte!
+[Name:PokemonNickname ] (Gegner) zeigt [Name:PokemonNickname Idx="1" ] die Rote Karte!
+[Name:PokemonNickname ] (Gegner) zeigt [Name:PokemonNickname Idx="1" ] (Gegner) die Rote Karte!
 Die Stärke der Feuer-Attacken von [Name:PokemonNickname ] wurde erhöht!
 Die Stärke der Feuer-Attacken von [Name:PokemonNickname ] (Gegner) wurde erhöht!
 [Name:Move Idx="1" ] von [Name:PokemonNickname ] wurde enthüllt!
@@ -927,10 +961,10 @@ Die Stärke der Feuer-Attacken von [Name:PokemonNickname ] (Gegner) wurde erhöh
 [Name:PokemonNickname ] (Gegner) schläft nicht ein!
 [Name:PokemonNickname ] verankert sich mithilfe von Saugnapf!
 [Name:PokemonNickname ] (Gegner) verankert sich mithilfe von Saugnapf!
-[~ 178]
-[~ 179]
-[~ 180]
-[~ 181]
+[Name:PokemonNickname ] lässt sich nicht aus der Ruhe bringen!
+[Name:PokemonNickname ] (Gegner) lässt sich nicht aus der Ruhe bringen!
+[Name:PokemonNickname ] saugt Kloakensoße auf!
+[Name:PokemonNickname ] (Gegner) saugt Kloakensoße auf!
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] hat das Item [Name:Item Idx="1" ]\ngestohlen bekommen!
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] (Gegner) hat das Item [Name:Item Idx="1" ]\ngestohlen bekommen!
 [Name:PokemonNickname ] hat die Fähigkeit Mumie angenommen!
@@ -1419,38 +1453,36 @@ Die Tarnung von [Name:PokemonNickname ] (Gegner) ist aufgeflogen!
 [~ 667]
 [~ 668]
 [~ 669]
-[~ 670]
-[~ 671]
 [Name:PokemonNickname ] konnte den Angriff nicht abwehren\nund erleidet Schaden!
 [Name:PokemonNickname ] (Gegner) konnte den Angriff\nnicht abwehren und erleidet Schaden!
+[~ 672]
+[~ 673]
 [~ 674]
 [~ 675]
 [~ 676]
 [~ 677]
 [~ 678]
 [~ 679]
-[~ 680]
-[~ 681]
 [Name:PokemonNickname ] kann nicht mehr fliehen,\nweil es Finalformation eingesetzt hat!
 [Name:PokemonNickname ] (Gegner) kann nicht mehr fliehen,\nweil es Finalformation eingesetzt hat!
+[~ 682]
+[~ 683]
 [~ 684]
 [~ 685]
 [~ 686]
 [~ 687]
-[~ 688]
-[~ 689]
-[~ 690]
-[~ 691]
+[Name:PokemonNickname ] hat die Effekte, die auf den beiden Seiten\ndes Kampffelds wirken, miteinander getauscht!
+[Name:PokemonNickname ] (Gegner) hat die Effekte, die auf den beiden Seiten\ndes Kampffelds wirken, miteinander getauscht!
 [Name:PokemonNickname ] wird in einem Fangeisen festgehalten!
 [Name:PokemonNickname ] (Gegner) wird in einem Fangeisen festgehalten!
+[Name:PokemonNickname ] kann aufgrund von Octoklammer nicht fliehen.
+[Name:PokemonNickname ] (Gegner) kann aufgrund von Octoklammer nicht fliehen.
 [~ 694]
 [~ 695]
 [~ 696]
 [~ 697]
 [~ 698]
 [~ 699]
-[~ 700]
-[~ 701]
 [Name:PokemonNickname ] wird dank Fluchttasche ausgewechselt!
 [Name:PokemonNickname ] (Gegner) wird dank Fluchttasche ausgewechselt!
 [Name:PokemonNickname ] nimmt wieder seinen ursprünglichen Typ an!
@@ -1465,20 +1497,20 @@ Kosmische Kräfte strömen aus [Name:PokemonNickname ] (Gegner)!
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] hat das Item [Name:Item Idx="2" ]\nvon [Name:PokemonNickname Idx="1" ] (Gegner) zersetzt!
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] (Gegner) hat das Item [Name:Item Idx="2" ]\nvon [Name:PokemonNickname Idx="1" ] zersetzt!
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] (Gegner) hat das Item [Name:Item Idx="2" ]\nvon [Name:PokemonNickname Idx="1" ] (Gegner) zersetzt!
+[~ 714]
+[~ 715]
 [~ 716]
 [~ 717]
-[~ 718]
-[~ 719]
 Durch [Name:Ability Idx="1" ] kann [Name:PokemonNickname ]\nschneller handeln als sonst!
 Durch [Name:Ability Idx="1" ] kann [Name:PokemonNickname ] (Gegner)\nschneller handeln als sonst!
 Die Attacke schlug bei [Name:PokemonNickname ] fehl!
 Die Attacke schlug bei [Name:PokemonNickname ] (Gegner) fehl!
+[~ 722]
+[~ 723]
 [~ 724]
 [~ 725]
 [~ 726]
 [~ 727]
-[~ 728]
-[~ 729]
 [Name:PokemonNickname ] ist nicht mehr schläfrig!
 [Name:PokemonNickname ] (Gegner) ist nicht mehr schläfrig!
 [Name:PokemonNickname ] ist bereits schläfrig.
@@ -1497,12 +1529,14 @@ Durch den Einsatz von [Name:Move Idx="1" ] ist\n[Name:PokemonNickname ] (Gegner)
 [Name:PokemonNickname ] (Gegner) erzählt einen schlechten Witz,\nder nicht besonders gut ankommt...
 [Name:PokemonNickname ] braucht seinen Strom komplett auf!
 [Name:PokemonNickname ] (Gegner) braucht seinen Strom komplett auf!
+[~ 746]
+[~ 747]
 [~ 748]
 [~ 749]
-[~ 750]
-[~ 751]
 [Name:PokemonNickname ] hat sich verwandelt und ist zurückgekehrt!
 [Name:PokemonNickname ] (Gegner) hat sich verwandelt und ist zurückgekehrt!
+[~ 752]
+[~ 753]
 [~ 754]
 [~ 755]
 [~ 756]
@@ -1527,19 +1561,19 @@ Durch den Einsatz von [Name:Move Idx="1" ] ist\n[Name:PokemonNickname ] (Gegner)
 [~ 775]
 [~ 776]
 [~ 777]
-[~ 778]
-[~ 779]
 [Name:PokemonNickname ] gewinnt durch gefallene Mitstreiter an Kraft!
 [Name:PokemonNickname ] (Gegner) gewinnt durch gefallene Mitstreiter an Kraft!
+[~ 780]
+[~ 781]
 [~ 782]
 [~ 783]
 [~ 784]
 [~ 785]
 [~ 786]
-[~ 787]
-[~ 788]
 [Name:PokemonNickname ] nutzt das Item Kopierkraut, um die gegnerischen\nStatuswertänderungen zu kopieren.
 [Name:PokemonNickname ] (Gegner) nutzt das Item Kopierkraut, um die gegnerischen\nStatuswertänderungen zu kopieren.
+[~ 789]
+[~ 790]
 [~ 791]
 [~ 792]
 [~ 793]
@@ -1556,18 +1590,16 @@ Durch den Einsatz von [Name:Move Idx="1" ] ist\n[Name:PokemonNickname ] (Gegner)
 [~ 804]
 [~ 805]
 [~ 806]
-[~ 807]
-[~ 808]
 [Name:PokemonNickname Idx="1" ] trinkt den von [Name:PokemonNickname ] zubereiteten Tee!
 [Name:PokemonNickname Idx="1" ] trinkt den von [Name:PokemonNickname ] (Gegner) zubereiteten Tee!
+[~ 809]
+[~ 810]
 [~ 811]
 [~ 812]
 [~ 813]
 [~ 814]
 [~ 815]
 [~ 816]
-[~ 817]
-[~ 818]
 [Name:PokemonNickname ] wurde in Sirup gehüllt!
 [Name:PokemonNickname ] (Gegner) wurde in Sirup gehüllt!
 Der Nektar von [Name:PokemonNickname ] verströmt einen süßen Geruch!
@@ -1575,9 +1607,9 @@ Der Nektar von [Name:PokemonNickname ] (Gegner) verströmt einen süßen Geruch!
 [Name:PokemonNickname ] absorbiert elektrische Energie!
 [Name:PokemonNickname ] (Gegner) absorbiert elektrische Energie!
 [Name:PokemonNickname ] legt sich ins Zeug!
+[~ 824]
+[~ 825]
 [~ 826]
-[~ 827]
-[~ 828]
 [Name:Status Idx="4" ] von [Name:PokemonNickname ] steigt!
 [Name:Status Idx="4" ] und [Name:Status Idx="5" ] von [Name:PokemonNickname ] steigen!
 [Ctrl1:battle_oneline ][Name:Status Idx="4" ], [Name:Status Idx="5" ] und [Name:Status Idx="6" ] von\n[Name:PokemonNickname ] steigen!
@@ -1781,7 +1813,7 @@ Rückenwind
 Das Pokémon kann die Attacke\n[Name:Move ] nicht einsetzen.
 Attackenblockade
 Das Pokémon kann die Attacke nicht mehr\neinsetzen, die es zuletzt eingesetzt hatte,\nbevor es in diesen Zustand versetzt wurde.
-Das Pokémon kann nicht ausgewechselt werden.
+Das Pokémon kann nicht ausgewechselt werden.\nPokémon vom Typ Geist können nicht von diesem\nZustand betroffen sein.
 Wechselsperre
 In der nächsten Runde, nachdem die Zustand\nverursachende Attacke eingesetzt wurde,\ntrifft die Attacke dieses Pokémon garantiert\ndas Pokémon, auf das gezielt wurde.
 Zielschuss
@@ -1799,7 +1831,7 @@ Das Pokémon kann nur noch Angriffe einsetzen.
 Verhöhner
 Das Pokémon gilt als nicht auf dem Boden\nbefindlich und Boden-Attacken sowie die\nZustände Stachler, Giftspitzen und Klebenetz\nhaben keine Wirkung auf es.
 Magnetflug
-Eingewechselte Pokémon werden vergiftet.\nWenn der Zustand 2-mal erzeugt wird, werden\nsie schwer vergiftet. Pokémon vom Typ Flug,\nPokémon mit der Fähigkeit Schwebe etc. sind\nnicht davon betroffen.
+Eingewechselte Pokémon werden vergiftet. Wird\nder Zustand 2-mal erzeugt, werden sie schwer\nvergiftet. Flug-Pokémon oder Pokémon mit der\nFähigkeit Schwebe etc. sind nicht betroffen. Wird\nbei Kampfantritt eines Gift-Pokémon aufgehoben.
 Giftspitzen
 Am Ende der nächsten Runde, nachdem die\nentsprechende Attacke eingesetzt wurde,\nregeneriert das Pokémon an dieser Stelle\ndie Hälfte der maximalen KP des Pokémon,\ndas die Attacke eingesetzt hat.
 Wunschtraum
@@ -1825,7 +1857,7 @@ Wird das Pokémon durch einen Gegner besiegt,\nwird auch dieser kampfunfähig.
 Abgangsbund
 Das Pokémon nimmt zusätzlich den Typ Pflanze an.
 Waldesfluch
-Das Pokémon erleidet am Ende jeder Runde\nSchaden in Höhe von 1/8 seiner maximalen KP.\nAnschließend werden die KP des Pokémon,\ndas sich an der Stelle des Anwenders der Attacke\nbefindet, in dieser Höhe aufgefüllt.
+Das Pokémon erleidet am Ende jeder Runde\nSchaden in Höhe von 1/8 seiner maximalen KP.\nDie KP des Pokémon an der Stelle des Anwenders\nder Attacke werden in dieser Höhe aufgefüllt.\nPflanzen-Pokémon können nicht betroffen sein.
 Egelsamen
 Das Pokémon erleidet 4 bis 5 Runden lang am\nEnde jeder Runde Schaden in Höhe von 1/8\nseiner maximalen KP und kann nicht\nausgewechselt werden.
 Umschlingung
@@ -1857,8 +1889,8 @@ Der Schaden, den das Pokémon durch physische\nAttacken und Spezial-Attacken erl
 Auroraschleier
 [~ 114]
 [~ 115]
-[~ 116]
-[~ 117]
+Am Ende jeder Runde werden Verteidigung und\nSpezial-Verteidigung des Pokémon um 1 Stufe\ngesenkt.
+Octoklammer
 [~ 118]
 [~ 119]
 [~ 120]
@@ -1875,8 +1907,8 @@ Am Ende jeder Runde wird die Initiative des\nPokémon um 1 Stufe gesenkt.
 Siruphülle
 Das Pokémon kann keine KP durch Attacken,\nFähigkeiten oder getragene Items regenerieren.
 Heilblockade
-[~ 134]
-[~ 135]
+Gegnerische Attacken treffen das Pokémon\ngarantiert und verursachen doppelten Schaden.
+Schutzlos
 Das Pokémon kann 1 Runde lang nicht handeln.
 Handlungsunfähig
 Das Pokémon sammelt 1 Runde lang Kraft,\num eine Attacke einzusetzen.
@@ -1899,8 +1931,8 @@ Feuerfänger
 [~ 155]
 [~ 156]
 [~ 157]
-[~ 158]
-[~ 159]
+Weder der Anwender noch das Ziel der Attacke\nkönnen ausgewechselt werden.
+Fesselbiss
 Die Genauigkeit der nächsten Attacke, die das\nPokémon einsetzt, wird um 20 % erhöht.
 Wunfrubeere
 ~~~~~~~~~~~~~~~
@@ -2054,7 +2086,7 @@ Das Psychofeld ist wieder verschwunden!
 [~ 145]
 [~ 146]
 [~ 147]
-[~ 148]
+Beide Pokémon werden an der Flucht gehindert!
 Alle Pokémon auf dem Kampffeld beschließen,\nsich ein Tässchen Tee und eine Beere zu gönnen!
 Aber nichts geschieht!
 [~ 151]
@@ -2217,6 +2249,8 @@ Keine
 [Name:FreeWord ]
 [Name:FreeWord ]
 Einstellung ändern und zum Titelbildschirm zurückkehren?
+Einzelkampf
+Doppelkampf
 ~~~~~~~~~~~~~~~
 Text File : country_codes
 ~~~~~~~~~~~~~~~
@@ -2256,6 +2290,7 @@ Singapur
 Taiwan
 Thailand
 Indonesien
+Indien
 Sonstige
 Europa
 Österreich
@@ -2445,6 +2480,10 @@ Während eine Gegnersuche läuft oder du dich in einer\nWarteschlange für einen
 Diese Eingabe ist ungültig.
 Es sind neue Daten vorhanden.\nDu kehrst nun zum Titelbildschirm zurück.
 Du hast ein Pokémon regulär rekrutiert!\nEs wurde in deine Box geschickt.
+Diese Funktion kannst du nicht nutzen.
+Premium-Kampfpass: Saison [Name:SeasonName ]-[Digit:2digits Idx="1" ]
+[~ 60]
+Zum Shop
 ~~~~~~~~~~~~~~~
 Text File : dressup
 ~~~~~~~~~~~~~~~
@@ -2467,30 +2506,30 @@ Fertig
 Möchtest du den derzeitigen Style speichern?
 Speichere deinen jetzigen Style oder wähle einen anderen aus.
 Nicht festgelegt
-[~ 19]
-[~ 20]
-[~ 21]
-[~ 22]
-[~ 23]
-[~ 24]
-[~ 25]
-[~ 26]
-[~ 27]
-[~ 28]
-[~ 29]
-[~ 30]
-[~ 31]
-[~ 32]
-[~ 33]
-[~ 34]
-[~ 35]
-[~ 36]
-[~ 37]
-[~ 38]
-[~ 39]
-[~ 40]
-[~ 41]
-[~ 42]
+Oberteile
+Überbekleidung
+Handschuhe
+Beinbekleidung
+Leggings
+Strumpfware
+Schuhe
+Taschen
+Kopfbedeckungen
+Haarreife
+Accessoires (Gesicht)
+Frisur
+Haarfarbe
+Augen
+Kontaktlinsen
+Wimpern
+Wimpernfarbe
+Augenbrauen
+Augenbrauenfarbe
+Mundform
+Lippenstift
+Lippenfarbe
+Schönheitsflecken
+Sommersprossen
 Die Farbe dieser Frisur kann nicht\ngeändert werden.
 ~~~~~~~~~~~~~~~
 Text File : dressup_main
@@ -2710,7 +2749,7 @@ Nichts
 Style [Digit:2digits ]
 Halbleggings
 Kurze Leggings
-Schlichtes Pokémon-Shirt
+Lässiges Pokémon-Shirt
 [~ 216]
 [~ 217]
 Kurze Pokémon-Hose
@@ -2744,6 +2783,27 @@ Ravans Frisur (kurzer Undercut)
 Übertriebener Stil
 Kampfgebrüll-Siegespose
 Ernste Pose
+Violettes Juwelentasche
+Gris’ Brille
+Gris’ Baristajacke
+Gris’ Schürzenhose
+Gris’ runde Tasche
+Gris’ Lederschuhe
+Gris’ Frisur (zurückgekämmt)
+Matières Jacke
+Matières Bodysuit-Oberteil
+Matières Bodysuit-Leggings
+Matières Bodysuit-Socken
+Matières Schuhe
+Matières Handschuhe
+Matières Frisur (kurzer Bob)
+Ravans Pose
+Ravans Siegespose
+Ravans Stil
+Canarys Pose
+Canarys Siegespose
+Canarys Stil
+Canarys Maske
 ~~~~~~~~~~~~~~~
 Text File : dressup_sub
 ~~~~~~~~~~~~~~~
@@ -3009,7 +3069,7 @@ Dragoran
 [~ 259]
 [~ 260]
 Meganie
-[~ 262]
+Flambirex
 Rot
 Weiß
 Logo von Team MZ
@@ -3024,6 +3084,17 @@ Violett und violett
 Standard
 Schwarz und magenta
 Magenta Tropfen
+Grau und weiß
+Marineblau und schwarz
+Fliederfarben
+Rot und schwarz
+Weißer Rahmen
+Schwarz und orange
+Beige
+Schwarz und orange
+Hellgrau
+Schwarz und orange
+Zitronengelb
 ~~~~~~~~~~~~~~~
 Text File : first_start
 ~~~~~~~~~~~~~~~
@@ -3056,7 +3127,7 @@ Die Account-Verknüpfung ist fehlgeschlagen.\nBitte wähle erneut einen Account 
 Möchtest du die Daten übertragen, die mit dem Nutzernamen\n[Name:TrainerName ] verbunden sind, und das Spiel fortsetzen?
 Dein Spiel wird mit den übertragenen Daten gestartet.
 Wenn du deinen Account mit Pokémon Champions verknüpfst,\nkannst du Daten zu deiner Nutzung innerhalb deiner Geräte\nteilen. Ist derselbe Account auch mit Pokémon HOME verknüpft,\nkannst du bestimmte Pokémon von dort dieses Spiel besuchen\nlassen.
-Bist du sicher, dass du das Spiel mit einem Gast-Account starten\nmöchtest?\n[System:Color r="255" g="128" b="128" a="255" ]Hinweis: Falls du die Nintendo Switch-Version bereits gespielt\nhast, verknüpfe bitte unbedingt deinen Nintendo-Account.\nEin Gast-Account kann nach Spielbeginn nicht mehr verknüpft\nwerden.[System:Color a="255" ]
+Bist du sicher, dass du das Spiel mit einem Gast-Account starten\nmöchtest?\n[System:Color r="255" g="128" b="128" a="255" ]Hinweis: Falls du die Nintendo Switch-Version bereits gespielt\nhast, verknüpfe bitte unbedingt deinen Nintendo-Account.\nWenn du das Spiel mit einem Gast-Account startest, kannst du\ndeinen Nintendo-Account nicht mehr verknüpfen.[System:Color a="255" ]
 [System:Color r="200" g="54" b="106" a="255" ]Hinweis: Hautfarbe und Körperform können später nicht\ngeändert werden.[System:Color a="255" ]
 Januar
 Jan.
@@ -3106,6 +3177,7 @@ Favoriten/Labels
 Individuelle Einstellungen
 Hilfe
 Details anzeigen
+Andere Form ansehen
 ~~~~~~~~~~~~~~~
 Text File : friend
 ~~~~~~~~~~~~~~~
@@ -3447,12 +3519,12 @@ Statusprobleme
 Während eines Kampfs kann es vorkommen, dass ein Pokémon\ndurch die Effekte von Attacken, Fähigkeiten oder getragenen\nItems von einem [System:Color r="255" g="128" b="128" a="255" ]Statusproblem[System:Color a="255" ] betroffen wird.\n\nStatusprobleme haben verschiedene Auswirkungen auf\nPokémon.
 Beim [System:Color r="255" g="128" b="128" a="255" ]Kampf-Tutorial zu Statusproblemen[System:Color a="255" ] kannst du anhand\neiner interaktiven Demonstration mehr darüber lernen.
 Vergiftung, schwere Vergiftung und Verbrennungen
-[System:Color r="255" g="128" b="128" a="255" ]Vergiftung[System:Color a="255" ]\n\nDas Pokémon erleidet am Ende jeder Runde Schaden in Höhe\nvon 1/8 seiner maximalen KP.
-[System:Color r="255" g="128" b="128" a="255" ]Schwere Vergiftung[System:Color a="255" ]\n\nDas Pokémon erleidet am Ende jeder Runde Schaden,\nder mit jedem Mal zunimmt: Erst 1/16 seiner maximalen KP,\ndann 2/16, 3/16 usw.\nWenn es aus- und wieder eingewechselt wird,\nbeginnt der erlittene Schaden wieder bei 1/16.
-[System:Color r="255" g="128" b="128" a="255" ]Verbrennungen[System:Color a="255" ]\n\nDas Pokémon erleidet am Ende jeder Runde Schaden in Höhe\nvon 1/16 seiner maximalen KP.\nAußerdem wird der Schaden, den es mit physischen Attacken\nverursacht, halbiert.
+[System:Color r="255" g="128" b="128" a="255" ]Vergiftung[System:Color a="255" ]\n\nDas Pokémon erleidet am Ende jeder Runde Schaden in Höhe\nvon 1/8 seiner maximalen KP.\nPokémon vom Typ Gift oder Stahl können nicht vergiftet\nwerden.
+[System:Color r="255" g="128" b="128" a="255" ]Schwere Vergiftung[System:Color a="255" ]\n\nDas Pokémon erleidet am Ende jeder Runde Schaden,\nder mit jedem Mal zunimmt: Erst 1/16 seiner maximalen KP,\ndann 2/16, 3/16 usw. Wenn es aus- und wieder eingewechselt\nwird, beginnt der erlittene Schaden wieder bei 1/16.\nPokémon vom Typ Gift oder Stahl können nicht schwer\nvergiftet werden.
+[System:Color r="255" g="128" b="128" a="255" ]Verbrennungen[System:Color a="255" ]\n\nDas Pokémon erleidet am Ende jeder Runde Schaden in Höhe\nvon 1/16 seiner maximalen KP.\nAußerdem wird der Schaden, den es mit physischen Attacken\nverursacht, halbiert.\nPokémon vom Typ Feuer können keine Verbrennungen erleiden.
 Paralyse, Gefroren und Schlaf
-[System:Color r="255" g="128" b="128" a="255" ]Paralyse[System:Color a="255" ]\n\nDas Pokémon kann mit 12,5%iger Wahrscheinlichkeit keine\nAttacken einsetzen.\nAußerdem wird seine Initiative halbiert.
-[System:Color r="255" g="128" b="128" a="255" ]Gefroren[System:Color a="255" ]\n\nDas Pokémon kann bis auf wenige Ausnahmen keine Attacken\neinsetzen. Beim Versuch, dies zu tun, taut es mit 25%iger\nWahrscheinlichkeit auf.\nIn Runde 3 des Gefrorenseins oder wenn es Schaden durch\neine Feuer-Attacke oder Ähnliches erleidet, taut es garantiert auf.
+[System:Color r="255" g="128" b="128" a="255" ]Paralyse[System:Color a="255" ]\n\nDas Pokémon kann mit 12,5%iger Wahrscheinlichkeit keine\nAttacken einsetzen.\nAußerdem wird seine Initiative halbiert.\nPokémon vom Typ Elektro können nicht paralysiert werden.
+[System:Color r="255" g="128" b="128" a="255" ]Gefroren[System:Color a="255" ]\n\nDas Pokémon kann bis auf wenige Ausnahmen keine Attacken\neinsetzen. Beim Versuch, dies zu tun, taut es mit 25%iger\nWahrscheinlichkeit auf.\nIn Runde 3 des Gefrorenseins oder wenn es Schaden durch eine\nFeuer-Attacke oder Ähnliches erleidet, taut es garantiert auf.\nPokémon vom Typ Eis können nicht eingefroren werden.
 [System:Color r="255" g="128" b="128" a="255" ]Schlaf[System:Color a="255" ]\n\nDas Pokémon kann in Runde 1 des Schlafens keine Attacken\neinsetzen, mit Ausnahme von Schnarcher und Schlafrede.\nIn Runde 2 wacht es mit einer Wahrscheinlichkeit von 1 zu 3 auf.\nIn Runde 3 wacht es garantiert auf.\nHat das Pokémon die Attacke Erholung eingesetzt,\nwacht es bis Runde 3 nicht auf.
 Kampffeld und aktive Effekte
 Während eines Kampfs kann es vorkommen, dass durch die\nEffekte von Attacken, Fähigkeiten oder getragenen Items [System:Color r="255" g="128" b="128" a="255" ]auf[System:Color a="255" ]\n[System:Color r="255" g="128" b="128" a="255" ]dem Kampffeld verschiedene Effekte oder Zustände [System:Color a="255" ]erzeugt\nwerden.\n\nSchauen wir uns ein paar Beispiele an.
@@ -3463,7 +3535,7 @@ Während eines Kampfs kann es vorkommen, dass durch die\nEffekte von Attacken, F
 [System:Color r="255" g="128" b="128" a="255" ]Auroraschleier[System:Color a="255" ]\n\nDer Schaden, den das Pokémon durch physische und\nSpezial-Attacken erleidet, wird halbiert.\nIn Doppelkämpfen wird er um 1/3 reduziert.
 [System:Color r="255" g="128" b="128" a="255" ]Tarnsteine[System:Color a="255" ]\n\nEingewechselte Pokémon erleiden Schaden in Höhe von 1/8\nihrer maximalen KP.\nDer Schaden ändert sich in Abhängigkeit der Stärken oder\nSchwächen des jeweiligen Pokémon gegenüber dem\nTyp Gestein.
 [System:Color r="255" g="128" b="128" a="255" ]Stachler[System:Color a="255" ]\n\nEingewechselte Pokémon erleiden Schaden in Höhe von 1/8\nihrer maximalen KP. Der Schaden steigt jeweils, wenn der\nZustand 2- oder 3-mal erzeugt wird.\nPokémon vom Typ Flug, Pokémon mit der Fähigkeit\nSchwebe etc. sind nicht davon betroffen.
-[System:Color r="255" g="128" b="128" a="255" ]Giftspitzen[System:Color a="255" ]\n\nEingewechselte Pokémon werden vergiftet. Wenn der Zustand\n2-mal erzeugt wird, werden sie schwer vergiftet.\nPokémon vom Typ Flug, Pokémon mit der Fähigkeit\nSchwebe etc. sind nicht davon betroffen.
+[System:Color r="255" g="128" b="128" a="255" ]Giftspitzen[System:Color a="255" ]\n\nEingewechselte Pokémon werden vergiftet. Wird der\nZustand 2-mal erzeugt, werden sie schwer vergiftet.\nFlug-Pokémon oder Pokémon mit der Fähigkeit Schwebe etc.\nsind nicht betroffen.\nWird bei Kampfantritt eines Gift-Pokémon aufgehoben.
 Wettereffekte
 Während eines Kampfs kann sich durch die Effekte von\nAttacken und Fähigkeiten das [System:Color r="255" g="128" b="128" a="255" ]Wetter[System:Color a="255" ] ändern.\n\nDas Wetter beeinflusst [System:Color r="255" g="128" b="128" a="255" ]alle Pokémon auf dem Kampffeld[System:Color a="255" ] und\nhat verschiedene Effekte.
 [System:Color r="255" g="128" b="128" a="255" ]Sonnenschein[System:Color a="255" ]\n\nDer Schaden von Feuer-Attacken wird um 50 % erhöht\nund der Schaden von Wasser-Attacken halbiert.
@@ -3693,7 +3765,7 @@ Erhöht die Stärke von Drachen-Attacken des Trägers\num 20 %.
 Erhöht die Stärke von Normal-Attacken des Trägers\num 20 %.
 Füllt die KP des Trägers um 1/8 des Schadens auf,\nden seine Attacken verursachen.
 [~ 75]
-[~ 76]
+Erhöht die Volltrefferquote von Porenta und Lauchzelot\num 2 Stufen.
 Erhöht die Genauigkeit von Attacken des Trägers\num 10 %.
 Erhöht die Stärke von physischen Attacken des Trägers\num 10 %.
 Erhöht die Stärke von Spezial-Attacken des Trägers\num 10 %.
@@ -3736,14 +3808,14 @@ Der Träger regeneriert mit KP-stehlenden Attacken 30 %\nmehr KP als sonst.\nWir
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Fügt dem Angreifer Schaden in Höhe von 1/6 seiner\nmaximalen KP zu, wenn der Träger von einer\nKontaktattacke getroffen wird.
+Der Träger gilt als nicht auf dem Boden befindlich und\nBoden-Attacken sowie die Zustände Stachler, Giftspitzen\nund Klebenetz haben keine Wirkung auf ihn.\nVerschwindet für die restliche Dauer des Kampfs,\nwenn der Träger Schaden durch eine Attacke erleidet.
+Zwingt den Angreifer zum Auswechseln, wenn der Träger\ndurch eine Attacke Schaden erleidet.\nVerschwindet nach Einsatz für die restliche Dauer\ndes Kampfs.
+Erhöht den Schaden, den der Träger durch den Zustand\nUmschlingung verursacht, von 1/8 auf 1/6 der maximalen\nKP des Ziels.
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Wechselt den Träger aus, wenn er Schaden durch eine\nAttacke erleidet.\nVerschwindet nach Einsatz für die restliche Dauer\ndes Kampfs.
+Erhöht die Stärke einer Normal-Attacke um 30 %.\nVerschwindet nach Einsatz für die restliche Dauer\ndes Kampfs.
 [~ 127]
 [~ 128]
 [~ 129]
@@ -3799,7 +3871,7 @@ Ein getragenes Item, das es Firnontor ermöglicht,\neine Mega-Entwicklung durchz
 [~ 179]
 Ein getragenes Item, das es Camerupt ermöglicht,\neine Mega-Entwicklung durchzuführen.
 Ein getragenes Item, das es Schlapor ermöglicht,\neine Mega-Entwicklung durchzuführen.
-[~ 182]
+Ein getragenes Item, das es Brutalanda ermöglicht,\neine Mega-Entwicklung durchzuführen.
 Ein getragenes Item, das es Bibor ermöglicht,\neine Mega-Entwicklung durchzuführen.
 [~ 184]
 [~ 185]
@@ -3831,11 +3903,11 @@ Ein getragenes Item, das es Bibor ermöglicht,\neine Mega-Entwicklung durchzufü
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Verlängert die Dauer von Feldern, die der Träger mit\nAttacken oder Fähigkeiten erzeugt, um 3 Runden,\nsodass sie insgesamt 8 Runden anhalten.
+Erhöht die Verteidigung des Trägers um 1 Stufe,\nwenn ein Elektrofeld aktiv ist.\nVerschwindet nach Einsatz für die restliche Dauer\ndes Kampfs.
+Erhöht die Spezial-Verteidigung des Trägers um 1 Stufe,\nwenn ein Psychofeld aktiv ist.\nVerschwindet nach Einsatz für die restliche Dauer\ndes Kampfs.
+Erhöht die Spezial-Verteidigung des Trägers um 1 Stufe,\nwenn ein Nebelfeld aktiv ist.\nVerschwindet nach Einsatz für die restliche Dauer\ndes Kampfs.
+Erhöht die Verteidigung des Trägers um 1 Stufe,\nwenn ein Grasfeld aktiv ist.\nVerschwindet nach Einsatz für die restliche Dauer\ndes Kampfs.
 [~ 219]
 [~ 220]
 [~ 221]
@@ -3912,17 +3984,17 @@ Ein getragenes Item, das es Legios ermöglicht,\neine Mega-Entwicklung durchzuf�
 Ein getragenes Item, das es Raichu ermöglicht,\neine Mega-Entwicklung zu Mega-Raichu X durchzuführen.\nEs hat keine Wirkung auf ein Raichu in der Alola-Form.
 Ein getragenes Item, das es Raichu ermöglicht,\neine Mega-Entwicklung zu Mega-Raichu Y durchzuführen.\nEs hat keine Wirkung auf ein Raichu in der Alola-Form.
 Ein getragenes Item, das es Palimpalim ermöglicht,\neine Mega-Entwicklung durchzuführen.
-[~ 295]
+Ein getragenes Item, das es Absol ermöglicht,\neine Mega-Entwicklung zu Mega-Absol Z durchzuführen.
 Ein getragenes Item, das es Staraptor ermöglicht,\neine Mega-Entwicklung durchzuführen.
-[~ 297]
-[~ 298]
+Ein getragenes Item, das es Knakrack ermöglicht,\neine Mega-Entwicklung zu Mega-Knakrack Z\ndurchzuführen.
+Ein getragenes Item, das es Lucario ermöglicht,\neine Mega-Entwicklung zu Mega-Lucario Z\ndurchzuführen.
 Ein getragenes Item, das es Golgantes ermöglicht,\neine Mega-Entwicklung durchzuführen.
 Ein getragenes Item, das es Psiaugon ermöglicht,\neine Mega-Entwicklung durchzuführen.
 Ein getragenes Item, das es Krawell ermöglicht,\neine Mega-Entwicklung durchzuführen.
-[~ 302]
+Ein getragenes Item, das es Tectass ermöglicht,\neine Mega-Entwicklung durchzuführen.
 [~ 303]
 Ein getragenes Item, das es Halupenjo ermöglicht,\neine Mega-Entwicklung durchzuführen.
-[~ 305]
+Ein getragenes Item, das es Espinodon ermöglicht,\neine Mega-Entwicklung durchzuführen.
 [~ 306]
 Ein getragenes Item, das es Lumiflora ermöglicht,\neine Mega-Entwicklung durchzuführen.
 ~~~~~~~~~~~~~~~
@@ -4004,7 +4076,7 @@ Drachenzahn
 Seidenschal
 Muschelglocke
 [~ 75]
-[~ 76]
+Lauchstange
 Großlinse
 Muskelband
 Schlaubrille
@@ -4047,14 +4119,14 @@ Großwurzel
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Beulenhelm
+Luftballon
+Rote Karte
+Klammerband
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Fluchtknopf
+Normaljuwel
 [~ 127]
 [~ 128]
 [~ 129]
@@ -4110,7 +4182,7 @@ Firnontornit
 [~ 179]
 Cameruptnit
 Schlapornit
-[~ 182]
+Brutalandanit
 Bibornit
 [~ 184]
 [~ 185]
@@ -4142,11 +4214,11 @@ Bibornit
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Feldbeschichtung
+Elektro-Samen
+Psycho-Samen
+Nebel-Samen
+Gras-Samen
 [~ 219]
 [~ 220]
 [~ 221]
@@ -4223,17 +4295,17 @@ Legiosnit
 Raichunit X
 Raichunit Y
 Palimpalimonit
-[~ 295]
+Absolnit Z
 Staraptornit
-[~ 297]
-[~ 298]
+Knakracknit Z
+Lucarionit Z
 Golgantesnit
 Psiaugonit
 Krawellonit
-[~ 302]
+Tectassnit
 [~ 303]
 Halupenjonit
-[~ 305]
+Espinodonit
 [~ 306]
 Lumifloranit
 ~~~~~~~~~~~~~~~
@@ -4315,7 +4387,7 @@ Drachenzahn
 Seidenschal
 Muschelglocke
 [~ 75]
-[~ 76]
+Lauchstange
 Großlinse
 Muskelband
 Schlaubrille
@@ -4358,14 +4430,14 @@ Großwurzel
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Beulenhelm
+Luftballon
+Rote Karte
+Klammerband
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Fluchtknopf
+Normaljuwel
 [~ 127]
 [~ 128]
 [~ 129]
@@ -4421,7 +4493,7 @@ Firnontornit
 [~ 179]
 Cameruptnit
 Schlapornit
-[~ 182]
+Brutalandanit
 Bibornit
 [~ 184]
 [~ 185]
@@ -4453,11 +4525,11 @@ Bibornit
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Feldbeschichtung
+Elektro-Samen
+Psycho-Samen
+Nebel-Samen
+Gras-Samen
 [~ 219]
 [~ 220]
 [~ 221]
@@ -4534,17 +4606,17 @@ Legiosnit
 Raichunit X
 Raichunit Y
 Palimpalimonit
-[~ 295]
+Absolnit Z
 Staraptornit
-[~ 297]
-[~ 298]
+Knakracknit Z
+Lucarionit Z
 Golgantesnit
 Psiaugonit
 Krawellonit
-[~ 302]
+Tectassnit
 [~ 303]
 Halupenjonit
-[~ 305]
+Espinodonit
 [~ 306]
 Lumifloranit
 ~~~~~~~~~~~~~~~
@@ -4626,7 +4698,7 @@ Drachenzahn
 Seidenschal
 Muschelglocke
 [~ 75]
-[~ 76]
+Lauchstange
 Großlinse
 Muskelband
 Schlaubrille
@@ -4669,14 +4741,14 @@ Großwurzel
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Beulenhelm
+Luftballon
+Rote Karte
+Klammerband
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Fluchtknopf
+Normaljuwel
 [~ 127]
 [~ 128]
 [~ 129]
@@ -4732,7 +4804,7 @@ Firnontornit
 [~ 179]
 Cameruptnit
 Schlapornit
-[~ 182]
+Brutalandanit
 Bibornit
 [~ 184]
 [~ 185]
@@ -4764,11 +4836,11 @@ Bibornit
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Feldbeschichtung
+Elektro-Samen
+Psycho-Samen
+Nebel-Samen
+Gras-Samen
 [~ 219]
 [~ 220]
 [~ 221]
@@ -4845,17 +4917,17 @@ Legiosnit
 Raichunit X
 Raichunit Y
 Palimpalimonit
-[~ 295]
+Absolnit Z
 Staraptornit
-[~ 297]
-[~ 298]
+Knakracknit Z
+Lucarionit Z
 Golgantesnit
 Psiaugonit
 Krawellonit
-[~ 302]
+Tectassnit
 [~ 303]
 Halupenjonit
-[~ 305]
+Espinodonit
 [~ 306]
 Lumifloranit
 ~~~~~~~~~~~~~~~
@@ -4937,7 +5009,7 @@ Drachenzahn
 Seidenschal
 Muschelglocke
 [~ 75]
-[~ 76]
+Lauchstange
 Großlinse
 Muskelband
 Schlaubrille
@@ -4980,14 +5052,14 @@ Großwurzel
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Beulenhelm
+Luftballon
+Rote Karte
+Klammerband
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Fluchtknopf
+Normaljuwel
 [~ 127]
 [~ 128]
 [~ 129]
@@ -5043,7 +5115,7 @@ Firnontornit
 [~ 179]
 Cameruptnit
 Schlapornit
-[~ 182]
+Brutalandanit
 Bibornit
 [~ 184]
 [~ 185]
@@ -5075,11 +5147,11 @@ Bibornit
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Feldbeschichtung
+Elektro-Samen
+Psycho-Samen
+Nebel-Samen
+Gras-Samen
 [~ 219]
 [~ 220]
 [~ 221]
@@ -5156,17 +5228,17 @@ Legiosnit
 Raichunit X
 Raichunit Y
 Palimpalimonit
-[~ 295]
+Absolnit Z
 Staraptornit
-[~ 297]
-[~ 298]
+Knakracknit Z
+Lucarionit Z
 Golgantesnit
 Psiaugonit
 Krawellonit
-[~ 302]
+Tectassnit
 [~ 303]
 Halupenjonit
-[~ 305]
+Espinodonit
 [~ 306]
 Lumifloranit
 ~~~~~~~~~~~~~~~
@@ -5248,7 +5320,7 @@ Drachenzähne
 Seidenschals
 Muschelglocken
 [~ 75]
-[~ 76]
+Lauchstangen
 Großlinsen
 Muskelbänder
 Schlaubrillen
@@ -5291,14 +5363,14 @@ Großwurzeln
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Beulenhelme
+Luftballons
+Rote Karten
+Klammerbänder
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Fluchtknöpfe
+Normaljuwelen
 [~ 127]
 [~ 128]
 [~ 129]
@@ -5354,7 +5426,7 @@ Firnontornite
 [~ 179]
 Cameruptnite
 Schlapornite
-[~ 182]
+Brutalandanite
 Bibornite
 [~ 184]
 [~ 185]
@@ -5386,11 +5458,11 @@ Bibornite
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Feldbeschichtungen
+Elektro-Samen
+Psycho-Samen
+Nebel-Samen
+Gras-Samen
 [~ 219]
 [~ 220]
 [~ 221]
@@ -5467,17 +5539,17 @@ Legiosnite
 Raichunite X
 Raichunite Y
 Palimpalimonite
-[~ 295]
+Absolnite Z
 Staraptornite
-[~ 297]
-[~ 298]
+Knakracknite Z
+Lucarionite Z
 Golgantesnite
 Psiaugonite
 Krawellonite
-[~ 302]
+Tectassnite
 [~ 303]
 Halupenjonite
-[~ 305]
+Espinodonite
 [~ 306]
 Lumifloranite
 ~~~~~~~~~~~~~~~
@@ -5559,7 +5631,7 @@ Drachenzähne
 Seidenschals
 Muschelglocken
 [~ 75]
-[~ 76]
+Lauchstangen
 Großlinsen
 Muskelbänder
 Schlaubrillen
@@ -5602,14 +5674,14 @@ Großwurzeln
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Beulenhelme
+Luftballons
+Rote Karten
+Klammerbänder
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Fluchtknöpfe
+Normaljuwelen
 [~ 127]
 [~ 128]
 [~ 129]
@@ -5665,7 +5737,7 @@ Firnontornite
 [~ 179]
 Cameruptnite
 Schlapornite
-[~ 182]
+Brutalandanite
 Bibornite
 [~ 184]
 [~ 185]
@@ -5697,11 +5769,11 @@ Bibornite
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Feldbeschichtungen
+Elektro-Samen
+Psycho-Samen
+Nebel-Samen
+Gras-Samen
 [~ 219]
 [~ 220]
 [~ 221]
@@ -5778,17 +5850,17 @@ Legiosnite
 Raichunite X
 Raichunite Y
 Palimpalimonite
-[~ 295]
+Absolnite Z
 Staraptornite
-[~ 297]
-[~ 298]
+Knakracknite Z
+Lucarionite Z
 Golgantesnite
 Psiaugonite
 Krawellonite
-[~ 302]
+Tectassnite
 [~ 303]
 Halupenjonite
-[~ 305]
+Espinodonite
 [~ 306]
 Lumifloranite
 ~~~~~~~~~~~~~~~
@@ -5813,6 +5885,8 @@ Beeren
 Anderes
 [~ 17]
 Mega-Steine
+[~ 19]
+Alle
 ~~~~~~~~~~~~~~~
 Text File : item_ticket
 ~~~~~~~~~~~~~~~
@@ -5864,6 +5938,9 @@ Flottball-Garantieticket
 Trainingsticket
 Seltener-Ball-Garantieticket
 Feierliches Auswahlticket (Worlds 2026)
+Du besitzt keine Tickets.
+Ablaufdatum:
+[Digit:2digits Idx="2" ].[Digit:2digits Idx="1" ].[Digit:4digits Sep="0" ], [Digit:2digits Idx="3" ]:[Digit:2digits Idx="4" ] Uhr
 ~~~~~~~~~~~~~~~
 Text File : item_ticket_info
 ~~~~~~~~~~~~~~~
@@ -5945,6 +6022,8 @@ Zurück
 Gerade werden Wartungsarbeiten durchgeführt.\nDu kehrst nun zum Titelbildschirm zurück.
 [Name:FreeWord ]
 [Name:FreeWord ]
+Um [Digit:2digits ]:[Digit:2digits Idx="1" ] Uhr beginnen Wartungsarbeiten.\nZu dieser Zeit noch laufende Kämpfe werden\nfür ungültig erklärt.\n\nMöchtest du die Gegnersuche trotzdem starten?
+In Kürze beginnen Wartungsarbeiten.\nZu dieser Zeit noch laufende Kämpfe werden\nfür ungültig erklärt.\n\nMöchtest du die Gegnersuche trotzdem starten?
 ~~~~~~~~~~~~~~~
 Text File : message_error
 ~~~~~~~~~~~~~~~
@@ -7159,6 +7238,8 @@ Filtern
 Aufsteigend
 Absteigend
 Zurücksetzen
+[~ 14]
+[~ 15]
 Aus Pokémon HOME
 Regulär
 Probe
@@ -7207,7 +7288,7 @@ Musik
 Kampfnamen anzeigen
 Trainernamen anzeigen
 Kampfdetails anzeigen
-[~ 11]
+Box-Sortierung beibehalten
 Trainername
 Sprache
 Apple Account
@@ -7258,6 +7339,9 @@ Lösche deinen Pokémon Champions-Account.
 Benachrichtigungen von Pokémon Champions
 Erhalte alle Benachrichtigungen von Pokémon Champions
 Um Mitteilungen bzw. Benachrichtigungen zu erhalten,\nmusst du die Einstellungen auf deinem Gerät anpassen.\nMöchtest du jetzt die Einstellungen öffnen?
+Wähle aus, ob die ausgewählte Sortierung deiner Pokémon\nin der Box und beim Training gespeichert werden soll.
+Auswahlhilfe
+Wähle aus, ob bei der Pokémon-Auswahl vor Kämpfen\nauf Kampfdaten basierende, hilfreiche Informationen\nangezeigt werden sollen.
 ~~~~~~~~~~~~~~~
 Text File : op_event
 ~~~~~~~~~~~~~~~
@@ -7516,6 +7600,7 @@ Möchtest du zum Titelbildschirm zurückkehren?
 Erfolge
 Anleitungen
 Geheimgeschenk
+Tickets
 ~~~~~~~~~~~~~~~
 Text File : place_name_syn
 ~~~~~~~~~~~~~~~
@@ -7531,7 +7616,7 @@ Text File : place_name_syn
 [~ 9]
 [~ 10]
 [~ 11]
-Battle Arena: 2026 Worlds
+Kampfkuppel – Worlds 2026
 ~~~~~~~~~~~~~~~
 Text File : present_box
 ~~~~~~~~~~~~~~~
@@ -7551,7 +7636,7 @@ Löschen
 Möchtest du diese Nachricht löschen?
 Die Nachricht wurde gelöscht.
 Möchtest du alle bereits gelesenen Nachrichten\nlöschen?
-[System:Color r="255" g="128" b="128" a="255" ]Hinweis: Nachrichten mit nicht angenommenen\nGeschenken werden nicht gelöscht.[System:Color a="255" ]
+[System:Color r="255" g="128" b="128" a="255" ]Hinweis: Wichtige Nachrichten und Nachrichten\nmit nicht angenommenen Geschenken werden\nnicht gelöscht.[System:Color a="255" ]
 Alle Nachrichten wurden gelöscht.
 [System:Color r="255" g="128" b="128" a="255" ]Hinweis: Ungelesene Nachrichten und\nNachrichten mit noch nicht angenommenen\nGeschenken werden nicht gelöscht.[System:Color a="255" ]
 Geschenke, die du nicht annehmen konntest,\nwerden an dein Postfach geschickt.\n[System:Color r="255" g="128" b="128" a="255" ]Hinweis: Abgelaufene Geschenke werden\ngelöscht.[System:Color a="255" ]
@@ -7816,7 +7901,7 @@ Möchtest du Pokémon kennenlernen, indem du\n[DE:IndArtAcc ][Name:ProbabilityIt
 ~~~~~~~~~~~~~~~
 Text File : rental_poke_appear
 ~~~~~~~~~~~~~~~
-Bei dieser Auswahl werden dir Pokémon vorgestellt, die für\nRangkämpfe mit den Kampfregeln [Name:PokeRegulation ] zugelassen sind.
+Bei dieser Auswahl werden dir Pokémon vorgestellt, die für\nRangkämpfe mit den Kampfregeln [Name:PokeRegulation ] zugelassen sind.\nIn den Neuigkeiten findest du Einzelheiten hierzu.
 Pokémon, die neu zugelassen sind, werden dir mit erhöhter\nWahrscheinlichkeit vorgestellt.
 Diese Auswahl an Pokémon wird dir angezeigt, wenn du\n[DE:IndArtAcc ][Name:ProbabilityItem ] nutzt.
 Verfügbarkeit:
@@ -7835,8 +7920,13 @@ Reguläre Rekrutierung
 Zeitraum: unbegrenzt\n[System:Color r="255" g="128" b="128" a="255" ]Hinweis: Für eine reguläre Rekrutierung benötigst du VP.[System:Color a="255" ]
 Zeitraum: unbegrenzt
 [~ 18]
+[~ 19]
+[~ 20]
+[~ 21]
+[~ 22]
 M-A
 M-B
+M-C
 ~~~~~~~~~~~~~~~
 Text File : rental_poke_select
 ~~~~~~~~~~~~~~~
@@ -8001,6 +8091,18 @@ Märchenonkel
 Träumerin
 Herrscher des Ursprungs
 Herrscherin des Ursprungs
+PokéDoko-Champion
+PokéDoko-Champion
+Meister ([Name:TournamentAbb Idx="10" ])
+Meisterin ([Name:TournamentAbb Idx="10" ])
+Veteran ([Name:TournamentAbb Idx="10" ])
+Veteranin ([Name:TournamentAbb Idx="10" ])
+Ass ([Name:TournamentAbb Idx="10" ])
+Ass ([Name:TournamentAbb Idx="10" ])
+Hoffnung ([Name:TournamentAbb Idx="10" ])
+Hoffnung ([Name:TournamentAbb Idx="10" ])
+Teilnehmer ([Name:TournamentAbb Idx="10" ])
+Teilnehmerin ([Name:TournamentAbb Idx="10" ])
 Beweis dafür, dass man [Digit:5digits Sep="8239" ] [DE:Qty S="Kampf" P="Kämpfe" ] mit\n[Name:PokemonName Idx="4" ] gewonnen hat.
 Toller Beweis dafür, dass man [Digit:5digits Sep="8239" ] [DE:Qty S="Kampf" P="Kämpfe" ] mit\n[Name:PokemonName Idx="4" ] gewonnen hat.
 Grandioser Beweis dafür, dass man [Digit:5digits Sep="8239" ] [DE:Qty S="Kampf" P="Kämpfe" ] mit\n[Name:PokemonName Idx="4" ] gewonnen hat.
@@ -8032,18 +8134,19 @@ Beweis dafür, dass man den [Digit:5digits Sep="8239" ]. Platz bei den\nPokémon
 Beweis dafür, dass man den [Digit:5digits Sep="8239" ]. Platz bei den\nPokémon-Weltmeisterschaften belegt hat.
 Beweis dafür, dass man einen Platz zwischen [Digit:5digits Sep="0" ] und [Digit:5digits Idx="1" Sep="0" ]\nbei den Pokémon-Weltmeisterschaften belegt hat.
 Beweis dafür, dass man an den Pokémon-Weltmeisterschaften\nteilgenommen hat.
-[~ 165]
+[~ 177]
 Beweis dafür, dass man einen Platz zwischen [Digit:5digits Idx="2" Sep="8239" ] und [Digit:5digits Idx="3" Sep="8239" ]\nim Turnier [Name:TournamentAbb Idx="10" ] – [Name:MonthName Idx="1" ] [Digit:4digits Sep="0" ] belegt hat.
 Beweis für die Teilnahme am Turnier\n[Name:TournamentAbb Idx="10" ] – [Name:MonthName Idx="1" ] [Digit:4digits Sep="0" ].
 Beweis dafür, dass man den 1. Platz in einem\nUrsprungsturnier belegt hat.
+Beweis dafür, dass man den 1. Platz in einem\nPokéDoko-Turnier belegt hat.
 Superball
 Hyperball
 Meisterball
 Trainer-Icon
 Abzeichen
 NAIC
-[~ 175]
-[~ 176]
+LAIC
+[~ 189]
 PJCS
 PTC
 TWMBL
@@ -8053,6 +8156,7 @@ THMBL
 PHMBL
 SGMBL
 IDMBL
+Mega-Entwicklungs-Kampf
 Vollwertiger Trainer
 Super-Trainer
 Hyper-Trainer
@@ -8200,7 +8304,7 @@ Vergangene Transaktionen wiederherstellen
 Transaktionen wiederherstellen
 Es wurden keine Transaktionsfehler gefunden.
 Alle Transaktionen wurden erfolgreich wiederhergestellt!
-[~ 60]
+Die Wiederherstellung der Transaktionen ist fehlgeschlagen.
 ・ Details und Anzahl der Produkte\nPremium-Kampfpass ×1\nWenn du einen Premium-Kampfpass kaufst, kannst du zusätzliche Geschenke erhalten,\nsobald der Level deines Kampfpasses steigt.\nWeitere Informationen zu diesen Geschenken findest du auf dem Kampfpass-Bildschirm,\nden du über den Arena-Hauptbildschirm erreichst.\n\nEin Premium-Kampfpass ist nur für die Dauer der aktuellen Saison gültig und läuft zum Ende\nder Saison aus. Für die darauffolgende Saison kann ein neuer Premium-Kampfpass\ngekauft werden.\nInformationen zu den genauen Daten einer Saison findest du auf dem Kampfpass-Bildschirm,\nden du über den Arena-Hauptbildschirm erreichst.\n\nHinweis: Geschenke, die identisch mit Items sind, die du bereits besitzt, werden\ngegebenenfalls in VP umgewandelt.\n\nZum Zeitpunkt des Kaufes eines Premium-Kampfpasses erhältst du die entsprechenden\nPremium-Kampfpass-Geschenke für alle bereits erreichten Kampfpass-Level.\n\nHinweis: Premium-Kampfpass-Geschenke werden möglicherweise zu einem späteren\nZeitpunkt im Shop oder anderwärtig erhältlich sein.\n\n\n・ Preise\nKehre zum vorherigen Bildschirm zurück, indem du „Zurück“ auswählst,\num Informationen zum Preis dieses Produkts zu erhalten.\n\n\n・ Verkaufszeitraum\nDu kannst einen Premium-Kampfpass bis zum Ende der zugehörigen Saison kaufen.\nPro Verkaufszeitraum kann nur ein Premium-Kampfpass gekauft werden.\n\nWenn du versuchst, einen Premium-Kampfpass kurz vor Ende des Verkaufszeitraums zu kaufen,\nkann es vorkommen, dass der Kauf aufgrund von Problemen mit dem Bezahlvorgang der\nPlattform nicht korrekt durchgeführt wird.\n\nBitte stelle sicher, dass beim Kauf eines Premium-Kampfpasses noch genügend Zeit bis zum\nEnde des Verkaufszeitraums vorhanden ist.\n
 [~ 62]
 [~ 63]
@@ -8243,6 +8347,7 @@ Stärke
 Neueste
 VP
 Typ
+Wechseln
 ~~~~~~~~~~~~~~~
 Text File : status
 ~~~~~~~~~~~~~~~
@@ -8441,7 +8546,7 @@ Erzwinger
 Speckschicht
 Frühwecker
 Flammkörper
-[~ 50]
+Angsthase
 Adlerauge
 Scherenmacht
 Mitnahme
@@ -8455,7 +8560,7 @@ Klebekörper
 Expidermis
 Adrenalin
 Notschutz
-[~ 64]
+Kloakensoße
 Notdünger
 Großbrand
 Sturzbach
@@ -8546,7 +8651,7 @@ Schwebedurch
 Mumie
 Hochmut
 Redlichkeit
-[~ 155]
+Hasenfuß
 Magiespiegel
 Vegetarier
 Strolch
@@ -8570,7 +8675,7 @@ Zuckerhülle
 Taktikwechsel
 Orkanschwingen
 Megawumme
-[~ 179]
+Pflanzenpelz
 Symbiose
 Krallenwucht
 Feenschicht
@@ -8585,11 +8690,11 @@ Feenaura
 [~ 191]
 Zähigkeit
 [~ 193]
-[~ 194]
+Rückzug
 [~ 195]
 Quälerei
 [~ 197]
-[~ 198]
+Beschattung
 Wasserblase
 [~ 200]
 Wutausbruch
@@ -8618,16 +8723,16 @@ Receiver
 [~ 224]
 [~ 225]
 Elektro-Erzeuger
-[~ 227]
+Psycho-Erzeuger
 [~ 228]
-[~ 229]
+Gras-Erzeuger
 [~ 230]
 [~ 231]
 [~ 232]
 [~ 233]
 [~ 234]
 [~ 235]
-[~ 236]
+Libero
 [~ 237]
 [~ 238]
 [~ 239]
@@ -8635,7 +8740,7 @@ Spiegelrüstung
 [~ 241]
 Stahlrückgrat
 [~ 243]
-[~ 244]
+Punk Rock
 Sandspeier
 [~ 246]
 Heranreifen
@@ -8643,7 +8748,7 @@ Heranreifen
 [~ 249]
 Mimese
 Hemmungslos
-[~ 252]
+Stählerner Wille
 [~ 253]
 Rastlose Seele
 [~ 255]
@@ -8660,13 +8765,13 @@ Kuriose Arznei
 [~ 266]
 [~ 267]
 [~ 268]
-[~ 269]
-[~ 270]
+Streusaat
+Thermowandel
 [~ 271]
 Läutersalz
 [~ 273]
 [~ 274]
-[~ 275]
+Wachhund
 [~ 276]
 [~ 277]
 Superwechsel
@@ -8710,17 +8815,18 @@ Mega-Solarladung
 Flammenmähne
 [~ 317]
 Chilispritzer
+Aura-Abwehr
 ~~~~~~~~~~~~~~~
 Text File : tokuseiinfo_syn
 ~~~~~~~~~~~~~~~
 Verursacht das Pokémon mit einer Attacke Schaden,\nschreckt das Ziel mit 10%iger Wahrscheinlichkeit zurück.
 Das Pokémon erzeugt bei Kampfantritt Regen, der 5 Runden\nlang anhält.
-Die Initiative des Pokémon wird am Ende jeder Runde um\n1 Stufe erhöht.
+Die Initiative des Pokémon wird am Ende jeder Runde um\n1 Stufe erhöht.\nDie Initiative wird nicht erhöht, wenn das Pokémon in\ndieser Runde eingewechselt wurde.
 Das Pokémon kann keine Volltreffer erleiden.
 Erleidet das Pokémon bei vollen KP Schaden durch eine Attacke,\ndie es mit einem Treffer kampfunfähig machen würde, übersteht\nes diese mit 1 KP.\nAußerdem haben K.O.-Attacken keine Wirkung auf es.
 Das Pokémon verhindert den Einsatz von Explosionsattacken.\nAuch Fähigkeiten, die Explosionen auslösen, werden nicht\naktiviert.
 Das Pokémon kann nicht paralysiert werden.
-Bei einem Sandsturm wird der Ausweichwert des Pokémon\num 25 % erhöht.
+Bei einem Sandsturm wird der Ausweichwert des Pokémon\num 25 % erhöht.\nAußerdem erleidet das Pokémon keinen Schaden durch\nSandstürme.
 Wird das Pokémon von einer Kontaktattacke getroffen,\nwird der Angreifer mit 30%iger Wahrscheinlichkeit paralysiert.
 Elektro-Attacken haben keine Wirkung auf das Pokémon.\nStattdessen füllen sie seine KP um 1/4 des Maximalwerts auf.
 Wasser-Attacken haben keine Wirkung auf das Pokémon.\nStattdessen füllen sie seine KP um 1/4 des Maximalwerts auf.
@@ -8739,7 +8845,7 @@ Das Pokémon hindert Gegner am Auswechseln.
 Wird das Pokémon von einer Kontaktattacke getroffen,\nfügt es dem Angreifer Schaden in Höhe von 1/8 von\ndessen maximalen KP zu.
 [~ 24]
 Das Pokémon gilt als nicht auf dem Boden befindlich und\nBoden-Attacken sowie die Zustände Stachler, Giftspitzen\nund Klebenetz haben keine Wirkung auf es.
-Wird das Pokémon von einer Kontaktattacke getroffen,\nwird der Angreifer mit 30%iger Wahrscheinlichkeit\nvergiftet, paralysiert oder in Schlaf versetzt.
+Wird das Pokémon von einer Kontaktattacke getroffen,\nwird der Angreifer mit 30%iger Wahrscheinlichkeit\nvergiftet, paralysiert oder in Schlaf versetzt.\nDiese Fähigkeit hat keine Wirkung auf Pokémon vom\nTyp Pflanze.
 Wird das Pokémon durch eine Attacke oder Fähigkeit vergiftet,\nschwer vergiftet, paralysiert oder erleidet Verbrennungen,\nereilt das jeweilige Statusproblem auch den Verursacher.
 Die Statuswerte des Pokémon können nicht durch Attacken oder\nFähigkeiten anderer Pokémon gesenkt werden.
 Wird das Pokémon ausgewechselt, werden seine\nStatusprobleme geheilt.
@@ -8762,7 +8868,7 @@ Gegner verbrauchen beim Einsatz von Attacken,\ndie sich gegen das Pokémon richt
 Der Schaden, den das Pokémon durch Feuer- und Eis-Attacken\nerleidet, wird halbiert.
 Wenn es in Schlaf versetzt wurde, wacht das Pokémon doppelt\nso schnell wieder auf wie andere Pokémon.
 Wird das Pokémon von einer Kontaktattacke getroffen,\nerleidet der Angreifer mit 30%iger Wahrscheinlichkeit\nVerbrennungen.
-[~ 49]
+Das Pokémon ignoriert sämtliche Effekte, die verhindern\nwürden, dass es gegen ein anderes Pokémon seines Teams\nausgewechselt wird.
 Die Genauigkeit des Pokémon kann nicht gesenkt werden.\nAußerdem ignoriert es beim Einsatz von Attacken\nAusweichwert-Veränderungen von Zielen.
 Der Angriff des Pokémon kann nicht durch Attacken oder\nFähigkeiten anderer Pokémon gesenkt werden.
 Trägt das Pokémon kein Item, nimmt es am Ende der Runde\nein von einem anderen Pokémon benutztes Item auf.
@@ -8776,7 +8882,7 @@ Das getragene Item des Pokémon kann nicht gestohlen werden\noder verloren gehen
 Das Pokémon befreit sich am Ende jeder Runde mit 30%iger\nWahrscheinlichkeit von Statusproblemen.
 Der Angriff des Pokémon wird um 50 % erhöht, wenn es von\neinem Statusproblem betroffen ist. Außerdem wird der den\nSchaden von physischen Attacken halbierende Effekt von\nVerbrennungen ignoriert.
 Die Verteidigung des Pokémon wird um 50 % erhöht,\nwenn es von einem Statusproblem betroffen ist.
-[~ 63]
+Wird das Pokémon von einer KP-stehlenden Attacke getroffen,\nregeneriert der Angreifer dadurch keine KP. Stattdessen erleidet\ner Schaden in Höhe der KP, die er regeneriert hätte.
 Fallen die KP des Pokémon auf 1/3 des Maximalwerts\noder weniger, wird die Stärke seiner Pflanzen-Attacken\num 50 % erhöht.
 Fallen die KP des Pokémon auf 1/3 des Maximalwerts\noder weniger, wird die Stärke seiner Feuer-Attacken\num 50 % erhöht.
 Fallen die KP des Pokémon auf 1/3 des Maximalwerts\noder weniger, wird die Stärke seiner Wasser-Attacken\num 50 % erhöht.
@@ -8867,10 +8973,10 @@ Das Pokémon ignoriert beim Einsatz von Attacken die Effekte\nvon Lichtschild, R
 Wird das Pokémon von einer Kontaktattacke getroffen,\nwird die Fähigkeit des Angreifers durch die Fähigkeit Mumie\nersetzt.
 Der Angriff des Pokémon wird um 1 Stufe erhöht, wenn es ein\nanderes Pokémon mit einem Angriff besiegt.
 Erleidet das Pokémon Schaden durch eine Unlicht-Attacke,\nwird sein Angriff um 1 Stufe erhöht.
-[~ 154]
+Erleidet das Pokémon Schaden durch eine Attacke vom Typ\nUnlicht, Geist oder Käfer oder wirkt Bedroher auf es,\nwird seine Initiative um 1 Stufe erhöht.
 Das Pokémon wirft Status-Attacken auf Angreifer zurück,\nohne selbst davon getroffen zu werden.
 Pflanzen-Attacken haben keine Wirkung auf das Pokémon.\nStattdessen erhöhen sie seinen Angriff um 1 Stufe.
-Die Priorität von Status-Attacken des Pokémon wird\num 1 Stufe erhöht.
+Die Priorität von Status-Attacken des Pokémon wird\num 1 Stufe erhöht.\nIm Gegenzug haben seine Status-Attacken keine Wirkung\nmehr auf Pokémon vom Typ Unlicht.
 Bei einem Sandsturm wird die Stärke von Gesteins-, Boden-\nund Stahl-Attacken des Pokémon um 30 % erhöht.
 [~ 159]
 [~ 160]
@@ -8891,7 +8997,7 @@ Das Pokémon und seine Mitstreiter können nicht in Schlaf\nversetzt oder schlä
 Führt das Pokémon einen Angriff aus, nimmt es die Klingenform\nan. Setzt es danach die Attacke Königsschild ein, nimmt es die\nSchildform an.
 Bei vollen KP wird die Priorität von Flug-Attacken des\nPokémon um 1 Stufe erhöht.
 Die Stärke von Impulswellenattacken des Pokémon wird\num 50 % erhöht.
-[~ 178]
+Die Verteidigung des Pokémon wird um 50 % erhöht,\nwenn ein Grasfeld aktiv ist.
 Das Pokémon gibt Mitstreitern, die ihr Item aufgebraucht haben,\nsein eigenes Item.
 Die Stärke von Kontaktattacken des Pokémon wird\num 30 % erhöht.
 Normal-Attacken des Pokémon nehmen den Typ Fee an und ihre\nStärke wird um 20 % erhöht.
@@ -8906,11 +9012,11 @@ Die Stärke von Feen-Attacken aller Pokémon wird\num 33 % erhöht.
 [~ 190]
 Erleidet das Pokémon Schaden durch eine Attacke,\nwird seine Verteidigung um 1 Stufe erhöht.
 [~ 192]
-[~ 193]
+Fallen die KP des Pokémon auf die Hälfte des Maximalwerts\noder weniger, wird es ausgewechselt.
 [~ 194]
 Bei Angriffen auf vergiftete oder schwer vergiftete Ziele hat das\nPokémon Volltreffergarantie.
 [~ 196]
-[~ 197]
+Beim Angriff auf neu eingewechselte Ziele wird die\nStärke der Attacken des Pokémon verdoppelt.
 Der Schaden, den das Pokémon durch Feuer-Attacken erleidet,\nwird halbiert. Außerdem wird die Stärke seiner Wasser-Attacken\nverdoppelt und es kann keine Verbrennungen erleiden.
 [~ 199]
 Fallen die KP des Pokémon durch einen Angriff auf die Hälfte\ndes Maximalwerts oder weniger, wird sein Spezial-Angriff\num 1 Stufe erhöht.
@@ -8939,16 +9045,16 @@ Das Pokémon erhält die Fähigkeit eines Mitstreiters,\nwenn dieser besiegt wir
 [~ 223]
 [~ 224]
 Das Pokémon erzeugt bei Kampfantritt auf dem gesamten\nKampffeld ein Elektrofeld, das 5 Runden lang anhält.
-[~ 226]
+Das Pokémon erzeugt bei Kampfantritt auf dem gesamten\nKampffeld ein Psychofeld, das 5 Runden lang anhält.
 [~ 227]
-[~ 228]
+Das Pokémon erzeugt bei Kampfantritt auf dem gesamten\nKampffeld ein Grasfeld, das 5 Runden lang anhält.
 [~ 229]
 [~ 230]
 [~ 231]
 [~ 232]
 [~ 233]
 [~ 234]
-[~ 235]
+Einmal pro Kampfantritt nimmt das Pokémon beim Einsatz einer\nAttacke deren Typ an.
 [~ 236]
 [~ 237]
 [~ 238]
@@ -8956,7 +9062,7 @@ Das Pokémon wirft Effekte, die seine Statuswerte senken\nwürden, auf den Verur
 [~ 240]
 Das Pokémon ignoriert die Effekte von Fähigkeiten und\nAttacken, die Attacken umleiten.
 [~ 242]
-[~ 243]
+Die Stärke der Geräuschattacken des Pokémon wird\num 30 % erhöht.\nDer Schaden, den es selbst durch Geräuschattacken erleidet,\nwird halbiert.
 Erleidet das Pokémon Schaden durch eine Attacke,\nerzeugt es einen Sandsturm, der 5 Runden lang anhält.
 [~ 245]
 Der Effekt von Beeren, die das Pokémon isst, wird verdoppelt.
@@ -8964,7 +9070,7 @@ Der Effekt von Beeren, die das Pokémon isst, wird verdoppelt.
 [~ 248]
 Der Typ des Pokémon ändert sich in Abhängigkeit vom\naktiven Feld.
 Das Pokémon hebt bei Kampfantritt die Zustände Lichtschild,\nReflektor und Auroraschleier auf.
-[~ 251]
+Die Stärke von Stahl-Attacken des Pokémon und seiner\nMitstreiter wird um 50 % erhöht.
 [~ 252]
 Wird das Pokémon von einer Kontaktattacke getroffen,\ntauscht es Fähigkeiten mit dem Angreifer.
 [~ 254]
@@ -8981,13 +9087,13 @@ Das Pokémon hebt bei Kampfantritt alle Statuswertänderungen\nvon Mitstreitern 
 [~ 265]
 [~ 266]
 [~ 267]
-[~ 268]
-[~ 269]
+Erleidet das Pokémon Schaden durch eine Attacke,\nerzeugt es auf dem gesamten Kampffeld ein Grasfeld,\ndas 5 Runden lang anhält.
+Erleidet das Pokémon Schaden durch eine Feuer-Attacke,\nwird sein Angriff um 1 Stufe erhöht.\nAußerdem kann es keine Verbrennungen erleiden.
 [~ 270]
 Das Pokémon kann keine Statusprobleme erleiden und der\nSchaden, den es durch Geister-Attacken erleidet, wird halbiert.
 [~ 272]
 [~ 273]
-[~ 274]
+Bedroher hat keine Wirkung auf das Pokémon.\nStattdessen wird sein Angriff um 1 Stufe erhöht.\nAttacken und Items anderer Pokémon, durch die das Pokémon\nausgewechselt werden würde, haben ebenfalls keine Wirkung\nauf es.
 [~ 275]
 [~ 276]
 Wird das Pokémon ausgewechselt, nimmt es die Heldenform an.
@@ -9031,6 +9137,7 @@ Das Pokémon kann Attacken wie bei Sonnenschein einsetzen,\nauch wenn nicht das 
 Die Stärke von Feuer-Attacken des Pokémon wird\num 50 % erhöht.
 [~ 316]
 Erleidet das Pokémon durch eine Attacke Schaden,\nerleidet der Angreifer Verbrennungen.
+Der Schaden, den das Pokémon durch Kontaktattacken\nerleidet, wird halbiert.
 ~~~~~~~~~~~~~~~
 Text File : tournament_mode
 ~~~~~~~~~~~~~~~
@@ -9355,15 +9462,15 @@ Dem Ziel wird Schaden in Höhe von 50 KP zugefügt.
 Das Ziel wird in den Zustand Egelsamen versetzt.
 Der Angriff und der Spezial-Angriff des Anwenders werden\num 1 Stufe erhöht. Bei Sonnenschein werden sie um 2 Stufen\nerhöht.
 Der Anwender wird in der Runde des Einsatzes in den Zustand\nKraftsammeln versetzt und greift in der nächsten Runde an.\nBei Sonnenschein wird er nicht in den Zustand Kraftsammeln\nversetzt und greift stattdessen sofort an.\nBei allen anderen Wettereffekten wird die Stärke dieser\nAttacke halbiert.
-Das Ziel wird vergiftet.
-Das Ziel wird paralysiert.
-Das Ziel wird in Schlaf versetzt.
+Das Ziel wird vergiftet.\nDiese Attacke hat keine Wirkung auf Pokémon vom\nTyp Pflanze.
+Das Ziel wird paralysiert.\nDiese Attacke hat keine Wirkung auf Pokémon vom\nTyp Pflanze.
+Das Ziel wird in Schlaf versetzt.\nDiese Attacke hat keine Wirkung auf Pokémon vom\nTyp Pflanze.
 Der Anwender wird in den Zustand Tobsucht versetzt.
 Die Initiative der Ziele wird um 2 Stufen gesenkt.
 Das Ziel wird in den Zustand Umschlingung versetzt.
 Das Ziel wird mit 10%iger Wahrscheinlichkeit paralysiert.
-Das Ziel wird paralysiert.
-Das Ziel wird mit 30%iger Wahrscheinlichkeit paralysiert.\nDiese Attacke kann auch Ziele treffen, die sich im Zustand\nAbgehoben befinden.\nBei Regen trifft sie garantiert.
+Das Ziel wird paralysiert.\nDiese Attacke hat keine Wirkung auf Pokémon vom\nTyp Boden.
+Das Ziel wird mit 30%iger Wahrscheinlichkeit paralysiert.\nDiese Attacke kann auch Ziele treffen, die sich im Zustand\nAbgehoben befinden.\nBei Sonnenschein beträgt die Genauigkeit 50 %.\nBei Regen trifft die Attacke garantiert.
 Bei Zielen im Zustand Eingegraben wird die Stärke dieser\nAttacke verdoppelt.\nIst ein Grasfeld aktiv, wird die Stärke der Attacke halbiert.
 Das Ziel wird kampfunfähig. Die Genauigkeit dieser Attacke ist\nauf 30 % festgesetzt.
 Der Anwender wird in der Runde des Einsatzes in den Zustand\nEingegraben versetzt und greift in der nächsten Runde an.
@@ -9391,7 +9498,7 @@ Das Ziel wird paralysiert.
 Die KP des Anwenders werden um die Hälfte des verursachten\nSchadens aufgefüllt.
 Der Anwender wird in der Runde des Einsatzes in den Zustand\nKraftsammeln versetzt und greift in der nächsten Runde an.\nDas Ziel schreckt mit 30%iger Wahrscheinlichkeit zurück.\nDer Angriff erfolgt mit um 1 Stufe erhöhter Volltrefferquote.
 Der Anwender verwandelt sich in eine Kopie des Ziels.\nDabei übernimmt er auch dessen Statuswerte, mit Ausnahme\nder KP.
-Das Ziel wird in Schlaf versetzt.
+Das Ziel wird in Schlaf versetzt.\nDiese Attacke hat keine Wirkung auf Pokémon vom\nTyp Pflanze.
 Die Verteidigung des Anwenders wird um 2 Stufen erhöht.
 Der Angriff erfolgt mit um 1 Stufe erhöhter Volltrefferquote.
 Der Anwender wird bei Einsatz kampfunfähig.
@@ -9401,15 +9508,16 @@ Ziele schrecken mit 30%iger Wahrscheinlichkeit zurück.
 [~ 72]
 Das Ziel wird mit 20%iger Wahrscheinlichkeit paralysiert,\neingefroren oder erleidet Verbrennungen.
 Die verbleibenden KP des Ziels werden halbiert.\nSollte es über genau 1 KP verfügen, erleidet es Schaden\nin Höhe von 1 KP.
-Der Anwender verliert 1/4 seiner maximalen KP und erzeugt\neinen Delegator.\nDer Delegator wird anstelle des Anwenders von Attacken\ngetroffen und verschwindet dann, wenn er Schaden in Höhe\nvon 1/4 der maximalen KP des Anwenders erlitten hat.
+Der Angriff erfolgt mit um 1 Stufe erhöhter Volltrefferquote.
+Der Anwender verliert 1/4 seiner maximalen KP und erzeugt\neinen Delegator.\nDer Delegator wird anstelle des Anwenders von Attacken\ngetroffen und verschwindet dann, wenn er Schaden in Höhe\nvon 1/4 der maximalen KP des Anwenders erlitten hat.\nGeräuschattacken ignorieren die Wirkung von Delegator.
 Trägt der Anwender kein Item, stiehlt er das Item des Ziels.
 Der Einsatz dieser Attacke ist nur möglich, wenn der Anwender\nschläft. Das Ziel schreckt mit 30%iger Wahrscheinlichkeit zurück.
 Der Anwender verliert die Hälfte seiner maximalen KP und\nversetzt das Ziel in den Zustand Fluch.
 Die Initiative des Anwenders wird um 1 Stufe gesenkt und\nsein Angriff und seine Verteidigung werden um 1 Stufe erhöht.
 Je geringer die verbleibenden KP des Anwenders,\ndesto höher die Stärke dieser Attacke.\nDie Stärke kann zwischen 20 und 200 liegen.
-[~ 81]
 [~ 82]
-Die Initiative der Ziele wird um 2 Stufen gesenkt.
+[~ 83]
+Die Initiative der Ziele wird um 2 Stufen gesenkt.\nDiese Attacke hat keine Wirkung auf Pokémon vom\nTyp Pflanze.
 Je geringer die verbleibenden KP des Anwenders,\ndesto höher die Stärke dieser Attacke.\nDie Stärke kann zwischen 20 und 200 liegen.
 Die AP der zuletzt eingesetzten Attacke des Ziels werden\num 4 gesenkt.
 In der Runde des Einsatzes wird der Anwender vor Attacken\ngeschützt. Mit jedem aufeinanderfolgenden Einsatz wird die\nErfolgschance gedrittelt.
@@ -9418,7 +9526,7 @@ Das Ziel wird verwirrt.
 Der Anwender verliert die Hälfte seiner maximalen KP und sein\nAngriff wird auf Stufe 6 erhöht. Verfügt er nicht über genügend\nverbleibende KP, schlägt die Attacke fehl.
 Das Ziel wird mit 30%iger Wahrscheinlichkeit vergiftet.
 Die Genauigkeit des Ziels wird um 1 Stufe gesenkt.
-[~ 92]
+Die Genauigkeit des Ziels wird mit 50%iger Wahrscheinlichkeit\num 1 Stufe gesenkt.
 Auf der Gegnerseite wird der Zustand Stachler erzeugt.
 Das Ziel wird paralysiert.
 Der Anwender wird in den Zustand Abgangsbund versetzt.\nBei aufeinanderfolgenden Einsätzen schlägt die Attacke fehl.
@@ -9433,13 +9541,13 @@ Die KP des Anwenders werden um die Hälfte des verursachten\nSchadens aufgefüll
 Erleidet der Anwender in der Runde des Einsatzes Schaden\ndurch eine Attacke, die ihn kampfunfähig machen würde,\nübersteht er diese mit 1 KP.\nMit jedem aufeinanderfolgenden Einsatz wird die Erfolgschance\ngedrittelt.
 Der Angriff des Ziels wird um 2 Stufen gesenkt.
 Der Angriff des Ziels wird um 2 Stufen erhöht und es wird\nverwirrt.
-[~ 107]
+Die KP des Anwenders oder eines Mitstreiters werden um\ndie Hälfte des Maximalwerts aufgefüllt.
 Die Verteidigung des Anwenders wird mit 10%iger\nWahrscheinlichkeit um 1 Stufe erhöht.
 Das Ziel wird in den Zustand Wechselsperre versetzt.
 Das Ziel wird in den Zustand Anziehung versetzt.\nBei einem Ziel desselben oder unbekannten Geschlechts\nschlägt die Attacke fehl.
 Der Einsatz dieser Attacke ist nur möglich, wenn der Anwender\nschläft. Der Anwender setzt eine zufällig ausgewählte Attacke\naus seinem Repertoire ein.
 Alle Pokémon im Team des Anwenders und seines Mitstreiters\nwerden von Statusproblemen befreit.
-[~ 113]
+[~ 114]
 Auf der Mitstreiterseite wird der Zustand Bodyguard erzeugt,\nder 5 Runden lang anhält.
 Die verbleibenden KP von Anwender und Ziel werden addiert\nund gleichmäßig unter beiden aufgeteilt.
 Das Ziel wird verwirrt.
@@ -9484,7 +9592,7 @@ An der Stelle, an der sich der Anwender befindet,\nwird der Zustand Wunschtraum 
 Der Anwender wird in den Zustand Verwurzler versetzt.
 Der Angriff und die Verteidigung des Anwenders werden um\n1 Stufe gesenkt.
 Der Anwender stellt sein zuletzt verbrauchtes Item wieder her\nund trägt es erneut.
-Beim Angriff des Anwenders werden die Zustände Reflektor,\nLichtschild und Auroraschleier auf der Gegnerseite aufgehoben.
+Beim Angriff des Anwenders werden die Zustände Reflektor,\nLichtschild und Auroraschleier auf der Seite des Ziels\naufgehoben.
 Das Ziel wird schläfrig gemacht.\nDiese Attacke trifft garantiert.
 Trägt das Ziel ein Item, steigt die Stärke dieser Attacke um 50 %.\nDas Ziel verliert sein Item.
 Der Anwender verursacht Schaden, dessen Höhe den\nverbleibenden KP des Ziels minus denen des Anwenders\nentspricht.\nSind die KP des Ziels gleich oder geringer als die des\nAnwenders, schlägt die Attacke fehl.
@@ -9492,9 +9600,9 @@ Je geringer die verbleibenden KP des Anwenders,\ndesto niedriger die Stärke die
 Die Fähigkeiten von Anwender und Ziel werden getauscht.
 Der Anwender wird in den Zustand Begrenzer versetzt.
 Der Anwender wird in der Runde des Einsatzes in den Zustand\nAbgetaucht versetzt und greift in der nächsten Runde an.
-[~ 166]
 [~ 167]
 [~ 168]
+[~ 169]
 Der Angriff des Ziels wird um 2 Stufen gesenkt.
 Alle am Kampf beteiligten Pokémon außer dem Anwender\nwerden verwirrt.
 Das Ziel erleidet mit 10%iger Wahrscheinlichkeit\nVerbrennungen.\nDer Angriff erfolgt mit um 1 Stufe erhöhter Volltrefferquote.
@@ -9535,8 +9643,8 @@ Der Angriff erfolgt mit um 1 Stufe erhöhter Volltrefferquote.
 Der Angriff und die Initiative des Anwenders werden um\n1 Stufe erhöht.
 Der Anwender greift 2- bis 5-mal in Serie an.
 Das Ziel wird mit 20%iger Wahrscheinlichkeit verwirrt.
-[~ 209]
 [~ 210]
+[~ 211]
 Die KP des Anwenders werden um die Hälfte des\nMaximalwerts aufgefüllt.\nGehört der Anwender dem Typ Flug an, verliert er diesen\nTyp in der Runde des Einsatzes.
 Auf dem gesamten Kampffeld wird der Zustand Erdanziehung\nerzeugt, der 5 Runden lang anhält.
 Die Initiative des Anwenders wird um 1 Stufe gesenkt.
@@ -9561,7 +9669,7 @@ Diese Attacke gelingt nur, wenn der Anwender zuvor alle\nanderen erlernten Attac
 Die Fähigkeit des Ziels wird durch die Fähigkeit Insomnia\nersetzt.
 Diese Attacke gelingt nur, wenn das Ziel in der Runde des\nEinsatzes einen Angriff ausgewählt, diesen aber noch\nnicht ausgeführt hat.
 Auf der Gegnerseite wird der Zustand Giftspitzen erzeugt.
-[~ 235]
+[~ 236]
 Der Anwender wird in den Zustand Wasserring versetzt.
 Der Anwender wird in den Zustand Magnetflug versetzt.
 Der Anwender erleidet 1/3 des verursachten Schadens selbst.\nDas Ziel erleidet mit 10%iger Wahrscheinlichkeit\nVerbrennungen.\nBei Einsatz wird der Anwender aufgetaut.
@@ -9602,16 +9710,15 @@ Das Ziel schreckt mit 20%iger Wahrscheinlichkeit zurück.
 Der Angriff erfolgt mit um 1 Stufe erhöhter Volltrefferquote.
 Auf der Gegnerseite wird der Zustand Tarnsteine erzeugt.
 Je schwerer das Ziel, desto höher die Stärke dieser Attacke.\nDie Stärke kann zwischen 20 und 120 liegen.
-[~ 276]
 [~ 277]
+[~ 278]
 Trägt das Ziel eine Beere, isst der Anwender sie stattdessen\nund beansprucht ihren Effekt für sich.
 Der Spezial-Angriff des Anwenders wird mit 70%iger\nWahrscheinlichkeit um 1 Stufe erhöht.
 Der Anwender erleidet 1/3 des verursachten Schadens selbst.
-[~ 281]
 [~ 282]
+[~ 283]
 Der Anwender erleidet die Hälfte des verursachten\nSchadens selbst.
 Der Anwender greift 2-mal in Serie an.
-[~ 285]
 [~ 286]
 [~ 287]
 [~ 288]
@@ -9619,13 +9726,14 @@ Der Anwender greift 2-mal in Serie an.
 [~ 290]
 [~ 291]
 [~ 292]
+[~ 293]
 In der Runde des Einsatzes werden Anwender und Mitstreiter vor\nAttacken geschützt, die alle Pokémon auf der Mitstreiterseite\ntreffen würden.
 Die Verteidigungs- und Spezial-Verteidigungs-Werte von\nAnwender und Ziel werden jeweils addiert und gleichmäßig\nunter beiden aufgeteilt.
 Die Angriffs- und Spezial-Angriffs-Werte von Anwender und\nZiel werden jeweils addiert und gleichmäßig unter beiden\naufgeteilt.
 Auf dem gesamten Kampffeld wird der Zustand Wunderraum\nerzeugt, der 5 Runden lang anhält.
 Obwohl es sich um eine Spezial-Attacke handelt, wird der\nSchaden der Attacke mit dem Verteidigungs-Wert des Ziels\nerrechnet.
 Ist das Ziel vergiftet oder schwer vergiftet, wird die Stärke\ndieser Attacke verdoppelt.
-Alle gegnerischen Attacken werden auf den Anwender\numgeleitet. Wirkt nur bei Attacken, für die ein einzelnes Ziel\nausgewählt werden muss.
+Alle gegnerischen Attacken werden auf den Anwender\numgeleitet. Wirkt nur bei Attacken, für die ein einzelnes Ziel\nausgewählt werden muss.\nDiese Attacke hat keine Wirkung auf Pokémon vom\nTyp Pflanze.
 Auf dem gesamten Kampffeld wird der Zustand Magieraum\nerzeugt, der 5 Runden lang anhält.
 Ziele, die sich nicht auf dem Boden befinden, werden in den\nZustand Herabgestürzt versetzt.\nDiese Attacke kann auch Ziele treffen, die sich im Zustand\nAbgehoben befinden.
 Diese Attacke hat Volltreffergarantie.
@@ -9651,7 +9759,7 @@ Das Ziel erleidet mit 30%iger Wahrscheinlichkeit\nVerbrennungen.\nBei Einsatz we
 Die Verteidigung und die Spezial-Verteidigung des Anwenders\nwerden um 1 Stufe gesenkt, aber der Angriff, der Spezial-Angriff\nund die Initiative werden um 2 Stufen erhöht.
 Die KP des Ziels werden um die Hälfte des Maximalwerts\naufgefüllt.
 Bei Zielen mit einem Statusproblem wird die Stärke dieser\nAttacke verdoppelt.
-[~ 325]
+Der Angriff des Anwenders wird um 1 Stufe und seine Initiative\num 2 Stufen erhöht.
 Das Ziel wird mit einem zufälligen Team-Mitglied\nausgewechselt, insofern ein Team-Mitglied vorhanden ist.
 Der Anwender lässt das Ziel in der Runde des Einsatzes zuletzt\nhandeln.
 Trägt der Anwender kein Item, wird die Stärke dieser Attacke\nverdoppelt.
@@ -9672,10 +9780,9 @@ Die Verteidigung des Ziels wird mit 50%iger Wahrscheinlichkeit\num 1 Stufe gesen
 Je schwerer der Anwender im Vergleich zum Ziel, desto höher\ndie Stärke dieser Attacke.\nDie Stärke kann zwischen 40 und 120 liegen.\nBei Zielen im Zustand Komprimator wird die Stärke der Attacke\nverdoppelt und sie trifft garantiert.
 Die Verteidigung des Anwenders wird um 3 Stufen erhöht.
 Die Genauigkeit des Ziels wird mit 40%iger Wahrscheinlichkeit\num 1 Stufe gesenkt.
-[~ 346]
+[~ 347]
 Der Anwender greift 2- bis 5-mal in Serie an.
-Das Ziel wird mit 30%iger Wahrscheinlichkeit verwirrt.\nDiese Attacke kann auch Ziele treffen, die sich im Zustand\nAbgehoben befinden.\nBei Regen trifft sie garantiert.
-[~ 349]
+Das Ziel wird mit 30%iger Wahrscheinlichkeit verwirrt.\nDiese Attacke kann auch Ziele treffen, die sich im Zustand\nAbgehoben befinden.\nBei Sonnenschein beträgt die Genauigkeit 50 %.\nBei Regen trifft die Attacke garantiert.
 [~ 350]
 [~ 351]
 [~ 352]
@@ -9684,14 +9791,15 @@ Das Ziel wird mit 30%iger Wahrscheinlichkeit verwirrt.\nDiese Attacke kann auch 
 [~ 355]
 [~ 356]
 [~ 357]
+[~ 358]
 Der Spezial-Angriff des Anwenders wird mit 50%iger\nWahrscheinlichkeit um 1 Stufe erhöht.
-[~ 359]
 [~ 360]
+[~ 361]
 Der Spezial-Angriff der Ziele wird um 1 Stufe gesenkt.
 Das Ziel schreckt mit 30%iger Wahrscheinlichkeit zurück.
-[~ 363]
 [~ 364]
 [~ 365]
+[~ 366]
 Der Schaden dieser Attacke ergibt sich, indem die\nWechselwirkungen ihres Typs und die des Typs Flug\nkombiniert werden.\nBei Zielen im Zustand Komprimator wird die Stärke der Attacke\nverdoppelt und sie trifft garantiert.
 Hat der Anwender während des Kampfs noch keine Beere\ngegessen, schlägt die Attacke fehl.
 Auf der Gegnerseite wird der Zustand Klebenetz erzeugt.
@@ -9712,21 +9820,20 @@ Der Angriff des Ziels wird mit 10%iger Wahrscheinlichkeit um\n1 Stufe gesenkt.
 Der Spezial-Angriff des Ziels wird mit 10%iger\nWahrscheinlichkeit um 1 Stufe gesenkt.
 Alle am Kampf beteiligten Pokémon werden in den Zustand\nFeenschloss versetzt.
 Der Anwender nimmt die Schildform an und wird in der Runde\ndes Einsatzes vor Angriffen geschützt.\nWird er dabei von einer Kontaktattacke getroffen, wird der\nAngriff des Angreifers um 1 Stufe gesenkt.\nMit jedem aufeinanderfolgenden Einsatz wird die Erfolgschance\ngedrittelt.
-[~ 386]
 [~ 387]
 [~ 388]
+[~ 389]
 Der Anwender greift 2- bis 5-mal in Serie an.
 Der Spezial-Angriff des Ziels wird um 1 Stufe gesenkt.
 In der Runde des Einsatzes wird der Anwender vor Attacken\ngeschützt.\nWird er dabei von einer Kontaktattacke getroffen, erleidet der\nAngreifer Schaden in Höhe von 1/8 seiner maximalen KP.\nMit jedem aufeinanderfolgenden Einsatz wird die Erfolgschance\ngedrittelt.
 Die Spezial-Verteidigung eines Mitstreiters wird um 1 Stufe\nerhöht.
 Der Spezial-Angriff des Ziels wird um 2 Stufen gesenkt.
-[~ 394]
+[~ 395]
 Die Verteidigung und die Spezial-Verteidigung des Anwenders\nund seiner Mitstreiter werden um 1 Stufe erhöht, insofern sie\nüber die Fähigkeit Plus oder die Fähigkeit Minus verfügen.
 Auf dem gesamten Kampffeld wird ein Elektrofeld erzeugt,\ndas 5 Runden lang anhält.
 Der Angriff des Ziels wird um 1 Stufe gesenkt.
 Das Ziel wird paralysiert.
 Das Ziel wird in den Zustand Umschlingung versetzt.
-[~ 400]
 [~ 401]
 [~ 402]
 [~ 403]
@@ -9770,21 +9877,19 @@ Der Anwender erleidet die Hälfte des verursachten Schadens\nselbst.
 [~ 441]
 [~ 442]
 [~ 443]
-[~ 444]
-[~ 445]
 Die Attacke wird nur erfolgreich ausgeführt, wenn sie sofort\nnach Kampfantritt eingesetzt wird.
 In der Runde des Einsatzes wird der Anwender vor Attacken\ngeschützt.\nWird er dabei von einer Kontaktattacke getroffen, wird der\nAngreifer vergiftet.\nMit jedem aufeinanderfolgenden Einsatz wird die Erfolgschance\ngedrittelt.
 Das Ziel wird in den Zustand Wechselsperre versetzt.
 Der Anwender ignoriert beim Angriff sämtliche\nStatuswertänderungen des Ziels.
 Das Ziel wird von Verbrennungen geheilt.
 Die Initiative des Anwenders wird um 1 Stufe gesenkt.
-[~ 452]
+[~ 450]
 Die KP des Anwenders werden um die Höhe des Angriffs-Werts\ndes Ziels aufgefüllt.\nDer Angriff des Ziels wird um 1 Stufe gesenkt.
 Der Anwender wird in der Runde des Einsatzes in den Zustand\nKraftsammeln versetzt und greift in der nächsten Runde an.\nBei Sonnenschein wird er nicht in den Zustand Kraftsammeln\nversetzt und greift stattdessen sofort an.\nBei allen anderen Wettereffekten wird die Stärke dieser\nAttacke halbiert.
 Die Initiative des Ziels wird um 2 Stufen gesenkt und es wird\nvergiftet.
 Das Ziel wird in den Zustand Neck Strike versetzt.
 Mitstreiter erleiden durch diese Attacke keinen Schaden,\nsondern ihre KP werden um die Hälfte des Maximalwerts\naufgefüllt.
-[~ 458]
+[~ 456]
 Auf dem gesamten Kampffeld wird ein Psychofeld erzeugt,\ndas 5 Runden lang anhält.
 Der Angriff des Ziels wird um 1 Stufe gesenkt.
 Die Verteidigung des Ziels wird um 1 Stufe gesenkt.
@@ -9792,14 +9897,16 @@ Mit jeder Stufe, um die die Statuswerte des Anwenders erhöht\nwurden, steigt di
 Der Anwender verliert den Typ Feuer und wird aufgetaut.\nGehört der Anwender nicht dem Typ Feuer an, schlägt die\nAttacke fehl.
 Die Initiative-Werte von Anwender und Ziel werden getauscht.
 Diese Attacke trifft garantiert.
+[~ 464]
+[~ 465]
 [~ 466]
-[~ 467]
-[~ 468]
 Der Angriff des Ziels wird um 1 Stufe gesenkt.
 Das Ziel wird dazu gezwungen, die zuletzt eingesetzte Attacke\nerneut einzusetzen.
 Wird der Anwender vor dem Einsatz dieser Attacke von einer\nKontaktattacke getroffen, erleidet der Angreifer Verbrennungen.
 Die Verteidigung des Anwenders wird um 1 Stufe gesenkt.
 Auf der Mitstreiterseite wird der Zustand Auroraschleier erzeugt,\nder 5 Runden lang anhält.\nDiese Attacke kann nur bei Schnee eingesetzt werden.
+[~ 472]
+[~ 473]
 [~ 474]
 [~ 475]
 [~ 476]
@@ -9809,17 +9916,17 @@ Auf der Mitstreiterseite wird der Zustand Auroraschleier erzeugt,\nder 5 Runden 
 [~ 480]
 [~ 481]
 [~ 482]
-[~ 483]
-[~ 484]
-Beim Angriff des Anwenders werden die Zustände Reflektor,\nLichtschild und Auroraschleier auf der Gegnerseite aufgehoben.
+Beim Angriff des Anwenders werden die Zustände Reflektor,\nLichtschild und Auroraschleier auf der Seite des Ziels\naufgehoben.
 Hat der Anwender in der vorherigen Runde nicht gehandelt,\nist seine Attacke fehlgeschlagen oder hat nicht getroffen,\nwird die Stärke dieser Attacke verdoppelt.
-[~ 487]
+[~ 485]
 Die Verteidigung des Ziels wird mit 20%iger Wahrscheinlichkeit\num 1 Stufe gesenkt.
+[~ 487]
+[~ 488]
 [~ 489]
 [~ 490]
-[~ 491]
-[~ 492]
 Der Angriff und der Spezial-Angriff des Ziels werden um\n1 Stufe gesenkt. Diese Attacke trifft das Ziel unabhängig von\ndessen Ausweichwert und Effekten wie Schutzschild.
+Das Ziel schreckt mit 30%iger Wahrscheinlichkeit zurück.
+[~ 493]
 [~ 494]
 [~ 495]
 [~ 496]
@@ -9834,18 +9941,18 @@ Der Angriff und der Spezial-Angriff des Ziels werden um\n1 Stufe gesenkt. Diese 
 [~ 505]
 [~ 506]
 [~ 507]
-[~ 508]
-[~ 509]
-[~ 510]
-[~ 511]
+Der Anwender ignoriert die Effekte von Fähigkeiten und\nAttacken, die Attacken umleiten.\nDer Angriff erfolgt mit um 1 Stufe erhöhter Volltrefferquote.
+Das Ziel und der Anwender werden in den Zustand Fesselbiss\nversetzt.
 Der Anwender isst die Beere, die er bei sich trägt.\nSeine Verteidigung wird um 2 Stufen erhöht. Trägt er keine\nBeere bei sich, kann die Attacke nicht eingesetzt werden.
 Der Angriff, der Spezial-Angriff, die Verteidigung,\ndie Spezial-Verteidigung und die Initiative des Anwenders\nwerden um 1 Stufe erhöht.\nDer Anwender wird in den Zustand Wechselsperre versetzt.\nDiese Attacke kann nur ein Mal pro Kampfantritt erfolgreich\neingesetzt werden.
-[~ 514]
-Der Typ des Ziels wird durch den Typ Psycho ersetzt.
+[~ 512]
+Der Typ des Ziels wird durch den Typ Psycho ersetzt.\nDiese Attacke hat keine Wirkung auf Pokémon vom\nTyp Pflanze.
 Der Anwender greift 2-mal in Serie an. Befinden sich zwei\nPokémon auf der Gegnerseite, greift er jedes davon jeweils\nein Mal an.
 Alle am Kampf beteiligten Pokémon werden dazu gezwungen,\ndie Beeren zu essen, die sie tragen.
+Das Ziel wird in die Zustände Wechselsperre und\nOctoklammer versetzt.
+[~ 517]
 [~ 518]
-[~ 519]
+Die Zustände von Mitstreiterseite und Gegnerseite\nwerden getauscht.
 [~ 520]
 [~ 521]
 [~ 522]
@@ -9864,27 +9971,24 @@ Alle am Kampf beteiligten Pokémon werden dazu gezwungen,\ndie Beeren zu essen, 
 [~ 535]
 [~ 536]
 [~ 537]
-[~ 538]
-[~ 539]
 Der Anwender verliert 1/3 seiner maximalen KP,\naber sein Angriff, sein Spezial-Angriff, seine Verteidigung,\nseine Spezial-Verteidigung und seine Initiative werden um\n1 Stufe erhöht.\nVerfügt er nicht über genügend verbleibende KP,\nschlägt die Attacke fehl.
 Der Schaden dieser Attacke hängt nicht vom Angriffs-Wert des\nAnwenders, sondern von seinem Verteidigungs-Wert ab.
 Der Angriff und der Spezial-Angriff des Ziels werden um\n2 Stufen erhöht.
-[~ 543]
+Die Initiative des Ziels wird um 1 Stufe gesenkt.
 Das Ziel wird in den Zustand Umschlingung versetzt.
+Das Ziel erleidet mit 10%iger Wahrscheinlichkeit\nVerbrennungen.\nBei Einsatz wird der Anwender aufgetaut.
+[~ 544]
 [~ 545]
-[~ 546]
-[~ 547]
 Die Initiative des Anwenders wird um 1 Stufe erhöht.\nDer Typ dieser Attacke hängt von Morpekos Form ab.
 Der Angriff der Ziele wird um 1 Stufe gesenkt.
-[~ 550]
 Die Spezial-Verteidigung des Ziels wird um 1 Stufe gesenkt.
 Die Verteidigung des Ziels wird um 1 Stufe gesenkt.\nWenn der Zustand Erdanziehung aktiv ist, steigt die Stärke\ndieser Attacke um 50 %.
 Der Spezial-Angriff des Ziels wird um 1 Stufe gesenkt.
-[~ 554]
+[~ 551]
 Die KP des Anwenders und seiner Mitstreiter werden um 1/4\nihres jeweiligen Maximalwerts aufgefüllt.
-[~ 556]
-[~ 557]
-[~ 558]
+[~ 553]
+In der Runde nach Einsatz ist der Anwender handlungsunfähig.
+[~ 555]
 Der Anwender erleidet nach dem Angriff Schaden in Höhe\nder Hälfte seiner maximalen KP.
 Steht der Anwender unter dem Einfluss eines Psychofelds,\nwird die Stärke der Attacke um 50 % erhöht und es werden\nalle Gegner angegriffen.
 Diese Attacke schlägt fehl, wenn kein Feld aktiv ist.\nDas aktive Feld wird aufgehoben.
@@ -9905,6 +10009,9 @@ Der Anwender wird nach dem Angriff gegen ein anderes\nPokémon seines Teams ausg
 Der Anwender greift 3-mal in Serie an.\nBeim ersten Angriff beträgt die Stärke 20, beim zweiten 40 und\nbeim dritten 60.\nTrifft einer der Angriffe nicht, wird die Serie unterbrochen.
 Der Anwender greift 2-mal in Serie an.
 Das Ziel erleidet mit 30%iger Wahrscheinlichkeit\nVerbrennungen.\nBei Einsatz werden der Anwender und das Ziel aufgetaut.
+[~ 576]
+[~ 577]
+[~ 578]
 [~ 579]
 [~ 580]
 [~ 581]
@@ -9912,63 +10019,60 @@ Das Ziel erleidet mit 30%iger Wahrscheinlichkeit\nVerbrennungen.\nBei Einsatz we
 [~ 583]
 [~ 584]
 [~ 585]
-[~ 586]
-[~ 587]
-[~ 588]
 Die AP der zuletzt eingesetzten Attacke des Ziels werden\num 3 gesenkt.
 Das Ziel wird mit 30%iger Wahrscheinlichkeit entweder\nvergiftet, paralysiert oder in Schlaf versetzt.
 Die Verteidigung des Anwenders wird um 1 Stufe erhöht.
 Der Anwender wird in den Zustand Ang.-Vert.-Tausch versetzt.
 Auf der Gegnerseite wird der Zustand Tarnsteine erzeugt.
-[~ 594]
-[~ 595]
+[~ 591]
+[~ 592]
 Der Anwender wird in den Zustand Tobsucht versetzt.
 Der Anwender erleidet 1/3 des verursachten Schadens selbst.
-[~ 598]
+[~ 595]
 Das Ziel schreckt mit 30%iger Wahrscheinlichkeit zurück.
-[~ 600]
+[~ 597]
 Die Verteidigung und die Spezial-Verteidigung des Anwenders\nwerden um 1 Stufe gesenkt.
 Das Ziel wird mit 50%iger Wahrscheinlichkeit vergiftet.\nIst das Ziel vergiftet oder schwer vergiftet, wird die Stärke\ndieser Attacke verdoppelt.
-[~ 603]
+[~ 600]
 Der Angriff des Ziels wird um 1 Stufe gesenkt.
 Die Verteidigung des Anwenders wird um 2 Stufen erhöht.
 Die Verteidigung des Ziels wird mit 50%iger Wahrscheinlichkeit\num 1 Stufe gesenkt.\nDas Ziel schreckt mit 30%iger Wahrscheinlichkeit zurück.\nDer Angriff erfolgt mit um 1 Stufe erhöhter Volltrefferquote.
 Das Ziel erleidet mit 30%iger Wahrscheinlichkeit\nVerbrennungen.\nBei Zielen mit einem Statusproblem wird die Stärke dieser\nAttacke verdoppelt.
 Auf der Gegnerseite wird der Zustand Stachler erzeugt.
+[~ 606]
+[~ 607]
+[~ 608]
 [~ 609]
 [~ 610]
 [~ 611]
 [~ 612]
 [~ 613]
-[~ 614]
-[~ 615]
-[~ 616]
 Das Ziel wird mit 30%iger Wahrscheinlichkeit verwirrt.\nSchlägt die Attacke fehl oder trifft nicht, erleidet der Anwender\nSchaden in Höhe der Hälfte seiner maximalen KP.
 Die Stärke dieser Attacke wird für jedes Mal, wenn ein Pokémon\nim Team des Anwenders kampfunfähig wird, um 50 erhöht.
 Die Spezial-Verteidigung des Ziels wird um 2 Stufen gesenkt.
-[~ 620]
+[~ 617]
 Die Verteidigung des Ziels wird um 2 Stufen gesenkt und sein\nAngriff um 2 Stufen erhöht.
-[~ 622]
+[~ 619]
 Der Anwender greift 1- bis 10-mal in Serie an.\nTrifft einer der Angriffe nicht, wird die Serie unterbrochen.
 Das aktive Feld wird aufgehoben.
-[~ 625]
+Der Anwender wird bis zu seiner nächsten Handlung in den\nZustand Schutzlos versetzt.
 Ein kampfunfähiges Team-Mitglied wird wiederbelebt und\nseine KP werden um die Hälfte des Maximalwerts aufgefüllt.
 Das Ziel wird in den Zustand Pökelsalz versetzt.
-[~ 628]
+[~ 625]
 Der Anwender wird von den Zuständen Umschlingung und\nEgelsamen, und die Mitstreiterseite von Stachler, Giftspitzen,\nKlebenetz und Tarnsteine befreit. Das Ziel wird vergiftet.
-[~ 630]
-[~ 631]
+[~ 627]
+[~ 628]
 Diese Attacke trifft garantiert.
 Diese Attacke trifft garantiert und hat Volltreffergarantie.
 Der Spezial-Angriff des Anwenders wird um 1 Stufe erhöht.
 Die Initiative des Anwenders wird um 1 Stufe erhöht.
-Der Typ der Attacke hängt von der Form des Anwenders ab.\nBeim Angriff des Anwenders werden die Zustände Reflektor,\nLichtschild und Auroraschleier auf der Gegnerseite aufgehoben.
+Der Typ der Attacke hängt von der Form des Anwenders ab.\nBeim Angriff des Anwenders werden die Zustände Reflektor,\nLichtschild und Auroraschleier auf der Seite des Ziels\naufgehoben.
 Der Spezial-Angriff des Anwenders wird um 2 Stufen gesenkt.
+[~ 635]
+[~ 636]
+[~ 637]
 [~ 638]
 [~ 639]
-[~ 640]
-[~ 641]
-[~ 642]
 Der Anwender verliert die Hälfte seiner maximalen KP und\nerzeugt einen Delegator. Danach wird er gegen ein anderes\nPokémon seines Teams ausgewechselt.\nDer Delegator wird anstelle dieses Pokémon von Attacken\ngetroffen und verschwindet dann, wenn er Schaden in Höhe\nvon 1/4 der maximalen KP des Anwenders erlitten hat.
 Der Anwender erzeugt Schnee, der 5 Runden lang anhält.\nDanach wird er gegen ein anderes Pokémon seines Teams\nausgewechselt.
 Die Zustände Stachler, Tarnsteine, Klebenetz, Giftspitzen und\nDelegator werden auf dem gesamten Kampffeld aufgehoben.\nDer Angriff und die Initiative des Anwenders werden um\n1 Stufe erhöht.
@@ -9976,7 +10080,7 @@ Der Anwender erzeugt Schnee, der 5 Runden lang anhält.
 Die Initiative des Ziels wird um 1 Stufe gesenkt.
 Die Initiative des Anwenders wird um 1 Stufe erhöht.
 Der Angriff des Ziels wird um 1 Stufe gesenkt.
-[~ 650]
+[~ 647]
 Der Anwender greift 2-mal in Serie an.
 Jedes Mal, wenn der Anwender Schaden durch eine Attacke\nerleidet, steigt die Stärke von Zornesfaust um 50, bis zu einer\nmaximalen Stärke von 350.\nWird der Anwender ausgewechselt, wird die Stärke der Attacke\nzurückgesetzt.
 Die Verteidigung und die Spezial-Verteidigung des Anwenders\nwerden um 1 Stufe gesenkt.
@@ -9985,24 +10089,24 @@ Der Anwender verliert den Typ Elektro.\nGehört der Anwender nicht dem Typ Elekt
 Diese Attacke kann nicht 2-mal in Folge eingesetzt werden.
 Wurde der Anwender in der Runde des Einsatzes von der\nAttacke eines Gegners getroffen, werden 150 % des Schadens\nauf den Angreifer zurückgeworfen.
 Der Angriff erfolgt mit um 1 Stufe erhöhter Volltrefferquote.
-[~ 659]
+[~ 656]
 Die KP des Anwenders werden um die Hälfte des verursachten\nSchadens aufgefüllt.\nZiele erleiden mit 20%iger Wahrscheinlichkeit Verbrennungen.
 Das Ziel wird 3 Runden lang in den Zustand Siruphülle versetzt.
-[~ 662]
+[~ 659]
 In der Runde des Einsatzes wird der Spezial-Angriff des\nAnwenders um 1 Stufe erhöht und er wird in den Zustand\nKraftsammeln versetzt. In der nächsten Runde greift er an.\nBei Regen wird der Anwender nicht in den Zustand\nKraftsammeln versetzt und greift stattdessen sofort an.
-[~ 664]
+[~ 661]
 Die Stärke der Attacke wird mit 30%iger Wahrscheinlichkeit\nverdoppelt.
+[~ 663]
+[~ 664]
+[~ 665]
 [~ 666]
-[~ 667]
-[~ 668]
-[~ 669]
 Je höher die verbleibenden KP des Ziels, desto höher die\nStärke dieser Attacke.\nDie Stärke kann zwischen 1 und 100 liegen.
 Mitstreiter werden in den Zustand Erhöhte Volltrefferquote\nversetzt.\nBei Mitstreitern vom Typ Drache wird die Volltrefferquote\num 2 Stufen erhöht.\nBei allen anderen Typen wird sie um 1 Stufe erhöht.
 Wurden die Statuswerte des Ziels in der Runde des Einsatzes\nerhöht, wird das Ziel verwirrt.
 Hat der Anwender in der vorherigen Runde nicht gehandelt,\nist seine Attacke fehlgeschlagen oder hat nicht getroffen,\nwird die Stärke dieser Attacke verdoppelt.
 Schlägt die Attacke fehl oder trifft nicht, erleidet der Anwender\nSchaden in Höhe der Hälfte seiner maximalen KP.\nBei Zielen im Zustand Komprimator wird die Stärke der Attacke\nverdoppelt und sie trifft garantiert.
 Das Ziel wird 2 Runden lang in den Zustand Heilblockade\nversetzt.
-Das Ziel schreckt zurück.\nSetzt das Ziel keine Prioritätsattacke ein, schlägt die\nAttacke fehl.
+Das Ziel schreckt zurück.\nSetzt das Ziel keinen Prioritätsangriff ein, schlägt die\nAttacke fehl.
 ~~~~~~~~~~~~~~~
 Text File : wazaname
 ~~~~~~~~~~~~~~~
@@ -10986,7 +11090,7 @@ Mega-Pixi
 [~ 40]
 
 [~ 42]
-[~ 43]
+
 [~ 44]
 [~ 45]
 [~ 46]
@@ -10999,7 +11103,7 @@ Mega-Pixi
 [~ 53]
 [~ 54]
 [~ 55]
-[~ 56]
+
 [~ 57]
 [~ 58]
 [~ 59]
@@ -11030,7 +11134,7 @@ Mega-Sarzenia
 
 [~ 85]
 [~ 86]
-[~ 87]
+
 [~ 88]
 [~ 89]
 [~ 90]
@@ -11070,7 +11174,7 @@ Mega-Sarzenia
 [~ 124]
 
 Mega-Starmie
-[~ 127]
+
 [~ 128]
 [~ 129]
 [~ 130]
@@ -11269,7 +11373,7 @@ Mega-Panzaeron
 [~ 323]
 [~ 324]
 [~ 325]
-[~ 326]
+
 [~ 327]
 
 [~ 329]
@@ -11313,7 +11417,7 @@ Formeo
 
 Mega-Palimpalim
 
-[~ 370]
+Mega-Absol Z
 [~ 371]
 [~ 372]
 
@@ -11327,7 +11431,7 @@ Mega-Palimpalim
 [~ 381]
 [~ 382]
 [~ 383]
-[~ 384]
+
 [~ 385]
 [~ 386]
 
@@ -11401,11 +11505,11 @@ Mega-Staraptor
 [~ 455]
 [~ 456]
 
-[~ 458]
+Mega-Knakrack Z
 [~ 459]
 [~ 460]
 
-[~ 462]
+Mega-Lucario Z
 [~ 463]
 
 [~ 465]
@@ -11645,7 +11749,7 @@ Mega-Pyroleo
 Mega-Floette
 Rotblütler
 [~ 701]
-[~ 702]
+
 [~ 703]
 
 Zottelform
@@ -11747,8 +11851,8 @@ Tagform
 
 
 [~ 803]
-[~ 804]
-[~ 805]
+
+Mega-Tectass
 [~ 806]
 [~ 807]
 [~ 808]
@@ -11796,13 +11900,13 @@ Mega-Sen-Long
 [~ 850]
 [~ 851]
 [~ 852]
-[~ 853]
+
 [~ 854]
 [~ 855]
-[~ 856]
+
 [~ 857]
 [~ 858]
-[~ 859]
+
 [~ 860]
 [~ 861]
 [~ 862]
@@ -11812,7 +11916,7 @@ Mega-Sen-Long
 [~ 866]
 [~ 867]
 [~ 868]
-[~ 869]
+
 [~ 870]
 [~ 871]
 [~ 872]
@@ -11833,11 +11937,11 @@ Mega-Sen-Long
 [~ 887]
 [~ 888]
 [~ 889]
-[~ 890]
+Hoch-Form
 [~ 891]
 [~ 892]
 [~ 893]
-[~ 894]
+
 [~ 895]
 Fälschungsform
 [~ 897]
@@ -11847,21 +11951,21 @@ Fälschungsform
 [~ 901]
 
 [~ 903]
-[~ 904]
+
 [~ 905]
-[~ 906]
+
 
 
 [~ 909]
 Vanille-Creme
 
 Mega-Legios
-[~ 913]
+
 [~ 914]
 [~ 915]
 [~ 916]
 [~ 917]
-[~ 918]
+Männlich
 Pappsattmuster
 [~ 920]
 [~ 921]
@@ -11922,7 +12026,7 @@ Männlich
 Alltagsform
 [~ 977]
 [~ 978]
-[~ 979]
+
 [~ 980]
 
 Mega-Halupenjo
@@ -11938,7 +12042,7 @@ Dreierfamilie
 [~ 992]
 [~ 993]
 
-[~ 995]
+Mega-Espinodon
 [~ 996]
 [~ 997]
 [~ 998]
@@ -11950,7 +12054,7 @@ Dreierfamilie
 [~ 1004]
 [~ 1005]
 [~ 1006]
-[~ 1007]
+Grüngefiedert
 [~ 1008]
 [~ 1009]
 [~ 1010]
@@ -11964,7 +12068,7 @@ Mega-Lumiflora
 [~ 1018]
 [~ 1019]
 [~ 1020]
-[~ 1021]
+
 [~ 1022]
 [~ 1023]
 [~ 1024]
@@ -12050,7 +12154,7 @@ Alola-Form
 [~ 1104]
 [~ 1105]
 [~ 1106]
-[~ 1107]
+Alola-Form
 [~ 1108]
 Hisui-Form
 [~ 1110]
@@ -12153,7 +12257,7 @@ Schneeform
 Mega-Banette
 Mega-Absol
 Mega-Firnontor
-[~ 1210]
+Mega-Brutalanda
 Mega-Metagross
 [~ 1212]
 [~ 1213]
@@ -12405,7 +12509,7 @@ Entlarvte Form
 [~ 1459]
 [~ 1460]
 [~ 1461]
-[~ 1462]
+Tief-Form
 [~ 1463]
 [~ 1464]
 [~ 1465]
@@ -12422,7 +12526,7 @@ Karamell-Mix
 Trio-Mix
 [~ 1477]
 [~ 1478]
-[~ 1479]
+Weiblich
 Kohldampfmuster
 [~ 1481]
 [~ 1482]
@@ -12445,9 +12549,9 @@ Heldenform
 Viererfamilie
 [~ 1500]
 [~ 1501]
-[~ 1502]
-[~ 1503]
-[~ 1504]
+Blaugefiedert
+Gelbgefiedert
+Weißgefiedert
 [~ 1505]
 [~ 1506]
 [~ 1507]
@@ -12496,7 +12600,7 @@ Text File : zkn_weight
 [~ 36]
 19,9 kg
 [~ 38]
-[~ 39]
+12,0 kg
 [~ 40]
 [~ 41]
 [~ 42]
@@ -12509,7 +12613,7 @@ Text File : zkn_weight
 [~ 49]
 [~ 50]
 [~ 51]
-[~ 52]
+32,0 kg
 [~ 53]
 [~ 54]
 [~ 55]
@@ -12539,7 +12643,7 @@ Text File : zkn_weight
 78,5 kg
 [~ 80]
 [~ 81]
-[~ 82]
+15,0 kg
 [~ 83]
 [~ 84]
 [~ 85]
@@ -12578,7 +12682,7 @@ Text File : zkn_weight
 [~ 118]
 [~ 119]
 80,0 kg
-[~ 121]
+54,5 kg
 [~ 122]
 [~ 123]
 [~ 124]
@@ -12773,7 +12877,7 @@ Text File : zkn_weight
 [~ 313]
 [~ 314]
 [~ 315]
-[~ 316]
+80,0 kg
 [~ 317]
 88,8 kg
 [~ 319]
@@ -12829,7 +12933,7 @@ Text File : zkn_weight
 [~ 369]
 [~ 370]
 [~ 371]
-[~ 372]
+102,6 kg
 [~ 373]
 [~ 374]
 550,0 kg
@@ -13129,7 +13233,7 @@ Text File : zkn_weight
 [~ 669]
 10,0 kg
 [~ 671]
-[~ 672]
+91,0 kg
 [~ 673]
 136,0 kg
 28,0 kg
@@ -13224,7 +13328,7 @@ Text File : zkn_weight
 76,0 kg
 82,8 kg
 [~ 766]
-[~ 767]
+108,0 kg
 [~ 768]
 [~ 769]
 [~ 770]
@@ -13268,13 +13372,13 @@ Text File : zkn_weight
 [~ 808]
 [~ 809]
 [~ 810]
-[~ 811]
+90,0 kg
 [~ 812]
 [~ 813]
-[~ 814]
+33,0 kg
 [~ 815]
 [~ 816]
-[~ 817]
+45,2 kg
 [~ 818]
 [~ 819]
 [~ 820]
@@ -13284,7 +13388,7 @@ Text File : zkn_weight
 [~ 824]
 [~ 825]
 [~ 826]
-[~ 827]
+19,9 kg
 [~ 828]
 [~ 829]
 [~ 830]
@@ -13305,11 +13409,11 @@ Text File : zkn_weight
 [~ 845]
 [~ 846]
 [~ 847]
-[~ 848]
+40,0 kg
 [~ 849]
 [~ 850]
 [~ 851]
-[~ 852]
+39,0 kg
 [~ 853]
 0,4 kg
 [~ 855]
@@ -13319,20 +13423,20 @@ Text File : zkn_weight
 [~ 859]
 61,0 kg
 [~ 861]
-[~ 862]
+28,0 kg
 [~ 863]
-[~ 864]
+117,0 kg
 58,2 kg
 66,6 kg
 [~ 867]
 0,5 kg
 62,0 kg
-[~ 870]
+1,0 kg
 [~ 871]
 [~ 872]
 [~ 873]
 [~ 874]
-[~ 875]
+28,0 kg
 3,0 kg
 [~ 877]
 [~ 878]
@@ -13393,7 +13497,7 @@ Text File : zkn_weight
 60,2 kg
 [~ 934]
 [~ 935]
-[~ 936]
+48,2 kg
 [~ 937]
 15,0 kg
 [~ 939]
@@ -13407,7 +13511,7 @@ Text File : zkn_weight
 [~ 947]
 [~ 948]
 [~ 949]
-[~ 950]
+210,0 kg
 [~ 951]
 [~ 952]
 [~ 953]
@@ -13416,7 +13520,7 @@ Text File : zkn_weight
 [~ 956]
 [~ 957]
 [~ 958]
-[~ 959]
+2,4 kg
 [~ 960]
 [~ 961]
 [~ 962]
@@ -13429,7 +13533,7 @@ Text File : zkn_weight
 [~ 969]
 [~ 970]
 [~ 971]
-[~ 972]
+61,0 kg
 [~ 973]
 [~ 974]
 [~ 975]
@@ -13467,12 +13571,12 @@ Text File : zkn_weight
 120,0 kg
 [~ 1008]
 56,0 kg
-[~ 1010]
-[~ 1011]
-[~ 1012]
-[~ 1013]
-[~ 1014]
-[~ 1015]
+155,5 kg
+110,5 kg
+100,5 kg
+101,1 kg
+40,5 kg
+50,5 kg
 [~ 1016]
 [~ 1017]
 [~ 1018]
@@ -13485,60 +13589,60 @@ Text File : zkn_weight
 [~ 1025]
 [~ 1026]
 21,0 kg
-[~ 1028]
-[~ 1029]
+38,0 kg
+26,0 kg
 [~ 1030]
 [~ 1031]
-[~ 1032]
+42,3 kg
 [~ 1033]
 19,9 kg
 [~ 1035]
 [~ 1036]
 [~ 1037]
 [~ 1038]
-[~ 1039]
+33,0 kg
 [~ 1040]
 168,0 kg
-[~ 1042]
-[~ 1043]
+48,0 kg
+125,5 kg
 [~ 1044]
 [~ 1045]
 [~ 1046]
 [~ 1047]
 [~ 1048]
 [~ 1049]
-[~ 1050]
+120,0 kg
 70,5 kg
 [~ 1052]
 [~ 1053]
 [~ 1054]
-[~ 1055]
+40,5 kg
 [~ 1056]
 [~ 1057]
 [~ 1058]
 [~ 1059]
 [~ 1060]
 [~ 1061]
-[~ 1062]
-[~ 1063]
+100,0 kg
+80,0 kg
 [~ 1064]
-[~ 1065]
+59,0 kg
 115,0 kg
 85,0 kg
 110,0 kg
-[~ 1069]
+305,0 kg
 [~ 1070]
-[~ 1071]
+79,0 kg
 [~ 1072]
 [~ 1073]
 [~ 1074]
-[~ 1075]
+290,0 kg
 [~ 1076]
 [~ 1077]
-[~ 1078]
+201,0 kg
 69,8 kg
-[~ 1080]
-[~ 1081]
+108,8 kg
+61,5 kg
 [~ 1082]
 79,5 kg
 [~ 1084]
@@ -13568,39 +13672,39 @@ Text File : zkn_weight
 [~ 1108]
 [~ 1109]
 [~ 1110]
-[~ 1111]
+740,0 kg
 [~ 1112]
-[~ 1113]
-[~ 1114]
+125,0 kg
+62,5 kg
 [~ 1115]
 [~ 1116]
-[~ 1117]
-[~ 1118]
-[~ 1119]
-[~ 1120]
-[~ 1121]
-[~ 1122]
+40,4 kg
+49,5 kg
+255,0 kg
+55,2 kg
+52,0 kg
+102,0 kg
 [~ 1123]
 [~ 1124]
-[~ 1125]
-[~ 1126]
-[~ 1127]
-[~ 1128]
-[~ 1129]
-[~ 1130]
-[~ 1131]
-[~ 1132]
-[~ 1133]
+48,4 kg
+161,0 kg
+23,5 kg
+395,0 kg
+31,5 kg
+44,0 kg
+130,3 kg
+320,5 kg
+20,6 kg
 0,8 kg
 0,8 kg
 0,8 kg
-[~ 1137]
-[~ 1138]
-[~ 1139]
-[~ 1140]
-[~ 1141]
-[~ 1142]
-[~ 1143]
+13,0 kg
+8,0 kg
+49,0 kg
+49,0 kg
+350,2 kg
+112,6 kg
+942,9 kg
 [~ 1144]
 [~ 1145]
 [~ 1146]
@@ -13609,7 +13713,7 @@ Text File : zkn_weight
 [~ 1149]
 [~ 1150]
 [~ 1151]
-[~ 1152]
+50,0 kg
 [~ 1153]
 [~ 1154]
 [~ 1155]
@@ -13619,14 +13723,14 @@ Text File : zkn_weight
 [~ 1159]
 [~ 1160]
 [~ 1161]
-[~ 1162]
-[~ 1163]
-[~ 1164]
-[~ 1165]
-[~ 1166]
-[~ 1167]
-[~ 1168]
-[~ 1169]
+28,3 kg
+95,0 kg
+99,0 kg
+57,5 kg
+49,4 kg
+185,0 kg
+56,4 kg
+29,6 kg
 0,3 kg
 0,3 kg
 0,3 kg
@@ -13655,12 +13759,12 @@ Text File : zkn_weight
 [~ 1195]
 [~ 1196]
 [~ 1197]
-[~ 1198]
+180,3 kg
 58,2 kg
 [~ 1200]
-[~ 1201]
-[~ 1202]
-[~ 1203]
+60,0 kg
+32,0 kg
+230,5 kg
 [~ 1204]
 [~ 1205]
 [~ 1206]
@@ -13668,7 +13772,7 @@ Text File : zkn_weight
 [~ 1208]
 [~ 1209]
 [~ 1210]
-[~ 1211]
+31,0 kg
 [~ 1212]
 [~ 1213]
 73,0 kg
@@ -13680,10 +13784,10 @@ Text File : zkn_weight
 [~ 1220]
 [~ 1221]
 [~ 1222]
-[~ 1223]
-[~ 1224]
+180,0 kg
+69,6 kg
 20,5 kg
-[~ 1226]
+330,0 kg
 [~ 1227]
 [~ 1228]
 [~ 1229]
@@ -13696,11 +13800,11 @@ Text File : zkn_weight
 [~ 1236]
 [~ 1237]
 [~ 1238]
-[~ 1239]
-[~ 1240]
+90,0 kg
+39,0 kg
 [~ 1241]
 [~ 1242]
-[~ 1243]
+40,0 kg
 [~ 1244]
 [~ 1245]
 [~ 1246]
@@ -13758,7 +13862,7 @@ Text File : zkn_weight
 17,0 kg
 17,0 kg
 17,0 kg
-[~ 1301]
+93,3 kg
 [~ 1302]
 [~ 1303]
 [~ 1304]
@@ -13768,7 +13872,7 @@ Text File : zkn_weight
 [~ 1308]
 [~ 1309]
 0,9 kg
-[~ 1311]
+100,8 kg
 10,0 kg
 10,0 kg
 10,0 kg
@@ -13783,12 +13887,12 @@ Text File : zkn_weight
 28,0 kg
 28,0 kg
 8,5 kg
-[~ 1326]
+10,1 kg
 53,0 kg
-[~ 1328]
-[~ 1329]
-[~ 1330]
-[~ 1331]
+69,8 kg
+100,0 kg
+100,3 kg
+25,0 kg
 [~ 1332]
 334,1 kg
 [~ 1334]
@@ -13809,7 +13913,7 @@ Text File : zkn_weight
 37,0 kg
 [~ 1350]
 [~ 1351]
-[~ 1352]
+252,8 kg
 [~ 1353]
 [~ 1354]
 [~ 1355]
@@ -13819,7 +13923,7 @@ Text File : zkn_weight
 [~ 1359]
 [~ 1360]
 [~ 1361]
-[~ 1362]
+148,0 kg
 [~ 1363]
 [~ 1364]
 [~ 1365]
@@ -13851,10 +13955,10 @@ Text File : zkn_weight
 [~ 1391]
 [~ 1392]
 [~ 1393]
-[~ 1394]
+0,7 kg
 [~ 1395]
 [~ 1396]
-[~ 1397]
+240,5 kg
 [~ 1398]
 [~ 1399]
 [~ 1400]
@@ -13865,7 +13969,7 @@ Text File : zkn_weight
 [~ 1405]
 [~ 1406]
 [~ 1407]
-[~ 1408]
+40,0 kg
 [~ 1409]
 0,4 kg
 0,5 kg
@@ -13876,9 +13980,9 @@ Text File : zkn_weight
 0,5 kg
 0,5 kg
 0,5 kg
-[~ 1419]
+99,0 kg
 [~ 1420]
-[~ 1421]
+28,0 kg
 3,0 kg
 [~ 1423]
 [~ 1424]
@@ -13891,18 +13995,18 @@ Text File : zkn_weight
 [~ 1431]
 [~ 1432]
 97,4 kg
-[~ 1434]
+22,0 kg
 2,8 kg
-[~ 1436]
+315,0 kg
 [~ 1437]
 [~ 1438]
 [~ 1439]
 [~ 1440]
 [~ 1441]
-[~ 1442]
-[~ 1443]
-[~ 1444]
-[~ 1445]
+2,4 kg
+2,4 kg
+2,4 kg
+77,0 kg
 [~ 1446]
 [~ 1447]
 [~ 1448]

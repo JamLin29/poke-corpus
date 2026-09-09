@@ -296,6 +296,11 @@ Crear un [System:Color r="255" g="128" b="128" a="255" ]campo[System:Color a="25
 El rival ha usado [System:Color r="255" g="128" b="128" a="255" ]Velocidad Extrema[System:Color a="255" ], un movimiento de\nprioridad alta. Por suerte, [System:Color r="255" g="128" b="128" a="255" ]los movimientos de prioridad alta\nfallan [System:Color a="255" ]cuando hay un campo psíquico activo.
 Aprovecha el campo psíquico y ataca al rival con [System:Color r="255" g="128" b="128" a="255" ]Psíquico[System:Color a="255" ].
 El movimiento Velocidad Extrema del rival ha fallado, y además\ntú has conseguido debilitarlo con un solo ataque. Esto se debe\na que un campo psíquico [System:Color r="255" g="128" b="128" a="255" ]aumenta un 30 % la potencia de[System:Color a="255" ]\n[System:Color r="255" g="128" b="128" a="255" ]los movimientos de tipo Psíquico[System:Color a="255" ].\n\nSin embargo, recuerda que tanto el rival como tú os veréis\nafectados por el campo activo. ¡Tenlo presente y adapta tu\nestrategia para sacarle el máximo partido!
+Selección asistida
+Esta función se basa en los datos de los Combates\nClasificatorios para mostrar si tus Pokémon tienen ventaja\no no frente a los de tu adversario.
+Si se muestra un triángulo hacia arriba junto a un Pokémon rival,\nsignifica que tu Pokémon tiene ventaja contra él. Si se muestra\nun triángulo hacia abajo, significa que tu Pokémon está en\ndesventaja.
+Si los Pokémon que has seleccionado para el combate están\nen desventaja contra alguno de los Pokémon de tu adversario,\neste se marcará con un símbolo de advertencia.
+Puedes activar o desactivar la selección asistida desde\nla pantalla de opciones.
 ~~~~~~~~~~~~~~~
 Text File : available_pokelist
 ~~~~~~~~~~~~~~~
@@ -340,6 +345,10 @@ Membresía de pago necesaria
 ¡Combate! (Lilette)
 ¡Combate serio! (Equipo MZ)
 ¡Combate! (Líder de Gimnasio)
+¡Combate! (Team Flare Nouveau)
+¡Combate! (Lysson)
+¡Combate! (Team Flare)
+¡Combate! (Lysson)
 ~~~~~~~~~~~~~~~
 Text File : bgm_series
 ~~~~~~~~~~~~~~~
@@ -414,6 +423,10 @@ Registrar Pokémon
 Cambiar Pokémon
 No tienes objetos de esta categoría.
 No puedes usar este Pokémon sin una membresía.
+¿Quieres eliminar este Equipo de Combate?
+¿Quieres copiar aquí el Equipo de Combate?\nEl Equipo de Combate en esta ranura se sobrescribirá.
+Selecciona dónde quieres copiar el Equipo de Combate.
+Selecciona un Equipo de Combate.
 ~~~~~~~~~~~~~~~
 Text File : btl_app
 ~~~~~~~~~~~~~~~
@@ -475,6 +488,19 @@ Conectando...
 ¿Quieres saltarte el tutorial?\n[System:Color r="255" g="128" b="128" a="255" ]Contará como que lo has completado.[System:Color a="255" ]
 Alcance
 [Name:WazaTarget ]
+Historial
+Turno [Digit:2digits ]
+Movimiento
+Habilidad
+Objeto
+Reducción de PS
+Recuperación de PS
+Megaevolución
+Debilitado
+[Name:PokemonNickname ]\nPS: [Digit:3digits Idx="1" ] → [Digit:3digits Idx="2" ]
+[Name:PokemonNickname ]\nPS: [Digit:3digits Idx="1" ] % → [Digit:3digits Idx="2" ] %
+Cambio de habilidad
+[Name:PokemonNickname ]\n[Name:Ability Idx="1" ] → [Name:Ability Idx="2" ]
 ~~~~~~~~~~~~~~~
 Text File : btl_attack_syn
 ~~~~~~~~~~~~~~~
@@ -483,11 +509,11 @@ Text File : btl_attack_syn
 ~~~~~~~~~~~~~~~
 Text File : btl_condition
 ~~~~~~~~~~~~~~~
-El Pokémon tiene una probabilidad del 12,5 %\nde no poder usar movimientos y su Velocidad se\nreduce a la mitad.
-El Pokémon no puede usar la mayoría de los\nmovimientos, pero tiene una probabilidad del\n25 % de descongelarse al intentarlo. Se librará\nde la congelación al tercer turno o si recibe daño\nde ciertos movimientos, como los de tipo Fuego.
-El Pokémon pierde 1/16 de sus PS máximos\nal final de cada turno y el daño que infligen\nsus ataques físicos se reduce a la mitad.
-El Pokémon pierde 1/8 de sus PS máximos\nal final de cada turno.
-El Pokémon pierde PS al final de cada turno.\nEl daño empieza por 1/16 de sus PS máximos y\naumenta 1/16 cada turno (2/16 en el segundo,\n3/16 en el tercero, etc.). Si, tras cambiarse por\notro, vuelve al combate, se reiniciará la cuenta\ndesde 1/16.
+El Pokémon tiene una probabilidad del 12,5 %\nde no poder usar movimientos y su Velocidad se\nreduce a la mitad. No afecta a los Pokémon de\ntipo Eléctrico.
+El Pokémon no puede usar la mayoría de los\nmovimientos, pero tiene una probabilidad del\n25 % de descongelarse al intentarlo. Se librará\nde la congelación al tercer turno o si recibe daño\nde ciertos movimientos, como los de tipo Fuego.\nNo afecta a los Pokémon de tipo Hielo.
+El Pokémon pierde 1/16 de sus PS máximos\nal final de cada turno y el daño que infligen\nsus ataques físicos se reduce a la mitad.\nNo afecta a los Pokémon de tipo Fuego.
+El Pokémon pierde 1/8 de sus PS máximos\nal final de cada turno. No afecta a los Pokémon\nde tipo Veneno o Acero.
+El Pokémon pierde PS al final de cada turno.\nEl daño empieza por 1/16 de sus PS máximos y\naumenta 1/16 cada turno (2/16 en el segundo,\n3/16 en el tercero, etc.). Si, tras cambiarse por\notro, vuelve al combate, se reiniciará la cuenta\ndesde 1/16. No afecta a los Pokémon de tipo\nVeneno o Acero.
 El Pokémon solo puede usar Ronquido o\nSonámbulo. Permanece dormido durante el\nprimer turno, tiene una probabilidad del 33 %\nde despertar en el segundo y se despertará\nseguro en el tercero. Si se durmió con Descanso,\nno despertará hasta el tercer turno.
 ~~~~~~~~~~~~~~~
 Text File : btl_data_pokedetail
@@ -544,6 +570,7 @@ Cambiar
 Es posible que lleve un tiempo reflejar los resultados\nen la clasificación.
 Tus resultados
 Detalles
+Cambiar
 ~~~~~~~~~~~~~~~
 Text File : btl_data_top
 ~~~~~~~~~~~~~~~
@@ -597,7 +624,10 @@ Pase de combate prémium comprado
 [Digit:2digits ] hora[ES:Qty P="s" ]
 [Digit:2digits ] minuto[ES:Qty P="s" ]
 Menos de 1 min
-No hay ningún pase de combate disponible en estos momentos.
+No hay ningún pase de combate disponible en estos momentos.\nSi te quedaba por aceptar alguna recompensa de la temporada\nanterior, esta se enviará a tu bandeja de entrada cuando\ncomience la próxima temporada.
+Revertir
+Ver artículo
+Ver peinado
 ~~~~~~~~~~~~~~~
 Text File : btl_pokelist
 ~~~~~~~~~~~~~~~
@@ -688,6 +718,9 @@ Preparando combate
 Mostrar datos
 Ocultar datos
 Selecciona [Digit:1digit ] Pokémon para el combate.
+Tu Pokémon tiene ventaja.
+Tu Pokémon está en desventaja.
+Los Pokémon que has seleccionado están\nen desventaja.
 ~~~~~~~~~~~~~~~
 Text File : btl_preparation
 ~~~~~~~~~~~~~~~
@@ -725,13 +758,14 @@ Calculando resultados
 [Name:FreeWord ]
 Has alcanzado el límite de combates de hoy,\nasí que no puedes combatir más.
 [Digit:4digits Sep="0" ]/[Digit:4digits Idx="1" Sep="0" ]
-[~ 14]
+[System:Color r="255" g="128" b="128" a="255" ][Digit:4digits Sep="0" ]/[Digit:4digits Idx="1" Sep="0" ][System:Color a="255" ]
 Torneos en línea
 Temporada [Name:SeasonName ]-[Digit:2digits Idx="1" ]
 Bonificación de membresía
 ×[Digit:1digit ],[Digit:1digit Idx="1" ]
 Queda[ES:Qty P="n" ] [Digit:3digits ]
 Temporada 1
+Completado
 ~~~~~~~~~~~~~~~
 Text File : btl_result
 ~~~~~~~~~~~~~~~
@@ -899,16 +933,16 @@ No afecta al [Name:PokemonNickname ] rival...
 ¡El [Name:PokemonNickname ] rival ha resultado herido!
 ¡La habilidad de [Name:PokemonNickname ] ha cambiado a [Name:Ability Idx="1" ]!
 [Ctrl1:battle_oneline ]¡La habilidad del [Name:PokemonNickname ] rival ha cambiado a\n[Name:Ability Idx="1" ]!
-[~ 150]
-[~ 151]
+¡[Name:PokemonNickname ] está flotando con un Globo Helio!
+¡El [Name:PokemonNickname ] rival está flotando con un Globo Helio!
 ¡Ha explotado el Globo Helio de [Name:PokemonNickname ]!
 ¡Ha explotado el Globo Helio del [Name:PokemonNickname ] rival!
 ¡[Name:PokemonNickname ] regresa gracias al Botón Escape!
 ¡El [Name:PokemonNickname ] rival regresa gracias al Botón Escape!
-[~ 156]
-[~ 157]
-[~ 158]
-[~ 159]
+¡[Name:PokemonNickname ] le ha sacado una Tarjeta Roja a [Name:PokemonNickname Idx="1" ]!
+¡[Name:PokemonNickname ] le ha sacado una Tarjeta Roja al [Name:PokemonNickname Idx="1" ] rival!
+¡El [Name:PokemonNickname ] rival le ha sacado una Tarjeta Roja a [Name:PokemonNickname Idx="1" ]!
+[Ctrl1:battle_oneline ]¡El [Name:PokemonNickname ] rival le ha sacado una Tarjeta Roja al\n[Name:PokemonNickname Idx="1" ] rival!
 [Ctrl1:battle_oneline ]¡La potencia de los movimientos de tipo Fuego de [Name:PokemonNickname ]\nha aumentado!
 [Ctrl1:battle_oneline ]¡La potencia de los movimientos de tipo Fuego del [Name:PokemonNickname ] rival\nha aumentado!
 ¡Se ha detectado el movimiento [Name:Move Idx="1" ] de [Name:PokemonNickname ]!
@@ -927,10 +961,10 @@ No afecta al [Name:PokemonNickname ] rival...
 ¡El [Name:PokemonNickname ] rival se mantiene despierto!
 ¡[Name:PokemonNickname ] se aferra al suelo gracias a la habilidad Ventosas!
 ¡El [Name:PokemonNickname ] rival se aferra al suelo gracias a la habilidad Ventosas!
-[~ 178]
-[~ 179]
-[~ 180]
-[~ 181]
+¡[Name:PokemonNickname ] no se ha inmutado!
+¡El [Name:PokemonNickname ] rival no se ha inmutado!
+¡[Name:PokemonNickname ] ha absorbido la secreción viscosa tóxica!
+¡El [Name:PokemonNickname ] rival ha absorbido la secreción viscosa tóxica!
 [Ctrl1:battle_oneline ]¡Le han robado [ES:DefArt Ref="1" ][Name:ItemClassified Idx="1" ] a\n[Name:PokemonNickname ]!
 [Ctrl1:battle_oneline ]¡Le han robado [ES:DefArt Ref="1" ][Name:ItemClassified Idx="1" ]\nal [Name:PokemonNickname ] rival!
 ¡La habilidad de [Name:PokemonNickname ] es ahora Momia!
@@ -1419,38 +1453,36 @@ No afecta al [Name:PokemonNickname ] rival...
 [~ 667]
 [~ 668]
 [~ 669]
-[~ 670]
-[~ 671]
 ¡[Name:PokemonNickname ] no se ha podido proteger del ataque y ha recibido daño!
 [Ctrl1:battle_oneline ]¡El [Name:PokemonNickname ] rival no se ha podido proteger del ataque y ha recibido\ndaño!
+[~ 672]
+[~ 673]
 [~ 674]
 [~ 675]
 [~ 676]
 [~ 677]
 [~ 678]
 [~ 679]
-[~ 680]
-[~ 681]
 [Ctrl1:battle_oneline ]¡[Name:PokemonNickname ] ya no puede ser cambiado por otro porque ha usado\nBastión Final!
 [Ctrl1:battle_oneline ]¡El [Name:PokemonNickname ] rival ya no puede ser cambiado por otro porque\nha usado\r\nBastión Final!
+[~ 682]
+[~ 683]
 [~ 684]
 [~ 685]
 [~ 686]
 [~ 687]
-[~ 688]
-[~ 689]
-[~ 690]
-[~ 691]
+[Ctrl1:battle_oneline ]¡[Name:PokemonNickname ] ha intercambiado los estados de cada lado del terreno\nde combate!
+[Ctrl1:battle_oneline ]¡El [Name:PokemonNickname ] rival ha intercambiado los estados de cada lado\ndel terreno de combate!
 ¡[Name:PokemonNickname ] ha quedado atrapado en un cepo!
 ¡El [Name:PokemonNickname ] rival ha quedado atrapado en un cepo!
+¡Octopresa impide que [Name:PokemonNickname ] sea cambiado por otro!
+¡Octopresa impide que el [Name:PokemonNickname ] rival sea cambiado por otro!
 [~ 694]
 [~ 695]
 [~ 696]
 [~ 697]
 [~ 698]
 [~ 699]
-[~ 700]
-[~ 701]
 ¡[Name:PokemonNickname ] regresa gracias a la Mochila Escape!
 ¡El [Name:PokemonNickname ] rival regresa gracias a la Mochila Escape!
 ¡[Name:PokemonNickname ] ha recobrado su tipo original!
@@ -1465,20 +1497,20 @@ No afecta al [Name:PokemonNickname ] rival...
 [Ctrl1:battle_oneline ]¡[Name:PokemonNickname ] ha derretido [ES:DefArt Ref="2" ][Name:ItemClassified Idx="2" ]\ndel [Name:PokemonNickname Idx="1" ] rival!
 [Ctrl1:battle_oneline ]¡El [Name:PokemonNickname ] rival ha derretido\n[ES:DefArt Ref="2" ][Name:ItemClassified Idx="2" ]\r\nde [Name:PokemonNickname Idx="1" ]!
 [Ctrl1:battle_oneline ]¡El [Name:PokemonNickname ] rival ha derretido\n[ES:DefArt Ref="2" ][Name:ItemClassified Idx="2" ]\r\ndel [Name:PokemonNickname Idx="1" ] rival!
+[~ 714]
+[~ 715]
 [~ 716]
 [~ 717]
-[~ 718]
-[~ 719]
 [Ctrl1:battle_oneline ]¡[Name:PokemonNickname ] ataca primero gracias a la habilidad\n[Name:Ability Idx="1" ]!
 [Ctrl1:battle_oneline ]¡El [Name:PokemonNickname ] rival ataca primero gracias a la habilidad\n[Name:Ability Idx="1" ]!
 No afecta a [Name:PokemonNickname ]...
 No afecta al [Name:PokemonNickname ] rival...
+[~ 722]
+[~ 723]
 [~ 724]
 [~ 725]
 [~ 726]
 [~ 727]
-[~ 728]
-[~ 729]
 ¡[Name:PokemonNickname ] ya no está somnoliento!
 ¡El [Name:PokemonNickname ] rival ya no está somnoliento!
 ¡[Name:PokemonNickname ] ya está somnoliento!
@@ -1497,12 +1529,14 @@ No afecta al [Name:PokemonNickname ] rival...
 El [Name:PokemonNickname ] rival se prepara para contar un chiste malo...
 ¡[Name:PokemonNickname ] ha descargado toda su electricidad!
 ¡El [Name:PokemonNickname ] rival ha descargado toda su electricidad!
+[~ 746]
+[~ 747]
 [~ 748]
 [~ 749]
-[~ 750]
-[~ 751]
 ¡[Name:PokemonNickname ] ha vuelto con una transformación heroica!
 ¡El [Name:PokemonNickname ] rival ha vuelto con una transformación heroica!
+[~ 752]
+[~ 753]
 [~ 754]
 [~ 755]
 [~ 756]
@@ -1527,19 +1561,19 @@ El [Name:PokemonNickname ] rival se prepara para contar un chiste malo...
 [~ 775]
 [~ 776]
 [~ 777]
-[~ 778]
-[~ 779]
 ¡[Name:PokemonNickname ] recibe fuerzas de los aliados caídos!
 ¡El [Name:PokemonNickname ] rival recibe fuerzas de los aliados caídos!
+[~ 780]
+[~ 781]
 [~ 782]
 [~ 783]
 [~ 784]
 [~ 785]
 [~ 786]
-[~ 787]
-[~ 788]
 [Ctrl1:battle_oneline ]¡[Name:PokemonNickname ] ha usado una Hierba Copia y ha copiado los cambios\nen las características\r\ndel rival!
 ¡El [Name:PokemonNickname ] rival ha usado una Hierba Copia y ha copiado los cambios\nen las características del rival!
+[~ 789]
+[~ 790]
 [~ 791]
 [~ 792]
 [~ 793]
@@ -1556,18 +1590,16 @@ El [Name:PokemonNickname ] rival se prepara para contar un chiste malo...
 [~ 804]
 [~ 805]
 [~ 806]
-[~ 807]
-[~ 808]
 ¡[Name:PokemonNickname Idx="1" ] se ha bebido el té que ha preparado [Name:PokemonNickname ]!
 [Ctrl1:battle_oneline ]¡[Name:PokemonNickname Idx="1" ] se ha bebido el té que ha preparado el [Name:PokemonNickname ]\nrival!
+[~ 809]
+[~ 810]
 [~ 811]
 [~ 812]
 [~ 813]
 [~ 814]
 [~ 815]
 [~ 816]
-[~ 817]
-[~ 818]
 ¡[Name:PokemonNickname ] está caramelizado!
 ¡El [Name:PokemonNickname ] rival está caramelizado!
 ¡El néctar de [Name:PokemonNickname ] desprende un aroma dulzón!
@@ -1575,9 +1607,9 @@ El [Name:PokemonNickname ] rival se prepara para contar un chiste malo...
 ¡[Name:PokemonNickname ] está acumulando electricidad!
 ¡El [Name:PokemonNickname ] rival está acumulando electricidad!
 ¡[Name:PokemonNickname ] lo ha dado todo!
+[~ 824]
+[~ 825]
 [~ 826]
-[~ 827]
-[~ 828]
 ¡[ES:DefArtCap Ref="4" ][Name:Status Idx="4" ] de [Name:PokemonNickname ] ha aumentado!
 [Ctrl1:battle_oneline ]¡[ES:DefArtCap Ref="4" ][Name:Status Idx="4" ] y [ES:DefArt Ref="5" ][Name:Status Idx="5" ] de [Name:PokemonNickname ]\nhan aumentado!
 [Ctrl1:battle_oneline ]¡[ES:DefArtCap Ref="4" ][Name:Status Idx="4" ], [ES:DefArt Ref="5" ][Name:Status Idx="5" ] y [ES:DefArt Ref="6" ][Name:Status Idx="6" ]\nde [Name:PokemonNickname ]\r\nhan aumentado!
@@ -1781,7 +1813,7 @@ Viento Afín
 [Ctrl1:battle_oneline ]El Pokémon no puede usar\n[Name:Move ].
 Movimiento anulado
 El Pokémon no puede usar el último movimiento\nque usó antes de adquirir el estado Movimiento\nanulado.
-El Pokémon no puede ser cambiado por otro.
+El Pokémon no puede ser cambiado por otro.\nNo afecta a los Pokémon de tipo Fantasma.
 Huida imposible
 El movimiento del Pokémon acertará seguro\nen el siguiente turno al objetivo sobre el que\nse ha fijado el blanco.
 Blanco fijado
@@ -1799,7 +1831,7 @@ El Pokémon solo puede usar ataques.
 Mofa
 El Pokémon flota y deja de estar en contacto\ncon el suelo, lo que impide que le afecten los\nmovimientos de tipo Tierra y los estados Púas,\nPúas tóxicas y Red Viscosa.
 Levitón
-Envenena a los Pokémon que entran en combate,\no los envenena gravemente si el estado vuelve\na provocarse una vez activo. No afecta a algunos\nPokémon, como los de tipo Volador o aquellos\ncon la habilidad Levitación, entre otros.
+Envenena a quien entra en combate, gravemente\nsi el estado vuelve a provocarse una vez activo.\nNo afecta a los Pokémon de tipo Volador o con\nla habilidad Levitación, entre otros. Se elimina si\nun Pokémon de tipo Veneno entra en combate.
 Púas tóxicas
 El Pokémon que ocupe esta posición al final del\nturno siguiente al que se ha usado el movimiento\nDeseo recuperará la mitad de los PS máximos\ndel usuario.
 Deseo
@@ -1825,7 +1857,7 @@ Si el Pokémon se debilita por un ataque del\nrival, este también se debilitar�
 Mismo Destino
 El Pokémon adquiere el tipo Planta además de\nconservar sus propios tipos.
 Condena Silvana
-El Pokémon pierde 1/8 de sus PS máximos\nal final de cada turno. Cualquier Pokémon que\nocupe la posición del usuario de Drenadoras\nrecupera esa misma cantidad de PS.
+El Pokémon pierde 1/8 de sus PS máximos\nal final de cada turno. Cualquier Pokémon que\nocupe la posición del usuario de Drenadoras\nrecupera esa misma cantidad de PS.\nNo afecta a los Pokémon de tipo Planta.
 Drenadoras
 El Pokémon pierde 1/8 de sus PS máximos al\nfinal de cada turno durante cuatro o cinco turnos\ny no puede ser cambiado por otro.
 Apresado
@@ -1857,8 +1889,8 @@ Reduce a la mitad el daño recibido de ataques\nfísicos y especiales. En los Co
 Velo Aurora
 [~ 114]
 [~ 115]
-[~ 116]
-[~ 117]
+Reduce un nivel la Defensa y la Defensa Especial\ndel Pokémon al final de cada turno.
+Octopresa
 [~ 118]
 [~ 119]
 [~ 120]
@@ -1875,8 +1907,8 @@ Reduce un nivel la Velocidad del Pokémon al\nfinal de cada turno.
 Caramelizado
 El Pokémon no puede recuperar PS por efecto\nde movimientos, habilidades o el objeto que\nlleve.
 Cura anulada
-[~ 134]
-[~ 135]
+Los movimientos que los rivales usen contra el\nPokémon acertarán seguro e infligirán el doble\nde daño.
+Vulnerable
 El Pokémon no puede actuar durante un turno.
 Descansando
 El Pokémon debe cargar su movimiento durante\nun turno antes de usarlo.
@@ -1899,8 +1931,8 @@ Absorbe Fuego
 [~ 155]
 [~ 156]
 [~ 157]
-[~ 158]
-[~ 159]
+Ni el usuario de Presa Maxilar ni el Pokémon que\nha recibido el movimiento pueden ser cambiados\npor otros.
+Presa Maxilar
 Aumenta un 20 % la precisión del siguiente\nmovimiento que use el Pokémon.
 Baya Lagro
 ~~~~~~~~~~~~~~~
@@ -2054,7 +2086,7 @@ Ha desaparecido la extraña sensación que se percibía en el terreno\nde combat
 [~ 145]
 [~ 146]
 [~ 147]
-[~ 148]
+¡Ninguno de los dos Pokémon puede ser cambiado por otro!
 ¡Es la hora del té! A comer bayas se ha dicho.
 Pero no ha sucedido nada.
 [~ 151]
@@ -2183,7 +2215,7 @@ Cambiar territorio
 [Name:Area ]
 Introduce el ID del torneo en el que te gustaría participar.
 [Name:FreeWord ]
-Combates necesarios
+N.º mínimo de combates
 [Digit:1digit ]
 Límite de combates diarios
 [Digit:2digits ]
@@ -2217,6 +2249,8 @@ Ninguna
 [Name:FreeWord ]
 [Name:FreeWord ]
 ¿Quieres guardar los cambios y regresar a la pantalla del título?
+Individual
+Doble
 ~~~~~~~~~~~~~~~
 Text File : country_codes
 ~~~~~~~~~~~~~~~
@@ -2256,6 +2290,7 @@ Singapur
 Taiwán
 Tailandia
 Indonesia
+India
 Otros
 Europa
 Austria
@@ -2445,6 +2480,10 @@ No es posible ver perfiles mientras buscas contrincante o estás\nen una cola.
 El código o ID introducido no es válido.
 Hay nuevos datos disponibles.\nRegresarás a la pantalla del título.
 Has fichado al Pokémon de forma permanente y se ha enviado\na la caja.
+No puedes usar esta función.
+Pase de combate prémium: temporada [Name:SeasonName ]-[Digit:2digits Idx="1" ]
+[~ 60]
+Ir a la tienda
 ~~~~~~~~~~~~~~~
 Text File : dressup
 ~~~~~~~~~~~~~~~
@@ -2467,30 +2506,30 @@ Guardar cambios
 ¿Quieres quedarte con este estilo?
 Carga un estilo o guarda el actual.
 Vacío
-[~ 19]
-[~ 20]
-[~ 21]
-[~ 22]
-[~ 23]
-[~ 24]
-[~ 25]
-[~ 26]
-[~ 27]
-[~ 28]
-[~ 29]
-[~ 30]
-[~ 31]
-[~ 32]
-[~ 33]
-[~ 34]
-[~ 35]
-[~ 36]
-[~ 37]
-[~ 38]
-[~ 39]
-[~ 40]
-[~ 41]
-[~ 42]
+Prendas superiores
+Sobreprendas
+Guantes
+Prendas inferiores
+Leggings
+Calcetines
+Zapatos
+Bolsas
+Sombreros
+Diademas
+Accesorios faciales
+Peinados
+Color de pelo
+Ojos
+Lentillas
+Pestañas
+Color de pestañas
+Cejas
+Color de cejas
+Boca
+Pintalabios
+Color de pintalabios
+Lunares
+Pecas
 No puedes cambiar el color de pelo con\neste peinado.
 ~~~~~~~~~~~~~~~
 Text File : dressup_main
@@ -2718,7 +2757,7 @@ Pantalón Pokémon recto
 Camiseta con cuello en pico
 Camiseta de cuello barco
 Cazadora
-Pantalón vaquero ajustado
+Leggings vaqueros
 Pantalón vaquero ancho
 Calcetines cortos
 Deportivas bajas
@@ -2744,6 +2783,27 @@ Rapado por debajo estilo Córax
 Gallito
 Grito de victoria
 Seria
+Riñonera enjoyada de Lilette
+Gafas de Grisel
+Camisa de barista de Grisel
+Pantalón con delantal de Grisel
+Riñonera circular de Grisel
+Zapatos de cuero de Grisel
+Hacia atrás estilo Grisel
+Chaqueta de Matière
+Parte superior del traje de Matière
+Leggings del traje de Matière
+Calcetines del traje de Matière
+Zapatos de Matière
+Guantes de Matière
+Bob corto estilo Matière
+Córax
+Córax
+Córax
+Naria
+Naria
+Naria
+Mascarilla de Naria
 ~~~~~~~~~~~~~~~
 Text File : dressup_sub
 ~~~~~~~~~~~~~~~
@@ -3009,7 +3069,7 @@ Dragonite
 [~ 259]
 [~ 260]
 Meganium
-[~ 262]
+Emboar
 Rojo
 Blanco
 Logo del Equipo MZ
@@ -3024,6 +3084,17 @@ Morado y morado
 Normal
 Negro y magenta
 Gotas magenta
+Gris y blanco
+Azul marino y negro
+Lila
+Rojo y negro
+Blanco
+Negro y naranja
+Beis
+Negro y naranja
+Gris claro
+Negro y naranja
+Amarillo limón
 ~~~~~~~~~~~~~~~
 Text File : first_start
 ~~~~~~~~~~~~~~~
@@ -3106,6 +3177,7 @@ Favoritos y etiquetas
 Ajustes individuales
 Ayuda
 Ver detalles
+Ver otras formas
 ~~~~~~~~~~~~~~~
 Text File : friend
 ~~~~~~~~~~~~~~~
@@ -3227,7 +3299,7 @@ Mecánicas
 Megaevolución
 Algunos Pokémon concretos pueden [System:Color r="255" g="128" b="128" a="255" ]megaevolucionar [System:Color a="255" ]durante\nlos combates.\n\nAl megaevolucionar, no solo aumentan sus características, sino\nque pueden cambiar tanto sus tipos como sus habilidades.
 Para megaevolucionar, el Pokémon ha de llevar la [System:Color r="255" g="128" b="128" a="255" ]Megapiedra\n[System:Color a="255" ]adecuada.\n\nTan solo es posible megaevolucionar una vez por combate.
-Comprueba los [System:Color r="255" g="128" b="128" a="255" ]tutoriales de combate[System:Color a="255" ] para obtener información\nde primera mano acerca de la [System:Color r="255" g="128" b="128" a="255" ]Megaevolución[System:Color a="255" ].
+Comprueba los [System:Color r="255" g="128" b="128" a="255" ]tutoriales de combate[System:Color a="255" ] para obtener información\nde primera mano acerca de la [System:Color r="255" g="128" b="128" a="255" ]megaevolución[System:Color a="255" ].
 Caja
 Crear Equipos de Combate
 Desde la caja puedes [System:Color r="255" g="128" b="128" a="255" ]crear Equipos de Combate[System:Color a="255" ].
@@ -3447,12 +3519,12 @@ Problemas de estado
 Durante los combates, los Pokémon pueden sufrir [System:Color r="255" g="128" b="128" a="255" ]problemas[System:Color a="255" ]\n[System:Color r="255" g="128" b="128" a="255" ]de estado [System:Color a="255" ]causados por movimientos, habilidades u objetos.\n\nEstos tienen toda suerte de efectos.
 Comprueba los [System:Color r="255" g="128" b="128" a="255" ]tutoriales de combate[System:Color a="255" ] para obtener información\nde primera mano acerca de los [System:Color r="255" g="128" b="128" a="255" ]problemas de estado[System:Color a="255" ].
 Envenenamiento, envenenamiento grave y quemaduras
-[System:Color r="255" g="128" b="128" a="255" ]Envenenamiento[System:Color a="255" ]\n\nEl Pokémon pierde 1/8 de sus PS máximos al final de cada\nturno.
-[System:Color r="255" g="128" b="128" a="255" ]Envenenamiento grave[System:Color a="255" ]\n\nEl Pokémon pierde PS al final de cada turno. El daño empieza\npor 1/16 de sus PS máximos y aumenta 1/16 cada turno (2/16\nen el segundo, 3/16 en el tercero, etc.). Si, tras cambiarse por\notro, vuelve al combate, se reiniciará la cuenta desde 1/16.
-[System:Color r="255" g="128" b="128" a="255" ]Quemaduras[System:Color a="255" ]\n\nEl Pokémon pierde 1/16 de sus PS máximos al final de cada\nturno y el daño que infligen sus ataques físicos se reduce\na la mitad.
+[System:Color r="255" g="128" b="128" a="255" ]Envenenamiento[System:Color a="255" ]\n\nEl Pokémon pierde 1/8 de sus PS máximos al final de cada\nturno. No afecta a los Pokémon de tipo Veneno o Acero.
+[System:Color r="255" g="128" b="128" a="255" ]Envenenamiento grave[System:Color a="255" ]\n\nEl Pokémon pierde PS al final de cada turno. El daño empieza\npor 1/16 de sus PS máximos y aumenta 1/16 cada turno (2/16\nen el segundo, 3/16 en el tercero, etc.). Si, tras cambiarse por\notro, vuelve al combate, se reiniciará la cuenta desde 1/16.\nNo afecta a los Pokémon de tipo Veneno o Acero.
+[System:Color r="255" g="128" b="128" a="255" ]Quemaduras[System:Color a="255" ]\n\nEl Pokémon pierde 1/16 de sus PS máximos al final de cada\nturno y el daño que infligen sus ataques físicos se reduce\na la mitad. No afecta a los Pokémon de tipo Fuego.
 Parálisis, congelación y sueño
-[System:Color r="255" g="128" b="128" a="255" ]Parálisis[System:Color a="255" ]\n\nEl Pokémon tiene una probabilidad del 12,5 % de no poder\nusar movimientos y su Velocidad se reduce a la mitad.
-[System:Color r="255" g="128" b="128" a="255" ]Congelación[System:Color a="255" ]\n\nEl Pokémon no puede usar la mayoría de los movimientos,\npero tiene una probabilidad del 25 % de descongelarse al\nintentarlo. Se librará de la congelación al tercer turno o si\nrecibe daño de ciertos movimientos, como los de tipo Fuego.
+[System:Color r="255" g="128" b="128" a="255" ]Parálisis[System:Color a="255" ]\n\nEl Pokémon tiene una probabilidad del 12,5 % de no poder\nusar movimientos y su Velocidad se reduce a la mitad.\nNo afecta a los Pokémon de tipo Eléctrico.
+[System:Color r="255" g="128" b="128" a="255" ]Congelación[System:Color a="255" ]\n\nEl Pokémon no puede usar la mayoría de los movimientos,\npero tiene una probabilidad del 25 % de descongelarse al\nintentarlo. Se librará de la congelación al tercer turno o si\nrecibe daño de ciertos movimientos, como los de tipo Fuego.\nNo afecta a los Pokémon de tipo Hielo.
 [System:Color r="255" g="128" b="128" a="255" ]Sueño[System:Color a="255" ]\n\nEl Pokémon solo puede usar Ronquido o Sonámbulo. Permanece\ndormido durante el primer turno, tiene una probabilidad del\n33 % de despertar en el segundo y se despertará seguro en el\ntercero. Si se durmió con Descanso, no despertará hasta el\ntercer turno.
 Estados durante el combate
 Durante un combate, se pueden provocar [System:Color r="255" g="128" b="128" a="255" ]diversos estados[System:Color a="255" ]\nmediante movimientos, habilidades u objetos.\nVeamos algunos ejemplos.
@@ -3463,7 +3535,7 @@ Durante un combate, se pueden provocar [System:Color r="255" g="128" b="128" a="
 [System:Color r="255" g="128" b="128" a="255" ]Velo Aurora[System:Color a="255" ]\n\nReduce a la mitad el daño recibido de ataques físicos y\nespeciales. En los Combates Dobles, se reduce a 2/3.
 [System:Color r="255" g="128" b="128" a="255" ]Trampa Rocas[System:Color a="255" ]\n\nLos Pokémon que entran en combate pierden 1/8 de sus\nPS máximos. El daño puede variar según la compatibilidad\nque el Pokémon tenga con el tipo Roca.
 [System:Color r="255" g="128" b="128" a="255" ]Púas\n[System:Color a="255" ]\nLos Pokémon que entran en combate pierden 1/8 de sus PS\nmáximos. El daño aumentará si el estado se provoca una o dos\nveces más una vez activo. No afecta a algunos Pokémon, como\nlos de tipo Volador o con la habilidad Levitación, entre otros.
-[System:Color r="255" g="128" b="128" a="255" ]Púas tóxicas[System:Color a="255" ]\n\nEnvenena a los Pokémon que entran en combate, o los\nenvenena gravemente si el estado vuelve a provocarse una vez\nactivo. No afecta a algunos Pokémon, como los de tipo Volador\no aquellos con la habilidad Levitación, entre otros.
+[System:Color r="255" g="128" b="128" a="255" ]Púas tóxicas[System:Color a="255" ]\n\nEnvenena a los Pokémon que entran en combate, o los\nenvenena gravemente si el estado vuelve a provocarse una vez\nactivo. No afecta a algunos Pokémon, como los de tipo Volador\no aquellos con la habilidad Levitación, entre otros. Este estado\nse elimina si un Pokémon de tipo Veneno entra en combate.
 Tiempo atmosférico
 Algunos movimientos y habilidades pueden alterar el [System:Color r="255" g="128" b="128" a="255" ]tiempo\natmosférico [System:Color a="255" ]durante el combate.\n\nEste afecta a [System:Color r="255" g="128" b="128" a="255" ]todos los Pokémon en el terreno de combate[System:Color a="255" ]\ny puede tener distintos efectos.
 [System:Color r="255" g="128" b="128" a="255" ]Día Soleado[System:Color a="255" ]\n\nAumenta un 50 % el daño que infligen los movimientos de\ntipo Fuego y reduce a la mitad el que infligen los de tipo Agua.
@@ -3693,7 +3765,7 @@ Aumenta un 20 % la potencia de los movimientos de tipo\nDragón del portador.
 Aumenta un 20 % la potencia de los movimientos de tipo\nNormal del portador.
 Hace que el portador recupere una cantidad de\nPS equivalente a 1/8 del daño que inflija con un\nmovimiento.
 [~ 75]
-[~ 76]
+Si lo lleva Farfetch’d o Sirfetch’d, le aumenta dos niveles\nla probabilidad de asestar golpes críticos.
 Aumenta un 10 % la precisión de los movimientos\ndel portador.
 Aumenta un 10 % la potencia de los ataques físicos\ndel portador.
 Aumentan un 10 % la potencia de los ataques especiales\ndel portador.
@@ -3704,7 +3776,7 @@ Aumenta un 30 % la potencia de los movimientos del\nportador, pero hace que pi
 [~ 84]
 [~ 85]
 Si el portador tiene los PS al máximo, aguanta con\n1 PS un movimiento que lo debilitaría de un golpe.\nPuede usarse una vez por combate.
-Aumenta un 20 % la precisión de los movimientos\ndel portador si actúa después que el rival.
+Aumenta un 20 % la precisión de los movimientos\ndel portador si actúa después que el objetivo.
 Potencia un movimiento que el portador use de forma\nconsecutiva. Aumenta un 20 % adicional la potencia\noriginal del movimiento cada vez que se usa, hasta un\nmáximo de un 100 %. El efecto se pierde si se usa otro\nmovimiento.
 Reduce a la mitad la Velocidad del portador. Si no está\nen contacto con el suelo, pasará a estarlo y le afectarán\nlos movimientos de tipo Tierra y los estados Púas, Púas\ntóxicas y Red Viscosa.
 [~ 90]
@@ -3736,14 +3808,14 @@ Hace que el portador recupere un 30 % más de\nPS al usar movimientos que dren
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Hace que el atacante pierda 1/6 de sus PS máximos\nsi el portador es alcanzado por un movimiento de\ncontacto.
+Hace que el portador flote y deje de estar en\ncontacto con el suelo, lo que impide que le afecten\nlos movimientos de tipo Tierra y los estados Púas,\nPúas tóxicas y Red Viscosa. Si el portador recibe daño\nde un movimiento, el objeto se pierde durante ese\ncombate.
+Obliga al Pokémon que inflija daño al portador con un\nmovimiento a cambiarse por otro. Puede usarse una vez\npor combate.
+Aumenta el daño que el portador inflige al objetivo con\nel estado Apresado, que pasa de 1/8 a 1/6 de sus PS máximos.
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Si el portador recibe daño de un movimiento, se retirará\ndel combate. Puede usarse una vez por combate.
+Aumenta un 30 % la potencia de un movimiento de tipo\nNormal del portador. Puede usarse una vez por combate.
 [~ 127]
 [~ 128]
 [~ 129]
@@ -3799,7 +3871,7 @@ Si la lleva Glalie, le permite megaevolucionar.
 [~ 179]
 Si la lleva Camerupt, le permite megaevolucionar.
 Si la lleva Lopunny, le permite megaevolucionar.
-[~ 182]
+Si la lleva Salamence, le permite megaevolucionar.
 Si la lleva Beedrill, le permite megaevolucionar.
 [~ 184]
 [~ 185]
@@ -3831,11 +3903,11 @@ Si la lleva Beedrill, le permite megaevolucionar.
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Prolonga tres turnos la duración de los campos creados\nen el terreno de combate con los movimientos o la\nhabilidad del portador, haciendo que duren ocho turnos\nen total.
+Aumenta un nivel la Defensa del portador cuando hay\nun campo eléctrico activo en el terreno de combate.\nPuede usarse una vez por combate.
+Aumenta un nivel la Defensa Especial del portador\ncuando hay un campo psíquico activo en el terreno\nde combate. Puede usarse una vez por combate.
+Aumenta un nivel la Defensa Especial del portador\ncuando hay un campo de niebla activo en el terreno\nde combate. Puede usarse una vez por combate.
+Aumenta un nivel la Defensa del portador cuando hay\nun campo de hierba activo en el terreno de combate.\nPuede usarse una vez por combate.
 [~ 219]
 [~ 220]
 [~ 221]
@@ -3912,17 +3984,17 @@ Si la lleva Falinks, le permite megaevolucionar.
 Si la lleva Raichu, le permite megaevolucionar\na Mega-Raichu X. No tiene efecto en el Raichu de Alola.
 Si la lleva Raichu, le permite megaevolucionar\na Mega-Raichu Y. No tiene efecto en el Raichu de Alola.
 Si la lleva Chimecho, le permite megaevolucionar.
-[~ 295]
+Si la lleva Absol, le permite megaevolucionar\na Mega-Absol Z.
 Si la lleva Staraptor, le permite megaevolucionar.
-[~ 297]
-[~ 298]
+Si la lleva Garchomp, le permite megaevolucionar a\nMega-Garchomp Z.
+Si la lleva Lucario, le permite megaevolucionar a\nMega-Lucario Z.
 Si la lleva Golurk, le permite megaevolucionar.
 Si la lleva Meowstic, le permite megaevolucionar.
 Si la lleva Crabominable, le permite megaevolucionar.
-[~ 302]
+Si la lleva Golisopod, le permite megaevolucionar.
 [~ 303]
 Si la lleva Scovillain, le permite megaevolucionar.
-[~ 305]
+Si la lleva Baxcalibur, le permite megaevolucionar.
 [~ 306]
 Si la lleva Glimmora, le permite megaevolucionar.
 ~~~~~~~~~~~~~~~
@@ -4004,7 +4076,7 @@ Colmillo de Dragón
 Pañuelo de Seda
 Cascabel Concha
 [~ 75]
-[~ 76]
+Puerro
 Lupa
 Cinta Fuerte
 Gafas Especiales
@@ -4047,14 +4119,14 @@ Raíz Grande
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Casco Dentado
+Globo Helio
+Tarjeta Roja
+Banda Atadura
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Botón Escape
+Gema Normal
 [~ 127]
 [~ 128]
 [~ 129]
@@ -4110,7 +4182,7 @@ Glalita
 [~ 179]
 Cameruptita
 Lopunnita
-[~ 182]
+Salamencita
 Beedrillita
 [~ 184]
 [~ 185]
@@ -4142,11 +4214,11 @@ Beedrillita
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Cubresuelos
+Semilla Electro
+Semilla Psique
+Semilla Bruma
+Semilla Hierba
 [~ 219]
 [~ 220]
 [~ 221]
@@ -4223,17 +4295,17 @@ Falinksita
 Raichunita X
 Raichunita Y
 Chimechita
-[~ 295]
+Absolita Z
 Staraptorita
-[~ 297]
-[~ 298]
+Garchompita Z
+Lucarita Z
 Golurkita
 Meowsticita
 Crabominablita
-[~ 302]
+Golisopodita
 [~ 303]
 Scovillainita
-[~ 305]
+Baxcaliburita
 [~ 306]
 Glimmoranita
 ~~~~~~~~~~~~~~~
@@ -4315,7 +4387,7 @@ Colmillo de Dragón
 Pañuelo de Seda
 Cascabel Concha
 [~ 75]
-[~ 76]
+Puerro
 Lupa
 Cinta Fuerte
 Gafas Especiales
@@ -4358,14 +4430,14 @@ Raíz Grande
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Casco Dentado
+Globo Helio
+Tarjeta Roja
+Banda Atadura
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Botón Escape
+Gema Normal
 [~ 127]
 [~ 128]
 [~ 129]
@@ -4421,7 +4493,7 @@ Glalita
 [~ 179]
 Cameruptita
 Lopunnita
-[~ 182]
+Salamencita
 Beedrillita
 [~ 184]
 [~ 185]
@@ -4453,11 +4525,11 @@ Beedrillita
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Cubresuelos
+Semilla Electro
+Semilla Psique
+Semilla Bruma
+Semilla Hierba
 [~ 219]
 [~ 220]
 [~ 221]
@@ -4534,17 +4606,17 @@ Falinksita
 Raichunita X
 Raichunita Y
 Chimechita
-[~ 295]
+Absolita Z
 Staraptorita
-[~ 297]
-[~ 298]
+Garchompita Z
+Lucarita Z
 Golurkita
 Meowsticita
 Crabominablita
-[~ 302]
+Golisopodita
 [~ 303]
 Scovillainita
-[~ 305]
+Baxcaliburita
 [~ 306]
 Glimmoranita
 ~~~~~~~~~~~~~~~
@@ -4626,7 +4698,7 @@ Colmillo de Dragón
 Pañuelo de Seda
 Cascabel Concha
 [~ 75]
-[~ 76]
+Puerro
 Lupa
 Cinta Fuerte
 Gafas Especiales
@@ -4669,14 +4741,14 @@ Raíz Grande
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Casco Dentado
+Globo Helio
+Tarjeta Roja
+Banda Atadura
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Botón Escape
+Gema Normal
 [~ 127]
 [~ 128]
 [~ 129]
@@ -4732,7 +4804,7 @@ Glalita
 [~ 179]
 Cameruptita
 Lopunnita
-[~ 182]
+Salamencita
 Beedrillita
 [~ 184]
 [~ 185]
@@ -4764,11 +4836,11 @@ Beedrillita
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+bote de Cubresuelos
+Semilla Electro
+Semilla Psique
+Semilla Bruma
+Semilla Hierba
 [~ 219]
 [~ 220]
 [~ 221]
@@ -4845,17 +4917,17 @@ Falinksita
 Raichunita X
 Raichunita Y
 Chimechita
-[~ 295]
+Absolita Z
 Staraptorita
-[~ 297]
-[~ 298]
+Garchompita Z
+Lucarita Z
 Golurkita
 Meowsticita
 Crabominablita
-[~ 302]
+Golisopodita
 [~ 303]
 Scovillainita
-[~ 305]
+Baxcaliburita
 [~ 306]
 Glimmoranita
 ~~~~~~~~~~~~~~~
@@ -4937,7 +5009,7 @@ Colmillo de Dragón
 Pañuelo de Seda
 Cascabel Concha
 [~ 75]
-[~ 76]
+Puerro
 Lupa
 Cinta Fuerte
 Gafas Especiales
@@ -4980,14 +5052,14 @@ Raíz Grande
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Casco Dentado
+Globo Helio
+Tarjeta Roja
+Banda Atadura
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Botón Escape
+Gema Normal
 [~ 127]
 [~ 128]
 [~ 129]
@@ -5043,7 +5115,7 @@ Glalita
 [~ 179]
 Cameruptita
 Lopunnita
-[~ 182]
+Salamencita
 Beedrillita
 [~ 184]
 [~ 185]
@@ -5075,11 +5147,11 @@ Beedrillita
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+bote de Cubresuelos
+Semilla Electro
+Semilla Psique
+Semilla Bruma
+Semilla Hierba
 [~ 219]
 [~ 220]
 [~ 221]
@@ -5156,17 +5228,17 @@ Falinksita
 Raichunita X
 Raichunita Y
 Chimechita
-[~ 295]
+Absolita Z
 Staraptorita
-[~ 297]
-[~ 298]
+Garchompita Z
+Lucarita Z
 Golurkita
 Meowsticita
 Crabominablita
-[~ 302]
+Golisopodita
 [~ 303]
 Scovillainita
-[~ 305]
+Baxcaliburita
 [~ 306]
 Glimmoranita
 ~~~~~~~~~~~~~~~
@@ -5248,7 +5320,7 @@ Colmillos de Dragón
 Pañuelos de Seda
 Cascabeles Concha
 [~ 75]
-[~ 76]
+Puerros
 Lupas
 Cintas Fuertes
 Gafas Especiales
@@ -5291,14 +5363,14 @@ Raíces Grandes
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Cascos Dentados
+Globos Helio
+Tarjetas Rojas
+Bandas Atadura
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Botones Escape
+Gemas Normal
 [~ 127]
 [~ 128]
 [~ 129]
@@ -5354,7 +5426,7 @@ Glalitas
 [~ 179]
 Cameruptitas
 Lopunnitas
-[~ 182]
+Salamencitas
 Beedrillitas
 [~ 184]
 [~ 185]
@@ -5386,11 +5458,11 @@ Beedrillitas
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Cubresuelos
+Semillas Electro
+Semillas Psique
+Semillas Bruma
+Semillas Hierba
 [~ 219]
 [~ 220]
 [~ 221]
@@ -5467,17 +5539,17 @@ Falinksitas
 Raichunitas X
 Raichunitas Y
 Chimechitas
-[~ 295]
+Absolitas Z
 Staraptoritas
-[~ 297]
-[~ 298]
+Garchompitas Z
+Lucaritas Z
 Golurkitas
 Meowsticitas
 Crabominablitas
-[~ 302]
+Golisopoditas
 [~ 303]
 Scovillainitas
-[~ 305]
+Baxcaliburitas
 [~ 306]
 Glimmoranitas
 ~~~~~~~~~~~~~~~
@@ -5559,7 +5631,7 @@ Colmillos de Dragón
 Pañuelos de Seda
 Cascabeles Concha
 [~ 75]
-[~ 76]
+Puerros
 Lupas
 Cintas Fuertes
 Gafas Especiales
@@ -5602,14 +5674,14 @@ Raíces Grandes
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Cascos Dentados
+Globos Helio
+Tarjetas Rojas
+Bandas Atadura
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Botones Escape
+Gemas Normal
 [~ 127]
 [~ 128]
 [~ 129]
@@ -5665,7 +5737,7 @@ Glalitas
 [~ 179]
 Cameruptitas
 Lopunnitas
-[~ 182]
+Salamencitas
 Beedrillitas
 [~ 184]
 [~ 185]
@@ -5697,11 +5769,11 @@ Beedrillitas
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+botes de Cubresuelos
+Semillas Electro
+Semillas Psique
+Semillas Bruma
+Semillas Hierba
 [~ 219]
 [~ 220]
 [~ 221]
@@ -5778,17 +5850,17 @@ Falinksitas
 Raichunitas X
 Raichunitas Y
 Chimechitas
-[~ 295]
+Absolitas Z
 Staraptoritas
-[~ 297]
-[~ 298]
+Garchompitas Z
+Lucaritas Z
 Golurkitas
 Meowsticitas
 Crabominablitas
-[~ 302]
+Golisopoditas
 [~ 303]
 Scovillainitas
-[~ 305]
+Baxcaliburitas
 [~ 306]
 Glimmoranitas
 ~~~~~~~~~~~~~~~
@@ -5813,6 +5885,8 @@ Baya
 Otro
 [~ 17]
 Megapiedra
+[~ 19]
+Todos
 ~~~~~~~~~~~~~~~
 Text File : item_ticket
 ~~~~~~~~~~~~~~~
@@ -5864,6 +5938,9 @@ Ticket predeterminado Veloz Ball
 Ticket de entrenamiento
 Ticket predeterminado Poké Ball poco común
 Ticket de selección conmemorativa del Mundial 2026
+No tienes ningún ticket.
+Caducidad:
+[Digit:2digits Idx="2" ]/[Digit:2digits Idx="1" ]/[Digit:4digits Sep="0" ] a las [Digit:2digits Idx="3" ]:[Digit:2digits Idx="4" ]
 ~~~~~~~~~~~~~~~
 Text File : item_ticket_info
 ~~~~~~~~~~~~~~~
@@ -5945,6 +6022,8 @@ Atrás
 Se están llevando a cabo labores de mantenimiento.\nRegresarás a la pantalla del título.
 [Name:FreeWord ]
 [Name:FreeWord ]
+Hay previstas labores de mantenimiento a partir de las [Digit:2digits ]:[Digit:2digits Idx="1" ].\nSe anulará cualquier combate que siga en curso a dicha hora.\n\n¿Seguro que quieres buscar un contrincante?
+Se llevarán a cabo labores de mantenimiento en breve.\nSe anulará cualquier combate que siga en curso cuando\ncomiencen.\n\n¿Seguro que quieres buscar un contrincante?
 ~~~~~~~~~~~~~~~
 Text File : message_error
 ~~~~~~~~~~~~~~~
@@ -7159,6 +7238,8 @@ Filtrar
 Ascendente
 Descendente
 Restablecer
+[~ 14]
+[~ 15]
 De visita desde Pokémon HOME
 Permanente
 De prueba
@@ -7207,7 +7288,7 @@ Música
 Mostrar apodos de combate
 Mostrar nombre de Entrenador
 Mostrar información de combate
-[~ 11]
+Recordar orden de la caja
 Nombre de Entrenador
 Idioma
 Cuenta de Apple
@@ -7258,6 +7339,9 @@ Elimina tu cuenta de Pokémon Champions.
 Notificaciones de Pokémon Champions
 Recibir todas las notificaciones de Pokémon Champions
 Para recibir notificaciones, debes cambiar los ajustes de\ntu dispositivo. ¿Quieres ir al menú de ajustes?
+Elige si quieres guardar el orden en el que se muestran\nlos Pokémon en la caja y en la pantalla de entrenamiento.
+Activar selección asistida
+Elige si quieres que se muestre o no información auxiliar basada\nen los datos de combate al seleccionar Pokémon.
 ~~~~~~~~~~~~~~~
 Text File : op_event
 ~~~~~~~~~~~~~~~
@@ -7516,6 +7600,7 @@ Regresar al título
 Logros
 Ayuda
 Regalo misterioso
+Tickets y cupones
 ~~~~~~~~~~~~~~~
 Text File : place_name_syn
 ~~~~~~~~~~~~~~~
@@ -7531,7 +7616,7 @@ Text File : place_name_syn
 [~ 9]
 [~ 10]
 [~ 11]
-Battle Arena: 2026 Worlds
+Pabellón de combate: Mundial 2026
 ~~~~~~~~~~~~~~~
 Text File : present_box
 ~~~~~~~~~~~~~~~
@@ -7551,7 +7636,7 @@ Borrar
 ¿Quieres borrar este mensaje?
 Se ha borrado el mensaje.
 ¿Quieres borrar todos los mensajes leídos?
-[System:Color r="255" g="128" b="128" a="255" ]No se borrarán mensajes que contengan regalos\nsin aceptar.[System:Color a="255" ]
+[System:Color r="255" g="128" b="128" a="255" ]No se borrarán mensajes importantes o que\ncontengan regalos sin aceptar.[System:Color a="255" ]
 Se han borrado los mensajes.
 [System:Color r="255" g="128" b="128" a="255" ]No se borrarán mensajes sin leer o que\ncontengan regalos sin aceptar.[System:Color a="255" ]
 Los regalos que no pudiste aceptar se han\nenviado a tu bandeja de entrada.\n[System:Color r="255" g="128" b="128" a="255" ]Ten en cuenta que debes aceptarlos antes de que\ncaduquen o los perderás.[System:Color a="255" ]
@@ -7816,7 +7901,7 @@ Para encontrarte con Pokémon nuevos, es necesario que fiches\nprimero a un Pok�
 ~~~~~~~~~~~~~~~
 Text File : rental_poke_appear
 ~~~~~~~~~~~~~~~
-¡Esta selección incluye Pokémon que pueden participar en los\nCombates Clasificatorios con el reglamento [Name:PokeRegulation ]!
+¡Esta selección incluye Pokémon que pueden participar en los\nCombates Clasificatorios con el reglamento [Name:PokeRegulation ]!\nConsulta la sección [Character2:StraightDoubleQuot. ]Noticias[Character2:StraightDoubleQuot. ] para obtener más detalles.
 Los Pokémon recién añadidos a la lista de posibles participantes\naparecerán con más frecuencia en los encuentros.
 ¡Encuéntrate con Pokémon de esta selección a cambio de\n[ES:IndArt ][Name:ProbabilityItem ]!
 Período
@@ -7835,8 +7920,13 @@ Fichaje permanente
 Período: ilimitado\n[System:Color r="255" g="128" b="128" a="255" ]Para fichar de forma permanente, es necesario usar PV.[System:Color a="255" ]
 Período: ilimitado
 [~ 18]
+[~ 19]
+[~ 20]
+[~ 21]
+[~ 22]
 M-A
 M-B
+M-C
 ~~~~~~~~~~~~~~~
 Text File : rental_poke_select
 ~~~~~~~~~~~~~~~
@@ -8001,6 +8091,18 @@ Charlatán
 Niña Soñadora
 As de los comienzos
 As de los comienzos
+As de Pokédoko
+As de Pokédoko
+Maestro ([Name:TournamentAbb Idx="10" ])
+Maestra ([Name:TournamentAbb Idx="10" ])
+Veterano ([Name:TournamentAbb Idx="10" ])
+Veterana ([Name:TournamentAbb Idx="10" ])
+Élite ([Name:TournamentAbb Idx="10" ])
+Élite ([Name:TournamentAbb Idx="10" ])
+Promesa ([Name:TournamentAbb Idx="10" ])
+Promesa ([Name:TournamentAbb Idx="10" ])
+Participante ([Name:TournamentAbb Idx="10" ])
+Participante ([Name:TournamentAbb Idx="10" ])
 Prueba de quien ha obtenido [Digit:5digits Sep="default" ] victoria[ES:Qty P="s" ] con\n[Name:PokemonName Idx="4" ].
 Prueba de la tenacidad de quien ha obtenido [Digit:5digits Sep="default" ] victoria[ES:Qty P="s" ]\ncon [Name:PokemonName Idx="4" ].
 Prueba de la tenacidad inquebrantable de quien ha obtenido\n[Digit:5digits Sep="default" ] victoria[ES:Qty P="s" ] con [Name:PokemonName Idx="4" ].
@@ -8032,18 +8134,19 @@ Prueba de quien ha quedado en el puesto n.º [Digit:5digits Sep="default" ]\ndel
 Prueba de quien ha quedado en el puesto n.º [Digit:5digits Sep="default" ]\ndel Campeonato Mundial Pokémon.
 Prueba de quien ha quedado entre el puesto n.º [Digit:5digits Sep="default" ]\ny el n.º [Digit:5digits Idx="1" Sep="default" ] del Campeonato Mundial Pokémon.
 Prueba de quien ha participado en el Campeonato Mundial\nPokémon.
-[~ 165]
+[~ 177]
 Prueba de quien ha quedado entre el puesto n.º [Digit:5digits Idx="2" Sep="default" ] y el n.º [Digit:5digits Idx="3" Sep="default" ]\ndel torneo [Name:TournamentAbb Idx="10" ] de [Name:MonthName Idx="1" ] de [Digit:4digits Sep="0" ].
 Prueba de quien ha participado en el torneo\n[Name:TournamentAbb Idx="10" ] de [Name:MonthName Idx="1" ] de [Digit:4digits Sep="0" ].
 Prueba de quien ha quedado en el puesto n.º 1\nde uno de los torneos As de los Comienzos.
+Prueba de quien ha quedado en el puesto n.º 1\nde uno de los torneos Pokédoko.
 Super Ball
 Ultra Ball
 Master Ball
 Icono de Entrenador
 Medalla
 NAIC
-[~ 175]
-[~ 176]
+LAIC
+[~ 189]
 PJCS
 PTC
 TWMBL
@@ -8053,6 +8156,7 @@ THMBL
 PHMBL
 SGMBL
 IDMBL
+Combates Megaevolutivos
 Entrenador experto
 Entrenador Super
 Entrenador Ultra
@@ -8200,7 +8304,7 @@ Restaurar transacciones anteriores
 Restaurar transacciones
 No se han encontrado errores.
 Se han restaurado todas las transacciones.
-[~ 60]
+No se han podido restaurar las transacciones.
 ・ Detalles y cantidad del producto\nPase de combate prémium ×1\nComprar un pase de combate prémium te permite recibir recompensas adicionales al subir\nel nivel del pase de combate.\nPara conocer más detalles sobre dichas recompensas, consulta la pantalla del pase de\ncombate. Puedes acceder a ella desde la pantalla principal del gimnasio.\n\nUn pase de combate prémium es válido mientras dure la temporada en curso.\nCuando termine la temporada, el pase caducará y podrás comprar un nuevo pase\nde combate prémium para la temporada siguiente.\nPuedes comprobar el período concreto de cada temporada desde la pantalla del pase\nde combate. Puedes acceder a ella desde la pantalla principal del gimnasio.\n\nEs posible que las recompensas que sean idénticas a objetos que ya tienes se conviertan\nen PV.\n\nEn el momento de la compra del pase de combate prémium, obtendrás todas las\nrecompensas del pase de combate prémium que te correspondan según el nivel que\nya hayas alcanzado en el pase de combate.\n\nEs posible que las recompensas obtenidas con el pase de combate prémium puedan\ncomprarse más adelante en la tienda u obtenerse de algún otro modo.\n\n\n・ Precio\nPara ver el precio del producto, selecciona [Character2:StraightDoubleQuot. ]Atrás[Character2:StraightDoubleQuot. ] para regresar a la pantalla anterior\ny consulta la información que encontrarás allí.\n\n\n・ Período de venta\nPuedes comprar un pase de combate prémium hasta el final de la temporada durante la que\nse vende dicho pase.\nSolo es posible comprar un pase de combate prémium por período de venta.\n\nSi intentas comprar un pase de combate prémium justo antes de que finalice el período de\nventa, es posible que la compra no se complete correctamente debido a problemas de pago\nen la plataforma.\n\nAsegúrate de realizar la compra del pase de combate prémium con suficiente antelación\ndentro del período de venta.\n
 [~ 62]
 [~ 63]
@@ -8243,6 +8347,7 @@ Potencia
 Nuevos
 Coste de PV
 Tipo
+Cambiar orden
 ~~~~~~~~~~~~~~~
 Text File : status
 ~~~~~~~~~~~~~~~
@@ -8441,7 +8546,7 @@ Presión
 Sebo
 Madrugar
 Cuerpo Llama
-[~ 50]
+Fuga
 Vista Lince
 Corte Fuerte
 Recogida
@@ -8455,7 +8560,7 @@ Viscosidad
 Mudar
 Agallas
 Escama Especial
-[~ 64]
+Viscosecreción
 Espesura
 Mar Llamas
 Torrente
@@ -8546,7 +8651,7 @@ Allanamiento
 Momia
 Autoestima
 Justiciero
-[~ 155]
+Cobardía
 Espejo Mágico
 Herbívoro
 Bromista
@@ -8570,7 +8675,7 @@ Velo Dulce
 Cambio Táctico
 Alas Vendaval
 Megadisparador
-[~ 179]
+Manto Frondoso
 Simbiosis
 Garra Dura
 Piel Feérica
@@ -8585,11 +8690,11 @@ Aura Feérica
 [~ 191]
 Firmeza
 [~ 193]
-[~ 194]
+Retirada
 [~ 195]
 Ensañamiento
 [~ 197]
-[~ 198]
+Vigilante
 Pompa
 [~ 200]
 Cólera
@@ -8618,16 +8723,16 @@ Receptor
 [~ 224]
 [~ 225]
 Electrogénesis
-[~ 227]
+Psicogénesis
 [~ 228]
-[~ 229]
+Herbogénesis
 [~ 230]
 [~ 231]
 [~ 232]
 [~ 233]
 [~ 234]
 [~ 235]
-[~ 236]
+Líbero
 [~ 237]
 [~ 238]
 [~ 239]
@@ -8635,7 +8740,7 @@ Coraza Reflejo
 [~ 241]
 Acérrimo
 [~ 243]
-[~ 244]
+Punk Rock
 Expulsarena
 [~ 246]
 Maduración
@@ -8643,7 +8748,7 @@ Maduración
 [~ 249]
 Mimetismo
 Antibarrera
-[~ 252]
+Alma Acerada
 [~ 253]
 Alma Errante
 [~ 255]
@@ -8660,13 +8765,13 @@ Medicina Extraña
 [~ 266]
 [~ 267]
 [~ 268]
-[~ 269]
-[~ 270]
+Disemillar
+Termoconversión
 [~ 271]
 Sal Purificadora
 [~ 273]
 [~ 274]
-[~ 275]
+Perro Guardián
 [~ 276]
 [~ 277]
 Cambio Heroico
@@ -8710,17 +8815,18 @@ Megasolar
 Crin de Fuego
 [~ 317]
 Salpicante
+Aura Protectora
 ~~~~~~~~~~~~~~~
 Text File : tokuseiinfo_syn
 ~~~~~~~~~~~~~~~
 Hace que el Pokémon tenga una probabilidad del 10 % de\namedrentar al objetivo al infligirle daño con un movimiento.
 Hace que llueva durante cinco turnos cuando el Pokémon\nentra en combate.
-Aumenta un nivel la Velocidad del Pokémon al final de cada\nturno.
+Aumenta un nivel la Velocidad del Pokémon al final de cada\nturno, exceptuando el turno en el que entra en combate para\nsustituir a otro.
 Evita que el Pokémon reciba golpes críticos.
 Si el Pokémon tiene los PS al máximo, aguanta con 1 PS\nun movimiento que lo debilitaría de un golpe. Además, no\nle afectan los movimientos fulminantes.
 Evita que se puedan utilizar movimientos explosivos y\nque se activen las habilidades explosivas. Afecta a todos\nlos Pokémon.
 Evita que el Pokémon pueda ser paralizado.
-Aumenta un 25 % la Evasión del Pokémon durante las tormentas\nde arena.
+Aumenta un 25 % la Evasión del Pokémon durante las tormentas\nde arena y lo hace inmune al daño causado por estas.
 Tiene una probabilidad del 30 % de paralizar al atacante\nsi el Pokémon es alcanzado por un movimiento de contacto.
 Hace al Pokémon inmune a los movimientos de tipo Eléctrico\ny restaura 1/4 de sus PS máximos si recibe uno.
 Hace al Pokémon inmune a los movimientos de tipo Agua\ny restaura 1/4 de sus PS máximos si recibe uno.
@@ -8739,7 +8845,7 @@ Impide que el rival sea cambiado por otro Pokémon.
 Hace que el atacante pierda 1/8 de sus PS máximos\nsi el Pokémon es alcanzado por un movimiento de contacto.
 [~ 24]
 Hace que el Pokémon flote y deje de estar en contacto con\nel suelo, lo que impide que le afecten los movimientos de tipo\nTierra y los estados Púas, Púas tóxicas y Red Viscosa.
-Tiene una probabilidad del 30 % de envenenar, paralizar\no dormir al atacante si el Pokémon es alcanzado por un\nmovimiento de contacto.
+Tiene una probabilidad del 30 % de envenenar, paralizar\no dormir al atacante si el Pokémon es alcanzado por un\nmovimiento de contacto. No afecta a los Pokémon de tipo\nPlanta.
 Si el Pokémon resulta quemado, envenenado, gravemente\nenvenenado o paralizado por un movimiento o la habilidad\nde otro Pokémon, le provoca el mismo problema de estado.
 Evita que los movimientos o la habilidad de otros Pokémon\nreduzcan las características del Pokémon.
 Elimina los problemas de estado del Pokémon cuando se retira\ndel combate.
@@ -8762,7 +8868,7 @@ Hace que los movimientos que el rival use contra el Pokémon\nconsuman 1 PP más
 Reduce a la mitad el daño que el Pokémon recibe de\nmovimientos de tipo Fuego o Hielo.
 Si el Pokémon se duerme, tardará la mitad de tiempo en\ndespertarse.
 Tiene una probabilidad del 30 % de quemar al atacante\nsi el Pokémon es alcanzado por un movimiento de contacto.
-[~ 49]
+Permite que el Pokémon pueda cambiarse por otro\naunque haya efectos que lo impidan.
 Evita que la Precisión del Pokémon pueda verse reducida\ne ignora los cambios en la Evasión del objetivo.
 Evita que los movimientos o la habilidad de otros Pokémon\nreduzcan el Ataque del Pokémon.
 Si el Pokémon no lleva un objeto, recoge al final del turno\nel que otro Pokémon haya consumido.
@@ -8776,7 +8882,7 @@ Impide que el objeto que lleva el Pokémon pueda ser robado\no se pierda.
 Tiene una probabilidad del 30 % de eliminar los problemas\nde estado del Pokémon al final de cada turno.
 Aumenta un 50 % el Ataque del Pokémon si sufre un problema\nde estado. Ignora la reducción a la mitad del daño que infligen\nlos ataques físicos provocada por las quemaduras.
 Aumenta un 50 % la Defensa del Pokémon si sufre un problema\nde estado.
-[~ 63]
+Si el Pokémon recibe un movimiento que drena PS, el atacante\nrecibe una cantidad de daño equivalente a los PS que habría\nrecuperado.
 Aumenta un 50 % la potencia de los movimientos de tipo Planta\ndel Pokémon cuando sus PS máximos se ven reducidos a 1/3 o\nmenos.
 Aumenta un 50 % la potencia de los movimientos de tipo Fuego\ndel Pokémon cuando sus PS máximos se ven reducidos a 1/3 o\nmenos.
 Aumenta un 50 % la potencia de los movimientos de tipo Agua\ndel Pokémon cuando sus PS máximos se ven reducidos a 1/3 o\nmenos.
@@ -8867,10 +8973,10 @@ Cuando el Pokémon usa un movimiento, ignora los efectos\nde Pantalla de Luz, Re
 Sustituye la habilidad del atacante por Momia si el Pokémon\nes alcanzado por un movimiento de contacto.
 Aumenta un nivel el Ataque del Pokémon cuando debilita a\nun objetivo con un ataque.
 Aumenta un nivel el Ataque del Pokémon si recibe daño de\nun movimiento de tipo Siniestro.
-[~ 154]
+Aumenta un nivel la Velocidad del Pokémon si se siente\nintimidado o si recibe daño de un movimiento de tipo\nSiniestro, Fantasma o Bicho.
 Devuelve los movimientos de estado al atacante sin que\nel Pokémon se vea afectado por ellos.
 Hace al Pokémon inmune a los movimientos de tipo Planta\ny aumenta un nivel su Ataque si recibe uno.
-Aumenta un nivel la prioridad de los movimientos de estado\ndel Pokémon.
+Aumenta un nivel la prioridad de los movimientos de estado\ndel Pokémon, pero los Pokémon de tipo Siniestro se vuelven\ninmunes a ellos.
 Aumenta un 30 % la potencia de los movimientos de tipo Roca,\nTierra y Acero del Pokémon durante las tormentas de arena.
 [~ 159]
 [~ 160]
@@ -8891,7 +8997,7 @@ Evita que el Pokémon y sus aliados puedan quedarse dormidos\no somnolientos.
 El Pokémon adopta su Forma Filo al atacar o bien su Forma\nEscudo si usa el movimiento Escudo Real.
 Aumenta un nivel la prioridad de los movimientos de tipo\nVolador del Pokémon cuando sus PS están al máximo.
 Aumenta un 50 % la potencia de los movimientos del Pokémon\nque usan pulsos.
-[~ 178]
+Aumenta un 50 % la Defensa del Pokémon cuando hay un\ncampo de hierba activo en el terreno de combate.
 Pasa el objeto del Pokémon a un aliado cuando este consuma\nel suyo.
 Aumenta un 30 % la potencia de los movimientos de contacto\ndel Pokémon.
 Convierte los movimientos de tipo Normal del Pokémon en\nmovimientos de tipo Hada y aumenta un 20 % su potencia.
@@ -8906,11 +9012,11 @@ Aumenta un 33 % la potencia de los movimientos de tipo Hada\nde todos los Pok�
 [~ 190]
 Aumenta un nivel la Defensa del Pokémon si recibe daño de\nun movimiento.
 [~ 192]
-[~ 193]
+Hace que el Pokémon se retire del combate cuando sus PS\nmáximos se ven reducidos a la mitad o menos.
 [~ 194]
 Hace que el Pokémon siempre aseste un golpe crítico al atacar\nsi el objetivo está envenenado o gravemente envenenado.
 [~ 196]
-[~ 197]
+Duplica la potencia de los movimientos del Pokémon si\nel objetivo acaba de entrar en combate para sustituir a otro.
 Reduce a la mitad el daño que el Pokémon recibe de\nmovimientos de tipo Fuego y duplica la potencia de sus\nmovimientos de tipo Agua. Además, evita que pueda ser\nquemado.
 [~ 199]
 Aumenta un nivel el Ataque Especial del Pokémon cuando\nsus PS máximos se ven reducidos a la mitad o menos debido\na algún ataque.
@@ -8930,7 +9036,7 @@ Impide que el rival use movimientos de prioridad alta contra\nel Pokémon y sus 
 Si el Pokémon recibe daño de un movimiento y se debilita,\nle devuelve al atacante la misma cantidad de daño.
 [~ 215]
 [~ 216]
-Reduce a la mitad el daño recibido por los movimientos\nde contacto, pero duplica el que le infligen los de tipo\nFuego.
+Reduce a la mitad el daño que el Pokémon recibe de\nmovimientos de contacto, pero duplica el que le infligen\nlos de tipo Fuego.
 [~ 218]
 [~ 219]
 Reduce un nivel la Velocidad del atacante si el Pokémon\nes alcanzado por un movimiento de contacto.
@@ -8939,16 +9045,16 @@ Hace que el Pokémon adquiera la habilidad de un aliado\ndebilitado.
 [~ 223]
 [~ 224]
 Crea un campo eléctrico en el terreno de combate durante\ncinco turnos cuando el Pokémon entra en combate.
-[~ 226]
+Crea un campo psíquico en el terreno de combate durante\ncinco turnos cuando el Pokémon entra en combate.
 [~ 227]
-[~ 228]
+Crea un campo de hierba en el terreno de combate durante\ncinco turnos cuando el Pokémon entra en combate.
 [~ 229]
 [~ 230]
 [~ 231]
 [~ 232]
 [~ 233]
 [~ 234]
-[~ 235]
+Cambia el tipo del Pokémon al del primer movimiento que va\na usar tras entrar en combate.
 [~ 236]
 [~ 237]
 [~ 238]
@@ -8956,7 +9062,7 @@ Devuelve los efectos de reducción de características dirigidos\nal Pokémon si
 [~ 240]
 Ignora los efectos de las habilidades o los movimientos que\npermiten a un Pokémon centrar la atención sobre sí.
 [~ 242]
-[~ 243]
+Aumenta un 30 % la potencia de los movimientos que usan\nsonido del Pokémon y reduce a la mitad el daño que recibe\nde dichos movimientos.
 Provoca una tormenta de arena que dura cinco turnos cuando\nel Pokémon recibe daño de un movimiento.
 [~ 245]
 Duplica los efectos de las bayas que consume el Pokémon.
@@ -8964,7 +9070,7 @@ Duplica los efectos de las bayas que consume el Pokémon.
 [~ 248]
 Cambia el tipo del Pokémon según el campo que haya en\nel terreno de combate.
 Elimina los estados Pantalla de Luz, Reflejo y Velo Aurora\ncuando el Pokémon entra en combate.
-[~ 251]
+Aumenta un 50 % la potencia de los movimientos de tipo Acero\ndel Pokémon y sus aliados.
 [~ 252]
 Intercambia las habilidades del Pokémon y el objetivo\nsi el Pokémon recibe un movimiento de contacto.
 [~ 254]
@@ -8981,13 +9087,13 @@ Elimina los cambios en las características de los aliados cuando\nel Pokémon e
 [~ 265]
 [~ 266]
 [~ 267]
-[~ 268]
-[~ 269]
+Crea un campo de hierba en el terreno de combate durante\ncinco turnos cuando el Pokémon recibe daño de un movimiento.
+Aumenta un nivel el Ataque del Pokémon si recibe daño de\nun movimiento de tipo Fuego. Además, evita que pueda ser\nquemado.
 [~ 270]
 Hace al Pokémon inmune a los problemas de estado y reduce a\nla mitad el daño que recibe de movimientos de tipo Fantasma.
 [~ 272]
 [~ 273]
-[~ 274]
+Aumenta un nivel el Ataque del Pokémon en vez de\nsentirse intimidado. Además, hace al Pokémon inmune\na los movimientos y objetos de otros Pokémon que fuerzan\nel cambio.
 [~ 275]
 [~ 276]
 El Pokémon adopta su Forma Heroica cuando se retira del\ncombate.
@@ -9031,6 +9137,7 @@ El Pokémon puede usar movimientos con los mismos resultados\nque si hiciese sol
 Aumenta un 50 % la potencia de los movimientos de tipo Fuego\ndel Pokémon.
 [~ 316]
 Si el Pokémon recibe daño de un movimiento, quema al\natacante.
+Reduce a la mitad el daño que el Pokémon recibe de\nmovimientos de contacto.
 ~~~~~~~~~~~~~~~
 Text File : tournament_mode
 ~~~~~~~~~~~~~~~
@@ -9355,15 +9462,15 @@ El objetivo pierde 50 PS.
 Provoca el estado Drenadoras en el objetivo.
 Aumenta un nivel el Ataque y el Ataque Especial del usuario,\no dos niveles cuando hace sol.
 El usuario adquiere el estado Cargando en el turno en el que\nusa este movimiento y ataca en el siguiente. Si hace sol,\nno adquiere dicho estado y ataca inmediatamente. Si hay otro\ntiempo atmosférico activo, la potencia del movimiento se ve\nreducida a la mitad.
-Envenena al objetivo.
-Paraliza al objetivo.
-Duerme al objetivo.
+Envenena al objetivo. No afecta a los Pokémon de tipo Planta.
+Paraliza al objetivo. No afecta a los Pokémon de tipo Planta.
+Duerme al objetivo. No afecta a los Pokémon de tipo Planta.
 Provoca el estado Enfurecido en el usuario.
 Reduce dos niveles la Velocidad del objetivo.
 Provoca el estado Apresado en el objetivo.
 Tiene una probabilidad del 10 % de paralizar al objetivo.
-Paraliza al objetivo.
-Tiene una probabilidad del 30 % de paralizar al objetivo.\nNunca falla cuando llueve. Puede golpear a objetivos con\nel estado A gran altitud.
+Paraliza al objetivo. No afecta a los Pokémon de tipo Tierra.
+Tiene una probabilidad del 30 % de paralizar al objetivo.\nNunca falla cuando llueve. Si hace sol, tiene una precisión del\n50 %. Puede golpear a objetivos con el estado A gran altitud.
 Su potencia se duplica contra objetivos con el estado\nEnterrado, pero se reduce a la mitad cuando hay un campo\nde hierba activo en el terreno de combate.
 Debilita al objetivo. Tiene una precisión fija del 30 %.
 El usuario adquiere el estado Enterrado en el turno en el que\nusa este movimiento y ataca en el siguiente.
@@ -9391,7 +9498,7 @@ Paraliza al objetivo.
 El usuario recupera una cantidad de PS equivalente a la mitad\ndel daño que inflige.
 El usuario adquiere el estado Cargando en el turno en el\nque usa este movimiento y ataca en el siguiente. Tiene una\nprobabilidad del 30 % de amedrentar al objetivo. Aumenta\nun nivel la probabilidad de asestar golpes críticos del usuario\ndurante este ataque.
 Transforma al usuario en el mismo Pokémon que el objetivo.\nCopia todos los valores de las características del objetivo a\nexcepción de los PS.
-Duerme al objetivo.
+Duerme al objetivo. No afecta a los Pokémon de tipo Planta.
 Aumenta dos niveles la Defensa del usuario.
 Aumenta un nivel la probabilidad de asestar golpes críticos\ndel usuario durante este ataque.
 El usuario se debilita tras usar este movimiento.
@@ -9401,15 +9508,16 @@ Tiene una probabilidad del 30 % de amedrentar al objetivo.
 [~ 72]
 Tiene una probabilidad del 20 % de paralizar, quemar\no congelar al objetivo.
 El objetivo pierde la mitad de sus PS restantes.\nSi solo le queda 1 PS, pierde 1 PS.
-El usuario sacrifica 1/4 de sus PS máximos para crear un\nsustituto. El sustituto recibirá los movimientos dirigidos al\nusuario en su lugar y desaparecerá cuando haya recibido una\ncantidad de daño equivalente a 1/4 de los PS máximos del\nusuario.
+Aumenta un nivel la probabilidad de asestar golpes críticos\ndel usuario durante este ataque.
+El usuario sacrifica 1/4 de sus PS máximos para crear un\nsustituto. El sustituto recibirá los movimientos dirigidos al\nusuario en su lugar y desaparecerá cuando haya recibido una\ncantidad de daño equivalente a 1/4 de los PS máximos del\nusuario. Los movimientos que usan sonido ignoran el sustituto\ny alcanzan al Pokémon.
 Si el usuario no lleva un objeto, roba el del objetivo.
 Solo puede usarse si el usuario está dormido.\nTiene una probabilidad del 30 % de amedrentar al objetivo.
 Sacrifica la mitad de los PS máximos del usuario para provocar\nel estado Maldición en el objetivo.
 Reduce un nivel la Velocidad del usuario y aumenta un nivel\nsu Ataque y su Defensa.
 Tiene mayor potencia cuantos menos PS tenga el usuario,\ncon un rango entre 20 y 200.
-[~ 81]
 [~ 82]
-Reduce dos niveles la Velocidad del objetivo.
+[~ 83]
+Reduce dos niveles la Velocidad del objetivo. No afecta a\nlos Pokémon de tipo Planta.
 Tiene mayor potencia cuantos menos PS tenga el usuario,\ncon un rango entre 20 y 200.
 Reduce 4 PP del último movimiento usado por el objetivo.
 Protege al usuario de los movimientos de los demás Pokémon\ndurante ese turno. Con cada uso consecutivo, la probabilidad\nde éxito del movimiento se reduce a 1/3 con respecto a la\nprobabilidad anterior.
@@ -9418,7 +9526,7 @@ Confunde al objetivo.
 Sacrifica la mitad de los PS máximos del usuario para aumentar\nhasta el sexto nivel su Ataque. Falla si el usuario no tiene\nsuficientes PS.
 Tiene una probabilidad del 30 % de envenenar al objetivo.
 Reduce un nivel la Precisión del objetivo.
-[~ 92]
+Tiene una probabilidad del 50 % de reducir un nivel la Precisión\ndel objetivo.
 Provoca el estado Púas en el lado rival.
 Paraliza al objetivo.
 Provoca el estado Mismo Destino en el usuario.\nFalla si se usa de forma consecutiva.
@@ -9433,13 +9541,13 @@ El usuario recupera una cantidad de PS equivalente a la mitad\ndel daño que inf
 El usuario aguanta con 1 PS un movimiento que lo debilitaría\nen ese turno. Con cada uso consecutivo, la probabilidad\nde éxito del movimiento se reduce a 1/3 con respecto a\nla probabilidad anterior.
 Reduce dos niveles el Ataque del objetivo.
 Aumenta dos niveles el Ataque del objetivo y lo confunde.
-[~ 107]
+Restaura la mitad de los PS máximos del usuario o un aliado.
 Tiene una probabilidad del 10 % de aumentar un nivel\nla Defensa del usuario.
 Provoca el estado Huida imposible en el objetivo.
 Provoca el estado Enamorado en el objetivo.\nFalla contra objetivos del mismo sexo que el usuario o de sexo\ndesconocido.
 Solo puede usarse si el usuario está dormido. El usuario usa\nal azar uno de los otros movimientos que conoce.
 Elimina los problemas de estado de todos los Pokémon del\nequipo del usuario, incluyendo al usuario y a sus aliados.
-[~ 113]
+[~ 114]
 Provoca el estado Velo Sagrado en el lado del usuario durante\ncinco turnos.
 Combina los PS restantes del usuario con los del objetivo\ny los reparte a partes iguales.
 Confunde al objetivo.
@@ -9492,9 +9600,9 @@ Tiene menor potencia cuantos menos PS tenga el usuario,\ncon un rango entre 1 y 
 Intercambia las habilidades del usuario y el objetivo.
 Provoca el estado Sellar en el usuario.
 El usuario adquiere el estado Sumergido en el turno en el que\nusa este movimiento y ataca en el siguiente.
-[~ 166]
 [~ 167]
 [~ 168]
+[~ 169]
 Reduce dos niveles el Ataque del objetivo.
 Confunde a todos los Pokémon en combate salvo al usuario.
 Tiene una probabilidad del 10 % de quemar al objetivo.\nAumenta un nivel la probabilidad de asestar golpes críticos\ndel usuario durante este ataque.
@@ -9535,8 +9643,8 @@ Aumenta un nivel la probabilidad de asestar golpes críticos\ndel usuario durant
 Aumenta un nivel el Ataque y la Velocidad del usuario.
 Ataca de dos a cinco veces seguidas.
 Tiene una probabilidad del 20 % de confundir al objetivo.
-[~ 209]
 [~ 210]
+[~ 211]
 Restaura la mitad de los PS máximos del usuario. Si el usuario es\nde tipo Volador, deja de serlo durante ese turno.
 Provoca el estado Gravedad en ambos lados durante cinco\nturnos.
 Reduce un nivel la Velocidad del usuario.
@@ -9561,7 +9669,7 @@ Falla si el usuario no ha usado antes todos los demás\nmovimientos que conoce.
 Sustituye la habilidad del objetivo por Insomnio.
 Falla si el objetivo no ha seleccionado un ataque o si ya\nha atacado en ese turno.
 Provoca el estado Púas tóxicas en el lado rival.
-[~ 235]
+[~ 236]
 Provoca el estado Acua Aro en el usuario.
 El usuario se ve afectado por Levitón.
 El usuario recibe 1/3 del daño que inflige y se libra de la\ncongelación. Este movimiento tiene una probabilidad del 10 %\nde quemar al objetivo.
@@ -9602,16 +9710,15 @@ Tiene una probabilidad del 20 % de amedrentar al objetivo.
 Aumenta un nivel la probabilidad de asestar golpes críticos\ndel usuario durante este ataque.
 Provoca el estado Trampa Rocas en el lado rival.
 Tiene mayor potencia cuanto más pesado sea el objetivo,\ncon un rango entre 20 y 120.
-[~ 276]
 [~ 277]
+[~ 278]
 Si el objetivo lleva una baya, el usuario la consume y obtiene\nsus efectos.
 Tiene una probabilidad del 70 % de aumentar un nivel\nel Ataque Especial del usuario.
 El usuario recibe 1/3 del daño que inflige.
-[~ 281]
 [~ 282]
+[~ 283]
 El usuario recibe la mitad del daño que inflige.
 Ataca dos veces seguidas.
-[~ 285]
 [~ 286]
 [~ 287]
 [~ 288]
@@ -9619,13 +9726,14 @@ Ataca dos veces seguidas.
 [~ 290]
 [~ 291]
 [~ 292]
+[~ 293]
 Protege al usuario y a sus aliados de los movimientos que\nafectarían a todos los aliados durante ese turno.
 Combina los valores de la Defensa y la Defensa Especial\ndel usuario con los del objetivo y los reparte a partes iguales.
 Combina los valores del Ataque y el Ataque Especial del usuario\ncon los del objetivo y los reparte a partes iguales.
 Provoca el estado Zona Extraña en ambos lados durante\ncinco turnos.
 A pesar de ser un ataque especial, el daño que inflige se calcula\ncon el valor de la Defensa del objetivo.
 Su potencia se duplica si el objetivo está envenenado\no gravemente envenenado.
-Centra sobre el usuario todos los movimientos de los rivales.\nSolo tiene efecto con movimientos que permiten seleccionar\na un objetivo.
+Centra sobre el usuario todos los movimientos de los rivales.\nSolo tiene efecto con movimientos que permiten seleccionar\na un objetivo. No afecta a los Pokémon de tipo Planta.
 Provoca el estado Zona Mágica en ambos lados durante\ncinco turnos.
 Hace que los rivales que no están en contacto con el suelo\nadquieran el estado Derribado. Puede golpear a objetivos con\nel estado A gran altitud.
 Siempre asesta un golpe crítico.
@@ -9651,7 +9759,7 @@ Tiene una probabilidad del 30 % de quemar al objetivo.\nElimina la congelació
 Reduce un nivel la Defensa y la Defensa Especial del usuario\ny aumenta dos niveles su Ataque, su Ataque Especial\ny su Velocidad.
 Restaura la mitad de los PS máximos del objetivo.
 Su potencia se duplica si el objetivo sufre un problema de\nestado.
-[~ 325]
+Aumenta un nivel el Ataque del usuario y dos niveles\nsu Velocidad.
 Obliga al objetivo a cambiarse por otro Pokémon de su equipo\nal azar si hay alguno que pueda sustituirlo.
 Hace que el objetivo actúe el último en ese turno.
 Su potencia se duplica si el usuario no lleva un objeto.
@@ -9672,10 +9780,9 @@ Tiene una probabilidad del 50 % de reducir un nivel\nla Defensa del objetivo.
 Tiene mayor potencia cuanto más pesado sea el usuario en\ncomparación con el objetivo, con un rango entre 40 y 120.\nSu potencia se duplica y nunca falla contra objetivos con\nel estado Reducido.
 Aumenta tres niveles la Defensa del usuario.
 Tiene una probabilidad del 40 % de reducir un nivel la Precisión\ndel objetivo.
-[~ 346]
+[~ 347]
 Ataca de dos a cinco veces seguidas.
-Tiene una probabilidad del 30 % de confundir al objetivo.\nNunca falla cuando llueve. Puede golpear a objetivos con\nel estado A gran altitud.
-[~ 349]
+Tiene una probabilidad del 30 % de confundir al objetivo.\nNunca falla cuando llueve. Si hace sol, tiene una precisión del\n50 %. Puede golpear a objetivos con el estado A gran altitud.
 [~ 350]
 [~ 351]
 [~ 352]
@@ -9684,14 +9791,15 @@ Tiene una probabilidad del 30 % de confundir al objetivo.\nNunca falla cuando 
 [~ 355]
 [~ 356]
 [~ 357]
+[~ 358]
 Tiene una probabilidad del 50 % de aumentar un nivel\nel Ataque Especial del usuario.
-[~ 359]
 [~ 360]
+[~ 361]
 Reduce un nivel el Ataque Especial del objetivo.
 Tiene una probabilidad del 30 % de amedrentar al objetivo.
-[~ 363]
 [~ 364]
 [~ 365]
+[~ 366]
 El daño que inflige se calcula con la compatibilidad entre tipos\ndel tipo de este movimiento y la del tipo Volador. Su potencia\nse duplica y nunca falla contra objetivos con el estado\nReducido.
 Falla si el usuario no ha consumido una baya durante\nel combate.
 Provoca el estado Red Viscosa en el lado rival.
@@ -9712,21 +9820,20 @@ Tiene una probabilidad del 10 % de reducir un nivel el Ataque\ndel objetivo.
 Tiene una probabilidad del 10 % de reducir un nivel\nel Ataque Especial del objetivo.
 Provoca el estado Cerrojo Feérico en todos los Pokémon\nen combate.
 El usuario cambia a su Forma Escudo y se protege de los\nataques durante ese turno. Reduce un nivel el Ataque del\nPokémon que golpee al usuario con un movimiento de contacto.\nCon cada uso consecutivo, la probabilidad de éxito del\nmovimiento se reduce a 1/3 con respecto a la probabilidad\nanterior.
-[~ 386]
 [~ 387]
 [~ 388]
+[~ 389]
 Ataca de dos a cinco veces seguidas.
 Reduce un nivel el Ataque Especial del objetivo.
 El usuario se protege de los ataques durante ese turno.\nEl Pokémon que golpee al usuario con un movimiento de\ncontacto pierde 1/8 de sus PS máximos. Con cada uso\nconsecutivo, la probabilidad de éxito del movimiento se\nreduce a 1/3 con respecto a la probabilidad anterior.
 Aumenta un nivel la Defensa Especial de un aliado.
 Reduce dos niveles el Ataque Especial del objetivo.
-[~ 394]
+[~ 395]
 Aumenta un nivel la Defensa y la Defensa Especial del usuario\ny sus aliados si tienen la habilidad Más o la habilidad Menos.
 Crea un campo eléctrico en el terreno de combate durante\ncinco turnos.
 Reduce un nivel el Ataque del objetivo.
 Paraliza al objetivo.
 Provoca el estado Apresado en el objetivo.
-[~ 400]
 [~ 401]
 [~ 402]
 [~ 403]
@@ -9770,21 +9877,19 @@ El usuario recibe la mitad del daño que inflige.
 [~ 441]
 [~ 442]
 [~ 443]
-[~ 444]
-[~ 445]
 Falla si no es el primer movimiento que el usuario utiliza tras\nentrar en combate.
 Protege al usuario de los movimientos de los demás Pokémon\ndurante ese turno. Envenena al Pokémon que ataque al usuario\ncon un movimiento de contacto. Con cada uso consecutivo,\nla probabilidad de éxito del movimiento se reduce a 1/3 con\nrespecto a la probabilidad anterior.
 Provoca el estado Huida imposible en el objetivo.
 Ignora los cambios en las características del objetivo al infligir\ndaño.
 Elimina las quemaduras del objetivo.
 Reduce un nivel la Velocidad del usuario.
-[~ 452]
+[~ 450]
 El usuario recupera una cantidad de PS equivalente al valor\ndel Ataque del objetivo. Además, este movimiento reduce\nun nivel el Ataque del objetivo.
 El usuario adquiere el estado Cargando en el turno en el que\nusa este movimiento y ataca en el siguiente. Si hace sol,\nno adquiere dicho estado y ataca inmediatamente. Si hay otro\ntiempo atmosférico activo, la potencia del movimiento se ve\nreducida a la mitad.
 Reduce dos niveles la Velocidad del objetivo y lo envenena.
 Provoca el estado Golpe Mordaza en el objetivo.
 Si se usa contra un aliado, restaura la mitad de sus PS máximos\nen vez de infligirle daño.
-[~ 458]
+[~ 456]
 Crea un campo psíquico en el terreno de combate durante\ncinco turnos.
 Reduce un nivel el Ataque del objetivo.
 Reduce un nivel la Defensa del objetivo.
@@ -9792,14 +9897,16 @@ Aumenta en 20 su potencia por cada nivel de incremento\nen las características 
 El usuario deja de ser de tipo Fuego y se libra de la\ncongelación. Este movimiento falla si el usuario no es de tipo\nFuego.
 Intercambia la Velocidad del usuario y el objetivo.
 Nunca falla.
+[~ 464]
+[~ 465]
 [~ 466]
-[~ 467]
-[~ 468]
 Reduce un nivel el Ataque del objetivo.
 Fuerza al objetivo a repetir inmediatamente su último\nmovimiento.
 Si el usuario es alcanzado por un movimiento de contacto antes\nde golpear con este movimiento, quema al atacante.
 Reduce un nivel la Defensa del usuario.
 Provoca el estado Velo Aurora en el lado del usuario durante\ncinco turnos. Solo puede usarse cuando nieva.
+[~ 472]
+[~ 473]
 [~ 474]
 [~ 475]
 [~ 476]
@@ -9809,17 +9916,17 @@ Provoca el estado Velo Aurora en el lado del usuario durante\ncinco turnos. Solo
 [~ 480]
 [~ 481]
 [~ 482]
-[~ 483]
-[~ 484]
 Elimina los estados Pantalla de Luz, Reflejo y Velo Aurora\nen el lado del objetivo antes de infligir daño.
 Su potencia se duplica si el usuario no pudo actuar o falló\nsu movimiento en el turno anterior.
-[~ 487]
+[~ 485]
 Tiene una probabilidad del 20 % de reducir un nivel la Defensa\ndel objetivo.
+[~ 487]
+[~ 488]
 [~ 489]
 [~ 490]
-[~ 491]
-[~ 492]
 Reduce un nivel el Ataque y el Ataque Especial del objetivo.\nIgnora la Evasión del objetivo y puede golpear a objetivos\nque hayan usado movimientos como Protección.
+Tiene una probabilidad del 30 % de amedrentar al objetivo.
+[~ 493]
 [~ 494]
 [~ 495]
 [~ 496]
@@ -9834,18 +9941,18 @@ Reduce un nivel el Ataque y el Ataque Especial del objetivo.\nIgnora la Evasión
 [~ 505]
 [~ 506]
 [~ 507]
-[~ 508]
-[~ 509]
-[~ 510]
-[~ 511]
+Ignora los efectos de las habilidades o los movimientos\nque permiten a un Pokémon centrar la atención sobre sí.\nAumenta un nivel la probabilidad de asestar golpes críticos\ndel usuario durante este ataque.
+Provoca el estado Presa Maxilar en el usuario y el objetivo.
 El usuario consume la baya que lleva, lo que aumenta dos\nniveles su Defensa. Este movimiento no se puede usar si el\nusuario no lleva una baya.
 Aumenta un nivel el Ataque, la Defensa, el Ataque Especial,\nla Defensa Especial y la Velocidad del usuario, pero le provoca\nel estado Huida imposible. Puede usarse una vez tras entrar en\ncombate y fallará si se usa una segunda vez.
-[~ 514]
-Cambia el tipo del objetivo al tipo Psíquico.
+[~ 512]
+Cambia el tipo del objetivo al tipo Psíquico. No afecta a\nlos Pokémon de tipo Planta.
 Ataca dos veces seguidas. Si hay dos rivales, ataca una vez\na cada uno.
 Todos los Pokémon en combate consumen las bayas que llevan.
+Provoca los estados Huida imposible y Octopresa\nen el objetivo.
+[~ 517]
 [~ 518]
-[~ 519]
+Intercambia los estados del lado del usuario y el lado rival.
 [~ 520]
 [~ 521]
 [~ 522]
@@ -9864,27 +9971,24 @@ Todos los Pokémon en combate consumen las bayas que llevan.
 [~ 535]
 [~ 536]
 [~ 537]
-[~ 538]
-[~ 539]
 Sacrifica 1/3 de los PS máximos del usuario para aumentar\nun nivel su Ataque, su Defensa, su Ataque Especial, su Defensa\nEspecial y su Velocidad. Falla si el usuario no tiene suficientes\nPS.
 El daño que inflige se calcula con el valor de la Defensa del\nusuario en vez del de su Ataque.
 Aumenta dos niveles el Ataque y el Ataque Especial del\nobjetivo.
-[~ 543]
+Reduce un nivel la Velocidad del objetivo.
 Provoca el estado Apresado en el objetivo.
+Tiene una probabilidad del 10 % de quemar al objetivo.\nElimina la congelación del usuario.
+[~ 544]
 [~ 545]
-[~ 546]
-[~ 547]
 Aumenta un nivel la Velocidad del usuario. Su tipo varía según\nla forma que adopte Morpeko.
 Reduce un nivel el Ataque del objetivo.
-[~ 550]
 Reduce un nivel la Defensa Especial del objetivo.
 Reduce un nivel la Defensa del objetivo. Aumenta un 50 %\nsu potencia si el estado Gravedad está activo.
 Reduce un nivel el Ataque Especial del objetivo.
-[~ 554]
+[~ 551]
 Restaura 1/4 de los PS máximos del usuario y sus aliados.
-[~ 556]
-[~ 557]
-[~ 558]
+[~ 553]
+El usuario adquiere el estado Descansando en el siguiente\nturno.
+[~ 555]
 El usuario recibe daño equivalente a la mitad de sus PS máximos\ntras atacar.
 Aumenta un 50 % su potencia y ataca a todos los rivales\nsi el usuario está en contacto con un campo psíquico.
 Elimina el campo activo en el terreno de combate.\nFalla si no hay ninguno.
@@ -9905,6 +10009,9 @@ El usuario se cambia por otro Pokémon del equipo tras atacar.
 Ataca tres veces seguidas. La potencia del primer golpe\nes de 20; la del segundo, de 40; y la del tercero, de 60.\nSe detiene si falla.
 Ataca dos veces seguidas.
 Tiene una probabilidad del 30 % de quemar al objetivo.\nElimina la congelación del usuario y el objetivo.
+[~ 576]
+[~ 577]
+[~ 578]
 [~ 579]
 [~ 580]
 [~ 581]
@@ -9912,63 +10019,60 @@ Tiene una probabilidad del 30 % de quemar al objetivo.\nElimina la congelació
 [~ 583]
 [~ 584]
 [~ 585]
-[~ 586]
-[~ 587]
-[~ 588]
 Reduce 3 PP del último movimiento usado por el objetivo.
 Tiene una probabilidad del 30 % de envenenar, paralizar\no dormir al objetivo.
 Aumenta un nivel la Defensa del usuario.
 Provoca el estado Ataque y Defensa invertidos en el usuario.
 Provoca el estado Trampa Rocas en el lado rival.
-[~ 594]
-[~ 595]
+[~ 591]
+[~ 592]
 Provoca el estado Enfurecido en el usuario.
 El usuario recibe 1/3 del daño que inflige.
-[~ 598]
+[~ 595]
 Tiene una probabilidad del 30 % de amedrentar al objetivo.
-[~ 600]
+[~ 597]
 Reduce un nivel la Defensa y la Defensa Especial del usuario.
 Tiene una probabilidad del 50 % de envenenar al objetivo.\nSu potencia se duplica si el objetivo está envenenado\no gravemente envenenado.
-[~ 603]
+[~ 600]
 Reduce un nivel el Ataque del objetivo.
 Aumenta dos niveles la Defensa del usuario.
 Tiene una probabilidad del 50 % de reducir un nivel la Defensa\ndel objetivo y una probabilidad del 30 % de amedrentarlo.\nAumenta un nivel la probabilidad de asestar golpes críticos\ndel usuario durante este ataque.
 Tiene una probabilidad del 30 % de quemar al objetivo.\nSu potencia se duplica si el objetivo sufre un problema de\nestado.
 Provoca el estado Púas en el lado rival.
+[~ 606]
+[~ 607]
+[~ 608]
 [~ 609]
 [~ 610]
 [~ 611]
 [~ 612]
 [~ 613]
-[~ 614]
-[~ 615]
-[~ 616]
 Tiene una probabilidad del 30 % de confundir al objetivo.\nEl usuario recibe daño equivalente a la mitad de sus PS máximos\nsi falla.
 Aumenta en 50 su potencia cada vez que se debilita\nun Pokémon del equipo del usuario.
 Reduce dos niveles la Defensa Especial del objetivo.
-[~ 620]
+[~ 617]
 Reduce dos niveles la Defensa y aumenta dos niveles el Ataque\ndel objetivo.
-[~ 622]
+[~ 619]
 Ataca de una a diez veces seguidas. Se detiene si falla.
 Elimina el campo activo en el terreno de combate.
-[~ 625]
+El usuario adquiere el estado Vulnerable hasta que vuelve a\nactuar.
 Revive a un Pokémon del equipo del usuario que se haya\ndebilitado y le restaura la mitad de sus PS máximos.
 Provoca el estado Salazón en el objetivo.
-[~ 628]
+[~ 625]
 Elimina los estados Apresado y Drenadoras del usuario, así\ncomo los estados Púas, Púas tóxicas, Red Viscosa y Trampa\nRocas en el lado del usuario. Envenena al objetivo.
-[~ 630]
-[~ 631]
+[~ 627]
+[~ 628]
 Nunca falla.
 Nunca falla y siempre asesta un golpe crítico.
 Aumenta un nivel el Ataque Especial del usuario.
 Aumenta un nivel la Velocidad del usuario.
 Su tipo varía según la forma del usuario. Elimina los estados\nPantalla de Luz, Reflejo y Velo Aurora en el lado del objetivo.
 Reduce dos niveles el Ataque Especial del usuario.
+[~ 635]
+[~ 636]
+[~ 637]
 [~ 638]
 [~ 639]
-[~ 640]
-[~ 641]
-[~ 642]
 El usuario sacrifica la mitad de sus PS máximos para crear un\nsustituto y se cambia por otro Pokémon del equipo. El sustituto\nrecibirá los movimientos dirigidos al Pokémon en su lugar y\ndesaparecerá cuando haya recibido una cantidad de daño\nequivalente a 1/4 de los PS máximos del usuario.
 Hace que nieve durante cinco turnos. El usuario se cambia por\notro Pokémon del equipo tras atacar.
 Elimina los estados Red Viscosa, Trampa Rocas, Púas tóxicas\ny Púas, así como los sustitutos, en ambos lados. Además,\naumenta un nivel el Ataque y la Velocidad del usuario.
@@ -9976,7 +10080,7 @@ Hace que nieve durante cinco turnos.
 Reduce un nivel la Velocidad del objetivo.
 Aumenta un nivel la Velocidad del usuario.
 Reduce un nivel el Ataque del objetivo.
-[~ 650]
+[~ 647]
 Ataca dos veces seguidas.
 Aumenta en 50 su potencia cada vez que el usuario recibe\ndaño de un movimiento, hasta un máximo de 350.\nLa potencia vuelve a su valor original cuando el usuario se\nretira del combate.
 Reduce un nivel la Defensa y la Defensa Especial del usuario.
@@ -9985,24 +10089,24 @@ El usuario deja de ser de tipo Eléctrico. Este movimiento\nfalla si el usuario 
 No puede usarse dos veces seguidas.
 Si el usuario ha recibido daño de un ataque en ese turno,\nle devuelve al rival el 150 % del daño infligido.
 Aumenta un nivel la probabilidad de asestar golpes críticos\ndel usuario durante este ataque.
-[~ 659]
+[~ 656]
 El usuario recupera una cantidad de PS equivalente a la mitad\ndel daño que inflige. Este movimiento tiene una probabilidad\ndel 20 % de quemar al objetivo.
 Provoca el estado Caramelizado en el objetivo durante\ntres turnos.
-[~ 662]
+[~ 659]
 El usuario adquiere el estado Cargando en el turno en el que\nusa este movimiento y ataca en el siguiente. Si llueve, no\nadquiere dicho estado y ataca inmediatamente.\nSu Ataque Especial aumenta un nivel al usar el movimiento.
-[~ 664]
+[~ 661]
 Tiene una probabilidad del 30 % de que su potencia se\nduplique.
+[~ 663]
+[~ 664]
+[~ 665]
 [~ 666]
-[~ 667]
-[~ 668]
-[~ 669]
 Tiene mayor potencia cuantos más PS tenga el objetivo,\ncon un rango entre 1 y 100.
 Provoca el estado Más Críticos +1 en los aliados. Si son\nde tipo Dragón, les provoca el estado Más Críticos +2.
 Confunde al objetivo si sus características han aumentado en\nese turno.
 Su potencia se duplica si el usuario no pudo actuar o falló\nsu movimiento en el turno anterior.
 El usuario recibe daño equivalente a la mitad de sus PS máximos\nsi falla. Su potencia se duplica y nunca falla contra objetivos con\nel estado Reducido.
 Provoca el estado Cura anulada en el objetivo durante\ndos turnos.
-Amedrenta al objetivo. Falla si el objetivo no está preparando\nun movimiento de prioridad alta.
+Amedrenta al objetivo. Falla si el objetivo no va a usar\nun ataque de prioridad alta.
 ~~~~~~~~~~~~~~~
 Text File : wazaname
 ~~~~~~~~~~~~~~~
@@ -10986,7 +11090,7 @@ Mega-Clefable
 [~ 40]
 
 [~ 42]
-[~ 43]
+
 [~ 44]
 [~ 45]
 [~ 46]
@@ -10999,7 +11103,7 @@ Mega-Clefable
 [~ 53]
 [~ 54]
 [~ 55]
-[~ 56]
+
 [~ 57]
 [~ 58]
 [~ 59]
@@ -11030,7 +11134,7 @@ Mega-Victreebel
 
 [~ 85]
 [~ 86]
-[~ 87]
+
 [~ 88]
 [~ 89]
 [~ 90]
@@ -11070,7 +11174,7 @@ Mega-Victreebel
 [~ 124]
 
 Mega-Starmie
-[~ 127]
+
 [~ 128]
 [~ 129]
 [~ 130]
@@ -11269,7 +11373,7 @@ Mega-Skarmory
 [~ 323]
 [~ 324]
 [~ 325]
-[~ 326]
+
 [~ 327]
 
 [~ 329]
@@ -11313,7 +11417,7 @@ Forma de Castform
 
 Mega-Chimecho
 
-[~ 370]
+Mega-Absol Z
 [~ 371]
 [~ 372]
 
@@ -11327,7 +11431,7 @@ Mega-Chimecho
 [~ 381]
 [~ 382]
 [~ 383]
-[~ 384]
+
 [~ 385]
 [~ 386]
 
@@ -11401,11 +11505,11 @@ Mega-Staraptor
 [~ 455]
 [~ 456]
 
-[~ 458]
+Mega-Garchomp Z
 [~ 459]
 [~ 460]
 
-[~ 462]
+Mega-Lucario Z
 [~ 463]
 
 [~ 465]
@@ -11645,7 +11749,7 @@ Mega-Pyroar
 Mega-Floette
 Flor Roja
 [~ 701]
-[~ 702]
+
 [~ 703]
 
 Forma Salvaje
@@ -11747,8 +11851,8 @@ Forma Diurna
 
 
 [~ 803]
-[~ 804]
-[~ 805]
+
+Mega-Golisopod
 [~ 806]
 [~ 807]
 [~ 808]
@@ -11796,13 +11900,13 @@ Mega-Drampa
 [~ 850]
 [~ 851]
 [~ 852]
-[~ 853]
+
 [~ 854]
 [~ 855]
-[~ 856]
+
 [~ 857]
 [~ 858]
-[~ 859]
+
 [~ 860]
 [~ 861]
 [~ 862]
@@ -11812,7 +11916,7 @@ Mega-Drampa
 [~ 866]
 [~ 867]
 [~ 868]
-[~ 869]
+
 [~ 870]
 [~ 871]
 [~ 872]
@@ -11833,11 +11937,11 @@ Mega-Drampa
 [~ 887]
 [~ 888]
 [~ 889]
-[~ 890]
+Forma Aguda
 [~ 891]
 [~ 892]
 [~ 893]
-[~ 894]
+
 [~ 895]
 Forma Falsificada
 [~ 897]
@@ -11847,21 +11951,21 @@ Forma Falsificada
 [~ 901]
 
 [~ 903]
-[~ 904]
+
 [~ 905]
-[~ 906]
+
 
 
 [~ 909]
 Crema de Vainilla
 
 Mega-Falinks
-[~ 913]
+
 [~ 914]
 [~ 915]
 [~ 916]
 [~ 917]
-[~ 918]
+Macho
 Forma Saciada
 [~ 920]
 [~ 921]
@@ -11922,7 +12026,7 @@ Macho
 Forma Ingenua
 [~ 977]
 [~ 978]
-[~ 979]
+
 [~ 980]
 
 Mega-Scovillain
@@ -11938,7 +12042,7 @@ Familia de Tres
 [~ 992]
 [~ 993]
 
-[~ 995]
+Mega-Baxcalibur
 [~ 996]
 [~ 997]
 [~ 998]
@@ -11950,7 +12054,7 @@ Familia de Tres
 [~ 1004]
 [~ 1005]
 [~ 1006]
-[~ 1007]
+Plumaje Verde
 [~ 1008]
 [~ 1009]
 [~ 1010]
@@ -11964,7 +12068,7 @@ Mega-Glimmora
 [~ 1018]
 [~ 1019]
 [~ 1020]
-[~ 1021]
+
 [~ 1022]
 [~ 1023]
 [~ 1024]
@@ -12050,7 +12154,7 @@ Forma de Alola
 [~ 1104]
 [~ 1105]
 [~ 1106]
-[~ 1107]
+Forma de Alola
 [~ 1108]
 Forma de Hisui
 [~ 1110]
@@ -12153,7 +12257,7 @@ Forma Nieve
 Mega-Banette
 Mega-Absol
 Mega-Glalie
-[~ 1210]
+Mega-Salamence
 Mega-Metagross
 [~ 1212]
 [~ 1213]
@@ -12405,7 +12509,7 @@ Forma Descubierta
 [~ 1459]
 [~ 1460]
 [~ 1461]
-[~ 1462]
+Forma Grave
 [~ 1463]
 [~ 1464]
 [~ 1465]
@@ -12422,7 +12526,7 @@ Mezcla Caramelo
 Tres Sabores
 [~ 1477]
 [~ 1478]
-[~ 1479]
+Hembra
 Forma Voraz
 [~ 1481]
 [~ 1482]
@@ -12445,9 +12549,9 @@ Forma Heroica
 Familia de Cuatro
 [~ 1500]
 [~ 1501]
-[~ 1502]
-[~ 1503]
-[~ 1504]
+Plumaje Azul
+Plumaje Amarillo
+Plumaje Blanco
 [~ 1505]
 [~ 1506]
 [~ 1507]
@@ -12496,7 +12600,7 @@ Text File : zkn_weight
 [~ 36]
 19,9 kg
 [~ 38]
-[~ 39]
+12,0 kg
 [~ 40]
 [~ 41]
 [~ 42]
@@ -12509,7 +12613,7 @@ Text File : zkn_weight
 [~ 49]
 [~ 50]
 [~ 51]
-[~ 52]
+32,0 kg
 [~ 53]
 [~ 54]
 [~ 55]
@@ -12539,7 +12643,7 @@ Text File : zkn_weight
 78,5 kg
 [~ 80]
 [~ 81]
-[~ 82]
+15,0 kg
 [~ 83]
 [~ 84]
 [~ 85]
@@ -12578,7 +12682,7 @@ Text File : zkn_weight
 [~ 118]
 [~ 119]
 80,0 kg
-[~ 121]
+54,5 kg
 [~ 122]
 [~ 123]
 [~ 124]
@@ -12773,7 +12877,7 @@ Text File : zkn_weight
 [~ 313]
 [~ 314]
 [~ 315]
-[~ 316]
+80,0 kg
 [~ 317]
 88,8 kg
 [~ 319]
@@ -12829,7 +12933,7 @@ Text File : zkn_weight
 [~ 369]
 [~ 370]
 [~ 371]
-[~ 372]
+102,6 kg
 [~ 373]
 [~ 374]
 550,0 kg
@@ -13129,7 +13233,7 @@ Text File : zkn_weight
 [~ 669]
 10,0 kg
 [~ 671]
-[~ 672]
+91,0 kg
 [~ 673]
 136,0 kg
 28,0 kg
@@ -13224,7 +13328,7 @@ Text File : zkn_weight
 76,0 kg
 82,8 kg
 [~ 766]
-[~ 767]
+108,0 kg
 [~ 768]
 [~ 769]
 [~ 770]
@@ -13268,13 +13372,13 @@ Text File : zkn_weight
 [~ 808]
 [~ 809]
 [~ 810]
-[~ 811]
+90,0 kg
 [~ 812]
 [~ 813]
-[~ 814]
+33,0 kg
 [~ 815]
 [~ 816]
-[~ 817]
+45,2 kg
 [~ 818]
 [~ 819]
 [~ 820]
@@ -13284,7 +13388,7 @@ Text File : zkn_weight
 [~ 824]
 [~ 825]
 [~ 826]
-[~ 827]
+19,9 kg
 [~ 828]
 [~ 829]
 [~ 830]
@@ -13305,11 +13409,11 @@ Text File : zkn_weight
 [~ 845]
 [~ 846]
 [~ 847]
-[~ 848]
+40,0 kg
 [~ 849]
 [~ 850]
 [~ 851]
-[~ 852]
+39,0 kg
 [~ 853]
 0,4 kg
 [~ 855]
@@ -13319,20 +13423,20 @@ Text File : zkn_weight
 [~ 859]
 61,0 kg
 [~ 861]
-[~ 862]
+28,0 kg
 [~ 863]
-[~ 864]
+117,0 kg
 58,2 kg
 66,6 kg
 [~ 867]
 0,5 kg
 62,0 kg
-[~ 870]
+1,0 kg
 [~ 871]
 [~ 872]
 [~ 873]
 [~ 874]
-[~ 875]
+28,0 kg
 3,0 kg
 [~ 877]
 [~ 878]
@@ -13393,7 +13497,7 @@ Text File : zkn_weight
 60,2 kg
 [~ 934]
 [~ 935]
-[~ 936]
+48,2 kg
 [~ 937]
 15,0 kg
 [~ 939]
@@ -13407,7 +13511,7 @@ Text File : zkn_weight
 [~ 947]
 [~ 948]
 [~ 949]
-[~ 950]
+210,0 kg
 [~ 951]
 [~ 952]
 [~ 953]
@@ -13416,7 +13520,7 @@ Text File : zkn_weight
 [~ 956]
 [~ 957]
 [~ 958]
-[~ 959]
+2,4 kg
 [~ 960]
 [~ 961]
 [~ 962]
@@ -13429,7 +13533,7 @@ Text File : zkn_weight
 [~ 969]
 [~ 970]
 [~ 971]
-[~ 972]
+61,0 kg
 [~ 973]
 [~ 974]
 [~ 975]
@@ -13467,12 +13571,12 @@ Text File : zkn_weight
 120,0 kg
 [~ 1008]
 56,0 kg
-[~ 1010]
-[~ 1011]
-[~ 1012]
-[~ 1013]
-[~ 1014]
-[~ 1015]
+155,5 kg
+110,5 kg
+100,5 kg
+101,1 kg
+40,5 kg
+50,5 kg
 [~ 1016]
 [~ 1017]
 [~ 1018]
@@ -13485,60 +13589,60 @@ Text File : zkn_weight
 [~ 1025]
 [~ 1026]
 21,0 kg
-[~ 1028]
-[~ 1029]
+38,0 kg
+26,0 kg
 [~ 1030]
 [~ 1031]
-[~ 1032]
+42,3 kg
 [~ 1033]
 19,9 kg
 [~ 1035]
 [~ 1036]
 [~ 1037]
 [~ 1038]
-[~ 1039]
+33,0 kg
 [~ 1040]
 168,0 kg
-[~ 1042]
-[~ 1043]
+48,0 kg
+125,5 kg
 [~ 1044]
 [~ 1045]
 [~ 1046]
 [~ 1047]
 [~ 1048]
 [~ 1049]
-[~ 1050]
+120,0 kg
 70,5 kg
 [~ 1052]
 [~ 1053]
 [~ 1054]
-[~ 1055]
+40,5 kg
 [~ 1056]
 [~ 1057]
 [~ 1058]
 [~ 1059]
 [~ 1060]
 [~ 1061]
-[~ 1062]
-[~ 1063]
+100,0 kg
+80,0 kg
 [~ 1064]
-[~ 1065]
+59,0 kg
 115,0 kg
 85,0 kg
 110,0 kg
-[~ 1069]
+305,0 kg
 [~ 1070]
-[~ 1071]
+79,0 kg
 [~ 1072]
 [~ 1073]
 [~ 1074]
-[~ 1075]
+290,0 kg
 [~ 1076]
 [~ 1077]
-[~ 1078]
+201,0 kg
 69,8 kg
-[~ 1080]
-[~ 1081]
+108,8 kg
+61,5 kg
 [~ 1082]
 79,5 kg
 [~ 1084]
@@ -13568,39 +13672,39 @@ Text File : zkn_weight
 [~ 1108]
 [~ 1109]
 [~ 1110]
-[~ 1111]
+740,0 kg
 [~ 1112]
-[~ 1113]
-[~ 1114]
+125,0 kg
+62,5 kg
 [~ 1115]
 [~ 1116]
-[~ 1117]
-[~ 1118]
-[~ 1119]
-[~ 1120]
-[~ 1121]
-[~ 1122]
+40,4 kg
+49,5 kg
+255,0 kg
+55,2 kg
+52,0 kg
+102,0 kg
 [~ 1123]
 [~ 1124]
-[~ 1125]
-[~ 1126]
-[~ 1127]
-[~ 1128]
-[~ 1129]
-[~ 1130]
-[~ 1131]
-[~ 1132]
-[~ 1133]
+48,4 kg
+161,0 kg
+23,5 kg
+395,0 kg
+31,5 kg
+44,0 kg
+130,3 kg
+320,5 kg
+20,6 kg
 0,8 kg
 0,8 kg
 0,8 kg
-[~ 1137]
-[~ 1138]
-[~ 1139]
-[~ 1140]
-[~ 1141]
-[~ 1142]
-[~ 1143]
+13,0 kg
+8,0 kg
+49,0 kg
+49,0 kg
+350,2 kg
+112,6 kg
+942,9 kg
 [~ 1144]
 [~ 1145]
 [~ 1146]
@@ -13609,7 +13713,7 @@ Text File : zkn_weight
 [~ 1149]
 [~ 1150]
 [~ 1151]
-[~ 1152]
+50,0 kg
 [~ 1153]
 [~ 1154]
 [~ 1155]
@@ -13619,14 +13723,14 @@ Text File : zkn_weight
 [~ 1159]
 [~ 1160]
 [~ 1161]
-[~ 1162]
-[~ 1163]
-[~ 1164]
-[~ 1165]
-[~ 1166]
-[~ 1167]
-[~ 1168]
-[~ 1169]
+28,3 kg
+95,0 kg
+99,0 kg
+57,5 kg
+49,4 kg
+185,0 kg
+56,4 kg
+29,6 kg
 0,3 kg
 0,3 kg
 0,3 kg
@@ -13655,12 +13759,12 @@ Text File : zkn_weight
 [~ 1195]
 [~ 1196]
 [~ 1197]
-[~ 1198]
+180,3 kg
 58,2 kg
 [~ 1200]
-[~ 1201]
-[~ 1202]
-[~ 1203]
+60,0 kg
+32,0 kg
+230,5 kg
 [~ 1204]
 [~ 1205]
 [~ 1206]
@@ -13668,7 +13772,7 @@ Text File : zkn_weight
 [~ 1208]
 [~ 1209]
 [~ 1210]
-[~ 1211]
+31,0 kg
 [~ 1212]
 [~ 1213]
 73,0 kg
@@ -13680,10 +13784,10 @@ Text File : zkn_weight
 [~ 1220]
 [~ 1221]
 [~ 1222]
-[~ 1223]
-[~ 1224]
+180,0 kg
+69,6 kg
 20,5 kg
-[~ 1226]
+330,0 kg
 [~ 1227]
 [~ 1228]
 [~ 1229]
@@ -13696,11 +13800,11 @@ Text File : zkn_weight
 [~ 1236]
 [~ 1237]
 [~ 1238]
-[~ 1239]
-[~ 1240]
+90,0 kg
+39,0 kg
 [~ 1241]
 [~ 1242]
-[~ 1243]
+40,0 kg
 [~ 1244]
 [~ 1245]
 [~ 1246]
@@ -13758,7 +13862,7 @@ Text File : zkn_weight
 17,0 kg
 17,0 kg
 17,0 kg
-[~ 1301]
+93,3 kg
 [~ 1302]
 [~ 1303]
 [~ 1304]
@@ -13768,7 +13872,7 @@ Text File : zkn_weight
 [~ 1308]
 [~ 1309]
 0,9 kg
-[~ 1311]
+100,8 kg
 10,0 kg
 10,0 kg
 10,0 kg
@@ -13783,12 +13887,12 @@ Text File : zkn_weight
 28,0 kg
 28,0 kg
 8,5 kg
-[~ 1326]
+10,1 kg
 53,0 kg
-[~ 1328]
-[~ 1329]
-[~ 1330]
-[~ 1331]
+69,8 kg
+100,0 kg
+100,3 kg
+25,0 kg
 [~ 1332]
 334,1 kg
 [~ 1334]
@@ -13809,7 +13913,7 @@ Text File : zkn_weight
 37,0 kg
 [~ 1350]
 [~ 1351]
-[~ 1352]
+252,8 kg
 [~ 1353]
 [~ 1354]
 [~ 1355]
@@ -13819,7 +13923,7 @@ Text File : zkn_weight
 [~ 1359]
 [~ 1360]
 [~ 1361]
-[~ 1362]
+148,0 kg
 [~ 1363]
 [~ 1364]
 [~ 1365]
@@ -13851,10 +13955,10 @@ Text File : zkn_weight
 [~ 1391]
 [~ 1392]
 [~ 1393]
-[~ 1394]
+0,7 kg
 [~ 1395]
 [~ 1396]
-[~ 1397]
+240,5 kg
 [~ 1398]
 [~ 1399]
 [~ 1400]
@@ -13865,7 +13969,7 @@ Text File : zkn_weight
 [~ 1405]
 [~ 1406]
 [~ 1407]
-[~ 1408]
+40,0 kg
 [~ 1409]
 0,4 kg
 0,5 kg
@@ -13876,9 +13980,9 @@ Text File : zkn_weight
 0,5 kg
 0,5 kg
 0,5 kg
-[~ 1419]
+99,0 kg
 [~ 1420]
-[~ 1421]
+28,0 kg
 3,0 kg
 [~ 1423]
 [~ 1424]
@@ -13891,18 +13995,18 @@ Text File : zkn_weight
 [~ 1431]
 [~ 1432]
 97,4 kg
-[~ 1434]
+22,0 kg
 2,8 kg
-[~ 1436]
+315,0 kg
 [~ 1437]
 [~ 1438]
 [~ 1439]
 [~ 1440]
 [~ 1441]
-[~ 1442]
-[~ 1443]
-[~ 1444]
-[~ 1445]
+2,4 kg
+2,4 kg
+2,4 kg
+77,0 kg
 [~ 1446]
 [~ 1447]
 [~ 1448]

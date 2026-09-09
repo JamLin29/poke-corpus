@@ -296,6 +296,11 @@ Les [System:Color r="255" g="128" b="128" a="255" ]champs[System:Color a="255" ]
 L’adversaire a utilisé la [System:Color r="255" g="128" b="128" a="255" ]capacité prioritaire Vitesse Extrême[System:Color a="255" ],\nmais cette catégorie de capacité [System:Color r="255" g="128" b="128" a="255" ]échoue [System:Color a="255" ]si un champ psychique\nest actif.
 Maintenant, profitez de ce champ psychique et utilisez\nla capacité [System:Color r="255" g="128" b="128" a="255" ]Psyko[System:Color a="255" ].
 La capacité Vitesse Extrême a échoué, et votre attaque a permis\nde mettre K.O. le Pokémon adverse.\nVous avez bénéficié d’un autre effet du champ psychique :\n[System:Color r="255" g="128" b="128" a="255" ]il multiplie par 1,3 la puissance des capacités de type Psy[System:Color a="255" ].\n\nLes effets des champs s’appliquent autant à vous qu’à\nvotre adversaire. Utilisez-les stratégiquement pour vous\ndonner l’avantage en combat !
+L’aide à la sélection
+Cette fonctionnalité permet d’indiquer si vos Pokémon\nsont avantagés ou désavantagés face aux Pokémon\nadverses. Ces données s’appuient sur l’ensemble\ndes résultats en combats classés.
+Un triangle pointant vers le haut s’affichera sur les Pokémon\nadverses face auxquels vos Pokémon sont avantagés.\nUn triangle pointant vers le bas s’affichera sur les Pokémon\nadverses face auxquels vos Pokémon sont désavantagés.
+Une icône de danger s’affichera sur les Pokémon\nadverses contre lesquels tous les Pokémon que\nvous avez sélectionnés sont désavantagés.
+Vous pouvez choisir d’afficher ou non les informations relatives\nà l’aide à la sélection dans les options.
 ~~~~~~~~~~~~~~~
 Text File : available_pokelist
 ~~~~~~~~~~~~~~~
@@ -340,6 +345,10 @@ Combat (Corvault)
 Combat (Violine)
 Combat sérieux (Team MZ)
 Combat (Champions et Championnes d’Arène)
+Combat (Néo Team Flare)
+Combat (Lysandre)
+Combat (Team Flare)
+Combat (Lysandre)
 ~~~~~~~~~~~~~~~
 Text File : bgm_series
 ~~~~~~~~~~~~~~~
@@ -414,6 +423,10 @@ Ajouter à l’Équipe Combat
 Intervertir
 Vous n’avez aucun objet de cette catégorie.
 Vous ne pouvez pas utiliser ce Pokémon sans abonnement.
+Voulez-vous supprimer l’Équipe Combat ?
+Voulez-vous copier l’Équipe Combat à cet emplacement ?\nRemarque : l’Équipe Combat qui s’y trouve sera remplacée.
+Sélectionnez l’emplacement où copier l’Équipe Combat.
+Sélectionnez une Équipe Combat.
 ~~~~~~~~~~~~~~~
 Text File : btl_app
 ~~~~~~~~~~~~~~~
@@ -475,6 +488,19 @@ Voulez-vous interrompre le tutoriel ?
 Voulez-vous passer le tutoriel ?\n[System:Color r="255" g="128" b="128" a="255" ]Remarque : il sera compté comme terminé.[System:Color a="255" ]
 Cible
 [Name:WazaTarget ]
+Historique
+Tour [Digit:2digits ]
+Capacité
+Talent
+Objet tenu
+Baisse de PV
+Récupération de PV
+Méga-Évolution
+K.O.
+[Name:PokemonNickname ]\nPV : [Digit:3digits Idx="1" ] → [Digit:3digits Idx="2" ]
+[Name:PokemonNickname ]\nPV : [Digit:3digits Idx="1" ] % → [Digit:3digits Idx="2" ] %
+Changement de talent
+[Name:PokemonNickname ]\n[Name:Ability Idx="1" ] → [Name:Ability Idx="2" ]
 ~~~~~~~~~~~~~~~
 Text File : btl_attack_syn
 ~~~~~~~~~~~~~~~
@@ -483,11 +509,11 @@ Text File : btl_attack_syn
 ~~~~~~~~~~~~~~~
 Text File : btl_condition
 ~~~~~~~~~~~~~~~
-Le Pokémon a 12,5 % de chances de ne pas\nréussir à utiliser de capacité.\nSa Vitesse est réduite de moitié.
-Le Pokémon ne peut pas utiliser la majorité des\ncapacités, mais il a 25 % de chances de dégeler\nà chaque fois qu’il essaie. Il dégèle à coup sûr\nà la 3[Character2:Upper_e ] tentative ou s’il subit des dégâts\nd’une capacité de type Feu, entre autres.
-Le Pokémon subit des dégâts équivalents à 1/16\nde ses PV max à la fin de chaque tour.\nLes dégâts infligés par ses capacités physiques\nsont réduits de moitié.
-Le Pokémon subit des dégâts équivalents à 1/8\nde ses PV max à la fin de chaque tour.
-À la fin de chaque tour, le Pokémon subit des\ndégâts qui augmentent au fil des tours, d’abord\néquivalents à 1/16 de ses PV max, puis à 2/16,\n3/16, etc. Si le Pokémon est remplacé et revient\nsur le terrain, cette valeur repart de 1/16.
+Le Pokémon a 12,5 % de chances de ne pas\nréussir à utiliser de capacité.\nSa Vitesse est réduite de moitié.\nN’affecte pas les Pokémon de type Électrik.
+Le Pokémon ne peut pas utiliser la majorité des\ncapacités, mais il a 25 % de chances de dégeler\nchaque fois qu’il essaie d’en utiliser une.\nIl dégèle à coup sûr à la 3[Character2:Upper_e ] tentative ou s’il subit\ndes dégâts d’une capacité de type Feu, entre\nautres. N’affecte pas les Pokémon de type Glace.
+Le Pokémon subit des dégâts équivalents à 1/16\nde ses PV max à la fin de chaque tour.\nLes dégâts infligés par ses capacités physiques\nsont réduits de moitié.\nN’affecte pas les Pokémon de type Feu.
+Le Pokémon subit des dégâts équivalents à 1/8\nde ses PV max à la fin de chaque tour.\nN’affecte pas les Pokémon de type Poison\nou Acier.
+À la fin de chaque tour, le Pokémon subit des\ndégâts qui augmentent au fil des tours, d’abord\néquivalents à 1/16 de ses PV max, puis à 2/16,\n3/16, etc. Si le Pokémon est remplacé et revient\nsur le terrain, cette valeur repart de 1/16.\nN’affecte pas les Pokémon de type Poison\nou Acier.
 Le Pokémon peut seulement utiliser les capacités\nRonflement et Blabla Dodo. Il restera endormi\nau premier tour de son sommeil. Il a ensuite\n1 chance sur 3 de se réveiller au 2[Character2:Upper_e ] tour et\nil se réveille à coup sûr au 3[Character2:Upper_e ] tour. Si le Pokémon\na utilisé la capacité Repos, il ne peut pas\nse réveiller avant le 3[Character2:Upper_e ] tour de son sommeil.
 ~~~~~~~~~~~~~~~
 Text File : btl_data_pokedetail
@@ -544,6 +570,7 @@ Autre saison
 Remarque : l’actualisation des différents classements\npeut prendre un certain temps.
 Vos résultats
 Résultats détaillés
+Changer format
 ~~~~~~~~~~~~~~~
 Text File : btl_data_top
 ~~~~~~~~~~~~~~~
@@ -597,7 +624,10 @@ Pass de combat premium acheté
 [Digit:2digits ] heure[FR:Qty P="s" ]
 [Digit:2digits ] minute[FR:Qty P="s" ]
 0 minute
-Les pass de combat ne sont pas disponibles actuellement.
+Les pass de combat ne sont pas disponibles actuellement.\nSi vous avez des récompenses de la saison précédente\nà récupérer, celles-ci seront envoyées dans votre boîte\naux lettres après le début de la prochaine saison.
+Annuler
+Voir le vêtement
+Voir la coiffure
 ~~~~~~~~~~~~~~~
 Text File : btl_pokelist
 ~~~~~~~~~~~~~~~
@@ -688,6 +718,9 @@ Préparation au combat...
 Afficher le résumé
 Fermer le résumé
 Sélectionnez [Digit:1digit ] Pokémon pour combattre !
+Votre Pokémon est avantagé face\naux adversaires arborant ce symbole.
+Votre Pokémon est désavantagé face\naux adversaires arborant ce symbole.
+Les Pokémon sélectionnés sont tous désavantagés\nface aux adversaires arborant ce symbole.
 ~~~~~~~~~~~~~~~
 Text File : btl_preparation
 ~~~~~~~~~~~~~~~
@@ -725,13 +758,14 @@ Calcul des résultats en cours
 [Name:FreeWord ]
 Vous avez atteint le nombre maximal de combats\nauxquels vous pouvez participer aujourd’hui.
 [Digit:4digits Sep="default" ]/[Digit:4digits Idx="1" Sep="default" ]
-[~ 14]
+[System:Color r="255" g="128" b="128" a="255" ][Digit:4digits Sep="default" ]/[Digit:4digits Idx="1" Sep="default" ][System:Color a="255" ]
 Compétitions en ligne
 Saison [Name:SeasonName ]-[Digit:2digits Idx="1" ]
 Bonus d’abonnement
 × [Digit:1digit ],[Digit:1digit Idx="1" ]
 Encore [Digit:3digits ] fois
 Saison 1
+Terminé !
 ~~~~~~~~~~~~~~~
 Text File : btl_result
 ~~~~~~~~~~~~~~~
@@ -899,16 +933,16 @@ Text File : btl_set
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi est blessé !
 [Ctrl1:battle_oneline ]Le talent [FR:De Force="1" ][Name:PokemonNickname ] devient [Name:Ability Idx="1" ] !
 [Ctrl1:battle_oneline ]Le talent [Grm:ForceMasculine ][FR:De_DefArt Force="1" ][Name:PokemonNickname ] ennemi devient [Name:Ability Idx="1" ] !
-[~ 150]
-[~ 151]
+[Ctrl1:battle_oneline ][Name:PokemonNickname ] flotte grâce à son Ballon !
+[Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi flotte grâce à son Ballon !
 [Ctrl1:battle_oneline ]Le Ballon [FR:De Force="1" ][Name:PokemonNickname ] a éclaté !
 [Ctrl1:battle_oneline ]Le Ballon [Grm:ForceMasculine ][FR:De_DefArt Force="1" ][Name:PokemonNickname ] ennemi a éclaté !
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] se retire grâce au Bouton Fuite !
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi se retire grâce au Bouton Fuite !
-[~ 156]
-[~ 157]
-[~ 158]
-[~ 159]
+[Ctrl1:battle_oneline ][Name:PokemonNickname ] a mis un Carton Rouge à [Name:PokemonNickname Idx="1" ] !
+[Ctrl1:battle_oneline ][Name:PokemonNickname ] a mis un Carton Rouge [Grm:ForceMasculine ][FR:A_DefArt Ref="1" Force="1" ][Name:PokemonNickname Idx="1" ] ennemi !
+[Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi a mis un Carton Rouge à [Name:PokemonNickname Idx="1" ] !
+[Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi a mis un Carton Rouge\n[Grm:ForceMasculine ][FR:A_DefArt Ref="1" Force="1" ][Name:PokemonNickname Idx="1" ] ennemi !
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] augmente la puissance de ses capacités de type Feu !
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi augmente la puissance de ses capacités\nde type Feu !
 [Ctrl1:battle_oneline ]La capacité [Name:Move Idx="1" ] [FR:De Force="1" ][Name:PokemonNickname ] a été détectée !
@@ -927,10 +961,10 @@ Text File : btl_set
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi ne s’endort pas !
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] s’accroche avec ses ventouses !
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi s’accroche avec ses ventouses !
-[~ 178]
-[~ 179]
-[~ 180]
-[~ 181]
+[Name:PokemonNickname ] ne bouge pas !
+[Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi ne bouge pas !
+[Ctrl1:battle_oneline ][Name:PokemonNickname ] aspire le suintement !
+[Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi aspire le suintement !
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] s’est fait voler [FR:DefArt Ref="1" ][Name:ItemClassified Idx="1" ] !
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi s’est fait voler\n[FR:IndArt Ref="1" ][Name:ItemClassified Idx="1" ] !
 [Ctrl1:battle_oneline ]Le talent [FR:De Force="1" ][Name:PokemonNickname ] devient Momie !
@@ -1419,38 +1453,36 @@ Le blocage de soins qui affectait [Grm:ForceMasculine ][FR:DefArt Force="1" ][Na
 [~ 667]
 [~ 668]
 [~ 669]
-[~ 670]
-[~ 671]
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] n’arrive pas à parer toute l’attaque et subit des dégâts !
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi n’arrive pas à parer toute l’attaque\net subit des dégâts !
+[~ 672]
+[~ 673]
 [~ 674]
 [~ 675]
 [~ 676]
 [~ 677]
 [~ 678]
 [~ 679]
-[~ 680]
-[~ 681]
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] ne peut plus fuir à cause d’Ultime Bastion !
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi ne peut plus fuir à cause d’Ultime Bastion !
+[~ 682]
+[~ 683]
 [~ 684]
 [~ 685]
 [~ 686]
 [~ 687]
-[~ 688]
-[~ 689]
-[~ 690]
-[~ 691]
+[Ctrl1:battle_oneline ]Les effets affectant chaque côté du terrain ont été échangés\npar [Name:PokemonNickname ] !
+[Ctrl1:battle_oneline ]Les effets affectant chaque côté du terrain ont été échangés\npar [Grm:ForceMasculine ][FR:DefArt Force="1" ][Name:PokemonNickname ] ennemi !
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] est tombé dans un Troquenard !
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi est tombé dans un Troquenard !
+[Ctrl1:battle_oneline ][Name:PokemonNickname ] ne peut plus fuir à cause d’Octoprise !
+[Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi ne peut plus fuir à cause d’Octoprise !
 [~ 694]
 [~ 695]
 [~ 696]
 [~ 697]
 [~ 698]
 [~ 699]
-[~ 700]
-[~ 701]
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] se retire grâce au Sac Fuite !
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi se retire grâce au Sac Fuite !
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] a repris son type d’origine !
@@ -1465,20 +1497,20 @@ Le blocage de soins qui affectait [Grm:ForceMasculine ][FR:DefArt Force="1" ][Na
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] fait fondre [FR:DefArt Ref="2" ][Name:ItemClassified Idx="2" ]\n[Grm:ForceMasculine ][FR:De_DefArt Ref="1" Force="1" ][Name:PokemonNickname Idx="1" ] ennemi !
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi fait fondre\n[FR:DefArt Ref="2" ][Name:ItemClassified Idx="2" ]\r\n[FR:De Ref="1" Force="1" ][Name:PokemonNickname Idx="1" ] !
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi fait fondre\n[FR:DefArt Ref="2" ][Name:ItemClassified Idx="2" ]\r\n[Grm:ForceMasculine ][FR:De_DefArt Ref="1" Force="1" ][Name:PokemonNickname Idx="1" ] ennemi !
+[~ 714]
+[~ 715]
 [~ 716]
 [~ 717]
-[~ 718]
-[~ 719]
 [Ctrl1:battle_oneline ][Name:Ability Idx="1" ] permet à [Name:PokemonNickname ] d’agir plus vite\nque d’habitude !
 [Ctrl1:battle_oneline ][Name:Ability Idx="1" ] permet [Grm:ForceMasculine ][FR:A_DefArt Force="1" ][Name:PokemonNickname ] ennemi d’agir\nplus vite que d’habitude !
 [Ctrl1:battle_oneline ]Cela échoue sur [Name:PokemonNickname ] !
 [Ctrl1:battle_oneline ]Cela échoue sur [Grm:ForceMasculine ][FR:DefArt Force="1" ][Name:PokemonNickname ] ennemi !
+[~ 722]
+[~ 723]
 [~ 724]
 [~ 725]
 [~ 726]
 [~ 727]
-[~ 728]
-[~ 729]
 [Name:PokemonNickname ] est sorti de sa torpeur !
 [Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi est sorti de sa torpeur !
 [Name:PokemonNickname ] somnole déjà !
@@ -1497,12 +1529,14 @@ Le blocage de soins qui affectait [Grm:ForceMasculine ][FR:DefArt Force="1" ][Na
 [Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi s’apprête à faire un mauvais jeu de mots...
 [Name:PokemonNickname ] a utilisé toute son électricité !
 [Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi a utilisé toute son électricité !
+[~ 746]
+[~ 747]
 [~ 748]
 [~ 749]
-[~ 750]
-[~ 751]
 [Name:PokemonNickname ] est revenu sous une autre forme !
 [Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi est revenu sous une autre forme !
+[~ 752]
+[~ 753]
 [~ 754]
 [~ 755]
 [~ 756]
@@ -1527,19 +1561,19 @@ Le blocage de soins qui affectait [Grm:ForceMasculine ][FR:DefArt Force="1" ][Na
 [~ 775]
 [~ 776]
 [~ 777]
-[~ 778]
-[~ 779]
 [Name:PokemonNickname ] reçoit la puissance de ses alliés mis K.O. !
 [Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi reçoit la puissance de ses alliés mis K.O. !
+[~ 780]
+[~ 781]
 [~ 782]
 [~ 783]
 [~ 784]
 [~ 785]
 [~ 786]
-[~ 787]
-[~ 788]
 [Ctrl1:battle_oneline ][Name:PokemonNickname ] copie les changements de stats de la cible grâce\nà la Feuille Copieuse !
 [Ctrl1:battle_oneline ][Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi copie les changements de stats de la cible\ngrâce à la Feuille Copieuse !
+[~ 789]
+[~ 790]
 [~ 791]
 [~ 792]
 [~ 793]
@@ -1556,18 +1590,16 @@ Le blocage de soins qui affectait [Grm:ForceMasculine ][FR:DefArt Force="1" ][Na
 [~ 804]
 [~ 805]
 [~ 806]
-[~ 807]
-[~ 808]
 [Name:PokemonNickname Idx="1" ] boit le thé préparé par [Name:PokemonNickname ] !
 [Name:PokemonNickname Idx="1" ] boit le thé préparé par [Grm:ForceMasculine ][FR:DefArt Force="1" ][Name:PokemonNickname ] ennemi !
+[~ 809]
+[~ 810]
 [~ 811]
 [~ 812]
 [~ 813]
 [~ 814]
 [~ 815]
 [~ 816]
-[~ 817]
-[~ 818]
 [Name:PokemonNickname ] est recouvert de sirop !
 [Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi est recouvert de sirop !
 Le nectar [FR:De Force="1" ][Name:PokemonNickname ] dégage un parfum sucré !
@@ -1575,9 +1607,9 @@ Le nectar [Grm:ForceMasculine ][FR:De_DefArt Force="1" ][Name:PokemonNickname ] 
 [Name:PokemonNickname ] absorbe de l’électricité !
 [Grm:ForceMasculine ][FR:DefArtCap Force="1" ][Name:PokemonNickname ] ennemi absorbe de l’électricité !
 [Name:PokemonNickname ] a pris cette capacité au sérieux !
+[~ 824]
+[~ 825]
 [~ 826]
-[~ 827]
-[~ 828]
 [Ctrl1:battle_oneline ][FR:DefArtCap Ref="4" ][Name:Status Idx="4" ] [FR:De Force="1" ][Name:PokemonNickname ] augmente !
 [Ctrl1:battle_oneline ][FR:DefArtCap Ref="4" ][Name:Status Idx="4" ] et [FR:DefArt Ref="5" ][Name:Status Idx="5" ] [FR:De Force="1" ][Name:PokemonNickname ]\naugmentent !
 [Ctrl1:battle_oneline ][FR:DefArtCap Ref="4" ][Name:Status Idx="4" ], [FR:DefArt Ref="5" ][Name:Status Idx="5" ] et [FR:DefArt Ref="6" ][Name:Status Idx="6" ]\n[FR:De Force="1" ][Name:PokemonNickname ] augmentent !
@@ -1749,9 +1781,9 @@ Tous les Pokémon, sauf ceux de type Roche,\nSol ou Acier, subissent des dégât
 Tempête de sable
 La Défense des Pokémon de type Glace\nest multipliée par 1,5.
 Neige
-Ces effets s’appliquent aux Pokémon au sol :\n[System:Color a="255" ]・[System:Color a="255" ] La puissance de leurs capacités de type Électrik\nest multipliée par 1,3.\n[System:Color a="255" ]・[System:Color a="255" ] Ils ne peuvent pas s’endormir.
+Ces effets s’appliquent aux Pokémon au sol :\n・ La puissance de leurs capacités de type Électrik\nest multipliée par 1,3.\n・ Ils ne peuvent pas s’endormir.
 Champ Électrifié
-Ces effets s’appliquent aux Pokémon au sol :\n[System:Color a="255" ]・[System:Color a="255" ] La puissance de leurs capacités de type Plante\nest multipliée par 1,3.\n[System:Color a="255" ]・[System:Color a="255" ] Ils récupèrent 1/16 de leurs PV max à la fin\nde chaque tour.
+Ces effets s’appliquent aux Pokémon au sol :\n・ La puissance de leurs capacités de type Plante\nest multipliée par 1,3.\n・ Ils récupèrent 1/16 de leurs PV max à la fin\nde chaque tour.
 Champ Herbu
 Ces effets s’appliquent aux Pokémon au sol :\n・ Les dégâts des capacités de type Dragon\nqu’ils subissent sont réduits de moitié.\n・ Ils ne peuvent ni subir d’altérations de statut,\nni devenir confus.
 Champ Brumeux
@@ -1781,7 +1813,7 @@ Vent Arrière
 Le Pokémon ne peut pas utiliser la capacité\n[Name:Move ].
 Capacité bloquée
 Le Pokémon ne peut pas utiliser la dernière\ncapacité qu’il a utilisée avant qu’on lui inflige\nl’état « Capacité bloquée ».
-Le Pokémon ne peut pas quitter le terrain.
+Le Pokémon ne peut pas quitter le terrain.\nN’affecte pas les Pokémon de type Spectre.
 Fuite impossible
 La capacité que le Pokémon lancera au tour\nsuivant l’utilisation de la capacité Verrouillage\ntouchera à coup sûr la cible qu’il a verrouillée.
 Verrouillage
@@ -1799,7 +1831,7 @@ Le Pokémon peut uniquement utiliser\ndes attaques.
 Provocation
 Le Pokémon flotte au-dessus du sol, ce qui\nl’immunise contre les capacités de type Sol,\nainsi que les effets de Picots, Pics Toxik\net Toile Gluante.
 Vol Magnétik
-Les Pokémon entrant sur le terrain sont\nempoisonnés. Si 2 effets de Pics Toxik sont actifs\nen même temps, ils sont gravement empoisonnés.\nCela n’affecte pas les Pokémon de type Vol\nou dotés du talent Lévitation, entre autres.
+Empoisonne les Pokémon entrant sur le terrain.\nEmpoisonne gravement si 2 effets de Pics Toxik\nsont actifs. N’affecte pas les Pokémon Vol ou\ndotés du talent Lévitation, entre autres. Disparaît\nquand un Pokémon Poison entre sur le terrain.
 Pics Toxik
 À la fin du tour suivant l’utilisation de la capacité\nVœu, le Pokémon se trouvant à cet endroit\nrécupérera des PV équivalents à la moitié des\nPV max du Pokémon qui a utilisé la capacité.
 Vœu
@@ -1825,7 +1857,7 @@ Si le Pokémon est mis K.O., le Pokémon\nresponsable est également mis K.O.
 Lien du Destin
 Le Pokémon obtient le type Plante.
 Maléfice Sylvain
-À la fin de chaque tour, le Pokémon subit\ndes dégâts équivalents à 1/8 de ses PV max,\net l’adversaire qui se trouve à l’endroit depuis\nlequel la capacité Vampigraine a été lancée\nrécupère la même quantité de PV.
+À la fin de chaque tour, le Pokémon subit des\ndégâts équivalents à 1/8 de ses PV max, et\nl’adversaire qui se trouve là d’où Vampigraine\na été lancée récupère la même quantité de PV.\nN’affecte pas les Pokémon de type Plante.
 Vampigraine
 Le Pokémon subit des dégâts équivalents à\n1/8 de ses PV max à la fin de chaque tour,\net il ne peut pas quitter le terrain pendant\n4 à 5 tours.
 Piégé
@@ -1849,7 +1881,7 @@ Verrou Enchanté
 [~ 105]
 [~ 106]
 [~ 107]
-Ces effets s’appliquent aux Pokémon au sol :\n[System:Color a="255" ]・[System:Color a="255" ] La puissance de leurs capacités de type Psy\nest multipliée par 1,3.\n[System:Color a="255" ]・[System:Color a="255" ] Ils sont immunisés contre les capacités\nprioritaires.
+Ces effets s’appliquent aux Pokémon au sol :\n・ La puissance de leurs capacités de type Psy\nest multipliée par 1,3.\n・ Ils sont immunisés contre les capacités\nprioritaires.
 Champ Psychique
 Le Pokémon ne peut pas utiliser de capacités\nde son pendant 2 tours.
 Exécu-Son
@@ -1857,8 +1889,8 @@ Les dégâts des capacités physiques et spéciales\nsubis par le Pokémon sont 
 Voile Aurore
 [~ 114]
 [~ 115]
-[~ 116]
-[~ 117]
+La Défense et la Défense Spéciale du Pokémon\nbaissent de 1 cran à la fin de chaque tour.
+Octoprise
 [~ 118]
 [~ 119]
 [~ 120]
@@ -1875,8 +1907,8 @@ La Vitesse du Pokémon baisse de 1 cran\nà la fin de chaque tour.
 Recouvert de sirop
 Le Pokémon ne peut pas récupérer de PV grâce\nà des capacités, talents ou objets tenus.
 Soins bloqués
-[~ 134]
-[~ 135]
+Les capacités des adversaires n’échouent jamais\nsur le Pokémon et les dégâts subis par ce dernier\nsont multipliés par 2.
+Vulnérable
 Le Pokémon ne peut pas agir pendant 1 tour.
 Épuisement
 Le Pokémon charge la capacité pendant 1 tour\navant de l’utiliser.
@@ -1899,8 +1931,8 @@ Torche
 [~ 155]
 [~ 156]
 [~ 157]
-[~ 158]
-[~ 159]
+Le Pokémon ayant utilisé la capacité Croque Fort\net celui l’ayant subie ne peuvent pas quitter\nle terrain.
+Croque Fort
 La Précision de la prochaine capacité utilisée\npar le Pokémon est multipliée par 1,2.
 Baie Micle
 ~~~~~~~~~~~~~~~
@@ -2054,7 +2086,7 @@ Le sol redevient normal !
 [~ 145]
 [~ 146]
 [~ 147]
-[~ 148]
+Les Pokémon ne peuvent plus s’enfuir !
 C’est l’heure du thé !\nTout le monde mange sa Baie.
 Mais rien ne se passe !
 [~ 151]
@@ -2217,6 +2249,8 @@ Aucune
 [Name:FreeWord ]
 [Name:FreeWord ]
 Voulez-vous valider ces changements et revenir à l’écran titre ?
+Solo
+Duo
 ~~~~~~~~~~~~~~~
 Text File : country_codes
 ~~~~~~~~~~~~~~~
@@ -2256,6 +2290,7 @@ Singapour
 Taïwan
 Thaïlande
 Indonésie
+Inde
 Autre
 Europe
 Autriche
@@ -2445,6 +2480,10 @@ Vous ne pouvez pas consulter le profil d’autres personnes\nlorsque une recherc
 L’ID ou le code saisi est invalide.
 De nouvelles données sont disponibles.\nRetour à l’écran titre.
 Le Pokémon a été recruté de manière permanente\net envoyé dans votre Boîte.
+Vous ne pouvez pas utiliser cette fonctionnalité.
+Pass de combat premium (saison [Name:SeasonName ]-[Digit:2digits Idx="1" ])
+[~ 60]
+Boutique
 ~~~~~~~~~~~~~~~
 Text File : dressup
 ~~~~~~~~~~~~~~~
@@ -2467,30 +2506,30 @@ Sauvegarder
 Voulez-vous sauvegarder le style porté ?
 Sauvegardez un style ou choisissez-en un à porter.
 Vide
-[~ 19]
-[~ 20]
-[~ 21]
-[~ 22]
-[~ 23]
-[~ 24]
-[~ 25]
-[~ 26]
-[~ 27]
-[~ 28]
-[~ 29]
-[~ 30]
-[~ 31]
-[~ 32]
-[~ 33]
-[~ 34]
-[~ 35]
-[~ 36]
-[~ 37]
-[~ 38]
-[~ 39]
-[~ 40]
-[~ 41]
-[~ 42]
+Hauts
+Vestes et pulls
+Gants
+Bas
+Leggings
+Chaussettes
+Chaussures
+Sacoches
+Chapeaux
+Bandeaux
+Accessoires (visage)
+Coiffure
+Couleur des cheveux
+Yeux
+Lentilles de couleur
+Cils
+Couleur des cils
+Sourcils
+Couleur des sourcils
+Forme de la bouche
+Lèvres
+Couleur des lèvres
+Grain de beauté
+Taches de rousseur
 Vous ne pouvez pas changer la couleur\nde cette coupe de cheveux.
 ~~~~~~~~~~~~~~~
 Text File : dressup_main
@@ -2744,6 +2783,27 @@ Style de Corvault
 Lancer énergique
 Cri de victoire
 Pose déterminée
+Sacoche à joyau de Violine
+Lunettes de Cendro
+Veste de barista de Cendro
+Pantalon et tablier de Cendro
+Sacoche ceinture ronde de Cendro
+Chaussures en cuir de Cendro
+Style de Cendro
+Trench court de Millie
+Justaucorps de la combinaison de Millie
+Leggings de la combinaison de Millie
+Chaussettes de la combinaison de Millie
+Chaussures de Millie
+Gants de Millie
+Style de Millie
+Pose d’entrée de Corvault
+Pose de victoire de Corvault
+Lancer de Corvault
+Pose d’entrée de Narica
+Pose de victoire de Narica
+Lancer de Narica
+Masque de Narica
 ~~~~~~~~~~~~~~~
 Text File : dressup_sub
 ~~~~~~~~~~~~~~~
@@ -3009,7 +3069,7 @@ Dracolosse
 [~ 259]
 [~ 260]
 Méganium
-[~ 262]
+Roitiflam
 Rouge
 Blanc
 Logo Team MZ
@@ -3024,6 +3084,17 @@ Violet et violet
 Couleur classique
 Noir et magenta
 Gouttes magenta
+Gris et blanc
+Bleu marine et noir
+Lilas
+Rouge et noir
+Monture blanche
+Noir et orange
+Beige
+Noir et orange
+Gris clair
+Noir et orange
+Jaune citron
 ~~~~~~~~~~~~~~~
 Text File : first_start
 ~~~~~~~~~~~~~~~
@@ -3082,11 +3153,11 @@ novembre
 nov.
 décembre
 déc.
-Afin d’analyser les tendances d’utilisation de ce service, d’en assurer le bon fonctionnement\net de prévenir toute utilisation inappropriée, Pokémon Champions recueille les informations\nsuivantes :\n・ données de jeu liées à cette application ;\n・ erreurs de fonctionnement.\n\nCes informations seront utilisées conformément aux directives décrites dans la Politique\nde confidentialité.\n\nVous pouvez utiliser cette application même si vous choisissez de ne pas partager\nces informations.\n\nAcceptez-vous cette utilisation de vos informations ?
+Afin d’analyser les tendances d’utilisation de ce service, d’en assurer le bon fonctionnement\net de prévenir toute utilisation inappropriée, Pokémon Champions recueille les informations\nsuivantes :\n・ données de jeu liées à cette application ;\n・ erreurs de fonctionnement.\n\nCes informations seront utilisées conformément aux directives décrites dans l’Avis sur la\nconfidentialité.\n\nVous pouvez utiliser cette application même si vous choisissez de ne pas partager\nces informations.\n\nAcceptez-vous cette utilisation de vos informations ?
 J’accepte
 Je refuse
 Utilisation des données
-Afin d’analyser les tendances d’utilisation de ce service,\nd’en assurer le bon fonctionnement et de prévenir toute\nutilisation inappropriée, Pokémon Champions recueille\nles informations suivantes :\n・ données de jeu liées à cette application ;\n・ erreurs de fonctionnement.\n\nCes informations seront utilisées conformément aux directives\ndécrites dans la Politique de confidentialité.\n\nVous pouvez utiliser cette application même si vous choisissez\nde ne pas partager ces informations.
+Afin d’analyser les tendances d’utilisation de ce service,\nd’en assurer le bon fonctionnement et de prévenir toute\nutilisation inappropriée, Pokémon Champions recueille\nles informations suivantes :\n・ données de jeu liées à cette application ;\n・ erreurs de fonctionnement.\n\nCes informations seront utilisées conformément aux directives\ndécrites dans l’Avis sur la confidentialité.\n\nVous pouvez utiliser cette application même si vous choisissez\nde ne pas partager ces informations.
 ~~~~~~~~~~~~~~~
 Text File : footer
 ~~~~~~~~~~~~~~~
@@ -3106,6 +3177,7 @@ Favoris et étiquettes
 Paramètres individuels
 Aide
 Description
+Voir une autre forme
 ~~~~~~~~~~~~~~~
 Text File : friend
 ~~~~~~~~~~~~~~~
@@ -3447,12 +3519,12 @@ Les altérations de statut
 Une partie des capacités, talents et objets tenus ont pour effet\nde provoquer des [System:Color r="255" g="128" b="128" a="255" ]altérations de statut[System:Color a="255" ] chez les Pokémon.\n\nCes altérations peuvent affecter un Pokémon de\ndifférentes façons.
 Effectuez le [System:Color r="255" g="128" b="128" a="255" ]tutoriel de combat[System:Color a="255" ] appelé « [System:Color r="255" g="128" b="128" a="255" ]Les altérations\nde statut[System:Color a="255" ] » afin d’étudier tout cela par la pratique.
 Le poison, le poison grave et la brûlure
-[System:Color r="255" g="128" b="128" a="255" ]Le poison\n\n[System:Color a="255" ]Les Pokémon empoisonnés subissent des dégâts équivalents\nà 1/8 de leurs PV max à la fin de chaque tour.
-[System:Color r="255" g="128" b="128" a="255" ]Le poison grave\n[System:Color a="255" ]\nÀ la fin de chaque tour, les Pokémon gravement empoisonnés\nsubissent des dégâts qui augmentent au fil des tours, d’abord\néquivalents à 1/16 de leurs PV max, puis à 2/16, 3/16, etc.\nSi un Pokémon gravement empoisonné est remplacé et revient\nsur le terrain, cette valeur repart de 1/16.
-[System:Color r="255" g="128" b="128" a="255" ]La brûlure\n[System:Color a="255" ]\nLes Pokémon brûlés subissent des dégâts équivalents à 1/16\nde leurs PV max à la fin de chaque tour et les dégâts infligés\npar leurs capacités physiques sont réduits de moitié.
+[System:Color r="255" g="128" b="128" a="255" ]Le poison\n\n[System:Color a="255" ]Les Pokémon empoisonnés subissent des dégâts équivalents\nà 1/8 de leurs PV max à la fin de chaque tour.\nCela n’affecte pas les Pokémon de type Poison ou Acier.
+[System:Color r="255" g="128" b="128" a="255" ]Le poison grave\n[System:Color a="255" ]\nÀ la fin de chaque tour, les Pokémon gravement empoisonnés\nsubissent des dégâts qui augmentent au fil des tours, d’abord\néquivalents à 1/16 de leurs PV max, puis à 2/16, 3/16, etc.\nSi un Pokémon gravement empoisonné est remplacé et revient\nsur le terrain, cette valeur repart de 1/16.\nCela n’affecte pas les Pokémon de type Poison ou Acier.
+[System:Color r="255" g="128" b="128" a="255" ]La brûlure\n[System:Color a="255" ]\nLes Pokémon brûlés subissent des dégâts équivalents à 1/16\nde leurs PV max à la fin de chaque tour et les dégâts infligés\npar leurs capacités physiques sont réduits de moitié.\nCela n’affecte pas les Pokémon de type Feu.
 La paralysie, le gel et le sommeil
-[System:Color r="255" g="128" b="128" a="255" ]La paralysie\n[System:Color a="255" ]\nLes Pokémon paralysés ont 12,5 % de chances\nde ne pas réussir à utiliser de capacité.\nDe plus, leur Vitesse est réduite de moitié.
-[System:Color r="255" g="128" b="128" a="255" ]Le gel\n[System:Color a="255" ]\nLes Pokémon gelés ne peuvent pas utiliser la majorité des\ncapacités, mais ils ont 25 % de chances de dégeler chaque\nfois qu’ils essaient.\nIls dégèlent à coup sûr à la troisième tentative ou s’ils subissent\ndes dégâts d’une capacité de type Feu, entre autres.
+[System:Color r="255" g="128" b="128" a="255" ]La paralysie\n[System:Color a="255" ]\nLes Pokémon paralysés ont 12,5 % de chances\nde ne pas réussir à utiliser de capacité.\nDe plus, leur Vitesse est réduite de moitié.\nCela n’affecte pas les Pokémon de type Électrik.
+[System:Color r="255" g="128" b="128" a="255" ]Le gel\n[System:Color a="255" ]\nLes Pokémon gelés ne peuvent pas utiliser la majorité des\ncapacités, mais ils ont 25 % de chances de dégeler chaque\nfois qu’ils essaient d’en utiliser une.\nIls dégèlent à coup sûr à la troisième tentative ou s’ils subissent\ndes dégâts d’une capacité de type Feu, entre autres.\nCela n’affecte pas les Pokémon de type Glace.
 [System:Color r="255" g="128" b="128" a="255" ]Sommeil\n[System:Color a="255" ]\nLes Pokémon endormis peuvent seulement utiliser les capacités\nRonflement et Blabla Dodo. Ils resteront endormis au premier\ntour de leur sommeil. Ils ont ensuite 1 chance sur 3 de se\nréveiller au deuxième tour et ils se réveillent à coup sûr au\ntroisième tour. Si les Pokémon utilisent la capacité Repos, ils ne\npeuvent pas se réveiller avant le troisième tour de leur sommeil.
 Les effets sur les Pokémon et le terrain
 Une partie des capacités, talents et objets tenus provoquent\n[System:Color r="255" g="128" b="128" a="255" ]différents effets et créent différents états qui impactent[System:Color a="255" ]\n[System:Color r="255" g="128" b="128" a="255" ]le terrain et les Pokémon[System:Color a="255" ].\n\nEn voici quelques exemples...
@@ -3463,7 +3535,7 @@ Une partie des capacités, talents et objets tenus provoquent\n[System:Color r="
 [System:Color r="255" g="128" b="128" a="255" ]Voile Aurore\n\n[System:Color a="255" ]Les dégâts des capacités physiques et spéciales subis par\nles Pokémon affectés par cet état sont réduits de moitié.\nEn Combat Duo, ces capacités infligent 2/3 de leurs dégâts\nà la place.
 [System:Color r="255" g="128" b="128" a="255" ]Piège de Roc\n[System:Color a="255" ]\nQuand cet état est actif, les Pokémon entrant sur le terrain\nsubissent des dégâts équivalents à 1/8 de leurs PV max.\nLes dégâts peuvent varier en fonction de l’affinité\ndes Pokémon avec le type Roche.
 [System:Color r="255" g="128" b="128" a="255" ]Picots\n[System:Color a="255" ]\nQuand cet état est actif, les Pokémon entrant sur le terrain\nsubissent des dégâts équivalents à 1/8 de leurs PV max,\net plus si 2 ou 3 effets de Picots sont actifs en même temps.\nCela n’affecte pas les Pokémon de type Vol ou dotés du talent\nLévitation, entre autres.
-[System:Color r="255" g="128" b="128" a="255" ]Pics Toxik\n[System:Color a="255" ]\nQuand cet état est actif, les Pokémon entrant sur le terrain\nsont empoisonnés. Si 2 effets de Pics Toxik sont actifs\nen même temps, ils sont gravement empoisonnés.\nCela n’affecte pas les Pokémon de type Vol ou dotés\ndu talent Lévitation, entre autres.
+[System:Color r="255" g="128" b="128" a="255" ]Pics Toxik\n[System:Color a="255" ]\nQuand cet état est actif, les Pokémon entrant sur le terrain\nsont empoisonnés. Si 2 effets de Pics Toxik sont actifs\nen même temps, ils sont gravement empoisonnés.\nCela n’affecte pas les Pokémon de type Vol ou dotés\ndu talent Lévitation, entre autres. Cet état disparaît quand\nun Pokémon de type Poison arrive sur le terrain.
 La météo
 Une partie des capacités, talents et objets tenus permettent\nde changer la [System:Color r="255" g="128" b="128" a="255" ]météo[System:Color a="255" ].\n\nCette dernière a un impact sur [System:Color r="255" g="128" b="128" a="255" ]tous les Pokémon sur le terrain\n[System:Color a="255" ]et produit différents effets.
 [System:Color r="255" g="128" b="128" a="255" ]Soleil\n\n[System:Color a="255" ]Quand cet état est actif, les dégâts des capacités de type Feu\nsont multipliés par 1,5 et les dégâts des capacités de type Eau\nsont réduits de moitié.
@@ -3473,10 +3545,10 @@ Une partie des capacités, talents et objets tenus permettent\nde changer la [Sy
 Effectuez le [System:Color r="255" g="128" b="128" a="255" ]tutoriel de combat[System:Color a="255" ] appelé « [System:Color r="255" g="128" b="128" a="255" ]La météo[System:Color a="255" ] »\nafin d’étudier tout cela par la pratique.
 Les champs
 Une partie des capacités, talents et objets tenus permettent\nde créer des [System:Color r="255" g="128" b="128" a="255" ]champs[System:Color a="255" ].\n\nCes derniers ont un impact sur [System:Color r="255" g="128" b="128" a="255" ]tous les Pokémon au sol\n[System:Color a="255" ]et produisent différents effets.
-[System:Color r="255" g="128" b="128" a="255" ]Les champs électrifiés\n\n[System:Color a="255" ]Quand un champ électrifié est actif, les effets suivants\ns’appliquent aux Pokémon au sol :\n・ la puissance de leurs capacités de type Électrik est\nmultipliée par 1,3 ;\n・ ils ne peuvent pas s’endormir.
-[System:Color r="255" g="128" b="128" a="255" ]Les champs psychiques\n[System:Color a="255" ]\nQuand un champ psychique est actif, les effets suivants\ns’appliquent aux Pokémon au sol :\n・ la puissance de leurs capacités de type Psy est multipliée\npar 1,3 ;\n・ ils sont immunisés contre les capacités prioritaires.
-[System:Color r="255" g="128" b="128" a="255" ]Les champs herbus\n[System:Color a="255" ]\nQuand un champ herbu est actif, les effets suivants\ns’appliquent aux Pokémon au sol :\n・ la puissance de leurs capacités de type Plante est multipliée\npar 1,3 ;\n・ ils récupèrent 1/16 de leurs PV max à la fin de chaque tour.
-[System:Color r="255" g="128" b="128" a="255" ]Les champs brumeux[System:Color a="255" ]\n\nQuand un champ brumeux est actif, les effets suivants\ns’appliquent aux Pokémon au sol :\n・ les dégâts des capacités de type Dragon qu’ils subissent sont\nréduits de moitié ;\n・ ils ne peuvent ni subir d’altérations de statut,\nni devenir confus.
+[System:Color r="255" g="128" b="128" a="255" ]Les champs électrifiés\n\n[System:Color a="255" ]Quand un champ électrifié est actif, les effets suivants\ns’appliquent aux Pokémon au sol :\n・ La puissance de leurs capacités de type Électrik est\nmultipliée par 1,3.\n・ Ils ne peuvent pas s’endormir.
+[System:Color r="255" g="128" b="128" a="255" ]Les champs psychiques\n[System:Color a="255" ]\nQuand un champ psychique est actif, les effets suivants\ns’appliquent aux Pokémon au sol :\n・ La puissance de leurs capacités de type Psy est multipliée\npar 1,3.\n・ Ils sont immunisés contre les capacités prioritaires.
+[System:Color r="255" g="128" b="128" a="255" ]Les champs herbus\n[System:Color a="255" ]\nQuand un champ herbu est actif, les effets suivants\ns’appliquent aux Pokémon au sol :\n・ La puissance de leurs capacités de type Plante est multipliée\npar 1,3.\n・ Ils récupèrent 1/16 de leurs PV max à la fin de chaque tour.
+[System:Color r="255" g="128" b="128" a="255" ]Les champs brumeux[System:Color a="255" ]\n\nQuand un champ brumeux est actif, les effets suivants\ns’appliquent aux Pokémon au sol :\n・ Les dégâts des capacités de type Dragon qu’ils subissent sont\nréduits de moitié.\n・ Ils ne peuvent ni subir d’altérations de statut,\nni devenir confus.
 Effectuez le [System:Color r="255" g="128" b="128" a="255" ]tutoriel de combat[System:Color a="255" ] appelé « [System:Color r="255" g="128" b="128" a="255" ]Les champs[System:Color a="255" ] » afin\nd’étudier tout cela par la pratique.
 Les catégories de capacités
 Les capacités appartiennent toutes à une des trois catégories\nsuivantes : [System:Color r="255" g="128" b="128" a="255" ]capacités physiques[System:Color a="255" ], [System:Color r="255" g="128" b="128" a="255" ]capacités spéciales\n[System:Color a="255" ]ou [System:Color r="255" g="128" b="128" a="255" ]capacités de statut[System:Color a="255" ].\n\nC’est ce que l’on appelle les [System:Color r="255" g="128" b="128" a="255" ]catégories de capacités[System:Color a="255" ].
@@ -3693,7 +3765,7 @@ Multiplie par 1,2 la puissance des capacités de type\nDragon du Pokémon.
 Multiplie par 1,2 la puissance des capacités de type\nNormal du Pokémon.
 Lorsque le Pokémon inflige des dégâts à l’aide\nd’une capacité, il récupère des PV équivalents\nà 1/8 de ces dégâts.
 [~ 75]
-[~ 76]
+Augmente de 2 crans le taux de critiques\nde Canarticho et de Palarticho.
 Multiplie par 1,1 la Précision des capacités du Pokémon.
 Multiplie par 1,1 la puissance des capacités physiques\ndu Pokémon.
 Multiplie par 1,1 la puissance des capacités spéciales\ndu Pokémon.
@@ -3736,14 +3808,14 @@ Multiplie par 1,3 la quantité de PV que le Pokémon\nrécupère lorsqu’il uti
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Inflige à l’adversaire des dégâts équivalents à 1/6\nde ses PV max quand le Pokémon subit une capacité\nà contact.
+Permet au Pokémon de flotter au-dessus du sol, ce qui\nl’immunise contre les capacités de type Sol, ainsi que\ncontre les effets de Picots, Pics Toxik et Toile Gluante.\nDisparaît pour le reste du combat si le Pokémon subit\ndes dégâts d’une capacité.
+Force l’adversaire à quitter le terrain quand il inflige\ndes dégâts au Pokémon à l’aide d’une capacité.\nDisparaît pour le reste du combat après une utilisation.
+Augmente les dégâts infligés aux adversaires piégés,\nqui passent de 1/8 à 1/6 de leurs PV max.
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Quand le Pokémon subit des dégâts d’une capacité,\nil revient dans son équipe.\nDisparaît pour le reste du combat après une utilisation.
+Multiplie par 1,3 la puissance d’une capacité de type\nNormal du Pokémon.\nDisparaît pour le reste du combat après une utilisation.
 [~ 127]
 [~ 128]
 [~ 129]
@@ -3799,7 +3871,7 @@ Objet à tenir permettant à Oniglali de méga-évoluer.
 [~ 179]
 Objet à tenir permettant à Camérupt de méga-évoluer.
 Objet à tenir permettant à Lockpin de méga-évoluer.
-[~ 182]
+Objet à tenir permettant à Drattak de méga-évoluer.
 Objet à tenir permettant à Dardargnan de méga-évoluer.
 [~ 184]
 [~ 185]
@@ -3831,11 +3903,11 @@ Objet à tenir permettant à Dardargnan de méga-évoluer.
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Prolonge de 3 tours la durée des champs créés\npar une capacité ou un talent du Pokémon\n(durée totale : 8 tours).
+Augmente la Défense du Pokémon de 1 cran\nlorsqu’un champ électrifié est actif.\nDisparaît pour le reste du combat après une utilisation.
+Augmente la Défense Spéciale du Pokémon\nde 1 cran lorsqu’un champ psychique est actif.\nDisparaît pour le reste du combat après une utilisation.
+Augmente la Défense Spéciale du Pokémon\nde 1 cran lorsqu’un champ brumeux est actif.\nDisparaît pour le reste du combat après une utilisation.
+Augmente la Défense du Pokémon de 1 cran\nlorsqu’un champ herbu est actif.\nDisparaît pour le reste du combat après une utilisation.
 [~ 219]
 [~ 220]
 [~ 221]
@@ -3912,17 +3984,17 @@ Objet à tenir permettant à Hexadron de méga-évoluer.
 Objet à tenir permettant à Raichu de\nméga-évoluer en Méga-Raichu X.\nCet objet n’a pas d’effet sur Raichu d’Alola.
 Objet à tenir permettant à Raichu de\nméga-évoluer en Méga-Raichu Y.\nCet objet n’a pas d’effet sur Raichu d’Alola.
 Objet à tenir permettant à Éoko de méga-évoluer.
-[~ 295]
+Objet à tenir permettant à Absol de méga-évoluer\nen Méga-Absol Z.
 Objet à tenir permettant à Étouraptor de méga-évoluer.
-[~ 297]
-[~ 298]
+Objet à tenir permettant à Carchacrok de méga-évoluer\nen Méga-Carchacrok Z.
+Objet à tenir permettant à Lucario de méga-évoluer\nen Méga-Lucario Z.
 Objet à tenir permettant à Golemastoc de méga-évoluer.
 Objet à tenir permettant à Mistigrix de méga-évoluer.
 Objet à tenir permettant à Crabominable\nde méga-évoluer.
-[~ 302]
+Objet à tenir permettant à Sarmuraï de méga-évoluer.
 [~ 303]
 Objet à tenir permettant à Scovilain de méga-évoluer.
-[~ 305]
+Objet à tenir permettant à Glaivodo de méga-évoluer.
 [~ 306]
 Objet à tenir permettant à Floréclat de méga-évoluer.
 ~~~~~~~~~~~~~~~
@@ -4004,7 +4076,7 @@ Croc Dragon
 Mouchoir Soie
 Grelot Coque
 [~ 75]
-[~ 76]
+Poireau
 Loupe
 Bandeau Muscle
 Lunettes Sages
@@ -4047,14 +4119,14 @@ Grosse Racine
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Casque Brut
+Ballon
+Carton Rouge
+Bande Étreinte
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Bouton Fuite
+Joyau Normal
 [~ 127]
 [~ 128]
 [~ 129]
@@ -4110,7 +4182,7 @@ Oniglalite
 [~ 179]
 Caméruptite
 Lockpinite
-[~ 182]
+Drattakite
 Dardargnite
 [~ 184]
 [~ 185]
@@ -4142,11 +4214,11 @@ Dardargnite
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Champ’Duit
+Graine Électrik
+Graine Psychique
+Graine Brume
+Graine Herbe
 [~ 219]
 [~ 220]
 [~ 221]
@@ -4223,17 +4295,17 @@ Hexadronite
 Raichuïte X
 Raichuïte Y
 Éokite
-[~ 295]
+Absolite Z
 Étouraptorite
-[~ 297]
-[~ 298]
+Carchacrokite Z
+Lucarite Z
 Golemastokite
 Mistigrixite
 Crabominablite
-[~ 302]
+Sarmuraïte
 [~ 303]
 Scovilainite
-[~ 305]
+Glaivodite
 [~ 306]
 Floréclatite
 ~~~~~~~~~~~~~~~
@@ -4315,7 +4387,7 @@ Croc Dragon
 Mouchoir Soie
 Grelot Coque
 [~ 75]
-[~ 76]
+Poireau
 Loupe
 Bandeau Muscle
 Lunettes Sages
@@ -4358,14 +4430,14 @@ Grosse Racine
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Casque Brut
+Ballon
+Carton Rouge
+Bande Étreinte
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Bouton Fuite
+Joyau Normal
 [~ 127]
 [~ 128]
 [~ 129]
@@ -4421,7 +4493,7 @@ Oniglalite
 [~ 179]
 Caméruptite
 Lockpinite
-[~ 182]
+Drattakite
 Dardargnite
 [~ 184]
 [~ 185]
@@ -4453,11 +4525,11 @@ Dardargnite
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Champ’Duit
+Graine Électrik
+Graine Psychique
+Graine Brume
+Graine Herbe
 [~ 219]
 [~ 220]
 [~ 221]
@@ -4534,17 +4606,17 @@ Hexadronite
 Raichuïte X
 Raichuïte Y
 Éokite
-[~ 295]
+Absolite Z
 Étouraptorite
-[~ 297]
-[~ 298]
+Carchacrokite Z
+Lucarite Z
 Golemastokite
 Mistigrixite
 Crabominablite
-[~ 302]
+Sarmuraïte
 [~ 303]
 Scovilainite
-[~ 305]
+Glaivodite
 [~ 306]
 Floréclatite
 ~~~~~~~~~~~~~~~
@@ -4626,7 +4698,7 @@ Croc Dragon
 Mouchoir Soie
 Grelot Coque
 [~ 75]
-[~ 76]
+Poireau
 Loupe
 Bandeau Muscle
 paire de Lunettes Sages
@@ -4669,14 +4741,14 @@ Grosse Racine
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Casque Brut
+Ballon
+Carton Rouge
+Bande Étreinte
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Bouton Fuite
+Joyau Normal
 [~ 127]
 [~ 128]
 [~ 129]
@@ -4732,7 +4804,7 @@ Oniglalite
 [~ 179]
 Caméruptite
 Lockpinite
-[~ 182]
+Drattakite
 Dardargnite
 [~ 184]
 [~ 185]
@@ -4764,11 +4836,11 @@ Dardargnite
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Champ’Duit
+Graine Électrik
+Graine Psychique
+Graine Brume
+Graine Herbe
 [~ 219]
 [~ 220]
 [~ 221]
@@ -4845,17 +4917,17 @@ Hexadronite
 Raichuïte X
 Raichuïte Y
 Éokite
-[~ 295]
+Absolite Z
 Étouraptorite
-[~ 297]
-[~ 298]
+Carchacrokite Z
+Lucarite Z
 Golemastokite
 Mistigrixite
 Crabominablite
-[~ 302]
+Sarmuraïte
 [~ 303]
 Scovilainite
-[~ 305]
+Glaivodite
 [~ 306]
 Floréclatite
 ~~~~~~~~~~~~~~~
@@ -4937,7 +5009,7 @@ Croc Dragon
 Mouchoir Soie
 Grelot Coque
 [~ 75]
-[~ 76]
+Poireau
 Loupe
 Bandeau Muscle
 paire de Lunettes Sages
@@ -4980,14 +5052,14 @@ Grosse Racine
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Casque Brut
+Ballon
+Carton Rouge
+Bande Étreinte
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Bouton Fuite
+Joyau Normal
 [~ 127]
 [~ 128]
 [~ 129]
@@ -5043,7 +5115,7 @@ Oniglalite
 [~ 179]
 Caméruptite
 Lockpinite
-[~ 182]
+Drattakite
 Dardargnite
 [~ 184]
 [~ 185]
@@ -5075,11 +5147,11 @@ Dardargnite
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Champ’Duit
+Graine Électrik
+Graine Psychique
+Graine Brume
+Graine Herbe
 [~ 219]
 [~ 220]
 [~ 221]
@@ -5156,17 +5228,17 @@ Hexadronite
 Raichuïte X
 Raichuïte Y
 Éokite
-[~ 295]
+Absolite Z
 Étouraptorite
-[~ 297]
-[~ 298]
+Carchacrokite Z
+Lucarite Z
 Golemastokite
 Mistigrixite
 Crabominablite
-[~ 302]
+Sarmuraïte
 [~ 303]
 Scovilainite
-[~ 305]
+Glaivodite
 [~ 306]
 Floréclatite
 ~~~~~~~~~~~~~~~
@@ -5248,7 +5320,7 @@ Crocs Dragon
 Mouchoirs Soie
 Grelots Coque
 [~ 75]
-[~ 76]
+Poireaux
 Loupes
 Bandeaux Muscle
 Lunettes Sages
@@ -5291,14 +5363,14 @@ Grosses Racines
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Casques Bruts
+Ballons
+Cartons Rouges
+Bandes Étreinte
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Boutons Fuite
+Joyaux Normal
 [~ 127]
 [~ 128]
 [~ 129]
@@ -5354,7 +5426,7 @@ Oniglalites
 [~ 179]
 Caméruptites
 Lockpinites
-[~ 182]
+Drattakites
 Dardargnites
 [~ 184]
 [~ 185]
@@ -5386,11 +5458,11 @@ Dardargnites
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Champ’Duits
+Graines Électrik
+Graines Psychiques
+Graines Brume
+Graines Herbe
 [~ 219]
 [~ 220]
 [~ 221]
@@ -5467,17 +5539,17 @@ Hexadronites
 Raichuïtes X
 Raichuïtes Y
 Éokites
-[~ 295]
+Absolites Z
 Étouraptorites
-[~ 297]
-[~ 298]
+Carchacrokites Z
+Lucarites Z
 Golemastokites
 Mistigrixites
 Crabominablites
-[~ 302]
+Sarmuraïtes
 [~ 303]
 Scovilainites
-[~ 305]
+Glaivodites
 [~ 306]
 Floréclatites
 ~~~~~~~~~~~~~~~
@@ -5559,7 +5631,7 @@ Crocs Dragon
 Mouchoirs Soie
 Grelots Coque
 [~ 75]
-[~ 76]
+Poireaux
 Loupes
 Bandeaux Muscle
 paires de Lunettes Sages
@@ -5602,14 +5674,14 @@ Grosses Racines
 [~ 116]
 [~ 117]
 [~ 118]
-[~ 119]
-[~ 120]
-[~ 121]
-[~ 122]
+Casques Bruts
+Ballons
+Cartons Rouges
+Bandes Étreinte
 [~ 123]
 [~ 124]
-[~ 125]
-[~ 126]
+Boutons Fuite
+Joyaux Normal
 [~ 127]
 [~ 128]
 [~ 129]
@@ -5665,7 +5737,7 @@ Oniglalites
 [~ 179]
 Caméruptites
 Lockpinites
-[~ 182]
+Drattakites
 Dardargnites
 [~ 184]
 [~ 185]
@@ -5697,11 +5769,11 @@ Dardargnites
 [~ 211]
 [~ 212]
 [~ 213]
-[~ 214]
-[~ 215]
-[~ 216]
-[~ 217]
-[~ 218]
+Champ’Duits
+Graines Électrik
+Graines Psychiques
+Graines Brume
+Graines Herbe
 [~ 219]
 [~ 220]
 [~ 221]
@@ -5778,17 +5850,17 @@ Hexadronites
 Raichuïtes X
 Raichuïtes Y
 Éokites
-[~ 295]
+Absolites Z
 Étouraptorites
-[~ 297]
-[~ 298]
+Carchacrokites Z
+Lucarites Z
 Golemastokites
 Mistigrixites
 Crabominablites
-[~ 302]
+Sarmuraïtes
 [~ 303]
 Scovilainites
-[~ 305]
+Glaivodites
 [~ 306]
 Floréclatites
 ~~~~~~~~~~~~~~~
@@ -5813,6 +5885,8 @@ Baie
 Autre
 [~ 17]
 Méga-Gemme
+[~ 19]
+Tous
 ~~~~~~~~~~~~~~~
 Text File : item_ticket
 ~~~~~~~~~~~~~~~
@@ -5864,6 +5938,9 @@ Ticket de Garantie Rapide Ball
 Ticket d’Entraînement
 Ticket de Garantie Poké Ball rare
 Ticket de Sélection Commémorative (Mondiaux 2026)
+Vous n’avez pas de tickets.
+Expiration :
+[Digit:2digits Idx="2" ]/[Digit:2digits Idx="1" ]/[Digit:4digits Sep="0" ] à [Digit:2digits Idx="3" ]:[Digit:2digits Idx="4" ]
 ~~~~~~~~~~~~~~~
 Text File : item_ticket_info
 ~~~~~~~~~~~~~~~
@@ -5945,6 +6022,8 @@ Retour
 Une opération de maintenance est en cours.\nRetour à l’écran titre.
 [Name:FreeWord ]
 [Name:FreeWord ]
+Une opération de maintenance est prévue à [Digit:2digits ]:[Digit:2digits Idx="1" ].\nSi vous êtes encore en combat lorsqu’elle commence,\nce combat ne sera pas valide.\n\nVoulez-vous vraiment lancer la recherche ?
+Une opération de maintenance est sur le point de démarrer.\nSi vous êtes encore en combat lorsqu’elle commence,\nce combat ne sera pas valide.\n\nVoulez-vous vraiment lancer la recherche ?
 ~~~~~~~~~~~~~~~
 Text File : message_error
 ~~~~~~~~~~~~~~~
@@ -7159,6 +7238,8 @@ Filtrer
 Croissant
 Décroissant
 Réinitialiser
+[~ 14]
+[~ 15]
 Transféré de Pokémon HOME
 Permanent
 À l’essai
@@ -7207,7 +7288,7 @@ Musique
 Afficher les noms de combat
 Afficher votre nom
 Afficher les infos détaillées sur les combats
-[~ 11]
+Sauvegarder les options de tri (Boîte)
 Modifier votre nom
 Langue
 Compte Apple
@@ -7258,6 +7339,9 @@ Permet de supprimer votre compte Pokémon Champions.
 Notifications venant de Pokémon Champions
 Recevoir toutes les notifications venant de Pokémon Champions
 Vous devez modifier les paramètres de notification\nde votre appareil pour recevoir des notifications.\nVoulez-vous ouvrir les paramètres ?
+Permet de sauvegarder les options de tri des Pokémon\ndans la Boîte et dans le menu « Entraînement ».
+Afficher l’aide à la sélection
+Permet d’afficher ou non les informations relatives à l’aide\nà la sélection basées sur les stats des combats.
 ~~~~~~~~~~~~~~~
 Text File : op_event
 ~~~~~~~~~~~~~~~
@@ -7516,6 +7600,7 @@ Voulez-vous retourner à l’écran titre ?
 Hauts faits
 Aide
 Cadeaux Mystère
+Vos tickets
 ~~~~~~~~~~~~~~~
 Text File : place_name_syn
 ~~~~~~~~~~~~~~~
@@ -7551,7 +7636,7 @@ Supprimer
 Voulez-vous supprimer ce message ?
 Le message a été supprimé.
 Voulez-vous supprimer tous les messages lus ?
-[System:Color r="255" g="128" b="128" a="255" ]Remarque : les messages contenant des cadeaux\nnon récupérés ne seront pas supprimés.[System:Color a="255" ]
+[System:Color r="255" g="128" b="128" a="255" ]Remarque : les messages importants et\nles messages contenant des cadeaux non\nrécupérés ne seront pas supprimés.[System:Color a="255" ]
 Les messages ont été supprimés.
 [System:Color r="255" g="128" b="128" a="255" ]Remarque : les messages non lus ou contenant des\ncadeaux non récupérés ne seront pas supprimés.[System:Color a="255" ]
 Les cadeaux non récupérés ont été envoyés\ndans votre boîte aux lettres.\n[System:Color r="255" g="128" b="128" a="255" ]Remarque : pensez à les récupérer avant\nleur expiration, ou ils seront supprimés ![System:Color a="255" ]
@@ -7816,7 +7901,7 @@ Voulez-vous rencontrer des Pokémon en utilisant\n[FR:IndArt ][Name:ProbabilityI
 ~~~~~~~~~~~~~~~
 Text File : rental_poke_appear
 ~~~~~~~~~~~~~~~
-Cette sélection contient des Pokémon autorisés à participer\naux combats classés selon le règlement [Name:PokeRegulation ].
+Cette sélection contient des Pokémon autorisés à participer\naux combats classés selon le règlement [Name:PokeRegulation ].\nPour plus d’informations, veuillez consulter les annonces.
 Les Pokémon nouvellement autorisés à participer ont\nun taux d’apparition plus élevé dans les rencontres.
 Pour rencontrer les Pokémon de cette sélection, utilisez\n[FR:IndArt ][Name:ProbabilityItem ].
 Période :
@@ -7835,8 +7920,13 @@ Le recrutement permanent
 Durée : illimitée\n[System:Color r="255" g="128" b="128" a="255" ]Remarque : recruter de façon permanente nécessite des PdV.[System:Color a="255" ]
 Durée : illimitée
 [~ 18]
+[~ 19]
+[~ 20]
+[~ 21]
+[~ 22]
 M-A
 M-B
+M-C
 ~~~~~~~~~~~~~~~
 Text File : rental_poke_select
 ~~~~~~~~~~~~~~~
@@ -8001,6 +8091,18 @@ Tonton Conteur
 Fillette de Conte
 Roi des origines
 Reine des origines
+Roi de Pokédoko
+Reine de Pokédoko
+As ([Name:TournamentAbb Idx="10" ])
+As ([Name:TournamentAbb Idx="10" ])
+Vénérable ([Name:TournamentAbb Idx="10" ])
+Vénérable ([Name:TournamentAbb Idx="10" ])
+Top ([Name:TournamentAbb Idx="10" ])
+Top ([Name:TournamentAbb Idx="10" ])
+En Herbe ([Name:TournamentAbb Idx="10" ])
+En Herbe ([Name:TournamentAbb Idx="10" ])
+Outsider ([Name:TournamentAbb Idx="10" ])
+Outsider ([Name:TournamentAbb Idx="10" ])
 Distinction décernée à quiconque remporte [Digit:5digits Sep="default" ] combat[FR:Qty P="s" ]\nen faisant appel à [Name:PokemonName Idx="4" ].
 Distinction remarquable décernée à quiconque remporte\n[Digit:5digits Sep="default" ] combat[FR:Qty P="s" ] en faisant appel à [Name:PokemonName Idx="4" ].
 Distinction prestigieuse décernée à quiconque remporte\n[Digit:5digits Sep="default" ] combat[FR:Qty P="s" ] en faisant appel à [Name:PokemonName Idx="4" ].
@@ -8032,18 +8134,19 @@ Distinction décernée à quiconque atteint la première place\n(Championnats du
 Distinction décernée à quiconque atteint la [Digit:5digits Sep="default" ][Character2:Upper_e ] place\n(Championnats du Monde).
 Distinction décernée à quiconque finit entre la [Digit:5digits Sep="default" ][Character2:Upper_e ]\net [Digit:5digits Idx="1" Sep="default" ][Character2:Upper_e ] place (Championnats du Monde).
 Distinction décernée à quiconque participe à la compétition\n(Championnats du Monde).
-[~ 165]
+[~ 177]
 Distinction décernée à quiconque finit entre la [Digit:5digits Idx="2" Sep="default" ][Character2:Upper_e ]\net [Digit:5digits Idx="3" Sep="default" ][Character2:Upper_e ] place ([Name:TournamentAbb Idx="10" ] [Digit:2digits Idx="1" ]/[Digit:4digits Sep="0" ]).
 Distinction décernée à quiconque participe à la compétition\n([Name:TournamentAbb Idx="10" ] [Digit:2digits Idx="1" ]/[Digit:4digits Sep="0" ]).
 Distinction décernée à quiconque atteint la première place\nlors d’une compétition des origines.
+Distinction décernée à quiconque atteint la première place\nlors d’un tournoi Pokédoko.
 Super Ball
 Hyper Ball
 Master Ball
 Icône de profil
 Badge
 NAIC
-[~ 175]
-[~ 176]
+LAIC
+[~ 189]
 PJCS
 PTC
 TWMBL
@@ -8053,6 +8156,7 @@ THMBL
 PHMBL
 SGMBL
 IDMBL
+Combats de Méga-Évolutions
 Dresseur qualifié
 Super Dresseur
 Hyper Dresseur
@@ -8200,7 +8304,7 @@ Restaurer les transactions
 Restauration des transactions
 Aucune erreur de transaction détectée.
 Toutes les transactions ont bien été restaurées.
-[~ 60]
+La restauration des transactions a échoué.
 ・ Informations sur le produit et quantité\nPass de combat premium × 1\nL’achat d’un pass de combat premium vous permet de recevoir des récompenses\nsupplémentaires quand le niveau de votre pass de combat augmente.\nPour en savoir plus sur ces récompenses, veuillez consulter l’écran « Pass de combat »,\naccessible via l’écran « Centre d’Entraînement ».\n\nUn pass de combat premium reste valide pendant toute la durée de la saison.\nUne fois la saison terminée, le pass expirera. Vous pouvez acheter un nouveau pass\nde combat premium pour la saison suivante.\nPour voir les dates précises d’une saison, veuillez consulter l’écran « Pass de combat »,\naccessible via l’écran « Centre d’Entraînement ».\n\nRemarque : il est possible que des récompenses identiques à des objets que vous possédez\ndéjà dans votre inventaire soient converties en PdV.\n\nÀ l’achat d’un pass de combat premium, vous recevrez les récompenses octroyées par le pass\nde combat premium pour tous les niveaux que vous aurez atteints sur le pass de combat\njusque là.\n\nRemarque : il est possible qu’ultérieurement, les récompenses obtenues par le biais d’un pass\nde combat premium soient disponibles à l’achat via la boutique ou qu’elles puissent être\nobtenues d’une autre façon.\n\n\n・ Prix\nPour voir le prix de ce produit, veuillez sélectionner « Retour » pour retourner à l’écran\nprécédent, où vous trouverez cette information.\n\n\n・ Période de vente\nVous pouvez acheter un pass de combat premium jusqu’à la fin de la saison durant laquelle\nce pass est en vente.\nVous ne pouvez acheter qu’un seul pass de combat premium par période de vente.\n\nSi vous essayez d’acheter un pass de combat premium juste avant la fin de la période\nde vente, il est possible que la transaction échoue en raison de problèmes de paiement\nsur la plateforme.\n\nVeuillez vous assurer qu’il reste suffisamment de temps avant la fin de la période\nde vente lorsque vous achetez un pass de combat premium.\n
 [~ 62]
 [~ 63]
@@ -8243,6 +8347,7 @@ Puissance
 Nouveautés
 Coût en PdV
 Type
+Changer l’ordre
 ~~~~~~~~~~~~~~~
 Text File : status
 ~~~~~~~~~~~~~~~
@@ -8309,7 +8414,7 @@ Votre abonnement a expiré. Vous n’avez plus accès\naux fonctionnalités rés
 Text File : support_window
 ~~~~~~~~~~~~~~~
 Conditions d’utilisation
-Politique de confidentialité
+Avis sur la confidentialité
 Site d’aide
 Licences
 ~~~~~~~~~~~~~~~
@@ -8329,16 +8434,16 @@ Vitesse
 ~~~~~~~~~~~~~~~
 Text File : terms
 ~~~~~~~~~~~~~~~
-Conditions d’utilisation et Politique de confidentialité
+Conditions d’utilisation et Avis sur la confidentialité
 Règles et accords liés aux compétitions
-Vous devez accepter les Conditions d’utilisation\net la Politique de confidentialité pour jouer à ce jeu.\nSélectionnez « J’accepte » pour continuer.
+Vous devez accepter les Conditions d’utilisation\net l’Avis sur la confidentialité pour jouer à ce jeu.\nSélectionnez « J’accepte » pour continuer.
 Vous devez accepter les Règles et accords liés\naux compétitions pour participer à cette compétition.
 Conditions d’utilisation
-Politique de confidentialité
+Avis sur la confidentialité
 Règles et accords (compétitions)
 J’accepte
 Suivant
-Les Conditions d’utilisation ou la Politique\nde confidentialité ont été mises à jour.
+Les Conditions d’utilisation ou l’Avis sur\nla confidentialité ont été mis à jour.
 Les informations recueillies, telles que les identificateurs publicitaires, sont utilisées pour analyser les tendances d’utilisation de ce service, pour en assurer le bon fonctionnement, ainsi que pour prévenir toute utilisation inappropriée.
 ~~~~~~~~~~~~~~~
 Text File : title
@@ -8441,7 +8546,7 @@ Pression
 Isograisse
 Matinal
 Corps Ardent
-[~ 50]
+Fuite
 Regard Vif
 Hyper Cutter
 Ramassage
@@ -8455,7 +8560,7 @@ Glu
 Mue
 Cran
 Écaille Spéciale
-[~ 64]
+Suintement
 Engrais
 Brasier
 Torrent
@@ -8546,7 +8651,7 @@ Infiltration
 Momie
 Impudence
 Cœur Noble
-[~ 155]
+Phobique
 Miroir Magik
 Herbivore
 Farceur
@@ -8570,7 +8675,7 @@ Gluco-Voile
 Déclic Tactique
 Ailes Bourrasque
 Méga Blaster
-[~ 179]
+Toison Herbue
 Symbiose
 Griffe Dure
 Peau Féérique
@@ -8585,11 +8690,11 @@ Aura Féérique
 [~ 191]
 Endurance
 [~ 193]
-[~ 194]
+Repli Tactique
 [~ 195]
 Cruauté
 [~ 197]
-[~ 198]
+Filature
 Aquabulle
 [~ 200]
 Folle Furie
@@ -8618,16 +8723,16 @@ Receveur
 [~ 224]
 [~ 225]
 Créa-Élec
-[~ 227]
+Créa-Psy
 [~ 228]
-[~ 229]
+Créa-Herbe
 [~ 230]
 [~ 231]
 [~ 232]
 [~ 233]
 [~ 234]
 [~ 235]
-[~ 236]
+Libéro
 [~ 237]
 [~ 238]
 [~ 239]
@@ -8635,7 +8740,7 @@ Armure Miroir
 [~ 241]
 Nerfs d’Acier
 [~ 243]
-[~ 244]
+Punk Rock
 Expul’Sable
 [~ 246]
 Mûrissement
@@ -8643,7 +8748,7 @@ Mûrissement
 [~ 249]
 Mimétisme
 Brise-Barrière
-[~ 252]
+Boost Acier
 [~ 253]
 Âme Vagabonde
 [~ 255]
@@ -8660,13 +8765,13 @@ Breuvage Suspect
 [~ 266]
 [~ 267]
 [~ 268]
-[~ 269]
-[~ 270]
+Semencier
+Thermodynamique
 [~ 271]
 Sel Purificateur
 [~ 273]
 [~ 274]
-[~ 275]
+Chien de Garde
 [~ 276]
 [~ 277]
 Supermutation
@@ -8710,17 +8815,18 @@ Méga-Soleil
 Crinière de Feu
 [~ 317]
 Habanéruption
+Aura Protectrice
 ~~~~~~~~~~~~~~~
 Text File : tokuseiinfo_syn
 ~~~~~~~~~~~~~~~
 Quand le Pokémon inflige des dégâts à l’aide d’une capacité,\nil a 10 % de chances d’apeurer la cible.
 Quand le Pokémon arrive sur le terrain,\nil invoque la pluie pendant 5 tours.
-La Vitesse du Pokémon augmente de 1 cran\nà la fin de chaque tour.
+La Vitesse du Pokémon augmente de 1 cran à la fin de chaque\ntour, sauf à la fin de celui où le Pokémon est arrivé sur le terrain\naprès un échange.
 Le Pokémon est immunisé contre les coups critiques.
 Si les PV du Pokémon sont au maximum et qu’il subit des dégâts\nd’une capacité qui devrait le mettre K.O. en un coup,\nil résiste avec 1 PV.\nLes capacités qui mettent toujours K.O. en un coup sont\ninefficaces sur le Pokémon.
 Le Pokémon empêche l’utilisation des capacités explosives\net l’activation des talents explosifs.
 Le Pokémon est immunisé contre la paralysie.
-Lors des tempêtes de sable, l’Esquive du Pokémon\nest multipliée par 1,25.
+Lors des tempêtes de sable, l’Esquive du Pokémon\nest multipliée par 1,25.\nLe Pokémon est immunisé contre les dégâts des tempêtes\nde sable.
 Quand le Pokémon subit une capacité à contact,\nil a 30 % de chances de paralyser l’adversaire.
 Les capacités de type Électrik sont inefficaces sur le Pokémon\net lui rendent 1/4 de ses PV max.
 Les capacités de type Eau sont inefficaces sur le Pokémon\net lui rendent 1/4 de ses PV max.
@@ -8739,7 +8845,7 @@ Le Pokémon empêche les adversaires de quitter le terrain.
 Quand le Pokémon subit une capacité à contact, il inflige à\nl’adversaire des dégâts équivalents à 1/8 des PV max\nde celui-ci.
 [~ 24]
 Le Pokémon flotte au-dessus du sol, ce qui l’immunise contre\nles capacités de type Sol, ainsi que les effets de Picots,\nPics Toxik et Toile Gluante.
-Quand le Pokémon subit une capacité à contact,\nil a 30 % de chances d’empoisonner, paralyser\nou endormir l’adversaire.
+Quand le Pokémon subit une capacité à contact,\nil a 30 % de chances d’empoisonner, paralyser\nou endormir l’adversaire.\nN’affecte pas les Pokémon de type Plante.
 Si le Pokémon est empoisonné, gravement empoisonné,\nparalysé ou brûlé par une capacité ou un talent d’un autre\nPokémon, ce dernier subit la même altération de statut.
 Les stats du Pokémon ne peuvent pas baisser à cause\ndes capacités ou du talent des adversaires.
 Quand le Pokémon revient dans son équipe,\nil soigne ses altérations de statut.
@@ -8762,7 +8868,7 @@ Les adversaires doivent dépenser 1 PP supplémentaire\npour viser ce Pokémon a
 Les dégâts des capacités de types Feu et Glace subis par\nle Pokémon sont réduits de moitié.
 Le Pokémon se réveille deux fois plus vite\nde l’endormissement.
 Quand le Pokémon subit une capacité à contact,\nil a 30 % de chances de brûler l’adversaire.
-[~ 49]
+Le Pokémon peut être remplacé par un autre Pokémon\nde son équipe, même si des effets l’en empêchent.
 Le Pokémon ignore les changements d’Esquive des adversaires,\net sa Précision ne peut pas baisser.
 L’Attaque du Pokémon ne peut pas baisser à cause\ndes capacités ou du talent des adversaires.
 Quand le Pokémon ne tient pas d’objet, à la fin du tour,\nil ramasse celui qu’un autre Pokémon a consommé.
@@ -8776,7 +8882,7 @@ Le Pokémon ne peut pas perdre l’objet qu’il tient.\nLes adversaires ne peuv
 Le Pokémon a 30 % de chances de soigner ses altérations\nde statut à la fin de chaque tour.
 Quand le Pokémon souffre d’une altération de statut,\nson Attaque est multipliée par 1,5.\nDe plus, lorsque le Pokémon est brûlé, les dégâts qu’il inflige\navec ses capacités physiques ne sont pas réduits de moitié.
 Quand le Pokémon souffre d’une altération de statut,\nsa Défense est multipliée par 1,5.
-[~ 63]
+Quand le Pokémon subit une capacité absorbant des PV,\nil empêche l’adversaire de se soigner et lui inflige des dégâts\néquivalents à la quantité de PV qui aurait dû être absorbée.
 Quand les PV du Pokémon sont inférieurs ou égaux à 1/3\nde ses PV max, la puissance de ses capacités de type Plante\nest multipliée par 1,5.
 Quand les PV du Pokémon sont inférieurs ou égaux à 1/3\nde ses PV max, la puissance de ses capacités de type Feu\nest multipliée par 1,5.
 Quand les PV du Pokémon sont inférieurs ou égaux à 1/3\nde ses PV max, la puissance de ses capacités de type Eau\nest multipliée par 1,5.
@@ -8867,10 +8973,10 @@ Le Pokémon peut utiliser ses capacités en ignorant les effets\ndes capacités 
 Quand le Pokémon subit une capacité à contact,\nle talent de l’adversaire est remplacé par Momie.
 Quand le Pokémon met un adversaire K.O. avec\nune attaque, son Attaque augmente de 1 cran.
 Quand le Pokémon subit des dégâts d’une capacité\nde type Ténèbres, son Attaque augmente de 1 cran.
-[~ 154]
+Si le Pokémon est intimidé ou subit des dégâts d’une capacité\nde type Ténèbres, Spectre ou Insecte, sa Vitesse augmente\nde 1 cran.
 Le Pokémon est immunisé contre les capacités de statut\net les renvoie vers l’adversaire.
 Les capacités de type Plante sont inefficaces sur le Pokémon\net augmentent son Attaque de 1 cran.
-Le niveau de priorité des capacités de statut du Pokémon\naugmente de 1 cran.
+Le niveau de priorité des capacités de statut du Pokémon\naugmente de 1 cran.\nEn contrepartie, les capacités de statut du Pokémon n’affectent\nplus les Pokémon de type Ténèbres.
 La puissance des capacités de types Roche, Sol et Acier\ndu Pokémon est multipliée par 1,3 pendant les tempêtes\nde sable.
 [~ 159]
 [~ 160]
@@ -8891,7 +8997,7 @@ Le Pokémon et ses alliés sont immunisés contre\nle sommeil et la somnolence.
 Le Pokémon prend sa Forme Assaut lorsqu’il utilise\nune attaque, et sa Forme Parade lorsqu’il utilise\nla capacité Bouclier Royal.
 Quand les PV du Pokémon sont au maximum, le niveau de\npriorité de ses capacités de type Vol augmente de 1 cran.
 La puissance des capacités du Pokémon qui projettent une aura\nest multipliée par 1,5.
-[~ 178]
+Quand un champ herbu est actif, la Défense du Pokémon\nest multipliée par 1,5.
 Quand un allié consomme son objet, le Pokémon lui\ndonne celui qu’il tient.
 La puissance des capacités à contact du Pokémon est multipliée\npar 1,3.
 Les capacités de type Normal du Pokémon prennent le type Fée\net leur puissance est multipliée par 1,2.
@@ -8906,11 +9012,11 @@ La puissance des capacités de type Fée de tous les Pokémon\nest multipliée p
 [~ 190]
 Quand le Pokémon subit des dégâts d’une capacité,\nsa Défense augmente de 1 cran.
 [~ 192]
-[~ 193]
+Quand les PV du Pokémon tombent à la moitié ou moins,\nil revient dans son équipe.
 [~ 194]
 Quand le Pokémon attaque un adversaire empoisonné\nou gravement empoisonné, il inflige systématiquement\nun coup critique.
 [~ 196]
-[~ 197]
+Quand le Pokémon attaque une cible qui vient d’arriver sur\nle terrain après un échange, la puissance de la capacité\nutilisée est multipliée par 2.
 Le Pokémon est immunisé contre la brûlure. Les dégâts\ndes capacités de type Feu qu’il subit sont réduits de moitié.\nLa puissance de ses capacités de type Eau est multipliée par 2.
 [~ 199]
 L’Attaque Spéciale du Pokémon augmente de 1 cran\nquand ses PV tombent à la moitié ou moins à cause\nd’une attaque de l’adversaire.
@@ -8939,16 +9045,16 @@ Le Pokémon obtient le talent d’un allié mis K.O.
 [~ 223]
 [~ 224]
 Quand le Pokémon arrive sur le terrain, il crée un champ\nélectrifié sur tout le terrain pendant 5 tours.
-[~ 226]
+Quand le Pokémon arrive sur le terrain, il crée un champ\npsychique sur tout le terrain pendant 5 tours.
 [~ 227]
-[~ 228]
+Quand le Pokémon arrive sur le terrain, il crée un champ herbu\nsur tout le terrain pendant 5 tours.
 [~ 229]
 [~ 230]
 [~ 231]
 [~ 232]
 [~ 233]
 [~ 234]
-[~ 235]
+Le Pokémon prend le type de la capacité qu’il utilise.\nCe talent ne s’active qu’une fois par arrivée du Pokémon\nsur le terrain.
 [~ 236]
 [~ 237]
 [~ 238]
@@ -8956,7 +9062,7 @@ Au lieu d’être affecté par les baisses de stats, le Pokémon\nles renvoie au
 [~ 240]
 Le Pokémon ignore les effets des capacités ou des talents\nqui attirent les capacités.
 [~ 242]
-[~ 243]
+La puissance des capacités de son du Pokémon est multipliée\npar 1,3.\nLes dégâts des capacités de son subis par le Pokémon\nsont réduits de moitié.
 Quand le Pokémon subit des dégâts d’une capacité,\nil invoque une tempête de sable pendant 5 tours.
 [~ 245]
 Les effets des Baies mangées par le Pokémon sont multipliés\npar 2.
@@ -8964,7 +9070,7 @@ Les effets des Baies mangées par le Pokémon sont multipliés\npar 2.
 [~ 248]
 Le Pokémon prend le type du champ actif.
 Quand le Pokémon arrive sur le terrain, il annule les effets\nde Mur Lumière, Protection et Voile Aurore.
-[~ 251]
+La puissance des capacités de type Acier du Pokémon et\nde ses alliés est multipliée par 1,5.
 [~ 252]
 Quand le Pokémon subit une capacité à contact,\nil échange son talent contre celui de l’adversaire.
 [~ 254]
@@ -8981,13 +9087,13 @@ Quand le Pokémon arrive sur le terrain, il annule\nles changements de stats de 
 [~ 265]
 [~ 266]
 [~ 267]
-[~ 268]
-[~ 269]
+Quand le Pokémon subit des dégâts d’une capacité,\nil crée un champ herbu sur tout le terrain pendant 5 tours.
+Le Pokémon est immunisé contre la brûlure.\nQuand il subit des dégâts d’une capacité de\ntype Feu, son Attaque augmente de 1 cran.
 [~ 270]
 Le Pokémon est immunisé contre les altérations de statut.\nLes dégâts des capacités de type Spectre qu’il subit sont\nréduits de moitié.
 [~ 272]
 [~ 273]
-[~ 274]
+Le Pokémon est immunisé contre les effets de l’intimidation.\nÀ la place, son Attaque augmente de 1 cran.\nDe plus, le Pokémon est immunisé contre les capacités ou\nles objets des adversaires qui forcent à changer de Pokémon.
 [~ 275]
 [~ 276]
 Quand le Pokémon revient dans son équipe,\nil prend sa Forme Super.
@@ -9031,6 +9137,7 @@ Le Pokémon peut utiliser ses capacités comme si\nle soleil brillait, même si 
 La puissance des capacités de type Feu du Pokémon\nest multipliée par 1,5.
 [~ 316]
 Quand le Pokémon subit des dégâts d’une capacité,\nil brûle l’adversaire.
+Les dégâts des capacités à contact subis par le Pokémon\nsont réduits de moitié.
 ~~~~~~~~~~~~~~~
 Text File : tournament_mode
 ~~~~~~~~~~~~~~~
@@ -9187,7 +9294,7 @@ Ne pas utiliser de Tickets d’Entraînements
 Stats des combats
 Combats Solo
 Combats Duo
-Prendre comme modèle
+Appliquer
 Aucune donnée à afficher.
 [Digit:4digits Sep="default" ] PdV
 Entraîner
@@ -9355,15 +9462,15 @@ Inflige 50 points de dégâts à l’adversaire.
 Inflige l’état « Vampigraine » à l’adversaire.
 Augmente l’Attaque et l’Attaque Spéciale du lanceur de 1 cran.\nSi le soleil brille, elles augmentent de 2 crans.
 Le lanceur charge la capacité pendant 1 tour\net attaque au tour suivant.\nSi le soleil brille, le lanceur peut attaquer au tour\nd’utilisation de la capacité sans avoir à la charger.\nSi n’importe quelle autre condition météo est active,\nla puissance de cette capacité est réduite de moitié.
-Empoisonne l’adversaire.
-Paralyse l’adversaire.
-Endort l’adversaire.
+Empoisonne l’adversaire.\nN’affecte pas les Pokémon de type Plante.
+Paralyse l’adversaire.\nN’affecte pas les Pokémon de type Plante.
+Endort l’adversaire.\nN’affecte pas les Pokémon de type Plante.
 Le lanceur devient enragé.
 Baisse la Vitesse des adversaires de 2 crans.
 Piège l’adversaire.
 A 10 % de chances de paralyser l’adversaire.
-Paralyse l’adversaire.
-A 30 % de chances de paralyser l’adversaire.\nPeut aussi toucher les adversaires dans le ciel.\nN’échoue jamais quand il pleut.
+Paralyse l’adversaire.\nN’affecte pas les Pokémon de type Sol.
+A 30 % de chances de paralyser l’adversaire.\nPeut aussi toucher les adversaires dans le ciel.\nN’échoue jamais quand il pleut.\nSi le soleil brille, la Précision de cette capacité passe à 50 %.
 La puissance de cette capacité est multipliée par 2 sur les cibles\nsous la terre. Quand un champ herbu est actif, la puissance de\ncette capacité est réduite de moitié.
 Met l’adversaire K.O.\nLa Précision est fixée à 30 %.
 Le lanceur s’enfouit sous la terre lors du tour d’utilisation\nde la capacité et attaque au tour suivant.
@@ -9391,7 +9498,7 @@ Paralyse l’adversaire.
 Le lanceur récupère des PV équivalents à la moitié des dégâts\ninfligés par cette capacité à l’adversaire.
 Le lanceur charge la capacité pendant 1 tour\net attaque au tour suivant.\nA 30 % de chances d’apeurer l’adversaire.\nCette capacité a un taux de critiques augmenté de 1 cran.
 Le lanceur prend l’apparence de l’adversaire.\nToutes les caractéristiques de ce dernier,\nà l’exception de ses PV, sont également dupliquées.
-Endort l’adversaire.
+Endort l’adversaire.\nN’affecte pas les Pokémon de type Plante.
 Augmente la Défense du lanceur de 2 crans.
 Cette capacité a un taux de critiques augmenté de 1 cran.
 Après l’utilisation, le lanceur tombe K.O.
@@ -9401,15 +9508,16 @@ A 30 % de chances d’apeurer les adversaires.
 [~ 72]
 A 20 % de chances de paralyser, de brûler ou de geler\nl’adversaire.
 Inflige des dégâts équivalents à la moitié des PV restants de\nl’adversaire. Inflige 1 point de dégâts s’il ne reste que 1 PV\nà l’adversaire.
-Le lanceur perd 1/4 de ses PV max et crée un clone.\nLe clone subit les capacités à la place du lanceur et disparaît\naprès avoir subi des dégâts équivalents à 1/4 des PV max\ndu lanceur.
+Cette capacité a un taux de critiques augmenté de 1 cran.
+Le lanceur perd 1/4 de ses PV max et crée un clone.\nLe clone subit les capacités à la place du lanceur et disparaît\naprès avoir subi des dégâts équivalents à 1/4 des PV max\ndu lanceur.\nLes capacités de son touchent la cible en ignorant le clone.
 Si le lanceur ne tient pas d’objet, il vole celui de l’adversaire.
 Ne peut être utilisée que si le lanceur est endormi.\nA 30 % de chances d’apeurer l’adversaire.
 Le lanceur perd la moitié de ses PV max\net lance une malédiction à l’adversaire.
 Baisse la Vitesse du lanceur de 1 cran et\naugmente son Attaque et sa Défense de 1 cran.
 Plus les PV restants du lanceur sont bas,\nplus cette capacité est puissante.\nLa puissance peut varier entre 20 et 200.
-[~ 81]
 [~ 82]
-Baisse la Vitesse des adversaires de 2 crans.
+[~ 83]
+Baisse la Vitesse des adversaires de 2 crans.\nN’affecte pas les Pokémon de type Plante.
 Plus les PV restants du lanceur sont bas,\nplus cette capacité est puissante.\nLa puissance peut varier entre 20 et 200.
 Retire 4 PP à la dernière capacité utilisée par l’adversaire.
 Le lanceur se protège de toutes les capacités adverses\nlors du tour d’utilisation de cette capacité.\nÀ chaque utilisation consécutive, les chances de réussite\ntombent à 1/3 de ce qu’elles étaient à l’utilisation précédente.
@@ -9418,7 +9526,7 @@ Rend l’adversaire confus.
 Le lanceur perd la moitié de ses PV max et augmente\nson Attaque jusqu’au 6[Character2:Upper_e ] cran.\nLa capacité échoue s’il ne reste pas assez de PV au lanceur.
 A 30 % de chances d’empoisonner l’adversaire.
 Baisse la Précision de l’adversaire de 1 cran.
-[~ 92]
+A 50 % de chances de baisser la Précision de l’adversaire\nde 1 cran.
 Répand des picots sur le côté adverse.
 Paralyse l’adversaire.
 Le lanceur entre dans l’état « Lien du Destin ».\nLa capacité échoue si elle est utilisée plusieurs fois d’affilée.
@@ -9433,13 +9541,13 @@ Le lanceur récupère des PV équivalents à la moitié des dégâts\ninfligés 
 Lors du tour d’utilisation de cette capacité, le lanceur\nrésiste avec 1 PV s’il subit des dégâts d’une capacité\nqui devrait le mettre K.O.\nÀ chaque utilisation consécutive, les chances de réussite\ntombent à 1/3 de ce qu’elles étaient à l’utilisation précédente.
 Baisse l’Attaque de l’adversaire de 2 crans.
 Augmente l’Attaque de l’adversaire de 2 crans\net le rend confus.
-[~ 107]
+Le lanceur ou un allié récupère la moitié de ses PV max.
 A 10 % de chances d’augmenter la Défense du lanceur\nde 1 cran.
 Empêche l’adversaire de fuir.
 Inflige l’état « Attraction » à l’adversaire.\nÉchoue s’il est du même sexe ou de sexe inconnu.
 Ne peut être utilisée que si le lanceur est endormi.\nLe lanceur utilise au hasard une des autres capacités\nqu’il connaît.
 Le lanceur soigne ses altérations de statut, ainsi que celles\nde ses alliés et de tous les Pokémon de son équipe.
-[~ 113]
+[~ 114]
 Met le côté allié dans l’état « Rune Protect » pendant 5 tours.
 Ajoute les PV restants du lanceur à ceux de la cible,\ndivise le total par deux, et attribue une moitié à chacun.
 Rend l’adversaire confus.
@@ -9492,9 +9600,9 @@ Plus les PV restants du lanceur sont bas,\nmoins cette capacité est puissante.\
 Échange les talents du lanceur et de l’adversaire.
 Le lanceur devient possessif.
 Le lanceur va sous l’eau lors du tour d’utilisation\nde cette capacité et attaque au tour suivant.
-[~ 166]
 [~ 167]
 [~ 168]
+[~ 169]
 Baisse l’Attaque de l’adversaire de 2 crans.
 Rend confus tous les Pokémon présents sur le terrain,\nà part le lanceur.
 A 10 % de chances de brûler l’adversaire.\nCette capacité a un taux de critiques augmenté de 1 cran.
@@ -9535,8 +9643,8 @@ Cette capacité a un taux de critiques augmenté de 1 cran.
 Augmente l’Attaque et la Vitesse du lanceur de 1 cran.
 Le lanceur attaque de 2 à 5 fois d’affilée.
 A 20 % de chances de rendre l’adversaire confus.
-[~ 209]
 [~ 210]
+[~ 211]
 Le lanceur récupère la moitié de ses PV max.\nSi le lanceur est de type Vol, il ne l’est plus pendant ce tour.
 Met tout le terrain dans l’état « Gravité » pendant 5 tours.
 Baisse la Vitesse du lanceur de 1 cran.
@@ -9561,7 +9669,7 @@ Cette capacité échoue si le lanceur n’a pas d’abord utilisé\ntoutes les a
 Remplace le talent de l’adversaire par Insomnia.
 Pour que cette capacité fonctionne, l’adversaire doit avoir\nsélectionné une attaque, mais ne pas avoir encore attaqué\nlors du tour d’utilisation de cette capacité.
 Répand des pics toxiques sur le côté adverse.
-[~ 235]
+[~ 236]
 Le lanceur s’entoure d’un anneau hydro.
 Le lanceur entre dans l’état « Vol Magnétik ».
 À l’utilisation, soigne le gel du lanceur.\nLe lanceur subit 1/3 des dégâts infligés.\nA 10 % de chances de brûler l’adversaire.
@@ -9602,16 +9710,15 @@ A 20 % de chances d’apeurer l’adversaire.
 Cette capacité a un taux de critiques augmenté de 1 cran.
 Crée un piège de roc sur le côté adverse.
 Plus l’adversaire est lourd, plus cette capacité est puissante.\nLa puissance peut varier entre 20 et 120.
-[~ 276]
 [~ 277]
+[~ 278]
 Si l’adversaire tient une Baie, le lanceur la mange à sa place\net en reçoit les effets.
 A 70 % de chances d’augmenter l’Attaque Spéciale du lanceur\nde 1 cran.
 Le lanceur subit 1/3 des dégâts infligés.
-[~ 281]
 [~ 282]
+[~ 283]
 Le lanceur subit la moitié des dégâts infligés.
 Le lanceur attaque 2 fois d’affilée.
-[~ 285]
 [~ 286]
 [~ 287]
 [~ 288]
@@ -9619,13 +9726,14 @@ Le lanceur attaque 2 fois d’affilée.
 [~ 290]
 [~ 291]
 [~ 292]
+[~ 293]
 Le lanceur protège l’équipe des capacités touchant\ntous les alliés lors du tour d’utilisation de cette capacité.
 Ajoute la valeur de la Défense du lanceur à celle de la cible,\ndivise le total par deux, et attribue une moitié à chacun.\nFait de même avec la Défense Spéciale.
 Ajoute la valeur de l’Attaque du lanceur à celle de la cible,\ndivise le total par deux, et attribue une moitié à chacun.\nFait de même avec l’Attaque Spéciale.
 Crée une zone étrange sur tout le terrain pendant 5 tours.
 Bien que cette capacité soit spéciale, les dégâts qu’elle inflige\nsont calculés en fonction de la Défense de l’adversaire.
 Si l’adversaire est empoisonné ou gravement empoisonné,\nla puissance de cette capacité est multipliée par 2.
-Redirige toutes les capacités adverses vers le lanceur.\nN’affecte que les capacités à cible unique.
+Redirige toutes les capacités adverses vers le lanceur.\nN’affecte que les capacités à cible unique.\nN’affecte pas les Pokémon de type Plante.
 Crée une zone magique sur tout le terrain pendant 5 tours.
 Cloue au sol l’adversaire s’il n’y était pas.\nPeut aussi toucher les adversaires dans le ciel.
 Inflige toujours un coup critique.
@@ -9651,7 +9759,7 @@ Le lanceur échange sa place avec un de ses alliés.\nÀ chaque utilisation cons
 Baisse la Défense et la Défense Spéciale du lanceur de 1 cran,\net augmente son Attaque, son Attaque Spéciale et sa Vitesse\nde 2 crans.
 Soigne la moitié des PV max de la cible.
 Si l’adversaire souffre d’une altération de statut,\nla puissance de cette capacité est multipliée par 2.
-[~ 325]
+Augmente l’Attaque du lanceur de 1 cran\net sa Vitesse de 2 crans.
 Force l’adversaire à changer aléatoirement de Pokémon\nsi son équipe en contient d’autres.
 Force la cible à agir en dernier lors de ce tour.
 Si le lanceur ne tient pas d’objet, la puissance\nde cette capacité est multipliée par 2.
@@ -9672,10 +9780,9 @@ A 50 % de chances de baisser la Défense de l’adversaire\nde 1 cran.
 Plus le lanceur pèse lourd par rapport à l’adversaire,\nplus cette capacité est puissante.\nLa puissance peut varier entre 40 et 120.\nSi l’adversaire est lilliputien, la capacité n’échoue jamais\net sa puissance est multipliée par 2.
 Augmente la Défense du lanceur de 3 crans.
 A 40 % de chances de baisser la Précision de l’adversaire\nde 1 cran.
-[~ 346]
+[~ 347]
 Le lanceur attaque de 2 à 5 fois d’affilée.
-A 30 % de chances de rendre l’adversaire confus.\nPeut aussi toucher les adversaires dans le ciel.\nN’échoue jamais quand il pleut.
-[~ 349]
+A 30 % de chances de rendre l’adversaire confus.\nPeut aussi toucher les adversaires dans le ciel.\nN’échoue jamais quand il pleut.\nSi le soleil brille, la Précision de cette capacité passe à 50 %.
 [~ 350]
 [~ 351]
 [~ 352]
@@ -9684,14 +9791,15 @@ A 30 % de chances de rendre l’adversaire confus.\nPeut aussi toucher les adver
 [~ 355]
 [~ 356]
 [~ 357]
+[~ 358]
 A 50 % de chances d’augmenter l’Attaque Spéciale du lanceur\nde 1 cran.
-[~ 359]
 [~ 360]
+[~ 361]
 Baisse l’Attaque Spéciale des adversaires de 1 cran.
 A 30 % de chances d’apeurer l’adversaire.
-[~ 363]
 [~ 364]
 [~ 365]
+[~ 366]
 Les dégâts de cette capacité sont calculés en tenant compte\ndes affinités du type de la capacité et de celles du type Vol.\nSi l’adversaire est lilliputien, la capacité n’échoue jamais et\nsa puissance est multipliée par 2.
 Cette capacité échoue si le lanceur n’a pas mangé de Baie\ndurant le combat.
 Crée une toile gluante sur le côté adverse.
@@ -9712,21 +9820,20 @@ A 10 % de chances de baisser l’Attaque de l’adversaire\nde 1 cran.
 A 10 % de chances de baisser l’Attaque Spéciale\nde l’adversaire de 1 cran.
 Inflige l’état « Verrou Enchanté » à tous les Pokémon présents\nsur le terrain.
 Le lanceur se protège de toutes les attaques adverses lors du\ntour d’utilisation de cette capacité et prend la Forme Parade.\nBaisse l’Attaque de l’adversaire de 1 cran si celui-ci utilise\nune capacité à contact sur le lanceur.\nÀ chaque utilisation consécutive, les chances de réussite\ntombent à 1/3 de ce qu’elles étaient à l’utilisation précédente.
-[~ 386]
 [~ 387]
 [~ 388]
+[~ 389]
 Le lanceur attaque de 2 à 5 fois d’affilée.
 Baisse l’Attaque Spéciale de l’adversaire de 1 cran.
 Le lanceur se protège de toutes les capacités adverses\nlors du tour d’utilisation de cette capacité.\nInflige à l’adversaire des dégâts équivalents à 1/8 de ses PV\nmax si celui-ci utilise une capacité à contact sur le lanceur.\nÀ chaque utilisation consécutive, les chances de réussite\ntombent à 1/3 de ce qu’elles étaient à l’utilisation précédente.
 Augmente la Défense Spéciale d’un allié de 1 cran.
 Baisse l’Attaque Spéciale de l’adversaire de 2 crans.
-[~ 394]
+[~ 395]
 Augmente la Défense et la Défense Spéciale du lanceur\net/ou de ses alliés de 1 cran s’ils ont le talent Plus\nou le talent Moins.
 Crée un champ électrifié sur tout le terrain pendant 5 tours.
 Baisse l’Attaque de l’adversaire de 1 cran.
 Paralyse l’adversaire.
 Piège l’adversaire.
-[~ 400]
 [~ 401]
 [~ 402]
 [~ 403]
@@ -9770,21 +9877,19 @@ Le lanceur subit la moitié des dégâts infligés.
 [~ 441]
 [~ 442]
 [~ 443]
-[~ 444]
-[~ 445]
 Cette capacité échoue si elle n’est pas la première capacité\nutilisée par le lanceur après être arrivé sur le terrain.
 Le lanceur se protège de toutes les capacités adverses\nlors du tour d’utilisation de cette capacité.\nEmpoisonne l’adversaire si celui-ci utilise une capacité\nà contact sur le lanceur.\nÀ chaque utilisation consécutive, les chances de réussite\ntombent à 1/3 de ce qu’elles étaient à l’utilisation précédente.
 Empêche l’adversaire de fuir.
 Inflige des dégâts en ignorant les changements de stats\nde l’adversaire.
 Soigne la brûlure des Pokémon touchés.
 Baisse la Vitesse du lanceur de 1 cran.
-[~ 452]
+[~ 450]
 Le lanceur récupère des PV équivalents à la valeur de l’Attaque\nde la cible. Baisse l’Attaque de la cible de 1 cran.
 Le lanceur charge la capacité pendant 1 tour\net attaque au tour suivant.\nSi le soleil brille, le lanceur peut attaquer au tour\nd’utilisation de la capacité sans avoir à la charger.\nSi n’importe quelle autre condition météo est active,\nla puissance de cette capacité est réduite de moitié.
 Baisse la Vitesse de l’adversaire de 2 crans.\nEmpoisonne l’adversaire.
 Inflige l’état « Exécu-Son » à l’adversaire.
 Si cette capacité est utilisée sur un allié, elle lui restaure\nla moitié de ses PV max au lieu de lui infliger des dégâts.
-[~ 458]
+[~ 456]
 Crée un champ psychique sur tout le terrain pendant 5 tours.
 Baisse l’Attaque de l’adversaire de 1 cran.
 Baisse la Défense de l’adversaire de 1 cran.
@@ -9792,14 +9897,16 @@ La puissance de cette capacité augmente de 20 pour chaque\ncran d’augmentatio
 À l’utilisation, soigne le gel du lanceur.\nLe lanceur perd le type Feu.\nS’il n’est pas de type Feu, cette capacité échoue.
 Échange la Vitesse du lanceur et celle de la cible.
 N’échoue jamais.
+[~ 464]
+[~ 465]
 [~ 466]
-[~ 467]
-[~ 468]
 Baisse l’Attaque de l’adversaire de 1 cran.
 Force l’adversaire à utiliser une nouvelle fois la capacité\nqu’il vient d’utiliser.
 Si le lanceur subit une capacité à contact avant d’utiliser\ncette capacité, il brûle l’adversaire qui l’a touché.
 Baisse la Défense du lanceur de 1 cran.
 Crée un voile aurore sur le côté allié pendant 5 tours.\nNe peut être utilisée que quand il neige.
+[~ 472]
+[~ 473]
 [~ 474]
 [~ 475]
 [~ 476]
@@ -9809,17 +9916,17 @@ Crée un voile aurore sur le côté allié pendant 5 tours.\nNe peut être utili
 [~ 480]
 [~ 481]
 [~ 482]
-[~ 483]
-[~ 484]
 Annule les effets de Mur Lumière, Protection et Voile Aurore\nsur le côté adverse, puis le lanceur attaque.
 La puissance de cette capacité est multipliée par 2 si le lanceur\nn’a pas pu agir, ou si sa capacité a raté sa cible ou échoué\nau tour précédent.
-[~ 487]
+[~ 485]
 A 20 % de chances de baisser la Défense de l’adversaire\nde 1 cran.
+[~ 487]
+[~ 488]
 [~ 489]
 [~ 490]
-[~ 491]
-[~ 492]
 Baisse l’Attaque et l’Attaque Spéciale de l’adversaire de 1 cran.\nAtteint sa cible en ignorant l’Esquive de cette dernière\net les effets des capacités telles qu’Abri.
+A 30 % de chances d’apeurer l’adversaire.
+[~ 493]
 [~ 494]
 [~ 495]
 [~ 496]
@@ -9834,18 +9941,18 @@ Baisse l’Attaque et l’Attaque Spéciale de l’adversaire de 1 cran.\nAttein
 [~ 505]
 [~ 506]
 [~ 507]
-[~ 508]
-[~ 509]
-[~ 510]
-[~ 511]
+Le lanceur peut utiliser cette capacité en ignorant les effets\ndes capacités ou des talents qui attirent les capacités.\nCette capacité a un taux de critiques augmenté de 1 cran.
+Inflige l’état « Croque Fort » au lanceur et à l’adversaire.
 Le lanceur mange la Baie qu’il tient.\nAugmente la Défense du lanceur de 2 crans.\nSi le lanceur ne tient pas de Baie, il ne peut pas utiliser\ncette capacité.
 Augmente l’Attaque, la Défense, l’Attaque Spéciale,\nla Défense Spéciale et la Vitesse du lanceur de 1 cran.\nIl ne peut plus fuir.\nCette capacité ne peut être utilisée qu’une seule fois\npar arrivée du Pokémon sur le terrain. Elle échouera\nà partir de la deuxième utilisation.
-[~ 514]
-Le ou les types de la cible sont remplacés par le type Psy.
+[~ 512]
+Le ou les types de la cible sont remplacés par le type Psy.\nN’affecte pas les Pokémon de type Plante.
 Le lanceur attaque 2 fois d’affilée.\nS’il y a 2 adversaires, le lanceur les attaque chacun 1 fois.
 Tous les Pokémon présents sur le terrain mangent la Baie\nqu’ils tiennent.
+Empêche l’adversaire de fuir et lui inflige l’état « Octoprise ».
+[~ 517]
 [~ 518]
-[~ 519]
+Échange les effets qui affectent le côté allié et le côté adverse.
 [~ 520]
 [~ 521]
 [~ 522]
@@ -9864,27 +9971,24 @@ Tous les Pokémon présents sur le terrain mangent la Baie\nqu’ils tiennent.
 [~ 535]
 [~ 536]
 [~ 537]
-[~ 538]
-[~ 539]
 Le lanceur perd 1/3 de ses PV max pour augmenter\nson Attaque, sa Défense, son Attaque Spéciale,\nsa Défense Spéciale et sa Vitesse de 1 cran.\nCette capacité échoue s’il ne reste pas assez de PV au lanceur.
 Les dégâts sont calculés en fonction de la valeur de la Défense\ndu lanceur, au lieu de celle de son Attaque.
 Augmente l’Attaque et l’Attaque Spéciale de la cible\nde 2 crans.
-[~ 543]
+Baisse la Vitesse de l’adversaire de 1 cran.
 Piège l’adversaire.
+À l’utilisation, soigne le gel du lanceur.\nA 10 % de chances de brûler l’adversaire.
+[~ 544]
 [~ 545]
-[~ 546]
-[~ 547]
 Augmente la Vitesse du lanceur de 1 cran.\nLa capacité change de type en fonction de la forme\nde Morpeko.
 Baisse l’Attaque des adversaires de 1 cran.
-[~ 550]
 Baisse la Défense Spéciale de l’adversaire de 1 cran.
 Baisse la Défense de l’adversaire de 1 cran.\nSi l’état « Gravité » est actif, la puissance de cette capacité\nest multipliée par 1,5.
 Baisse l’Attaque Spéciale de l’adversaire de 1 cran.
-[~ 554]
+[~ 551]
 Le lanceur et ses alliés récupèrent chacun 1/4 de leurs PV max.
-[~ 556]
-[~ 557]
-[~ 558]
+[~ 553]
+Le lanceur sera épuisé au tour suivant l’utilisation de\ncette capacité.
+[~ 555]
 Le lanceur subit des dégâts équivalents à la moitié\nde ses PV max après avoir attaqué.
 Si le lanceur est affecté par un champ psychique, la capacité\ntouche tous les adversaires et sa puissance\nest multipliée par 1,5.
 Annule tout champ actif sur le terrain.\nÉchoue s’il n’y a pas de champ sur le terrain.
@@ -9905,6 +10009,9 @@ Le lanceur échange sa place avec un autre Pokémon\nde son équipe après avoir
 Le lanceur attaque 3 fois d’affilée.\nPremier coup : puissance de 20 ;\nDeuxième coup : puissance de 40 ;\nTroisième coup : puissance de 60.\nSi un des coups rate la cible, l’attaque s’arrête.
 Le lanceur attaque 2 fois d’affilée.
 À l’utilisation, soigne le gel du lanceur.\nA 30 % de chances de brûler l’adversaire.\nSoigne le gel de l’adversaire.
+[~ 576]
+[~ 577]
+[~ 578]
 [~ 579]
 [~ 580]
 [~ 581]
@@ -9912,63 +10019,60 @@ Le lanceur attaque 2 fois d’affilée.
 [~ 583]
 [~ 584]
 [~ 585]
-[~ 586]
-[~ 587]
-[~ 588]
 Retire 3 PP à la dernière capacité utilisée par l’adversaire.
 A 30 % de chances d’empoisonner, de paralyser ou d’endormir\nl’adversaire.
 Augmente la Défense du lanceur de 1 cran.
 Échange l’Attaque et la Défense du lanceur.
 Crée un piège de roc sur le côté adverse.
-[~ 594]
-[~ 595]
+[~ 591]
+[~ 592]
 Le lanceur devient enragé.
 Le lanceur subit 1/3 des dégâts infligés.
-[~ 598]
+[~ 595]
 A 30 % de chances d’apeurer l’adversaire.
-[~ 600]
+[~ 597]
 Baisse la Défense et la Défense Spéciale du lanceur de 1 cran.
 A 50 % de chances d’empoisonner l’adversaire.\nSi l’adversaire est empoisonné ou gravement empoisonné,\nla puissance de cette capacité est multipliée par 2.
-[~ 603]
+[~ 600]
 Baisse l’Attaque de l’adversaire de 1 cran.
 Augmente la Défense du lanceur de 2 crans.
 A 50 % de chances de baisser la Défense de l’adversaire\nde 1 cran.\nA 30 % de chances d’apeurer l’adversaire.\nCette capacité a un taux de critiques augmenté de 1 cran.
 A 30 % de chances de brûler l’adversaire.\nSi l’adversaire souffre d’une altération de statut,\nla puissance de cette capacité est multipliée par 2.
 Répand des picots sur le côté adverse.
+[~ 606]
+[~ 607]
+[~ 608]
 [~ 609]
 [~ 610]
 [~ 611]
 [~ 612]
 [~ 613]
-[~ 614]
-[~ 615]
-[~ 616]
 A 30 % de chances de rendre l’adversaire confus.\nSi cette capacité rate sa cible ou échoue, le lanceur subit\ndes dégâts équivalents à la moitié de ses PV max.
 La puissance de cette capacité augmente de 50 à chaque fois\nqu’un Pokémon de l’équipe est mis K.O.
 Baisse la Défense Spéciale de l’adversaire de 2 crans.
-[~ 620]
+[~ 617]
 Baisse la Défense de l’adversaire de 2 crans\net augmente son Attaque de 2 crans.
-[~ 622]
+[~ 619]
 Le lanceur attaque de 1 à 10 fois d’affilée.\nSi un des coups rate la cible, l’attaque s’arrête.
 Annule tout champ actif sur le terrain.
-[~ 625]
+Le lanceur devient vulnérable jusqu’à ce qu’il agisse à nouveau.
 Ranime un Pokémon de l’équipe K.O. et lui restaure la moitié\nde ses PV max.
 Inflige l’état « Salaison » à l’adversaire.
-[~ 628]
+[~ 625]
 Annule l’état « Vampigraine » et les pièges qui affectent\nle lanceur, ainsi que les effets de Picots, Pics Toxik,\nToile Gluante et Piège de Roc sur le côté allié.\nEmpoisonne les adversaires.
-[~ 630]
-[~ 631]
+[~ 627]
+[~ 628]
 N’échoue jamais.
 N’échoue jamais.\nInflige toujours un coup critique.
 Augmente l’Attaque Spéciale du lanceur de 1 cran.
 Augmente la Vitesse du lanceur de 1 cran.
 Le type de cette capacité change en fonction de la forme\ndu lanceur.\nAnnule les effets de Mur Lumière, Protection et Voile Aurore\nsur le côté adverse, puis le lanceur attaque.
 Baisse l’Attaque Spéciale du lanceur de 2 crans.
+[~ 635]
+[~ 636]
+[~ 637]
 [~ 638]
 [~ 639]
-[~ 640]
-[~ 641]
-[~ 642]
 Le lanceur perd la moitié de ses PV max et crée un clone.\nIl échange sa place avec un autre Pokémon de son équipe.\nLe clone subit les capacités à la place de ce Pokémon\net disparaît après avoir subi des dégâts équivalents à 1/4\ndes PV max du lanceur.
 Invoque la neige pendant 5 tours. Le lanceur échange\nsa place avec un autre Pokémon de son équipe.
 Annule les effets de Toile Gluante, Piège de Roc, Clonage,\nPicots et Pics Toxik sur le tout le terrain.\nAugmente l’Attaque et la Vitesse du lanceur de 1 cran.
@@ -9976,7 +10080,7 @@ Invoque la neige pendant 5 tours.
 Baisse la Vitesse de l’adversaire de 1 cran.
 Augmente la Vitesse du lanceur de 1 cran.
 Baisse l’Attaque de l’adversaire de 1 cran.
-[~ 650]
+[~ 647]
 Le lanceur attaque 2 fois d’affilée.
 La puissance de cette capacité augmente de 50 à chaque fois\nque le lanceur subit des dégâts causés par une capacité,\njusqu’à un maximum de 350.\nQuand le lanceur revient dans son équipe, la puissance\nrevient à la normale.
 Baisse la Défense et la Défense Spéciale du lanceur de 1 cran.
@@ -9985,24 +10089,24 @@ Le lanceur perd le type Électrik.\nS’il n’est pas de type Électrik, cette 
 Cette capacité ne peut pas être utilisée 2 fois d’affilée.
 Lors du tour d’utilisation de cette capacité, si le lanceur\nsubit des dégâts infligés par une capacité de l’adversaire,\nil riposte et lui inflige 1,5 fois les dégâts qu’il a subis.
 Cette capacité a un taux de critiques augmenté de 1 cran.
-[~ 659]
+[~ 656]
 Le lanceur récupère des PV équivalents à la moitié des dégâts\ninfligés par cette capacité aux adversaires.\nA 20 % de chances de brûler les adversaires.
 Recouvre l’adversaire de sirop pendant 3 tours.
-[~ 662]
+[~ 659]
 Le lanceur charge la capacité pendant 1 tour\net attaque au tour suivant.\nS’il pleut, le lanceur peut attaquer au tour\nd’utilisation de la capacité sans avoir à la charger.\nAugmente l’Attaque Spéciale du lanceur de 1 cran\nau tour d’utilisation de la capacité.
-[~ 664]
+[~ 661]
 La puissance de cette capacité a 30 % de chances\nd’être multipliée par 2.
+[~ 663]
+[~ 664]
+[~ 665]
 [~ 666]
-[~ 667]
-[~ 668]
-[~ 669]
 Plus les PV restants de l’adversaire sont élevés,\nplus cette capacité est puissante.\nLa puissance peut varier entre 1 et 100.
 Augmente le taux de critiques des alliés de 1 cran.\nS’ils sont de type Dragon, leur taux de critiques\naugmente de 2 crans.
 Si les stats de l’adversaire ont augmenté lors du tour\nd’utilisation de cette capacité, il devient confus.
 La puissance de cette capacité est multipliée par 2 si le lanceur\nn’a pas pu agir, ou si sa capacité a raté sa cible ou échoué\nau tour précédent.
 Si cette capacité rate sa cible ou échoue, le lanceur subit\ndes dégâts équivalents à la moitié de ses PV max.\nSi l’adversaire est lilliputien, la capacité n’échoue jamais\net sa puissance est multipliée par 2.
 Empêche l’adversaire de se soigner pendant 2 tours.
-Apeure l’adversaire.\nÉchoue si l’adversaire n’a pas utilisé une capacité prioritaire.
+Apeure l’adversaire.\nÉchoue si l’adversaire n’est pas en train de préparer\nune attaque prioritaire.
 ~~~~~~~~~~~~~~~
 Text File : wazaname
 ~~~~~~~~~~~~~~~
@@ -10986,7 +11090,7 @@ Méga-Mélodelfe
 [~ 40]
 
 [~ 42]
-[~ 43]
+
 [~ 44]
 [~ 45]
 [~ 46]
@@ -10999,7 +11103,7 @@ Méga-Mélodelfe
 [~ 53]
 [~ 54]
 [~ 55]
-[~ 56]
+
 [~ 57]
 [~ 58]
 [~ 59]
@@ -11030,7 +11134,7 @@ Méga-Empiflor
 
 [~ 85]
 [~ 86]
-[~ 87]
+
 [~ 88]
 [~ 89]
 [~ 90]
@@ -11070,7 +11174,7 @@ Méga-Empiflor
 [~ 124]
 
 Méga-Staross
-[~ 127]
+
 [~ 128]
 [~ 129]
 [~ 130]
@@ -11269,7 +11373,7 @@ Méga-Airmure
 [~ 323]
 [~ 324]
 [~ 325]
-[~ 326]
+
 [~ 327]
 
 [~ 329]
@@ -11313,7 +11417,7 @@ Forme de Morphéo
 
 Méga-Éoko
 
-[~ 370]
+Méga-Absol Z
 [~ 371]
 [~ 372]
 
@@ -11327,7 +11431,7 @@ Méga-Éoko
 [~ 381]
 [~ 382]
 [~ 383]
-[~ 384]
+
 [~ 385]
 [~ 386]
 
@@ -11401,11 +11505,11 @@ Méga-Étouraptor
 [~ 455]
 [~ 456]
 
-[~ 458]
+Méga-Carchacrok Z
 [~ 459]
 [~ 460]
 
-[~ 462]
+Méga-Lucario Z
 [~ 463]
 
 [~ 465]
@@ -11645,7 +11749,7 @@ Méga-Némélios
 Méga-Floette
 Fleur Rouge
 [~ 701]
-[~ 702]
+
 [~ 703]
 
 Forme Sauvage
@@ -11747,8 +11851,8 @@ Forme Diurne
 
 
 [~ 803]
-[~ 804]
-[~ 805]
+
+Méga-Sarmuraï
 [~ 806]
 [~ 807]
 [~ 808]
@@ -11796,13 +11900,13 @@ Méga-Draïeul
 [~ 850]
 [~ 851]
 [~ 852]
-[~ 853]
+
 [~ 854]
 [~ 855]
-[~ 856]
+
 [~ 857]
 [~ 858]
-[~ 859]
+
 [~ 860]
 [~ 861]
 [~ 862]
@@ -11812,7 +11916,7 @@ Méga-Draïeul
 [~ 866]
 [~ 867]
 [~ 868]
-[~ 869]
+
 [~ 870]
 [~ 871]
 [~ 872]
@@ -11833,11 +11937,11 @@ Méga-Draïeul
 [~ 887]
 [~ 888]
 [~ 889]
-[~ 890]
+Forme Aigüe
 [~ 891]
 [~ 892]
 [~ 893]
-[~ 894]
+
 [~ 895]
 Forme Contrefaçon
 [~ 897]
@@ -11847,21 +11951,21 @@ Forme Contrefaçon
 [~ 901]
 
 [~ 903]
-[~ 904]
+
 [~ 905]
-[~ 906]
+
 
 
 [~ 909]
 Lait Vanille
 
 Méga-Hexadron
-[~ 913]
+
 [~ 914]
 [~ 915]
 [~ 916]
 [~ 917]
-[~ 918]
+Mâle
 Mode Rassasié
 [~ 920]
 [~ 921]
@@ -11922,7 +12026,7 @@ Mâle
 Forme Ordinaire
 [~ 977]
 [~ 978]
-[~ 979]
+
 [~ 980]
 
 Méga-Scovilain
@@ -11938,7 +12042,7 @@ Famille de Trois
 [~ 992]
 [~ 993]
 
-[~ 995]
+Méga-Glaivodo
 [~ 996]
 [~ 997]
 [~ 998]
@@ -11950,7 +12054,7 @@ Famille de Trois
 [~ 1004]
 [~ 1005]
 [~ 1006]
-[~ 1007]
+Plumage Vert
 [~ 1008]
 [~ 1009]
 [~ 1010]
@@ -11964,7 +12068,7 @@ Méga-Floréclat
 [~ 1018]
 [~ 1019]
 [~ 1020]
-[~ 1021]
+
 [~ 1022]
 [~ 1023]
 [~ 1024]
@@ -12050,7 +12154,7 @@ Forme d’Alola
 [~ 1104]
 [~ 1105]
 [~ 1106]
-[~ 1107]
+Forme d’Alola
 [~ 1108]
 Forme de Hisui
 [~ 1110]
@@ -12153,7 +12257,7 @@ Forme Blizzard
 Méga-Branette
 Méga-Absol
 Méga-Oniglali
-[~ 1210]
+Méga-Drattak
 Méga-Métalosse
 [~ 1212]
 [~ 1213]
@@ -12405,7 +12509,7 @@ Forme Démasquée
 [~ 1459]
 [~ 1460]
 [~ 1461]
-[~ 1462]
+Forme Grave
 [~ 1463]
 [~ 1464]
 [~ 1465]
@@ -12422,7 +12526,7 @@ Mélange Caramel
 Mélange Tricolore
 [~ 1477]
 [~ 1478]
-[~ 1479]
+Femelle
 Mode Affamé
 [~ 1481]
 [~ 1482]
@@ -12445,9 +12549,9 @@ Forme Super
 Famille de Quatre
 [~ 1500]
 [~ 1501]
-[~ 1502]
-[~ 1503]
-[~ 1504]
+Plumage Bleu
+Plumage Jaune
+Plumage Blanc
 [~ 1505]
 [~ 1506]
 [~ 1507]
@@ -12496,7 +12600,7 @@ Text File : zkn_weight
 [~ 36]
 19,9 kg
 [~ 38]
-[~ 39]
+12,0 kg
 [~ 40]
 [~ 41]
 [~ 42]
@@ -12509,7 +12613,7 @@ Text File : zkn_weight
 [~ 49]
 [~ 50]
 [~ 51]
-[~ 52]
+32,0 kg
 [~ 53]
 [~ 54]
 [~ 55]
@@ -12539,7 +12643,7 @@ Text File : zkn_weight
 78,5 kg
 [~ 80]
 [~ 81]
-[~ 82]
+15,0 kg
 [~ 83]
 [~ 84]
 [~ 85]
@@ -12578,7 +12682,7 @@ Text File : zkn_weight
 [~ 118]
 [~ 119]
 80,0 kg
-[~ 121]
+54,5 kg
 [~ 122]
 [~ 123]
 [~ 124]
@@ -12773,7 +12877,7 @@ Text File : zkn_weight
 [~ 313]
 [~ 314]
 [~ 315]
-[~ 316]
+80,0 kg
 [~ 317]
 88,8 kg
 [~ 319]
@@ -12829,7 +12933,7 @@ Text File : zkn_weight
 [~ 369]
 [~ 370]
 [~ 371]
-[~ 372]
+102,6 kg
 [~ 373]
 [~ 374]
 550,0 kg
@@ -13129,7 +13233,7 @@ Text File : zkn_weight
 [~ 669]
 10,0 kg
 [~ 671]
-[~ 672]
+91,0 kg
 [~ 673]
 136,0 kg
 28,0 kg
@@ -13224,7 +13328,7 @@ Text File : zkn_weight
 76,0 kg
 82,8 kg
 [~ 766]
-[~ 767]
+108,0 kg
 [~ 768]
 [~ 769]
 [~ 770]
@@ -13268,13 +13372,13 @@ Text File : zkn_weight
 [~ 808]
 [~ 809]
 [~ 810]
-[~ 811]
+90,0 kg
 [~ 812]
 [~ 813]
-[~ 814]
+33,0 kg
 [~ 815]
 [~ 816]
-[~ 817]
+45,2 kg
 [~ 818]
 [~ 819]
 [~ 820]
@@ -13284,7 +13388,7 @@ Text File : zkn_weight
 [~ 824]
 [~ 825]
 [~ 826]
-[~ 827]
+19,9 kg
 [~ 828]
 [~ 829]
 [~ 830]
@@ -13305,11 +13409,11 @@ Text File : zkn_weight
 [~ 845]
 [~ 846]
 [~ 847]
-[~ 848]
+40,0 kg
 [~ 849]
 [~ 850]
 [~ 851]
-[~ 852]
+39,0 kg
 [~ 853]
 0,4 kg
 [~ 855]
@@ -13319,20 +13423,20 @@ Text File : zkn_weight
 [~ 859]
 61,0 kg
 [~ 861]
-[~ 862]
+28,0 kg
 [~ 863]
-[~ 864]
+117,0 kg
 58,2 kg
 66,6 kg
 [~ 867]
 0,5 kg
 62,0 kg
-[~ 870]
+1,0 kg
 [~ 871]
 [~ 872]
 [~ 873]
 [~ 874]
-[~ 875]
+28,0 kg
 3,0 kg
 [~ 877]
 [~ 878]
@@ -13393,7 +13497,7 @@ Text File : zkn_weight
 60,2 kg
 [~ 934]
 [~ 935]
-[~ 936]
+48,2 kg
 [~ 937]
 15,0 kg
 [~ 939]
@@ -13407,7 +13511,7 @@ Text File : zkn_weight
 [~ 947]
 [~ 948]
 [~ 949]
-[~ 950]
+210,0 kg
 [~ 951]
 [~ 952]
 [~ 953]
@@ -13416,7 +13520,7 @@ Text File : zkn_weight
 [~ 956]
 [~ 957]
 [~ 958]
-[~ 959]
+2,4 kg
 [~ 960]
 [~ 961]
 [~ 962]
@@ -13429,7 +13533,7 @@ Text File : zkn_weight
 [~ 969]
 [~ 970]
 [~ 971]
-[~ 972]
+61,0 kg
 [~ 973]
 [~ 974]
 [~ 975]
@@ -13467,12 +13571,12 @@ Text File : zkn_weight
 120,0 kg
 [~ 1008]
 56,0 kg
-[~ 1010]
-[~ 1011]
-[~ 1012]
-[~ 1013]
-[~ 1014]
-[~ 1015]
+155,5 kg
+110,5 kg
+100,5 kg
+101,1 kg
+40,5 kg
+50,5 kg
 [~ 1016]
 [~ 1017]
 [~ 1018]
@@ -13485,60 +13589,60 @@ Text File : zkn_weight
 [~ 1025]
 [~ 1026]
 21,0 kg
-[~ 1028]
-[~ 1029]
+38,0 kg
+26,0 kg
 [~ 1030]
 [~ 1031]
-[~ 1032]
+42,3 kg
 [~ 1033]
 19,9 kg
 [~ 1035]
 [~ 1036]
 [~ 1037]
 [~ 1038]
-[~ 1039]
+33,0 kg
 [~ 1040]
 168,0 kg
-[~ 1042]
-[~ 1043]
+48,0 kg
+125,5 kg
 [~ 1044]
 [~ 1045]
 [~ 1046]
 [~ 1047]
 [~ 1048]
 [~ 1049]
-[~ 1050]
+120,0 kg
 70,5 kg
 [~ 1052]
 [~ 1053]
 [~ 1054]
-[~ 1055]
+40,5 kg
 [~ 1056]
 [~ 1057]
 [~ 1058]
 [~ 1059]
 [~ 1060]
 [~ 1061]
-[~ 1062]
-[~ 1063]
+100,0 kg
+80,0 kg
 [~ 1064]
-[~ 1065]
+59,0 kg
 115,0 kg
 85,0 kg
 110,0 kg
-[~ 1069]
+305,0 kg
 [~ 1070]
-[~ 1071]
+79,0 kg
 [~ 1072]
 [~ 1073]
 [~ 1074]
-[~ 1075]
+290,0 kg
 [~ 1076]
 [~ 1077]
-[~ 1078]
+201,0 kg
 69,8 kg
-[~ 1080]
-[~ 1081]
+108,8 kg
+61,5 kg
 [~ 1082]
 79,5 kg
 [~ 1084]
@@ -13568,39 +13672,39 @@ Text File : zkn_weight
 [~ 1108]
 [~ 1109]
 [~ 1110]
-[~ 1111]
+740,0 kg
 [~ 1112]
-[~ 1113]
-[~ 1114]
+125,0 kg
+62,5 kg
 [~ 1115]
 [~ 1116]
-[~ 1117]
-[~ 1118]
-[~ 1119]
-[~ 1120]
-[~ 1121]
-[~ 1122]
+40,4 kg
+49,5 kg
+255,0 kg
+55,2 kg
+52,0 kg
+102,0 kg
 [~ 1123]
 [~ 1124]
-[~ 1125]
-[~ 1126]
-[~ 1127]
-[~ 1128]
-[~ 1129]
-[~ 1130]
-[~ 1131]
-[~ 1132]
-[~ 1133]
+48,4 kg
+161,0 kg
+23,5 kg
+395,0 kg
+31,5 kg
+44,0 kg
+130,3 kg
+320,5 kg
+20,6 kg
 0,8 kg
 0,8 kg
 0,8 kg
-[~ 1137]
-[~ 1138]
-[~ 1139]
-[~ 1140]
-[~ 1141]
-[~ 1142]
-[~ 1143]
+13,0 kg
+8,0 kg
+49,0 kg
+49,0 kg
+350,2 kg
+112,6 kg
+942,9 kg
 [~ 1144]
 [~ 1145]
 [~ 1146]
@@ -13609,7 +13713,7 @@ Text File : zkn_weight
 [~ 1149]
 [~ 1150]
 [~ 1151]
-[~ 1152]
+50,0 kg
 [~ 1153]
 [~ 1154]
 [~ 1155]
@@ -13619,14 +13723,14 @@ Text File : zkn_weight
 [~ 1159]
 [~ 1160]
 [~ 1161]
-[~ 1162]
-[~ 1163]
-[~ 1164]
-[~ 1165]
-[~ 1166]
-[~ 1167]
-[~ 1168]
-[~ 1169]
+28,3 kg
+95,0 kg
+99,0 kg
+57,5 kg
+49,4 kg
+185,0 kg
+56,4 kg
+29,6 kg
 0,3 kg
 0,3 kg
 0,3 kg
@@ -13655,12 +13759,12 @@ Text File : zkn_weight
 [~ 1195]
 [~ 1196]
 [~ 1197]
-[~ 1198]
+180,3 kg
 58,2 kg
 [~ 1200]
-[~ 1201]
-[~ 1202]
-[~ 1203]
+60,0 kg
+32,0 kg
+230,5 kg
 [~ 1204]
 [~ 1205]
 [~ 1206]
@@ -13668,7 +13772,7 @@ Text File : zkn_weight
 [~ 1208]
 [~ 1209]
 [~ 1210]
-[~ 1211]
+31,0 kg
 [~ 1212]
 [~ 1213]
 73,0 kg
@@ -13680,10 +13784,10 @@ Text File : zkn_weight
 [~ 1220]
 [~ 1221]
 [~ 1222]
-[~ 1223]
-[~ 1224]
+180,0 kg
+69,6 kg
 20,5 kg
-[~ 1226]
+330,0 kg
 [~ 1227]
 [~ 1228]
 [~ 1229]
@@ -13696,11 +13800,11 @@ Text File : zkn_weight
 [~ 1236]
 [~ 1237]
 [~ 1238]
-[~ 1239]
-[~ 1240]
+90,0 kg
+39,0 kg
 [~ 1241]
 [~ 1242]
-[~ 1243]
+40,0 kg
 [~ 1244]
 [~ 1245]
 [~ 1246]
@@ -13758,7 +13862,7 @@ Text File : zkn_weight
 17,0 kg
 17,0 kg
 17,0 kg
-[~ 1301]
+93,3 kg
 [~ 1302]
 [~ 1303]
 [~ 1304]
@@ -13768,7 +13872,7 @@ Text File : zkn_weight
 [~ 1308]
 [~ 1309]
 0,9 kg
-[~ 1311]
+100,8 kg
 10,0 kg
 10,0 kg
 10,0 kg
@@ -13783,12 +13887,12 @@ Text File : zkn_weight
 28,0 kg
 28,0 kg
 8,5 kg
-[~ 1326]
+10,1 kg
 53,0 kg
-[~ 1328]
-[~ 1329]
-[~ 1330]
-[~ 1331]
+69,8 kg
+100,0 kg
+100,3 kg
+25,0 kg
 [~ 1332]
 334,1 kg
 [~ 1334]
@@ -13809,7 +13913,7 @@ Text File : zkn_weight
 37,0 kg
 [~ 1350]
 [~ 1351]
-[~ 1352]
+252,8 kg
 [~ 1353]
 [~ 1354]
 [~ 1355]
@@ -13819,7 +13923,7 @@ Text File : zkn_weight
 [~ 1359]
 [~ 1360]
 [~ 1361]
-[~ 1362]
+148,0 kg
 [~ 1363]
 [~ 1364]
 [~ 1365]
@@ -13851,10 +13955,10 @@ Text File : zkn_weight
 [~ 1391]
 [~ 1392]
 [~ 1393]
-[~ 1394]
+0,7 kg
 [~ 1395]
 [~ 1396]
-[~ 1397]
+240,5 kg
 [~ 1398]
 [~ 1399]
 [~ 1400]
@@ -13865,7 +13969,7 @@ Text File : zkn_weight
 [~ 1405]
 [~ 1406]
 [~ 1407]
-[~ 1408]
+40,0 kg
 [~ 1409]
 0,4 kg
 0,5 kg
@@ -13876,9 +13980,9 @@ Text File : zkn_weight
 0,5 kg
 0,5 kg
 0,5 kg
-[~ 1419]
+99,0 kg
 [~ 1420]
-[~ 1421]
+28,0 kg
 3,0 kg
 [~ 1423]
 [~ 1424]
@@ -13891,18 +13995,18 @@ Text File : zkn_weight
 [~ 1431]
 [~ 1432]
 97,4 kg
-[~ 1434]
+22,0 kg
 2,8 kg
-[~ 1436]
+315,0 kg
 [~ 1437]
 [~ 1438]
 [~ 1439]
 [~ 1440]
 [~ 1441]
-[~ 1442]
-[~ 1443]
-[~ 1444]
-[~ 1445]
+2,4 kg
+2,4 kg
+2,4 kg
+77,0 kg
 [~ 1446]
 [~ 1447]
 [~ 1448]
